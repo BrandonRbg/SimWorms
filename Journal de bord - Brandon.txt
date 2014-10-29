@@ -1,0 +1,2 @@
+Le mardi 28 octobre 2014
+Conception avec l'équipe d'une structure de classe pouvant porter la librairie SDL en orienté objet.
