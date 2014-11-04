@@ -1,2 +1,9 @@
-4 nov. 10h15
-Travail sur le diagramme d'état du "worms".
+4 novembre
+	10h15
+	Début du diagramme d'état du "worms".
+	10h27
+	Fin du diagramme d'état
+	10h37
+	Début du diagramme d'utilisation du menu principal.
+	10h50
+	Fin du diagramme d'utilisation.
