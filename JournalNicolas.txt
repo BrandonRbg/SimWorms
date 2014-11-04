@@ -1,9 +1,9 @@
 4 novembre
 	10h15
-	Début du diagramme d'état du "worms".
+	-Début du diagramme d'état du "worms".
 	10h27
-	Fin du diagramme d'état
+	-Fin du diagramme d'état
 	10h37
-	Début du diagramme d'utilisation du menu principal.
+	-Début du diagramme d'utilisation du menu principal.
 	10h50
-	Fin du diagramme d'utilisation.
+	-Fin du diagramme d'utilisation.
