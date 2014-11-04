@@ -2,8 +2,11 @@
 	10h15
 	-Début du diagramme d'état du "worms".
 	10h27
-	-Fin du diagramme d'état
+	
 	10h37
 	-Début du diagramme d'utilisation du menu principal.
 	10h50
-	-Fin du diagramme d'utilisation.
+	
+	11h00
+	-Aide au diagramme de classe (analyse des outils).
+	11h30
