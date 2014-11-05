@@ -4,4 +4,9 @@ Journal de Bord de Nathan
 
 Travail de toute l'équipe sur le diagramme de classe.
 
+04 Novembre-----------------------------
+
+Travail de toute l'équipe sur le diagramme de classe, le diagramme d'état, les cas d'utilisation et sur la recherche des besoins.
+
+
 
