@@ -1,2 +1,4 @@
 Le mardi 28 octobre 2014
 Conception avec l'équipe d'une structure de classe pouvant porter la librairie SDL en orienté objet.
+Le mardi 4 novembre 2014
+Conception avec l'équipe du diagramme de classes de la base de notre API SDL orienté objet.
