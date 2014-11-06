@@ -14,3 +14,7 @@
 	15h00
 	-Création du document de gestion de projet.
 	15h20
+
+	15h30
+	-Création du diagramme d'état du logiciel
+	15h40
