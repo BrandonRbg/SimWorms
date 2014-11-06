@@ -8,5 +8,9 @@ Travail de toute l'équipe sur le diagramme de classe.
 
 Travail de toute l'équipe sur le diagramme de classe, le diagramme d'état, les cas d'utilisation et sur la recherche des besoins.
 
+06 Novembre-----------------------------
+
+Travail de toute l'équipe sur le diagramme de classe du GUI, les cas d'utilisation d'un worms dans une partie, le diagramme d'état du logiciel, le diagramme de classe de l'engine
+
 
 
