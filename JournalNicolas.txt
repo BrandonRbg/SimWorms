@@ -1,12 +1,16 @@
-4 novembre
+4 nov
 	10h15
-	-Début du diagramme d'état du "worms".
+	-Création du diagramme d'état du "worms".
 	10h27
 	
 	10h37
-	-Début du diagramme d'utilisation du menu principal.
+	-Création du diagramme d'utilisation du menu principal.
 	10h50
 	
 	11h00
 	-Aide au diagramme de classe (analyse des outils).
 	11h30
+6 nov
+	15h00
+	-Création du document de gestion de projet.
+	15h20
