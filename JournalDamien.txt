@@ -1,0 +1,8 @@
+{4 Novembre 2014 10h18}
+-Je commence l'analyse des besoins.
+{4 novembre 2014 12h08}
+-Mise à jour de l'analyse des besoins. Besoin de vérification de la grammaire et de certaines parties de l'analyse.
+{6 novembre 2014 15h00}
+-Création du diagramme de classes du GUI.
+{6 novembre 2014 16h51}
+-Mise à jour du diagramme de classes du GUI.
