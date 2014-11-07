@@ -18,90 +18,90 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AnimatedSprite.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Clock.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Text.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Transformable.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
-    <ClCompile Include="View.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OOSDL\AnimatedSprite.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\Clock.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\Color.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\Keyboard.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\Mouse.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\Sprite.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\Text.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\Texture.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\Transformable.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\View.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\Window.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimatedSprite.h">
+    <ClInclude Include="OOSDL\AnimatedSprite.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Clock.h">
+    <ClInclude Include="OOSDL\Clock.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
+    <ClInclude Include="OOSDL\Color.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Drawable.h">
+    <ClInclude Include="OOSDL\Drawable.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Keyboard.h">
+    <ClInclude Include="OOSDL\Keyboard.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Mouse.h">
+    <ClInclude Include="OOSDL\Mouse.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Rect.h">
+    <ClInclude Include="OOSDL\OOSDL.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Sprite.h">
+    <ClInclude Include="OOSDL\Rect.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Text.h">
+    <ClInclude Include="OOSDL\Sprite.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+    <ClInclude Include="OOSDL\Text.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Time.h">
+    <ClInclude Include="OOSDL\Texture.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Transformable.h">
+    <ClInclude Include="OOSDL\Time.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2.h">
+    <ClInclude Include="OOSDL\Transformable.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="View.h">
+    <ClInclude Include="OOSDL\Vector2.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="OOSDL\View.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="OOSDL.h">
+    <ClInclude Include="OOSDL\Window.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
   </ItemGroup>
