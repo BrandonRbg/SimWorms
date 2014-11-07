@@ -10,7 +10,6 @@
 #include "Color.h"
 #include "Drawable.h"
 #include "View.h"
-#include "Event.h"
 #include "Keyboard.h"
 #include "Mouse.h"
 
@@ -30,7 +29,7 @@ namespace sdl{
 		void setView(sdl::View &view);
 
 		sdl::View getDefaultView();
-		bool pollEvent(sdl::Event &event);
+		bool pollEvent(SDL_Event &event);
 
 		bool isOpen();
 		void close();

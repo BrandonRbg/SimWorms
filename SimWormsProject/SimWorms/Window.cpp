@@ -68,32 +68,24 @@ void sdl::Window::setView(sdl::View &view){
 sdl::View sdl::Window::getDefaultView(){
 	return sdl::View(sdl::Vector2Float(this->size.x / 2, this->size.y / 2), sdl::Vector2Float(this->size.x, this->size.y));
 }
-bool sdl::Window::pollEvent(sdl::Event &event){
-	SDL_Event* sdlEvent = new SDL_Event();
-	while (SDL_PollEvent(sdlEvent)){
-		event.type = sdlEvent->type;
-		if (sdlEvent->type == SDL_WINDOWEVENT)
-			if (sdlEvent->type == SDL_WINDOWEVENT_CLOSE)
-				std::cout << "Allo";
-		if (sdlEvent->type == SDL_KEYDOWN){
-			sdl::Keyboard::updateKeyState(sdlEvent->key.keysym.sym, true);
-			event.keycode = sdlEvent->key.keysym.sym;
+bool sdl::Window::pollEvent(SDL_Event &event){
+	while (SDL_PollEvent(&event)){
+		if (event.type == SDL_KEYDOWN){
+			sdl::Keyboard::updateKeyState(event.key.keysym.sym, true);
 		}
-		if (sdlEvent->type == SDL_KEYUP){
-			sdl::Keyboard::updateKeyState(sdlEvent->key.keysym.sym, false);
-			event.keycode = sdlEvent->key.keysym.sym;
+		if (event.type == SDL_KEYUP){
+			sdl::Keyboard::updateKeyState(event.key.keysym.sym, false);
 		}
-		if (sdlEvent->type == SDL_MOUSEBUTTONDOWN){
-			sdl::Mouse::updateMouseButtonState(sdlEvent->button.button, true);
-			event.button = sdlEvent->button.button;
+		if (event.type == SDL_MOUSEBUTTONDOWN){
+			sdl::Mouse::updateMouseButtonState(event.button.button, true);
 		}
-		if (sdlEvent->type == SDL_MOUSEBUTTONUP){
-			sdl::Mouse::updateMouseButtonState(sdlEvent->button.button, false);
-			event.button = sdlEvent->button.button;
+		if (event.type == SDL_MOUSEBUTTONUP){
+			sdl::Mouse::updateMouseButtonState(event.button.button, false);
 		}
-		if (sdlEvent->type == SDL_MOUSEMOTION)
-			sdl::Mouse::updateMousePosition(sdlEvent->motion.x, sdlEvent->motion.y);
-	} delete sdlEvent;
+		if (event.type == SDL_MOUSEMOTION)
+			sdl::Mouse::updateMousePosition(event.motion.x, event.motion.y);
+		return true;
+	}
 	return false;
 }
 

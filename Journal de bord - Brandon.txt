@@ -4,3 +4,7 @@ Le mardi 4 novembre 2014
 Conception avec l'équipe du diagramme de classes de la base de notre API SDL orienté objet.
 Le jeudi 6 novembre 2014
 Finition du diagramme de classes de l'API SDL orienté objet et codification de celui-ci.
+Le vendredi 7 novembre 2014
+	1:13
+Setup du projet Visual Studio.
+Travail sur l'encapsulation des évènements dans Window::pollEvent(SDL_Event &event)

@@ -1,6 +1,9 @@
 #include "Sprite.h"
 #include "Window.h"
 
+float degreeToRadian(float degree){
+	return degree * (M_PI / 180);
+}
 
 sdl::Sprite::Sprite()
 {
