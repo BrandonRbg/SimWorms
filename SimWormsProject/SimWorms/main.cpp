@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #include "OOSDL.h"
+=======
+#include "OOSDL/OOSDL.h"
+>>>>>>> origin/Brandon
 
 int main(int argc, char** argv){
 	sdl::Window renderWindow(640, 480, "SimWorms");

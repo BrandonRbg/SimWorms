@@ -67,6 +67,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="Color.cpp" />
@@ -97,6 +98,38 @@
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="View.h" />
     <ClInclude Include="Window.h" />
+=======
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="OOSDL\AnimatedSprite.cpp" />
+    <ClCompile Include="OOSDL\Clock.cpp" />
+    <ClCompile Include="OOSDL\Color.cpp" />
+    <ClCompile Include="OOSDL\Keyboard.cpp" />
+    <ClCompile Include="OOSDL\Mouse.cpp" />
+    <ClCompile Include="OOSDL\Sprite.cpp" />
+    <ClCompile Include="OOSDL\Text.cpp" />
+    <ClCompile Include="OOSDL\Texture.cpp" />
+    <ClCompile Include="OOSDL\Transformable.cpp" />
+    <ClCompile Include="OOSDL\View.cpp" />
+    <ClCompile Include="OOSDL\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OOSDL\AnimatedSprite.h" />
+    <ClInclude Include="OOSDL\Clock.h" />
+    <ClInclude Include="OOSDL\Color.h" />
+    <ClInclude Include="OOSDL\Drawable.h" />
+    <ClInclude Include="OOSDL\Keyboard.h" />
+    <ClInclude Include="OOSDL\Mouse.h" />
+    <ClInclude Include="OOSDL\OOSDL.h" />
+    <ClInclude Include="OOSDL\Rect.h" />
+    <ClInclude Include="OOSDL\Sprite.h" />
+    <ClInclude Include="OOSDL\Text.h" />
+    <ClInclude Include="OOSDL\Texture.h" />
+    <ClInclude Include="OOSDL\Time.h" />
+    <ClInclude Include="OOSDL\Transformable.h" />
+    <ClInclude Include="OOSDL\Vector2.h" />
+    <ClInclude Include="OOSDL\View.h" />
+    <ClInclude Include="OOSDL\Window.h" />
+>>>>>>> origin/Brandon
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
