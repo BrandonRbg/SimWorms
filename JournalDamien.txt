@@ -6,3 +6,7 @@
 -Création du diagramme de classes du GUI.
 {6 novembre 2014 16h51}
 -Mise à jour du diagramme de classes du GUI.
+{13 novembre 2014 13:40}
+-Début des modifications de diagramme de classe du GUI.
+{13 novembre 2014 13:55}
+-Fin des modifications de diagramme de classe du GUI.
