@@ -10,3 +10,5 @@
 -Début des modifications de diagramme de classe du GUI.
 {13 novembre 2014 13:55}
 -Fin des modifications de diagramme de classe du GUI.
+{13 novembre 2014 14:00 to 15:58}
+-code de GuiComponents et début de GuiMainMenu.

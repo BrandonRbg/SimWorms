@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{25921A49-E0E8-47EB-8DF2-2EBA708E9B12}</ProjectGuid>
+    <RootNamespace>SimWorms</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AssetsManager.cpp" />
+    <ClCompile Include="GuiMainMenu.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="OOSDL\AnimatedSprite.cpp" />
+    <ClCompile Include="OOSDL\Clock.cpp" />
+    <ClCompile Include="OOSDL\Color.cpp" />
+    <ClCompile Include="OOSDL\Keyboard.cpp" />
+    <ClCompile Include="OOSDL\Mouse.cpp" />
+    <ClCompile Include="OOSDL\Sprite.cpp" />
+    <ClCompile Include="OOSDL\StaticSprite.cpp" />
+    <ClCompile Include="OOSDL\StaticText.cpp" />
+    <ClCompile Include="OOSDL\Text.cpp" />
+    <ClCompile Include="OOSDL\Texture.cpp" />
+    <ClCompile Include="OOSDL\Transformable.cpp" />
+    <ClCompile Include="OOSDL\View.cpp" />
+    <ClCompile Include="OOSDL\Window.cpp" />
+    <ClCompile Include="Terrain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AssetsManager.h" />
+    <ClInclude Include="GuiComponents.h" />
+    <ClInclude Include="GuiMainMenu.h" />
+    <ClInclude Include="OOSDL\AnimatedSprite.h" />
+    <ClInclude Include="OOSDL\Clock.h" />
+    <ClInclude Include="OOSDL\Color.h" />
+    <ClInclude Include="OOSDL\Drawable.h" />
+    <ClInclude Include="OOSDL\Keyboard.h" />
+    <ClInclude Include="OOSDL\Mouse.h" />
+    <ClInclude Include="OOSDL\OOSDL.h" />
+    <ClInclude Include="OOSDL\Rect.h" />
+    <ClInclude Include="OOSDL\Sprite.h" />
+    <ClInclude Include="OOSDL\StaticSprite.h" />
+    <ClInclude Include="OOSDL\StaticText.h" />
+    <ClInclude Include="OOSDL\Text.h" />
+    <ClInclude Include="OOSDL\Texture.h" />
+    <ClInclude Include="OOSDL\Time.h" />
+    <ClInclude Include="OOSDL\Transformable.h" />
+    <ClInclude Include="OOSDL\Vector2.h" />
+    <ClInclude Include="OOSDL\View.h" />
+    <ClInclude Include="OOSDL\Window.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Terrain.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
