@@ -4,9 +4,10 @@
 #include "OOSDL/StaticSprite.h"
 #include "Terrain.h"
 #include "AssetsManager.h"
+#include "GuiMainMenu.h"
 
 int main(int argc, char** argv){
-	sdl::Window renderWindow(1920, 1080, "SimWorms", SDL_WINDOW_FULLSCREEN);
+	sdl::Window renderWindow(1280, 1024, "SimWorms", SDL_WINDOW_FULLSCREEN);
 	Terrain terrain;
 	terrain.loadTerrainFromFile("Maps/farm/map.png");
 	sdl::StaticSprite bg;
@@ -14,11 +15,13 @@ int main(int argc, char** argv){
 	sdl::View view;
 	view = renderWindow.getDefaultView();
 
+	GuiMainMenu Menu;
+
 	sdl::StaticText fpsText;
 	fpsText.setFont("Arial.ttf");
 	fpsText.setPosition(10, 10);
 	fpsText.setCharacterSize(16);
-	fpsText.setColor(sdl::Color::Black);
+	fpsText.setColor(sdl::Color::White);
 	fpsText.setString("");
 
 	sdl::Clock fpsClock;
@@ -35,7 +38,9 @@ int main(int argc, char** argv){
 			if (event.key.keysym.sym == SDLK_ESCAPE)
 				renderWindow.close();
 		}
-		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
+		//Menu.update();
+		Menu.draw(renderWindow);
+		/*if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
 			if (sdl::Mouse::getPosition().x > 0 && sdl::Mouse::getPosition().x < terrain.getWidth() && sdl::Mouse::getPosition().y > 0 && sdl::Mouse::getPosition().y < terrain.getHeight()){
 				terrain.explode(sdl::Mouse::getPosition(view), 50, 3, sdl::Color::Black);
 				std::cout << sdl::Mouse::getPosition(view).x << ", " << sdl::Mouse::getPosition(view).y << std::endl;
@@ -59,9 +64,9 @@ int main(int argc, char** argv){
 			ss << "SimWorms v0.0.1" << " @ " << fps << " fps";
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
-		}
+		}*/
 		renderWindow.draw(&fpsText);
-
+		
 		renderWindow.show();
 	}
 	return 0;

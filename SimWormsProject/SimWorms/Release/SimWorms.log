@@ -1,7 +1,12 @@
-﻿Build started 2014-11-13 12:52:16.
-     1>Project "C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Release\SimWorms.exe" /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Release\SimWorms.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Release\SimWorms.lib" /MACHINE:X86 /SAFESEH Release\AssetsManager.obj
+﻿La génération a démarré 2014-11-13 16:25:09.
+     1>Projet "C:\Users\1323891\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GuiMainMenu.cpp
+         GuiMainMenu.cpp
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\oosdl\Window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\1323891\Desktop\SimWorms\SimWormsProject\Release\SimWorms.exe" /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\1323891\Desktop\SimWorms\SimWormsProject\Release\SimWorms.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\1323891\Desktop\SimWorms\SimWormsProject\Release\SimWorms.lib" /MACHINE:X86 /SAFESEH Release\AssetsManager.obj
+         Release\GuiMainMenu.obj
          Release\main.obj
          Release\AnimatedSprite.obj
          Release\Clock.obj
@@ -17,12 +22,12 @@
          Release\View.obj
          Release\Window.obj
          Release\Terrain.obj
-         Generating code
-     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\terrain.cpp(30): warning C4715: 'Terrain::isPixelSolid' : not all control paths return a value
-         Finished generating code
-         SimWorms.vcxproj -> C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Release\SimWorms.exe
-     1>Done Building Project "C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" (Build target(s)).
+         Génération de code en cours
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\terrain.cpp(30): warning C4715: 'Terrain::isPixelSolid' : les chemins de contrôle ne retournent pas tous une valeur
+         Fin de la génération du code
+         SimWorms.vcxproj -> C:\Users\1323891\Desktop\SimWorms\SimWormsProject\Release\SimWorms.exe
+     1>Génération du projet "C:\Users\1323891\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" terminée (Build cible(s)).
 
-Build succeeded.
+La génération a réussi.
 
-Time Elapsed 00:00:02.64
+Temps écoulé 00:00:01.33
