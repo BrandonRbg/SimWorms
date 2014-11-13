@@ -4,15 +4,18 @@
 #include "OOSDL/StaticSprite.h"
 #include "Terrain.h"
 #include "AssetsManager.h"
+#include "Player.h"
 
 int main(int argc, char** argv){
-	sdl::Window renderWindow(1920, 1080, "SimWorms", SDL_WINDOW_FULLSCREEN);
+	sdl::Window renderWindow(1280, 1024, "SimWorms", 0);
 	Terrain terrain;
 	terrain.loadTerrainFromFile("Maps/farm/map.png");
 	sdl::StaticSprite bg;
 	bg.setTexture(&AssetsManager::getInstance().getTexture("Maps/farm/background.jpg"));
 	sdl::View view;
 	view = renderWindow.getDefaultView();
+	Player player(sdl::Vector2Float(500, 500));
+	
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("Arial.ttf");
@@ -41,6 +44,9 @@ int main(int argc, char** argv){
 				std::cout << sdl::Mouse::getPosition(view).x << ", " << sdl::Mouse::getPosition(view).y << std::endl;
 			}
 		}
+		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
+			player.setPosition(sdl::Mouse::getPosition(view));
+		}
 		if (sdl::Keyboard::isKeyPressed(SDLK_w))
 			view.move(0, -10);
 		if (sdl::Keyboard::isKeyPressed(SDLK_a))
@@ -53,6 +59,7 @@ int main(int argc, char** argv){
 		renderWindow.setView(view);
 		renderWindow.draw(&bg);
 		terrain.draw(renderWindow);
+	
 
 		if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
 			std::stringstream ss;
@@ -60,6 +67,8 @@ int main(int argc, char** argv){
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
 		}
+		player.update(1 / (fps + 0.0000001), terrain);
+		player.draw(renderWindow);
 		renderWindow.draw(&fpsText);
 
 		renderWindow.show();

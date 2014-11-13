@@ -1,14 +1,12 @@
 #pragma once
 #include "PhysicsComponent.h"
-#include "Player.h"
-class PlayerPhysicsComponent : private PhysicsComponent
+class Player;
+class PlayerPhysicsComponent : public PhysicsComponent
 {
-private:
-	
 public:
-	PlayerPhysicsComponent();
-	~PlayerPhysicsComponent();
-	void update();
-	bool checkCollision(Terrain &terrain);
+	void update(Player &player, Terrain &terrain, float frametime);
+	void checkCollision(Player &player, Terrain &terrain, float frametime);
+	void stopMovingX(Player &player);
+	bool isInMidAir();
 };
 

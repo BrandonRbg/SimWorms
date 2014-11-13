@@ -1,15 +1,15 @@
 #pragma once
 #include "OOSDL\OOSDL.h"
 #include "Terrain.h"
+// DO NOT MAKE INSTANCES OF!!!
 class PhysicsComponent
 {
-private:
+protected:
 	sdl::Vector2Float resultingVector;
 public:
 	PhysicsComponent();
-	~PhysicsComponent();
-	virtual void update() = 0;
+	virtual void update(Terrain &terrain);
 	void addConstraint(sdl::Vector2Float &vector);
-	virtual bool checkCollision(Terrain &terrain);
+	virtual void checkCollision(Terrain &terrain);
 };
 

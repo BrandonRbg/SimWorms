@@ -18,3 +18,12 @@
 	15h30
 	-Création du diagramme d'état du logiciel
 	15h40
+13 nov 
+	13h30 *Inclut rencontre d'équipe
+	-Création de:
+		Player
+		PlayerInputComponent
+		PhysicsComponent
+		PlayerPhysicsComponent
+	-Bugs de déplacement vers la droite
+	18h00

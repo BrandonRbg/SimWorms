@@ -8,8 +8,6 @@
 class Terrain
 {
 public:
-	Terrain();
-	~Terrain();
 
 	void loadTerrainFromFile(std::string filePath);
 	void addPixel(sdl::Vector2Float position, sdl::Color color);

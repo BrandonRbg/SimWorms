@@ -85,6 +85,7 @@
     <ClCompile Include="OOSDL\Window.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PlayerPhysicsComponent.cpp" />
     <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
@@ -110,6 +111,7 @@
     <ClInclude Include="OOSDL\Window.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PlayerPhysicsComponent.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Terrain.h" />

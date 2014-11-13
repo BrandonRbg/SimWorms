@@ -1,13 +1,5 @@
 #include "Terrain.h"
 
-
-Terrain::Terrain(){
-}
-
-
-Terrain::~Terrain(){
-}
-
 void Terrain::loadTerrainFromFile(std::string filePath){
 	originalBitMap = AssetsManager::getInstance().getTexture(filePath);
 	actualBitMap = originalBitMap;
