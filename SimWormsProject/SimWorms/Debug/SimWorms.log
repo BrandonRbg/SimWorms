@@ -1,11 +1,45 @@
-﻿La génération a démarré 2014-11-13 01:44:26.
-     1>Projet "C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
+﻿Build started 2014-11-13 12:45:06.
+     1>Project "C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AssetsManager.cpp main.cpp OOSDL\AnimatedSprite.cpp OOSDL\Clock.cpp OOSDL\Color.cpp OOSDL\Keyboard.cpp OOSDL\Mouse.cpp OOSDL\Sprite.cpp OOSDL\StaticSprite.cpp OOSDL\StaticText.cpp OOSDL\Text.cpp OOSDL\Texture.cpp OOSDL\Transformable.cpp OOSDL\View.cpp OOSDL\Window.cpp Terrain.cpp
+         Terrain.cpp
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\terrain.cpp(14): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\terrain.cpp(15): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\terrain.cpp(67): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\terrain.cpp(70): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\terrain.cpp(73): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\terrain.cpp(78): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\terrain.cpp(80): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         Window.cpp
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         View.cpp
+         Transformable.cpp
+         Texture.cpp
+         Text.cpp
+         StaticText.cpp
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\statictext.cpp(6): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+         StaticSprite.cpp
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\staticsprite.cpp(10): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+         Sprite.cpp
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         Mouse.cpp
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\mouse.cpp(13): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         Keyboard.cpp
+         Color.cpp
+         Clock.cpp
+         AnimatedSprite.cpp
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
          main.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         AssetsManager.cpp
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         Generating Code...
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\terrain.cpp(30): warning C4715: 'Terrain::isPixelSolid' : not all control paths return a value
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\Debug\SimWorms.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_gfx.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\Debug\SimWorms.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\Debug\SimWorms.lib" /MACHINE:X86 Debug\AssetsManager.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Debug\SimWorms.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_gfx.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Debug\SimWorms.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Debug\SimWorms.lib" /MACHINE:X86 Debug\AssetsManager.obj
          Debug\main.obj
          Debug\AnimatedSprite.obj
          Debug\Clock.obj
@@ -21,9 +55,9 @@
          Debug\View.obj
          Debug\Window.obj
          Debug\Terrain.obj
-         SimWorms.vcxproj -> C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\Debug\SimWorms.exe
-     1>Génération du projet "C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" terminée (Build cible(s)).
+     1>LINK : fatal error LNK1104: cannot open file 'SDL2_gfx.lib'
+     1>Done Building Project "C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" (Build target(s)) -- FAILED.
 
-La génération a réussi.
+Build FAILED.
 
-Temps écoulé 00:00:00.67
+Time Elapsed 00:00:16.06
