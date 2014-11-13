@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 #include <sstream>
 
 #include "OOSDL/OOSDL.h"
 #include "OOSDL/StaticSprite.h"
 #include "Terrain.h"
 #include "AssetsManager.h"
+=======
+<<<<<<< HEAD
+#include "OOSDL.h"
+=======
+#include "OOSDL/OOSDL.h"
+>>>>>>> origin/Brandon
+>>>>>>> origin/Stuff
 
 int main(int argc, char** argv){
 	sdl::Window renderWindow(1920, 1080, "SimWorms", SDL_WINDOW_FULLSCREEN);

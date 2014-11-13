@@ -67,7 +67,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="AssetsManager.cpp" />
+=======
+<<<<<<< HEAD
+    <ClCompile Include="AnimatedSprite.cpp" />
+    <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Transformable.cpp" />
+    <ClCompile Include="View.cpp" />
+    <ClCompile Include="Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AnimatedSprite.h" />
+    <ClInclude Include="Clock.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="Drawable.h" />
+    <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Mouse.h" />
+    <ClInclude Include="OOSDL.h" />
+    <ClInclude Include="Rect.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Text.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Time.h" />
+    <ClInclude Include="Transformable.h" />
+    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="View.h" />
+    <ClInclude Include="Window.h" />
+=======
+>>>>>>> origin/Stuff
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OOSDL\AnimatedSprite.cpp" />
     <ClCompile Include="OOSDL\Clock.cpp" />
@@ -104,8 +139,12 @@
     <ClInclude Include="OOSDL\Vector2.h" />
     <ClInclude Include="OOSDL\View.h" />
     <ClInclude Include="OOSDL\Window.h" />
+<<<<<<< HEAD
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Terrain.h" />
+=======
+>>>>>>> origin/Brandon
+>>>>>>> origin/Stuff
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
