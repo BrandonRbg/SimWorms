@@ -1,0 +1,28 @@
+﻿Build started 2014-11-13 12:52:16.
+     1>Project "C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Release\SimWorms.exe" /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Release\SimWorms.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Release\SimWorms.lib" /MACHINE:X86 /SAFESEH Release\AssetsManager.obj
+         Release\main.obj
+         Release\AnimatedSprite.obj
+         Release\Clock.obj
+         Release\Color.obj
+         Release\Keyboard.obj
+         Release\Mouse.obj
+         Release\Sprite.obj
+         Release\StaticSprite.obj
+         Release\StaticText.obj
+         Release\Text.obj
+         Release\Texture.obj
+         Release\Transformable.obj
+         Release\View.obj
+         Release\Window.obj
+         Release\Terrain.obj
+         Generating code
+     1>c:\users\brandon\documents\github\simworms\simwormsproject\simworms\terrain.cpp(30): warning C4715: 'Terrain::isPixelSolid' : not all control paths return a value
+         Finished generating code
+         SimWorms.vcxproj -> C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\Release\SimWorms.exe
+     1>Done Building Project "C:\Users\Brandon\Documents\GitHub\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.64
