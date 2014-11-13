@@ -24,6 +24,7 @@ namespace sdl{
 		void draw(SDL_Renderer* renderer, sdl::View &view);
 	protected:
 		sdl::Texture* texture;
+		SDL_Texture* sdlTexture;
 		sdl::RectFloat textureRect;
 	};
 }

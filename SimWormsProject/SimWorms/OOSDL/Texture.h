@@ -15,7 +15,9 @@ namespace sdl {
 		SDL_Surface* getSurface();
 		sdl::Color getPixel(sdl::Vector2Float &pixel);
 		void setPixel(sdl::Vector2Float &pixel, sdl::Color& color);
+		bool hasChanged(bool reset);
 	private:
 		SDL_Surface* surface;
+		int changes;
 	};
 }

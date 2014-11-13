@@ -65,6 +65,8 @@ sdl::RectFloat sdl::Text::getBounds(){
 }
 
 void sdl::Text::update(){
+	if (fontPath == "")
+		return;
 	if (textSurface != nullptr)
 		SDL_FreeSurface(textSurface);
 	if (font != nullptr)

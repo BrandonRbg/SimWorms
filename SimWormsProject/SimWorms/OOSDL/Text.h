@@ -36,7 +36,7 @@ namespace sdl{
 		void draw(SDL_Renderer* renderer, sdl::View &view);
 
 		static int instances;
-	private:
+	protected:
 		sdl::RectFloat getRenderDestination(sdl::View& view);
 		void update();
 

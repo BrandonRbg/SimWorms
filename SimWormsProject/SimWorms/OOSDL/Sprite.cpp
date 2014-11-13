@@ -1,15 +1,12 @@
 #include "Sprite.h"
 #include "Window.h"
 
-float degreeToRadian(float degree){
-	return degree * (M_PI / 180);
+sdl::Sprite::Sprite(){
+	texture = nullptr;
 }
-
-sdl::Sprite::Sprite()
-{
-}
-sdl::Sprite::~Sprite()
-{
+sdl::Sprite::~Sprite(){
+	if (sdlTexture != NULL)
+		SDL_DestroyTexture(sdlTexture);
 }
 void sdl::Sprite::setTexture(sdl::Texture *texture){
 	this->texture = texture;
@@ -32,10 +29,13 @@ sdl::RectFloat sdl::Sprite::getBounds(){
 	return sdl::RectFloat(position.x, position.y, texture->getSize().x, texture->getSize().y);
 }
 void sdl::Sprite::draw(SDL_Renderer* renderer, sdl::View &view){
-	SDL_Texture* tmpTexture = SDL_CreateTextureFromSurface(renderer, texture->getSurface());
+	this->bounds = sdl::RectFloat(position.x, position.y, texture->getSize().x * scaleFactors.x, texture->getSize().y * scaleFactors.y);
+	if (texture->hasChanged(true) || sdlTexture == NULL){
+		SDL_DestroyTexture(sdlTexture);
+		sdlTexture = SDL_CreateTextureFromSurface(renderer, texture->getSurface());
+	}
 	SDL_Rect destination = { (int)getRenderDestination(view).x, (int)getRenderDestination(view).y, (int)getRenderDestination(view).w, (int)getRenderDestination(view).h };
 	SDL_Rect source = { (int)this->textureRect.x, (int)this->textureRect.y, (int)this->textureRect.w, (int)this->textureRect.h };
 	SDL_Point destinationOrigin = { (int)origin.x, (int)origin.y };
-	SDL_RenderCopyEx(renderer, tmpTexture, &source, &destination, orientation - view.getRotation(), &destinationOrigin, flipSide);
-	SDL_DestroyTexture(tmpTexture);
+	SDL_RenderCopyEx(renderer, sdlTexture, &source, &destination, orientation - view.getRotation(), &destinationOrigin, flipSide);
 }

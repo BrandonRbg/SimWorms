@@ -1,14 +1,14 @@
 #include "Texture.h"
 
 
-sdl::Texture::Texture()
-{
+sdl::Texture::Texture(){
+	changes = 0;
 }
 
 
 sdl::Texture::~Texture()
 {
-	if (surface->format != NULL)
+	if (surface->format != NULL && surface != NULL)
 		SDL_FreeSurface(surface);
 }
 
@@ -43,8 +43,16 @@ sdl::Color sdl::Texture::getPixel(sdl::Vector2Float &pixel){
 	return sdl::Color(r, g, b, a);
 }
 void sdl::Texture::setPixel(sdl::Vector2Float &pixel, sdl::Color& color){
+	changes++;
 	Uint8 * pixels = (Uint8*)surface->pixels;
 	pixels += ((int)pixel.y * surface->pitch) + ((int)pixel.x * sizeof(Uint32));
 	Uint32 colorInt = SDL_MapRGBA(surface->format, color.r, color.g, color.b, color.a);
 	*((Uint32*)pixels) = colorInt;
+}
+
+bool sdl::Texture::hasChanged(bool reset){
+	bool changed = changes != 0;
+	if (reset)
+		changes = 0;
+	return changed;
 }

@@ -2,7 +2,7 @@
 
 int sdl::Window::instances = 0;
 
-sdl::Window::Window(float x, float y, const std::string& title) {
+sdl::Window::Window(float x, float y, const std::string& title, Uint32 flags) {
 	++instances;
 	if (instances == 1)
 		SDL_Init(SDL_INIT_VIDEO);
@@ -11,7 +11,7 @@ sdl::Window::Window(float x, float y, const std::string& title) {
 	this->size.x = x;
 	this->size.y = y;
 	this->windowID = SDL_GetWindowID(this->sdlWindow);
-	sdlWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, (int)size.x, (int)size.y, 0);
+	sdlWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, (int)size.x, (int)size.y, flags);
 	sdlRender = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	this->setTitle(title);
 	this->view = sdl::View(sdl::Vector2Float(this->size.x / 2, this->size.y / 2), sdl::Vector2Float(this->size.x, this->size.y));
@@ -66,7 +66,7 @@ void sdl::Window::setView(sdl::View &view){
 }
 
 sdl::View sdl::Window::getDefaultView(){
-	return sdl::View(sdl::Vector2Float(this->size.x / 2, this->size.y / 2), sdl::Vector2Float(this->size.x, this->size.y));
+	return sdl::View(sdl::Vector2Float(this->size.x / 2, this->size.y / 2), size);
 }
 bool sdl::Window::pollEvent(SDL_Event &event){
 	while (SDL_PollEvent(&event)){

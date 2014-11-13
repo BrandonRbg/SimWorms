@@ -17,8 +17,8 @@ namespace sdl{
 	class Window
 	{
 	public:
-		Window(float x, float y, const std::string& title);
-		Window(sdl::Vector2Float vect, const std::string& title) : sdl::Window((int)vect.x, (int)vect.y, title) {}
+		Window(float x, float y, const std::string& title, Uint32 flags);
+		Window(sdl::Vector2Float vect, const std::string& title, Uint32 flags) : sdl::Window((int)vect.x, (int)vect.y, title, flags) {}
 		~Window();
 
 		void draw(sdl::Drawable* drawable);

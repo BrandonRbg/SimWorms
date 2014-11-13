@@ -6,20 +6,20 @@ namespace sdl{
 	template<typename T>
 	class Vector2{
 	public:
-		Vector2(T x = 0, T y = 0){
-			this->x = x;
-			this->y = y;
-		}
-		Vector2 operator+(Vector2<T> vect){
-			return Vector2(this->x + vect.x, this->y + vect.y);
-		}
-		Vector2 operator-(Vector2<T> vect){
-			return Vector2(this->x - vect.x, this->y - vect.y);
-		}
-		Vector2 operator*(float scale){
-			return Vector2(this->x * scale, this->y * scale);
-		}
+		Vector2(T x = 0, T y = 0){ this->x = x; this->y = y; }
+		
+		Vector2 operator+(Vector2& vect){ return Vector2(this->x + vect.x, this->y + vect.y); }
+		void operator+=(Vector2& other) { x += other.x; y += other.y; }
+		Vector2 operator-(Vector2& vect){ return Vector2(this->x - vect.x, this->y - vect.y); }
+		void operator-=(Vector2& other) { x -= other.x; y -= other.y; }
+		Vector2 operator*(float scale){ return Vector2(this->x * scale, this->y * scale); }
+		void operator*=(Vector2& other) { x *= other.x; y *= other.y; }
+		bool operator==(Vector2& other) { return x == other.x && y == other.y; }
+		bool operator!=(Vector2&other) { return !operator==(other); }
 
+		float getModule(){ return sqrt(x * x + y * y); }
+
+		void normalize(){ this->x /= getModule(); this->y /= getModule(); }
 
 		std::vector<T> getComponents() {
 			std::vector<T> components;
@@ -28,9 +28,7 @@ namespace sdl{
 			return components;
 		}
 
-		float operator[](int i) {
-			return getComponents()[i];
-		}
+		float operator[](int i) { return getComponents()[i]; }
 
 		T x, y;
 	};

@@ -67,6 +67,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AssetsManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OOSDL\AnimatedSprite.cpp" />
     <ClCompile Include="OOSDL\Clock.cpp" />
@@ -74,13 +75,17 @@
     <ClCompile Include="OOSDL\Keyboard.cpp" />
     <ClCompile Include="OOSDL\Mouse.cpp" />
     <ClCompile Include="OOSDL\Sprite.cpp" />
+    <ClCompile Include="OOSDL\StaticSprite.cpp" />
+    <ClCompile Include="OOSDL\StaticText.cpp" />
     <ClCompile Include="OOSDL\Text.cpp" />
     <ClCompile Include="OOSDL\Texture.cpp" />
     <ClCompile Include="OOSDL\Transformable.cpp" />
     <ClCompile Include="OOSDL\View.cpp" />
     <ClCompile Include="OOSDL\Window.cpp" />
+    <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssetsManager.h" />
     <ClInclude Include="OOSDL\AnimatedSprite.h" />
     <ClInclude Include="OOSDL\Clock.h" />
     <ClInclude Include="OOSDL\Color.h" />
@@ -90,6 +95,8 @@
     <ClInclude Include="OOSDL\OOSDL.h" />
     <ClInclude Include="OOSDL\Rect.h" />
     <ClInclude Include="OOSDL\Sprite.h" />
+    <ClInclude Include="OOSDL\StaticSprite.h" />
+    <ClInclude Include="OOSDL\StaticText.h" />
     <ClInclude Include="OOSDL\Text.h" />
     <ClInclude Include="OOSDL\Texture.h" />
     <ClInclude Include="OOSDL\Time.h" />
@@ -97,6 +104,8 @@
     <ClInclude Include="OOSDL\Vector2.h" />
     <ClInclude Include="OOSDL\View.h" />
     <ClInclude Include="OOSDL\Window.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Terrain.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

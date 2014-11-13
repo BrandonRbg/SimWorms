@@ -8,3 +8,6 @@ Le vendredi 7 novembre 2014
 	1:13
 Setup du projet Visual Studio.
 Travail sur l'encapsulation des évènements dans Window::pollEvent(SDL_Event &event)
+Le jeudi 13 novembre 2014
+	1:47
+Travail sur les terrains + fix de bugs dans l'API et ajout des classes sdl::StaticText et sdl::StaticSprite

@@ -54,6 +54,18 @@
     <ClCompile Include="OOSDL\Window.cpp">
       <Filter>Resource Files\OOSDL</Filter>
     </ClCompile>
+    <ClCompile Include="AssetsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\StaticSprite.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OOSDL\StaticText.cpp">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OOSDL\AnimatedSprite.h">
@@ -102,6 +114,21 @@
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
     <ClInclude Include="OOSDL\Window.h">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetsManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\StaticSprite.h">
+      <Filter>Resource Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\StaticText.h">
       <Filter>Resource Files\OOSDL</Filter>
     </ClInclude>
   </ItemGroup>
