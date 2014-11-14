@@ -12,5 +12,11 @@ Travail de toute l'équipe sur le diagramme de classe, le diagramme d'état, les c
 
 Travail de toute l'équipe sur le diagramme de classe du GUI, les cas d'utilisation d'un worms dans une partie, le diagramme d'état du logiciel, le diagramme de classe de l'engine
 
+13 Novembre, Environ 3 heures de travail-------------------
+
+Travail sur le diagramme visio sur les classes qui vont servir d'élément de gameplay (grenade, rocket, mine, ect...)
+Création des classes pour les éléments de gameplay (ceux qui sont compris dans le visio de classe des élément du gameplay)
+
+
 
 
