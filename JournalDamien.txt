@@ -14,3 +14,5 @@
 -code de GuiComponents et début de GuiMainMenu.
 {13 novembre 2014 16:01 to 17:31}
 -Modification et test de la classe GuiMainMenu.
+{13 novembre 2014 19:40 to 19:50}
+-Modifications de la classe GuiMainMenu.

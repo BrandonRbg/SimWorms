@@ -35,4 +35,14 @@ void GuiMainMenu::update(){
 			//Code for clic on Options...
 		}
 	}
+	if (TextNameGame.getBounds().contains(sdl::Mouse::getPosition())){
+		TextNameGame.setColor(sdl::Color::Red);
+	}
+	else
+		TextNameGame.setColor(sdl::Color::White);
+	if (TextOptions.getBounds().contains(sdl::Mouse::getPosition())){
+		TextOptions.setColor(sdl::Color::Red);
+	}
+	else
+		TextOptions.setColor(sdl::Color::White);
 }

@@ -38,7 +38,7 @@ int main(int argc, char** argv){
 			if (event.key.keysym.sym == SDLK_ESCAPE)
 				renderWindow.close();
 		}
-		//Menu.update();
+		Menu.update();
 		Menu.draw(renderWindow);
 		/*if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
 			if (sdl::Mouse::getPosition().x > 0 && sdl::Mouse::getPosition().x < terrain.getWidth() && sdl::Mouse::getPosition().y > 0 && sdl::Mouse::getPosition().y < terrain.getHeight()){
