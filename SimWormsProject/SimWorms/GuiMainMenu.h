@@ -12,6 +12,6 @@ protected:
 public:
 	GuiMainMenu();
 	void draw(sdl::Window &target);
-	void update();
+	void update(sdl::Window &target);
 };
 

@@ -40,9 +40,9 @@ int main(int argc, char** argv){
 			if (event.key.keysym.sym == SDLK_ESCAPE)
 				renderWindow.close();
 		}
-		Menu.update();
+		Menu.update(renderWindow);
 		Menu.draw(renderWindow);
-		Check.draw(renderWindow);
+		//Check.draw(renderWindow);
 
 
 		/*if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
