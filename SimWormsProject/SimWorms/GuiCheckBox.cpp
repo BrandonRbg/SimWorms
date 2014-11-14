@@ -48,6 +48,5 @@ void GuiCheckBox::draw(sdl::Window &target){
 		target.draw(&BoxSprite);
 }
 
-void GuiCheckBox::update(){
-	//
-}
+/*void GuiCheckBox::update(){
+}*/

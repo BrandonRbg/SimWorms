@@ -22,3 +22,5 @@
 -Modifications de la classe GuiCheckBox.
 {14 novembre 2014 15:00 to 15:20}
 -Midification de la classe GuiCHeckBox
+{14 novembre 2014 18:05 to 18:23}
+-Révision du code.

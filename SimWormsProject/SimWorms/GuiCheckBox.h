@@ -9,7 +9,7 @@ protected:
 	sdl::Sprite CheckSprite;
 	bool Checked;
 public:
-	GuiCheckBox(/*sdl::Vector2Float &Position*/);
+	GuiCheckBox();
 	void setPos(sdl::Vector2Float &Position);
 	void setSize(sdl::Vector2Float &Scale);
 	sdl::Vector2Float getPos();
@@ -17,5 +17,5 @@ public:
 	bool isClicked();
 	bool isOver();
 	void draw(sdl::Window &target);
-	void update();
+	//void update();
 };
