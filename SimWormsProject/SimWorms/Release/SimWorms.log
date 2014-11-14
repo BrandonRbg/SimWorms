@@ -1,0 +1,53 @@
+﻿La génération a démarré 2014-11-13 17:45:09.
+     1>Projet "C:\Users\1355492\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt PhysicsComponent.cpp Player.cpp PlayerInputComponent.cpp PlayerPhysicsComponent.cpp main.cpp
+         PhysicsComponent.cpp
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\oosdl\Window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+         Player.cpp
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\oosdl\Window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+         PlayerInputComponent.cpp
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\oosdl\Window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>PlayerInputComponent.cpp(4): warning C4305: 'argument' : troncation de '' à 'short'
+     1>PlayerInputComponent.cpp(4): warning C4309: 'argument' : troncation de valeur de constante
+     1>PlayerInputComponent.cpp(7): warning C4305: 'argument' : troncation de '' à 'short'
+     1>PlayerInputComponent.cpp(7): warning C4309: 'argument' : troncation de valeur de constante
+     1>PlayerInputComponent.cpp(11): warning C4305: 'argument' : troncation de '' à 'short'
+     1>PlayerInputComponent.cpp(11): warning C4309: 'argument' : troncation de valeur de constante
+     1>PlayerInputComponent.cpp(14): warning C4305: 'argument' : troncation de '' à 'short'
+     1>PlayerInputComponent.cpp(14): warning C4309: 'argument' : troncation de valeur de constante
+         PlayerPhysicsComponent.cpp
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\oosdl\Window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+         main.cpp
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\oosdl\Window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>main.cpp(70): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Release\SimWorms.exe" /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Release\SimWorms.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Release\SimWorms.lib" /MACHINE:X86 /SAFESEH Release\AssetsManager.obj
+         Release\main.obj
+         Release\AnimatedSprite.obj
+         Release\Clock.obj
+         Release\Color.obj
+         Release\Keyboard.obj
+         Release\Mouse.obj
+         Release\Sprite.obj
+         Release\StaticSprite.obj
+         Release\StaticText.obj
+         Release\Text.obj
+         Release\Texture.obj
+         Release\Transformable.obj
+         Release\View.obj
+         Release\Window.obj
+         Release\PhysicsComponent.obj
+         Release\Player.obj
+         Release\PlayerInputComponent.obj
+         Release\PlayerPhysicsComponent.obj
+         Release\Terrain.obj
+         Génération de code en cours
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\terrain.cpp(22): warning C4715: 'Terrain::isPixelSolid' : les chemins de contrôle ne retournent pas tous une valeur
+         Fin de la génération du code
+         SimWorms.vcxproj -> C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Release\SimWorms.exe
+     1>Génération du projet "C:\Users\1355492\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" terminée (Build cible(s)).
+
+La génération a réussi.
+
+Temps écoulé 00:00:02.95
