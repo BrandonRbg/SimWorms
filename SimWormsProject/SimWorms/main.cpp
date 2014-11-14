@@ -42,7 +42,7 @@ int main(int argc, char** argv){
 		}
 		Menu.update(renderWindow);
 		Menu.draw(renderWindow);
-		//Check.draw(renderWindow);
+		Check.draw(renderWindow);
 
 
 		/*if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){

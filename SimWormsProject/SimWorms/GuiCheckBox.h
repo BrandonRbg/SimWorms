@@ -5,7 +5,9 @@
 class GuiCheckBox{
 protected:
 	sdl::Vector2Float Pos;
+	sdl::Sprite BoxSprite;
 	sdl::Sprite CheckSprite;
+	bool Checked;
 public:
 	GuiCheckBox(/*sdl::Vector2Float &Position*/);
 	void setPos(sdl::Vector2Float &Position);

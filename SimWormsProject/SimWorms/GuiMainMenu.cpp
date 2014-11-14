@@ -1,7 +1,4 @@
 #include "GuiMainMenu.h"
-#include "GuiCheckBox.h"
-
-GuiMainMenu Lawl;
 
 GuiMainMenu::GuiMainMenu(){
 	TextNameGame.setFont("Arial.ttf");
@@ -32,7 +29,7 @@ void GuiMainMenu::draw(sdl::Window &target){
 void GuiMainMenu::update(sdl::Window &target){
 	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
 		if (TextNameGame.getBounds().contains(sdl::Mouse::getPosition())){
-			Lawl.draw(target);
+			//Lawl
 		}
 		if (TextOptions.getBounds().contains(sdl::Mouse::getPosition())){
 			//Code for clic on Options...

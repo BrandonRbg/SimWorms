@@ -20,3 +20,5 @@
 -Création de la classe de GuiCheckBox.
 {14 novembre 2014 7:22 to 8:54}
 -Modifications de la classe GuiCheckBox.
+{14 novembre 2014 15:00 to 15:20}
+-Midification de la classe GuiCHeckBox
