@@ -17,4 +17,6 @@
 {13 novembre 2014 19:40 to 19:50}
 -Modifications de la classe GuiMainMenu.
 {13 novembre 2014 20:50 to 21:49}
--Création de la classe de GuiCHeckBox.
+-Création de la classe de GuiCheckBox.
+{14 novembre 2014 7:22 to 8:54}
+-Modifications de la classe GuiCheckBox.
