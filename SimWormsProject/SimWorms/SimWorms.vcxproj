@@ -70,6 +70,7 @@
   <ItemGroup>
     <ClCompile Include="AssetsManager.cpp" />
     <ClCompile Include="GuiCheckBox.cpp" />
+    <ClCompile Include="GuiMainMenu.cpp" />
     <ClCompile Include="GuiTextBox.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OOSDL\AnimatedSprite.cpp" />

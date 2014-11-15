@@ -72,6 +72,9 @@
     <ClCompile Include="GuiTextBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GuiMainMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OOSDL\AnimatedSprite.h">
@@ -140,13 +143,13 @@
     <ClInclude Include="GuiComponents.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GuiMainMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GuiCheckBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GuiTextBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiMainMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
