@@ -66,10 +66,10 @@
     <ClCompile Include="OOSDL\StaticText.cpp">
       <Filter>Resource Files\OOSDL</Filter>
     </ClCompile>
-    <ClCompile Include="GuiMainMenu.cpp">
+    <ClCompile Include="GuiCheckBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GuiCheckBox.cpp">
+    <ClCompile Include="GuiTextBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -144,6 +144,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GuiCheckBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiTextBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

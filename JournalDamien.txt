@@ -24,3 +24,5 @@
 -Midification de la classe GuiCHeckBox
 {14 novembre 2014 18:05 to 18:23}
 -Révision du code.
+{15 novembre 2014 14:11 to 16:18}
+-Création et modification de GuiTextBox
