@@ -6,7 +6,7 @@
 #include "AssetsManager.h"
 
 int main(int argc, char** argv){
-	sdl::Window renderWindow(1920, 1080, "SimWorms", SDL_WINDOW_FULLSCREEN);
+	sdl::Window renderWindow(800, 600, "SimWorms", 0);
 	Terrain terrain;
 	terrain.loadTerrainFromFile("Maps/farm/map.png");
 	sdl::StaticSprite bg;
