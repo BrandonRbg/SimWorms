@@ -1,4 +1,4 @@
-﻿La génération a démarré 16/11/2014 20:13:53.
+﻿La génération a démarré 16/11/2014 20:16:53.
      1>Projet "C:\Users\Damien Arroyo\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -29,4 +29,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:01.14
+Temps écoulé 00:00:00.92

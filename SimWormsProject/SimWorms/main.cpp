@@ -18,6 +18,7 @@ int main(int argc, char** argv){
 	view = renderWindow.getDefaultView();
 
 	GuiMainMenu Menu;
+	GuiCheckBox Check;
 	GuiTextBox Box;
 
 	sdl::StaticText fpsText;
@@ -42,10 +43,10 @@ int main(int argc, char** argv){
 				renderWindow.close();
 		}
 		Menu.update(renderWindow);
-		//Check.update(renderWindow);
+		Check.update(renderWindow);
 		Box.update(renderWindow);
 		Menu.draw(renderWindow);
-		//Check.draw(renderWindow);
+		Check.draw(renderWindow);
 		Box.draw(renderWindow);
 
 
