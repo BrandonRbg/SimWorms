@@ -27,3 +27,7 @@
 		PlayerPhysicsComponent
 	-Bugs de déplacement vers la droite
 	18h00
+17 nov
+	16h00
+	-Tentative de débogage des physiques du joueur(checkcollision);encore à travailer
+ 	17h20

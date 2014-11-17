@@ -59,3 +59,7 @@ void Player::setPosition(sdl::Vector2Float& position){
 void Player::setVelocity(sdl::Vector2Float& velocity){
 	this->velocity = velocity;
 }
+bool Player::isPixelSolid(sdl::Vector2Float& position){
+	if (position.x > 0 && position.x < playerSprite.getTextureRect().w && position.y > 0 && position.y < playerSprite.getTextureRect().h)
+		return playerSprite.getTexture()->getPixel(position).a != 0;
+}

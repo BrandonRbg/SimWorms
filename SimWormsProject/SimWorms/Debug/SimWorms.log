@@ -1,62 +1,20 @@
-﻿La génération a démarré 2014-11-16 02:38:40.
-     1>Projet "C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
+﻿La génération a démarré 2014-11-17 17:16:11.
+     1>Projet "C:\Users\1355492\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AssetsManager.cpp main.cpp OOSDL\AnimatedSprite.cpp OOSDL\Clock.cpp OOSDL\Color.cpp OOSDL\Keyboard.cpp OOSDL\Mouse.cpp OOSDL\Sprite.cpp OOSDL\StaticSprite.cpp OOSDL\StaticText.cpp OOSDL\Text.cpp OOSDL\Texture.cpp OOSDL\Transformable.cpp OOSDL\View.cpp OOSDL\Window.cpp PhysicsComponent.cpp Player.cpp PlayerInputComponent.cpp PlayerPhysicsComponent.cpp Terrain.cpp
-         Terrain.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\terrain.cpp(6): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\terrain.cpp(7): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\terrain.cpp(59): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\terrain.cpp(62): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\terrain.cpp(65): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\terrain.cpp(70): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\terrain.cpp(72): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-         PlayerPhysicsComponent.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-         PlayerInputComponent.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\playerinputcomponent.cpp(4): warning C4305: 'argument' : troncation de '' à 'short'
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\playerinputcomponent.cpp(4): warning C4309: 'argument' : troncation de valeur de constante
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\playerinputcomponent.cpp(7): warning C4305: 'argument' : troncation de '' à 'short'
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\playerinputcomponent.cpp(7): warning C4309: 'argument' : troncation de valeur de constante
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\playerinputcomponent.cpp(11): warning C4305: 'argument' : troncation de '' à 'short'
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\playerinputcomponent.cpp(11): warning C4309: 'argument' : troncation de valeur de constante
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\playerinputcomponent.cpp(14): warning C4305: 'argument' : troncation de '' à 'short'
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\playerinputcomponent.cpp(14): warning C4309: 'argument' : troncation de valeur de constante
-         Player.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-         PhysicsComponent.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-         Window.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-         View.cpp
-         Transformable.cpp
-         Texture.cpp
-         Text.cpp
-         StaticText.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\statictext.cpp(6): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
-         StaticSprite.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\staticsprite.cpp(10): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
-         Sprite.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-         Mouse.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\mouse.cpp(13): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-         Keyboard.cpp
-         Color.cpp
-         Clock.cpp
-         AnimatedSprite.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Player.cpp PlayerInputComponent.cpp PlayerPhysicsComponent.cpp main.cpp
          main.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\main.cpp(70): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-         AssetsManager.cpp
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\main.cpp(70): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+         PlayerPhysicsComponent.cpp
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+         Player.cpp
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\oosdl\window.h(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
          Génération de code en cours...
-     1>c:\users\brandon\documents\visual studio 2013\projects\simworms\simwormsproject\simworms\terrain.cpp(22): warning C4715: 'Terrain::isPixelSolid' : les chemins de contrôle ne retournent pas tous une valeur
+     1>c:\users\1355492\desktop\simworms\simwormsproject\simworms\player.cpp(65): warning C4715: 'Player::isPixelSolid' : les chemins de contrôle ne retournent pas tous une valeur
+         Ignoré... (aucune modification pertinente détectée)
+         PlayerInputComponent.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\Debug\SimWorms.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\Debug\SimWorms.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\Debug\SimWorms.lib" /MACHINE:X86 Debug\AssetsManager.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.lib" /MACHINE:X86 Debug\AssetsManager.obj
          Debug\main.obj
          Debug\AnimatedSprite.obj
          Debug\Clock.obj
@@ -76,10 +34,9 @@
          Debug\PlayerInputComponent.obj
          Debug\PlayerPhysicsComponent.obj
          Debug\Terrain.obj
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: conflit entre la bibliothèque par défaut 'msvcrt.lib' et les autres bibliothèques ; utilisez /NODEFAULTLIB:library
-         SimWorms.vcxproj -> C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\Debug\SimWorms.exe
-     1>Génération du projet "C:\Users\Brandon\Documents\Visual Studio 2013\Projects\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" terminée (Build cible(s)).
+         SimWorms.vcxproj -> C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.exe
+     1>Génération du projet "C:\Users\1355492\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" terminée (Build cible(s)).
 
 La génération a réussi.
 
-Temps écoulé 00:00:06.92
+Temps écoulé 00:00:01.49
