@@ -1,4 +1,5 @@
 #include "GuiMainMenu.h"
+#include "GuiCheckBox.h"
 
 GuiMainMenu::GuiMainMenu(){
 	TextNameGame.setFont("Arial.ttf");

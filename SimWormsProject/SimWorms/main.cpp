@@ -6,9 +6,10 @@
 #include "AssetsManager.h"
 #include "GuiMainMenu.h"
 #include "GuiCheckBox.h"
+#include "GuiTextBox.h"
 
 int main(int argc, char** argv){
-	sdl::Window renderWindow(1280, 1024, "SimWorms", SDL_WINDOW_FULLSCREEN);
+	sdl::Window renderWindow(1280, 1024, "SimWorms", NULL/*SDL_WINDOW_FULLSCREEN*/);
 	Terrain terrain;
 	terrain.loadTerrainFromFile("Maps/farm/map.png");
 	sdl::StaticSprite bg;
@@ -17,7 +18,7 @@ int main(int argc, char** argv){
 	view = renderWindow.getDefaultView();
 
 	GuiMainMenu Menu;
-	GuiCheckBox Check;
+	GuiTextBox Box;
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("Arial.ttf");
@@ -41,8 +42,11 @@ int main(int argc, char** argv){
 				renderWindow.close();
 		}
 		Menu.update(renderWindow);
+		//Check.update(renderWindow);
+		Box.update(renderWindow);
 		Menu.draw(renderWindow);
-		Check.draw(renderWindow);
+		//Check.draw(renderWindow);
+		Box.draw(renderWindow);
 
 
 		/*if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){

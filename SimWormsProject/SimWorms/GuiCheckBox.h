@@ -17,5 +17,5 @@ public:
 	bool isClicked();
 	bool isOver();
 	void draw(sdl::Window &target);
-	//void update();
+	void update(sdl::Window &target);
 };

@@ -1,12 +1,11 @@
 #include "GuiTextBox.h"
 
-GuiTextBox::GuiTextBox(const std::string& string, int Size, sdl::Color Color, int PosX, int PosY){
-	Text.setFont("Bit.ttf");
-	Text.setString(string);
-	Text.setCharacterSize(Size);
-	Text.setColor(Color);
-	Text.setPosition(PosX, PosY);
-	TextBox.setPosition(PosX, PosY);
+GuiTextBox::GuiTextBox(/*int Size, sdl::Color Color*/){
+	Text.setFont("Arial.ttf");
+	//Text.setCharacterSize(Size);
+	//Text.setColor(Color);
+	Text.setString(" ");
+	TextBox.setTexture(&AssetsManager::getInstance().getTexture("TextBox.png"));
 	Pos = Text.getPosition();
 }
 void GuiTextBox::setString(const std::string& string){
@@ -55,5 +54,16 @@ bool GuiTextBox::isOver(){
 }
 
 void GuiTextBox::draw(sdl::Window &target){
+	target.draw(&Text);
+	target.draw(&TextBox);
+}
 
+void GuiTextBox::update(sdl::Window &target){
+	if (GuiTextBox::isClicked()){
+		if (GuiTextBox::isOver()){
+			if (sdl::Keyboard::isKeyPressed(SDLK_a)){
+				Text.setString(GuiTextBox::getString() + "a");
+			}
+		}
+	}
 }

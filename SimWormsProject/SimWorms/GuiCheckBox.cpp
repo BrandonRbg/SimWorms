@@ -45,8 +45,17 @@ bool GuiCheckBox::isOver(){
 void GuiCheckBox::draw(sdl::Window &target){
 	target.draw(&BoxSprite);
 	if (Checked)
-		target.draw(&BoxSprite);
+		target.draw(&CheckSprite);
 }
 
-/*void GuiCheckBox::update(){
-}*/
+void GuiCheckBox::update(sdl::Window &target){
+	if (GuiCheckBox::isClicked()){
+		// Bug checkmark flashing
+		if (Checked){
+			Checked = false;
+		}
+		else{
+			Checked = true;
+		}
+	}
+}

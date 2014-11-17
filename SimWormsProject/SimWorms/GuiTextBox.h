@@ -8,7 +8,7 @@ protected:
 	sdl::Sprite TextBox;
 	sdl::Vector2Float Pos;
 public:
-	GuiTextBox(const std::string& string, int Size, sdl::Color Color,int PosX,int PosY);
+	GuiTextBox(/*int Size, sdl::Color Color*/);
 	void setString(const std::string& string);
 	const std::string getString();
 	void setPos(sdl::Vector2Float &Position);
@@ -18,4 +18,5 @@ public:
 	bool isClicked();
 	bool isOver();
 	void draw(sdl::Window &target);
+	void update(sdl::Window &target);
 };
