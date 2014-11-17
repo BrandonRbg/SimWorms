@@ -23,11 +23,11 @@ sdl::Vector2Float sdl::Mouse::getPosition(){
 
 sdl::Vector2Float sdl::Mouse::getPosition(sdl::View &view){
 	std::vector<float> components;
-	Vector2Float viewRatio = { view.getViewport().w / view.getSize().x, view.getViewport().h / view.getSize().y };
+	Vector2Float viewRatio = { view.getSize().x / view.getViewport().w, view.getSize().y / view.getViewport().h };
 	for (int i = 0; i < 2; ++i) {
 		float truePosition = position[i];
 		float viewBound = view.getCenter()[i] - view.getSize()[i] / 2;
-		float viewScaledPosition = (truePosition + viewBound) * viewRatio[i];
+		float viewScaledPosition = (truePosition * viewRatio[i]) + viewBound;
 		components.push_back(viewScaledPosition);
 	} return sdl::Vector2Float(components[0], components[1]);
 }
