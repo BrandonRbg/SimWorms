@@ -18,11 +18,11 @@ public:
 
 	void update(sdl::Window& window);
 
-	void setKeyControl(std::string& control, Uint32 key);
-	void setMouseControl(std::string& control, Uint32 button);
+	void setKeyControl(const std::string& control, Uint32 key);
+	void setMouseControl(const std::string& control, Uint32 button);
 
-	Uint32 getKeyControl(std::string& control);
-	Uint32 getMouseControl(std::string& control);
+	Uint32 getKeyControl(const std::string& control);
+	Uint32 getMouseControl(const std::string& control);
 
 private:
 	bool fullScreen;
