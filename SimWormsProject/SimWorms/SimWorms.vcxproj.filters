@@ -75,6 +75,9 @@
     <ClCompile Include="GuiMainMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GuiGameMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OOSDL\AnimatedSprite.h">
@@ -150,6 +153,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GuiMainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiGameMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

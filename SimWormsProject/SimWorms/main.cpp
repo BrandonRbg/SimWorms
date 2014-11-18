@@ -7,6 +7,7 @@
 #include "GuiMainMenu.h"
 #include "GuiCheckBox.h"
 #include "GuiTextBox.h"
+#include "GuiGameMenu.h"
 
 int main(int argc, char** argv){
 	sdl::Window renderWindow(1280, 1024, "SimWorms", NULL/*SDL_WINDOW_FULLSCREEN*/);
@@ -20,6 +21,7 @@ int main(int argc, char** argv){
 	GuiMainMenu Menu;
 	GuiCheckBox Check;
 	GuiTextBox Box;
+	GuiGameMenu Game;
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("Arial.ttf");
@@ -43,11 +45,13 @@ int main(int argc, char** argv){
 				renderWindow.close();
 		}
 		Menu.update(renderWindow);
-		Check.update(renderWindow);
-		Box.update(renderWindow);
+		Game.update();
+		//Check.update(renderWindow);
+		//Box.update(renderWindow);
 		Menu.draw(renderWindow);
-		Check.draw(renderWindow);
-		Box.draw(renderWindow);
+		Game.draw(renderWindow);
+		//Check.draw(renderWindow);
+		//Box.draw(renderWindow);
 
 
 		/*if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){

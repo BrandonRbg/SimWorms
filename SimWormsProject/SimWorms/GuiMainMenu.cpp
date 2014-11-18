@@ -21,10 +21,10 @@ GuiMainMenu::GuiMainMenu(){
 
 void GuiMainMenu::draw(sdl::Window &target){
 	target.draw(&SpriteBG);
-	target.draw(&SpriteRec);
-	target.draw(&SpriteLogo);
-	target.draw(&TextOptions);
-	target.draw(&TextNameGame);
+	//target.draw(&SpriteRec);
+	//target.draw(&SpriteLogo);
+	//target.draw(&TextOptions);
+	//target.draw(&TextNameGame);
 }
 
 void GuiMainMenu::update(sdl::Window &target){
