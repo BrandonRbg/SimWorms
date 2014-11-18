@@ -11,8 +11,7 @@ Terrain::~Terrain(){
 void Terrain::loadTerrainFromFile(std::string filePath){
 	originalBitMap = AssetsManager::getInstance().getTexture(filePath);
 	actualBitMap = originalBitMap;
-	width = originalBitMap.getSize().x;
-	height = originalBitMap.getSize().y;
+	size = sdl::Vector2Float(originalBitMap.getSize().x, originalBitMap.getSize().y);
 	map.setTexture(&actualBitMap);
 }
 
@@ -25,7 +24,7 @@ void Terrain::removePixel(sdl::Vector2Float position){
 }
 
 bool Terrain::isPixelSolid(sdl::Vector2Float position){
-	if (position.x > 0 && position.x < width && position.y > 0 && position.y < height)
+	if (position.x > 0 && position.x < size.x && position.y > 0 && position.y < size.y)
 		return actualBitMap.getPixel(sdl::Vector2Float(position.x, position.y)).a != 0;
 }
 
@@ -51,24 +50,20 @@ sdl::Vector2Float Terrain::getNormal(sdl::Vector2Float position){
 	return sdl::Vector2Float(avgX / length, avgY / length);
 }
 
-int Terrain::getHeight(){
-	return height;
-}
-
-int Terrain::getWidth(){
-	return width;
+sdl::Vector2Float Terrain::getSize(){
+	return size;
 }
 
 void Terrain::explode(sdl::Vector2Float position, float radius, float borderWidth, sdl::Color& borderColor){
-	if (position.x < 0 || position.x > width)
+	if (position.x < 0 || position.x > size.x)
 		return;
-	if (position.y < 0 || position.y > height)
+	if (position.y < 0 || position.y > size.y)
 		return;
 	for (int x = position.x - (int)radius; x < position.x + (int)radius; ++x){
-		if (!(x >= 0 && x < width))
+		if (!(x >= 0 && x < size.x))
 			continue;
 		for (int y = position.y - (int)radius; y < position.y + (int)radius; ++y){
-			if (!(y >= 0 && y < height))
+			if (!(y >= 0 && y < size.y))
 				continue;
 			if (isPixelSolid(sdl::Vector2Float(x, y))){
 				sdl::Vector2Float offSet(x - position.x, y - position.y);

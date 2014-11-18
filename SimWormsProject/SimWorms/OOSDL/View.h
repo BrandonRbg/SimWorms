@@ -26,6 +26,8 @@ namespace sdl{
 
 		sdl::Vector2Float& getSize();
 
+		sdl::Vector2Float getOriginalSize(){ return originalSize; }
+
 		float getRotation();
 
 		sdl::RectFloat& getViewport();
@@ -39,6 +41,7 @@ namespace sdl{
 	private:
 		sdl::Vector2Float center;
 		sdl::Vector2Float size;
+		sdl::Vector2Float originalSize;
 		sdl::RectFloat viewport;
 		float orientation;
 		float zoomFactor;

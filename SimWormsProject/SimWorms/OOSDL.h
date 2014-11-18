@@ -1,7 +1,0 @@
-#include "Window.h"
-#include "Sprite.h"
-#include "Text.h"
-#include "Keyboard.h"
-#include "Mouse.h"
-#include "Clock.h"
-#include "View.h"
