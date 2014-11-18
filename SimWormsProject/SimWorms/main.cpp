@@ -66,7 +66,7 @@ int main(int argc, char** argv){
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
 		}
-		player.update(1 / (60.f), terrain);
+		player.update(1 / (fps), terrain);
 		player.draw(renderWindow);
 		renderWindow.draw(&fpsText);
 
