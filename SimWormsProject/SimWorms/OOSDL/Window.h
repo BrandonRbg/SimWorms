@@ -12,15 +12,28 @@
 #include "View.h"
 #include "Keyboard.h"
 #include "Mouse.h"
+<<<<<<< HEAD
+=======
+#include "VideoMode.h"
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 
 namespace sdl{
 	class Window
 	{
 	public:
+<<<<<<< HEAD
 		Window(float x, float y, const std::string& title, Uint32 flags);
 		Window(sdl::Vector2Float vect, const std::string& title, Uint32 flags) : sdl::Window((int)vect.x, (int)vect.y, title, flags) {}
 		~Window();
 
+=======
+		Window(sdl::VideoMode vm, const std::string& title, bool fs);
+		~Window();
+
+		void setVideoMode(sdl::VideoMode vm);
+		void setFullScreen(bool fs);
+
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 		void draw(sdl::Drawable* drawable);
 		void clear();
 		void clear(sdl::Color& color);
@@ -49,6 +62,10 @@ namespace sdl{
 		sdl::View view;
 
 		bool isWindowOpen;
+<<<<<<< HEAD
+=======
+		bool isOnFullscreen;
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 	private:
 		static int instances;
 	};

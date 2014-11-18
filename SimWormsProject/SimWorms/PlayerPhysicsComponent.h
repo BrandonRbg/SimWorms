@@ -6,7 +6,13 @@ class PlayerPhysicsComponent : public PhysicsComponent
 public:
 	void update(Player &player, Terrain &terrain, float frametime);
 	void checkCollision(Player &player, Terrain &terrain, float frametime);
+<<<<<<< HEAD
 	void stopMovingX(Player &player);
 	bool isInMidAir();
+=======
+	bool isInMidAir(Player &player);
+	void stopMovingX(Player &player);
+	void stopMovingY(Player &player);
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 };
 

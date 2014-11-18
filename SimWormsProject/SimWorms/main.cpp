@@ -1,4 +1,5 @@
 #include <sstream>
+<<<<<<< HEAD
 
 #include "OOSDL/OOSDL.h"
 #include "OOSDL/StaticSprite.h"
@@ -16,6 +17,28 @@ int main(int argc, char** argv){
 	view = renderWindow.getDefaultView();
 	Player player(sdl::Vector2Float(500, 500));
 	
+=======
+#include <time.h>
+
+#include "OOSDL/OOSDL.h"
+
+#include "Terrain.h"
+#include "AssetsManager.h"
+#include "ExplosionsManager.h"
+#include "GameOptionsManager.h"
+
+int main(int argc, char** argv){
+	srand(time(0));
+	sdl::Window renderWindow(sdl::VideoMode(800, 600), "SimWorms", false);
+	GameOptionsManager::getInstance().update(renderWindow);
+	Terrain terrain;
+	terrain.loadTerrainFromFile("maps/country/map.png");
+	sdl::StaticSprite bg;
+	bg.setTexture(&AssetsManager::getInstance().getTexture("maps/country/background.jpg"));
+	bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
+	sdl::View view;
+	view = renderWindow.getDefaultView();
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("Arial.ttf");
@@ -26,8 +49,15 @@ int main(int argc, char** argv){
 
 	sdl::Clock fpsClock;
 	sdl::Clock fpsDisplayUpdateClock;
+<<<<<<< HEAD
 	while (renderWindow.isOpen()){
 		int fps = (int)(1 / fpsClock.restart().asSeconds());
+=======
+
+	while (renderWindow.isOpen()){
+		float frametime = fpsClock.restart().asSeconds();
+		int fps = (int)(1 / frametime);
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 		SDL_Event event;
 		
 		while (renderWindow.pollEvent(event)){
@@ -37,6 +67,7 @@ int main(int argc, char** argv){
 			if (event.type == SDL_KEYDOWN)
 			if (event.key.keysym.sym == SDLK_ESCAPE)
 				renderWindow.close();
+<<<<<<< HEAD
 		}
 		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
 			if (sdl::Mouse::getPosition().x > 0 && sdl::Mouse::getPosition().x < terrain.getWidth() && sdl::Mouse::getPosition().y > 0 && sdl::Mouse::getPosition().y < terrain.getHeight()){
@@ -55,11 +86,60 @@ int main(int argc, char** argv){
 			view.move(0, 10);
 		if (sdl::Keyboard::isKeyPressed(SDLK_d))
 			view.move(10, 0);
+=======
+			if (event.key.keysym.sym == SDLK_q){
+				GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode(640, 480));
+			}
+			if (event.key.keysym.sym == SDLK_e){
+				GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode::getModes()[0]);
+			}
+			if (event.key.keysym.sym == SDLK_f){
+				GameOptionsManager::getInstance().setFullScreen(true);
+			}
+			if (event.key.keysym.sym == SDLK_g){
+				GameOptionsManager::getInstance().setFullScreen(false);
+			}
+			if (event.key.keysym.sym == SDLK_u){
+				GameOptionsManager::getInstance().update(renderWindow);
+			}
+			if (event.type == SDL_MOUSEWHEEL)
+			{
+				if (event.wheel.y < 0)
+					view.zoom(1.10);
+				if (event.wheel.y > 0)
+					view.zoom(0.90);
+			}
+
+		}
+		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
+			if (sdl::Mouse::getPosition().x > 0 && sdl::Mouse::getPosition().x < terrain.getSize().x && sdl::Mouse::getPosition().y > 0 && sdl::Mouse::getPosition().y < terrain.getSize().y){
+				ExplosionsManager::getInstance().addExplosion(sdl::Mouse::getPosition(view), terrain, rand() % 50 + 50);
+				std::cout << sdl::Mouse::getPosition(view).x << ", " << sdl::Mouse::getPosition(view).y << std::endl;
+				std::cout << sdl::Mouse::getPosition().x << ", " << sdl::Mouse::getPosition().y << std::endl;
+			}
+		}
+		if (sdl::Keyboard::isKeyPressed(SDLK_w))
+			view.move(0, -500 * frametime);
+		if (sdl::Keyboard::isKeyPressed(SDLK_a))
+			view.move(-500 * frametime, 0);
+		if (sdl::Keyboard::isKeyPressed(SDLK_s))
+			view.move(0, 500 * frametime);
+		if (sdl::Keyboard::isKeyPressed(SDLK_d))
+			view.move(500 * frametime, 0);
+		if (sdl::Keyboard::isKeyPressed(SDLK_z))
+			view.zoom(1.01);
+		if (sdl::Keyboard::isKeyPressed(SDLK_x))
+			view.zoom(0.99);
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 		renderWindow.clear(sdl::Color::White);
 		renderWindow.setView(view);
 		renderWindow.draw(&bg);
 		terrain.draw(renderWindow);
+<<<<<<< HEAD
 	
+=======
+		ExplosionsManager::getInstance().update(renderWindow);
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 
 		if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
 			std::stringstream ss;
@@ -67,8 +147,11 @@ int main(int argc, char** argv){
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
 		}
+<<<<<<< HEAD
 		player.update(1 / (fps + 0.0000001), terrain);
 		player.draw(renderWindow);
+=======
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 		renderWindow.draw(&fpsText);
 
 		renderWindow.show();

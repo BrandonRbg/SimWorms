@@ -2,12 +2,17 @@
 
 int sdl::Window::instances = 0;
 
+<<<<<<< HEAD
 sdl::Window::Window(float x, float y, const std::string& title, Uint32 flags) {
+=======
+sdl::Window::Window(sdl::VideoMode vm, const std::string& title, bool fs) {
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 	++instances;
 	if (instances == 1)
 		SDL_Init(SDL_INIT_VIDEO);
 	isWindowOpen = true;
 
+<<<<<<< HEAD
 	this->size.x = x;
 	this->size.y = y;
 	this->windowID = SDL_GetWindowID(this->sdlWindow);
@@ -15,13 +20,28 @@ sdl::Window::Window(float x, float y, const std::string& title, Uint32 flags) {
 	sdlRender = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	this->setTitle(title);
 	this->view = sdl::View(sdl::Vector2Float(this->size.x / 2, this->size.y / 2), sdl::Vector2Float(this->size.x, this->size.y));
+=======
+	this->size.x = vm.w;
+	this->size.y = vm.h;
+	this->windowID = SDL_GetWindowID(this->sdlWindow);
+
+	sdlWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, (int)size.x, (int)size.y, 0);
+	sdlRender = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	this->setTitle(title);
+	this->view = sdl::View(sdl::Vector2Float(this->size.x / 2, this->size.y / 2), sdl::Vector2Float(this->size.x, this->size.y));
+	setFullScreen(fs);
+	isOnFullscreen = fs;
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 }
 
 sdl::Window::~Window()
 {
+<<<<<<< HEAD
 	SDL_DestroyRenderer(this->sdlRender);
 	SDL_DestroyWindow(this->sdlWindow);
 
+=======
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 	SDL_DestroyRenderer(sdlRender);
 	SDL_DestroyWindow(sdlWindow);
 
@@ -30,6 +50,28 @@ sdl::Window::~Window()
 		SDL_Quit();
 }
 
+<<<<<<< HEAD
+=======
+void sdl::Window::setVideoMode(sdl::VideoMode vm){
+	this->size = sdl::Vector2Float(vm.w, vm.h);
+	bool tmpFs = isOnFullscreen;
+	setFullScreen(false);
+	SDL_SetWindowSize(sdlWindow, size.x, size.y);
+	SDL_SetWindowPosition(sdlWindow, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+	if (tmpFs)
+		setFullScreen(true);
+}
+
+
+void sdl::Window::setFullScreen(bool fs){
+	if (fs)
+		SDL_SetWindowFullscreen(sdlWindow, SDL_WINDOW_FULLSCREEN);
+	else
+		SDL_SetWindowFullscreen(sdlWindow, 0);
+	isOnFullscreen = fs;
+}
+
+>>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 void sdl::Window::show(){
 	SDL_RenderPresent(sdlRender);
 }

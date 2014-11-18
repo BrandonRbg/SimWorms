@@ -1,0 +1,20 @@
+4 nov
+	10h15
+	-Création du diagramme d'état du "worms".
+	10h27
+	
+	10h37
+	-Création du diagramme d'utilisation du menu principal.
+	10h50
+	
+	11h00
+	-Aide au diagramme de classe (analyse des outils).
+	11h30
+6 nov
+	15h00
+	-Création du document de gestion de projet.
+	15h20
+
+	15h30
+	-Création du diagramme d'état du logiciel
+	15h40
