@@ -19,3 +19,7 @@ Entre Travail et autres occupations:
 	-Création de la classe Map qui gérera tous les attributs du champ de bataille tel que le BG, le terrain, les mines, etc.
 	-BugFix sur le zoom des views, il est maintenant fonctionnel.
 	-Ajout de la méthode getPosition(sdl::View view) de la classe Mouse pour permettre d'obtenir la position de la souris par rapport à la view.
+Le mardi 18 novembre 2014
+	11h17
+	-Arrangement du projet 
+	-Mise à jour des diagrammes de classe.
