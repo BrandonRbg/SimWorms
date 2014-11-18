@@ -15,4 +15,6 @@ public:
 	}
 
 	bool isPlayerTouch(Player Cible);
+
+	SDL_Rect GetMeleeHitbox(void){ return MeleeHitBox; }
 };

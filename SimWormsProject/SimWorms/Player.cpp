@@ -2,7 +2,7 @@
 
 Player::Player(sdl::Vector2Float &position){
 	this->position = position;
-
+	this->heal = 100;
 	this->playerSprite.setTexture(&AssetsManager::getInstance().getTexture("player.png"));
 	this->playerSprite.setPosition(position);
 	playerSprite.setOrigin(playerSprite.getTextureRect().w / 2, playerSprite.getTextureRect().h / 2);
@@ -53,9 +53,15 @@ sdl::Vector2Float& Player::getVelocity(){
 sdl::RectFloat& Player::getBounds(){
 	return playerSprite.getTextureRect();
 }
+int Player::getHeal(){
+	return this->heal;
+}
 void Player::setPosition(sdl::Vector2Float& position){
 	this->playerSprite.setPosition(position);
 }
 void Player::setVelocity(sdl::Vector2Float& velocity){
 	this->velocity = velocity;
+}
+void Player::setHeal(int heal) {
+	this->heal = heal;
 }
