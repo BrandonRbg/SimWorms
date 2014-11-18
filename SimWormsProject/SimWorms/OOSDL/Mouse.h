@@ -12,6 +12,7 @@ namespace sdl{
 		static void updateMouseButtonState(short button, bool state);
 		static void updateMousePosition(int x, int y);
 
+		static bool isButtonReleased(short button); // Ajout de cette fonction par Damien Arroyo.
 		static bool isButtonPressed(short button);
 		static sdl::Vector2Float getPosition();
 		static sdl::Vector2Float getPosition(sdl::View &view);

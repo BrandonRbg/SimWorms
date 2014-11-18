@@ -8,6 +8,7 @@ protected:
 	sdl::Sprite BoxSprite;
 	sdl::Sprite CheckSprite;
 	bool Checked;
+	bool Clickable;
 public:
 	GuiCheckBox();
 	void setPos(sdl::Vector2Float &Position);

@@ -12,6 +12,9 @@ void sdl::Mouse::updateMouseButtonState(short button, bool state){
 void sdl::Mouse::updateMousePosition(int x, int y){
 	position = sdl::Vector2Float(x, y);
 }
+bool sdl::Mouse::isButtonReleased(short button){ // Ajout de cette fonction par Damien Arroyo.
+	return !(pressedButtons.find(button) != pressedButtons.end());
+}
 
 bool sdl::Mouse::isButtonPressed(short button){
 	return pressedButtons.find(button) != pressedButtons.end();

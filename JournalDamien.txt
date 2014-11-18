@@ -28,3 +28,6 @@
 -Création et modification de GuiTextBox
 {16 novembre 2014 18:44 to 20:18}
 -Apport de modifications à GuiTextBox et GuiCheckBox.
+{17 novembre 2014 20:50 to 21:14}
+-Réglage d'un bug avec la Check Box et ajout d'une fonction de sdl::Mouse. La fonction ajoutée est sdl::Mouse::isButtonRealeased.
+

@@ -2,6 +2,7 @@
 
 GuiCheckBox::GuiCheckBox(){
 	Checked = false;
+	Clickable = true;
 	CheckSprite.setTexture(&AssetsManager::getInstance().getTexture("checkmark.png"));
 	BoxSprite.setTexture(&AssetsManager::getInstance().getTexture("Box.png"));
 }
@@ -50,12 +51,17 @@ void GuiCheckBox::draw(sdl::Window &target){
 
 void GuiCheckBox::update(sdl::Window &target){
 	if (GuiCheckBox::isClicked()){
-		// Bug checkmark flashing
-		if (Checked){
-			Checked = false;
+		if (Clickable){
+			Clickable = false;
+			if (Checked){
+				Checked = false;
+			}
+			else{
+				Checked = true;
+			}
 		}
-		else{
-			Checked = true;
-		}
+	}
+	if (sdl::Mouse::isButtonReleased(SDL_BUTTON_LEFT)){
+		Clickable = true;
 	}
 }
