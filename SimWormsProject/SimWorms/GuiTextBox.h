@@ -17,6 +17,7 @@ public:
 	sdl::Vector2Float getSize();
 	bool isClicked();
 	bool isOver();
+	void GuiTextBox::onTextEntered(SDL_TextInputEvent Event);
 	void draw(sdl::Window &target);
 	void update(sdl::Window &target);
 };

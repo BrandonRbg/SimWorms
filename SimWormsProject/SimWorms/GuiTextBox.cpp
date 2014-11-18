@@ -58,6 +58,10 @@ void GuiTextBox::draw(sdl::Window &target){
 	target.draw(&TextBox);
 }
 
+void GuiTextBox::onTextEntered(SDL_TextInputEvent Event){
+	Event.text();
+}
+
 void GuiTextBox::update(sdl::Window &target){
 	if (GuiTextBox::isClicked()){
 		if (GuiTextBox::isOver()){
