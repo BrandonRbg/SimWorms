@@ -15,7 +15,6 @@ int main(int argc, char** argv){
 	sdl::View view;
 	view = renderWindow.getDefaultView();
 	Player player(sdl::Vector2Float(500, 500));
-	
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("Arial.ttf");
@@ -67,7 +66,7 @@ int main(int argc, char** argv){
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
 		}
-		player.update(1 / (fps + 0.0000001), terrain);
+		player.update(1 / (60.f), terrain);
 		player.draw(renderWindow);
 		renderWindow.draw(&fpsText);
 

@@ -31,3 +31,7 @@
 	16h00
 	-Tentative de débogage des physiques du joueur(checkcollision);encore à travailer
  	17h20
+18 nov
+	10h20
+	-Réglage partiel du checkCollision
+	11h17
