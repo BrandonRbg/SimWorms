@@ -17,6 +17,11 @@ Travail de toute l'équipe sur le diagramme de classe du GUI, les cas d'utilisati
 Travail sur le diagramme visio sur les classes qui vont servir d'élément de gameplay (grenade, rocket, mine, ect...)
 Création des classes pour les éléments de gameplay (ceux qui sont compris dans le visio de classe des élément du gameplay)
 
+17 Novembre, Environ 1 heures de travail-------------------
+
+Travail sur la classe Melee (presque fini mais il reste des ajustement à faire), Ajout de la variable (avec les get/set) qui représente la vie d'un player
+dans la classe player.
+
 
 
 
