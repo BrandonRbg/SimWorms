@@ -7,6 +7,7 @@
 #include "AssetsManager.h"
 #include "ExplosionsManager.h"
 #include "GameOptionsManager.h"
+#include "Player.h"
 
 int main(int argc, char** argv){
 	srand(time(0));
@@ -19,6 +20,8 @@ int main(int argc, char** argv){
 	bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
 	sdl::View view;
 	view = renderWindow.getDefaultView();
+
+	Player player(sdl::Vector2Float(700, 200));
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("Arial.ttf");
@@ -97,6 +100,8 @@ int main(int argc, char** argv){
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
 		}
+		player.update(frametime, terrain);
+		player.draw(renderWindow);
 		renderWindow.draw(&fpsText);
 
 		renderWindow.show();
