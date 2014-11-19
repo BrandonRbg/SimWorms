@@ -7,21 +7,25 @@
 #include "AssetsManager.h"
 #include "ExplosionsManager.h"
 #include "GameOptionsManager.h"
+#include "Player.h"
 
 int main(int argc, char** argv){
 	srand(time(0));
 	sdl::Window renderWindow(sdl::VideoMode(800, 600), "SimWorms", false);
 	GameOptionsManager::getInstance().update(renderWindow);
 	Terrain terrain;
-	terrain.loadTerrainFromFile("maps/country/map.png");
+	terrain.loadTerrainFromFile("data/maps/country/map.png");
 	sdl::StaticSprite bg;
-	bg.setTexture(&AssetsManager::getInstance().getTexture("maps/country/background.jpg"));
+	bg.setTexture(&AssetsManager::getInstance().getTexture("data/maps/country/background.jpg"));
 	bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
 	sdl::View view;
 	view = renderWindow.getDefaultView();
 
+	Player player(sdl::Vector2Float(800,200));
+	view.setCenter(player.getPosition());
+
 	sdl::StaticText fpsText;
-	fpsText.setFont("Arial.ttf");
+	fpsText.setFont("data/fonts/Arial.ttf");
 	fpsText.setPosition(10, 10);
 	fpsText.setCharacterSize(16);
 	fpsText.setColor(sdl::Color::Black);
@@ -97,6 +101,8 @@ int main(int argc, char** argv){
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
 		}
+		player.update(frametime, terrain);
+		player.draw(renderWindow);
 		renderWindow.draw(&fpsText);
 
 		renderWindow.show();

@@ -3,7 +3,7 @@
 Player::Player(sdl::Vector2Float &position){
 	this->position = position;
 
-	this->playerSprite.setTexture(&AssetsManager::getInstance().getTexture("player.png"));
+	this->playerSprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/player.png"));
 	this->playerSprite.setPosition(position);
 	playerSprite.setOrigin(playerSprite.getTextureRect().w / 2, playerSprite.getTextureRect().h / 2);
 	velocity = sdl::Vector2Float(0, 0);
@@ -11,7 +11,7 @@ Player::Player(sdl::Vector2Float &position){
 }
 
 void Player::moveLeft(){
-	if (!isMovingX){
+	if (!isMovingX && !physics.isUpperBoundBlocked){
 		if (physics.isInMidAir(*this)){
 			physics.stopMovingX(*this);
 			return;
@@ -21,7 +21,7 @@ void Player::moveLeft(){
 	}
 }
 void Player::moveRight(){
-	if (!isMovingX){
+	if (!isMovingX && !physics.isUpperBoundBlocked){
 		if (physics.isInMidAir(*this)){
 			physics.stopMovingX(*this);
 			return;

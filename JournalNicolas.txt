@@ -37,3 +37,10 @@
 	11h17
 	-Amélioration deu checkCollision(il ne reste qu'à vérifier les collisions avec le plafond)
 	12h48
+19 nov
+	08h10
+	-Adapatation du code avec les nouveaux chemins d'accès
+	-Quasi finalisation du checkColision, soit vérification des colision avec le dessus de joueur
+	-Reste à corriger le calcul de repositionnage du joueur.
+	09h55
+	
