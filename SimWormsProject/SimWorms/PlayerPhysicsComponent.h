@@ -3,10 +3,13 @@
 class Player;
 class PlayerPhysicsComponent : public PhysicsComponent
 {
+private:
+	bool isSliding(Player &player, Terrain &terrain, float x, float y);
+	bool cannotMove;
 public:
 	void update(Player &player, Terrain &terrain, float frametime);
 	void checkCollision(Player &player, Terrain &terrain, float frametime);
-	bool isInMidAir(Player &player);
+	bool canMove(Player &player);
 	bool isUpperBoundBlocked;
 	bool isUpperBoundBlockedFromLeft;
 	bool isUpperBoundBlockedFromRight;

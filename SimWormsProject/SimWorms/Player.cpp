@@ -11,12 +11,12 @@ Player::Player(sdl::Vector2Float &position){
 }
 
 void Player::moveLeft(float frametime){
-	if (!physics.isInMidAir(*this)){
+	if (!physics.canMove(*this)){
 		physics.addConstraint(sdl::Vector2Float(-100, 0) * frametime);
 	}
 }
 void Player::moveRight(float frametime){
-	if (!physics.isInMidAir(*this)){
+	if (!physics.canMove(*this)){
 		physics.addConstraint(sdl::Vector2Float(100, 0) * frametime);
 	}
 }

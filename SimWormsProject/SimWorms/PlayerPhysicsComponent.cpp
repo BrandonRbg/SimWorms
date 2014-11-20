@@ -41,7 +41,8 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y-- - 1))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
 					}
-					player.setVelocity(resultingVector + player.getVelocity());
+					if (!isSliding(player, terrain, x, y))
+						player.setVelocity(resultingVector + player.getVelocity());
 					player.setPosition(player.getPosition() + player.getVelocity());
 					return;
 				}
@@ -56,7 +57,8 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
 					}
-					player.setVelocity(resultingVector + playerVelocity);
+					if (!isSliding(player, terrain, x, y))
+						player.setVelocity(resultingVector + playerVelocity);
 					player.setPosition(player.getPosition() + player.getVelocity());
 					return;
 				}
@@ -71,7 +73,8 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
 					}
-					player.setVelocity(resultingVector + playerVelocity);
+					if (!isSliding(player, terrain, x, y))
+						player.setVelocity(resultingVector + playerVelocity);
 					player.setPosition(player.getPosition() + player.getVelocity());
 					return;
 				}
@@ -81,6 +84,18 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 	player.setVelocity(resultingVector + player.getVelocity());
 	player.setPosition(player.getPosition() + player.getVelocity());
 }
+bool PlayerPhysicsComponent::isSliding(Player &player, Terrain &terrain, float x, float y){
+	float terrainNormalX = terrain.getNormal(sdl::Vector2Float(x, y)).x;
+	if (terrainNormalX > 0.9 || terrainNormalX < -0.9){
+		stopMovingX(player);
+		addConstraint(sdl::Vector2Float(5 * terrainNormalX, resultingVector.y));
+		player.setVelocity(resultingVector + player.getVelocity());
+		cannotMove = true;
+		return true;
+	}
+	cannotMove = false;
+	return false;
+}
 void PlayerPhysicsComponent::stopMovingX(Player &player){
 	resultingVector = sdl::Vector2Float(0, resultingVector.y);
 	player.setVelocity(resultingVector);
@@ -89,6 +104,6 @@ void PlayerPhysicsComponent::stopMovingY(Player &player){
 	resultingVector = sdl::Vector2Float(resultingVector.x, 0);
 	player.setVelocity(resultingVector);
 }
-bool PlayerPhysicsComponent::isInMidAir(Player &player){
-	return player.getVelocity().y != 0;
+bool PlayerPhysicsComponent::canMove(Player &player){
+	return (player.getVelocity().y != 0 || cannotMove);
 }
