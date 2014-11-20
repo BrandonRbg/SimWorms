@@ -10,14 +10,14 @@ Player::Player(sdl::Vector2Float &position){
 	playerSprite.setOrigin(0, 0);
 }
 
-void Player::moveLeft(){
+void Player::moveLeft(float frametime){
 	if (!physics.isInMidAir(*this)){
-		physics.addConstraint(sdl::Vector2Float(-5, 0));
+		physics.addConstraint(sdl::Vector2Float(-100, 0) * frametime);
 	}
 }
-void Player::moveRight(){
+void Player::moveRight(float frametime){
 	if (!physics.isInMidAir(*this)){
-		physics.addConstraint(sdl::Vector2Float(5, 0));
+		physics.addConstraint(sdl::Vector2Float(100, 0) * frametime);
 	}
 }
 void Player::stop(){
@@ -29,7 +29,7 @@ void Player::draw(sdl::Window &target){
 }
 
 void Player::update(float frametime, Terrain& terrain){
-	input.update(*this);
+	input.update(*this, frametime);
 	physics.update(*this, terrain, frametime);
 }
 sdl::Vector2Float& Player::getPosition(){

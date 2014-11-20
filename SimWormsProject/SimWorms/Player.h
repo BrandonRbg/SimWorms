@@ -12,8 +12,8 @@ private:
 	PlayerPhysicsComponent physics;
 public:
 	Player(sdl::Vector2Float &position);
-	void moveLeft();
-	void moveRight();
+	void moveLeft(float frametime);
+	void moveRight(float frametime);
 	void stop();
 	void draw(sdl::Window &target);
 	void update(float frametime, Terrain& terrain);

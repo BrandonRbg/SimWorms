@@ -53,7 +53,6 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 		for (float x = finalPos.x; x <= finalPos.x + (player.getBounds().w / 2); x++){
 			for (float y = finalPos.y + player.getBounds().h; y >= finalPos.y; y--){
 				if (player.isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-					stopMovingX(player);
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
 					}
@@ -69,7 +68,6 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 		for (float x = finalPos.x + player.getBounds().w; x >= finalPos.x + (player.getBounds().w / 2); x--){
 			for (float y = finalPos.y + player.getBounds().h; y >= finalPos.y; y--){
 				if (player.isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-					stopMovingX(player);
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
 					}

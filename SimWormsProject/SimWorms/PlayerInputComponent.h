@@ -4,6 +4,6 @@ class Player;
 class PlayerInputComponent
 {
 public:
-	void update(Player &player);
+	void update(Player &player, float frametime);
 };
 
