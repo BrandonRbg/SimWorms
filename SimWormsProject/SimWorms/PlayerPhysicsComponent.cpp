@@ -23,7 +23,6 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 				stopMovingX(player);
 				while (terrain.isPixelSolid(player.getPosition())){
 					player.setPosition(player.getPosition() + sdl::Vector2Float(0, 1));
-					
 				}
 				return;
 			}
@@ -87,8 +86,8 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 bool PlayerPhysicsComponent::isSliding(Player &player, Terrain &terrain, float x, float y, float frametime){
 	float terrainNormalX = terrain.getNormal(sdl::Vector2Float(x, y)).x;
 	if (terrainNormalX > 0.9 || terrainNormalX < -0.9){
-		stopMovingX(player);
-		addConstraint(sdl::Vector2Float(5 * terrainNormalX, resultingVector.y) * frametime);
+		//stopMovingX(player);
+		addConstraint(sdl::Vector2Float(25 * terrainNormalX, resultingVector.y) * frametime);
 		player.setVelocity(resultingVector + player.getVelocity());
 		cannotMove = true;
 		return true;
