@@ -26,6 +26,9 @@ void Terrain::removePixel(sdl::Vector2Float position){
 bool Terrain::isPixelSolid(sdl::Vector2Float position){
 	if (position.x > 0 && position.x < size.x && position.y > 0 && position.y < size.y)
 		return actualBitMap.getPixel(sdl::Vector2Float(position.x, position.y)).a != 0;
+	else if (position.x < 0 || position.x < size.x)
+		return true;
+	else return false;
 }
 
 void Terrain::draw(sdl::Window &target){

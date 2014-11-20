@@ -5,7 +5,6 @@
 class Player
 {
 private:
-	bool isMovingX;
 	sdl::Vector2Float position;
 	sdl::Vector2Float velocity;
 	sdl::Sprite playerSprite;

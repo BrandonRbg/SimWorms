@@ -47,4 +47,7 @@
 	20h20
 	-Finalisation du checkCollision
 	20h45
-	
+20 nov
+	11h55
+	-Retouche du déplacement (modif dans input et player) et du isPixelSolid du terrain
+	12h05
