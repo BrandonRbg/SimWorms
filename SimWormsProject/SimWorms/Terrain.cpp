@@ -38,6 +38,9 @@ bool Terrain::isPixelSolid(sdl::Vector2Float position){
 	if (position.x > 0 && position.x < size.x && position.y > 0 && position.y < size.y)
 >>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 		return actualBitMap.getPixel(sdl::Vector2Float(position.x, position.y)).a != 0;
+	else if (position.x < 0 || position.x < size.x)
+		return true;
+	else return false;
 }
 
 void Terrain::draw(sdl::Window &target){

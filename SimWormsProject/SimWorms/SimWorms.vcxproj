@@ -79,6 +79,10 @@
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="ExplosionsManager.cpp" />
     <ClCompile Include="GameOptionsManager.cpp" />
+    <ClCompile Include="GUI\GuiCheckBox.cpp" />
+    <ClCompile Include="GUI\GuiGameMenu.cpp" />
+    <ClCompile Include="GUI\GuiMainMenu.cpp" />
+    <ClCompile Include="GUI\GuiTextBox.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
 >>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
@@ -120,6 +124,11 @@
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="ExplosionsManager.h" />
     <ClInclude Include="GameOptionsManager.h" />
+    <ClInclude Include="GUI\GuiCheckBox.h" />
+    <ClInclude Include="GUI\GuiComponents.h" />
+    <ClInclude Include="GUI\GuiGameMenu.h" />
+    <ClInclude Include="GUI\GuiMainMenu.h" />
+    <ClInclude Include="GUI\GuiTextBox.h" />
     <ClInclude Include="Map.h" />
 >>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
     <ClInclude Include="OOSDL\AnimatedSprite.h" />

@@ -17,6 +17,10 @@ bool sdl::Mouse::isButtonPressed(short button){
 	return pressedButtons.find(button) != pressedButtons.end();
 }
 
+bool sdl::Mouse::isButtonReleased(short button){
+	return pressedButtons.find(button) == pressedButtons.end();
+}
+
 sdl::Vector2Float sdl::Mouse::getPosition(){
 	return position;
 }

@@ -4,7 +4,7 @@
 Explosion::Explosion(sdl::Vector2Float &position, float radius){
 	delay = 65;
 	numberOfFrames = 5;
-	explosionSprite = new sdl::AnimatedSprite(&AssetsManager::getInstance().getTexture("explosion.png"), numberOfFrames, delay);
+	explosionSprite = new sdl::AnimatedSprite(&AssetsManager::getInstance().getTexture("data/textures/explosion.png"), numberOfFrames, delay);
 	int frameWidth = explosionSprite->getTexture()->getSize().x / numberOfFrames;
 	int frameHeight = explosionSprite->getTexture()->getSize().y;
 	explosionSprite->setPosition(sdl::Vector2Float(position.x, position.y));

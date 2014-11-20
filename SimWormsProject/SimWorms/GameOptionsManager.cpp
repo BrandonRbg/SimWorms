@@ -6,33 +6,33 @@ GameOptionsManager::GameOptionsManager(){
 
 	// To do later : Serialize controls data.
 
-	//// Keyboard controls setup.
+	// Keyboard controls setup.
 
-	//controls["jump"][0] = SDLK_w;
-	//controls["left"][0] = SDLK_a;
-	//controls["right"][0] = SDLK_d;
+	controls["jump"].push_back(SDLK_w);
+	controls["left"].push_back(SDLK_LEFT);
+	controls["right"].push_back(SDLK_RIGHT);
 
-	//controls["toolMenu"][0] = SDLK_e;
+	controls["toolMenu"].push_back(SDLK_e);
 
-	//controls["jetpackThrottle"][0] = SDLK_SPACE;	
-	//
-	//controls["weaponAimDown"][1] = SDLK_DOWN;
-	//controls["weaponAimUp"][1] = SDLK_UP;
-	//controls["weaponLaunch"][1] = SDLK_RETURN;
+	controls["jetpackThrottle"].push_back(SDLK_SPACE);
+	
+	controls["weaponAimDown"].push_back(SDLK_DOWN);
+	controls["weaponAimUp"].push_back(SDLK_UP);
+	controls["weaponLaunch"].push_back(SDLK_RETURN);
 
-	////// Mouse controls setup. 
+	//// Mouse controls setup. 
 
-	//controls["jump"][1] = 0;
-	//controls["left"][1] = 0;
-	//controls["right"][1] = 0;
+	controls["jump"].push_back(0);
+	controls["left"].push_back(0);
+	controls["right"].push_back(0);
 
-	//controls["toolMenu"][1] = 0;
+	controls["toolMenu"].push_back(0);
 
-	//controls["jetpackThrottle"][1] = 0;
+	controls["jetpackThrottle"].push_back(0);
 
-	//controls["weaponAimDown"][1] = 0;
-	//controls["weaponAimUp"][1] = 0;
-	//controls["weaponLaunch"][1] = 0;
+	controls["weaponAimDown"].push_back(0);
+	controls["weaponAimUp"].push_back(0);
+	controls["weaponLaunch"].push_back(0);
 }
 
 void GameOptionsManager::setVideoMode(sdl::VideoMode& vm){
@@ -55,18 +55,18 @@ void GameOptionsManager::update(sdl::Window& window){
 	window.setVideoMode(videoMode);
 }
 
-void GameOptionsManager::setKeyControl(std::string& control, Uint32 key){
+void GameOptionsManager::setKeyControl(const std::string& control, Uint32 key){
 	controls[control][0] = key;
 }
 
-void GameOptionsManager::setMouseControl(std::string& control, Uint32 button){
+void GameOptionsManager::setMouseControl(const std::string& control, Uint32 button){
 	controls[control][1] = button;
 }
 
-Uint32 GameOptionsManager::getKeyControl(std::string& control){
+Uint32 GameOptionsManager::getKeyControl(const std::string& control){
 	return controls[control][0];
 }
 
-Uint32 GameOptionsManager::getMouseControl(std::string& control){
+Uint32 GameOptionsManager::getMouseControl(const std::string& control){
 	return controls[control][1];
 }

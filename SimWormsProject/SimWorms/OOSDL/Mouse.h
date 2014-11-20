@@ -13,6 +13,7 @@ namespace sdl{
 		static void updateMousePosition(int x, int y);
 
 		static bool isButtonPressed(short button);
+		static bool isButtonReleased(short button);
 		static sdl::Vector2Float getPosition();
 		static sdl::Vector2Float getPosition(sdl::View &view);
 	private:

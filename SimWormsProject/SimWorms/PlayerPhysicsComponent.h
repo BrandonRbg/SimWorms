@@ -11,6 +11,9 @@ public:
 	bool isInMidAir();
 =======
 	bool isInMidAir(Player &player);
+	bool isUpperBoundBlocked;
+	bool isUpperBoundBlockedFromLeft;
+	bool isUpperBoundBlockedFromRight;
 	void stopMovingX(Player &player);
 	void stopMovingY(Player &player);
 >>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011

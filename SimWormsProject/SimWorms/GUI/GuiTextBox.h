@@ -1,6 +1,6 @@
 #pragma once
-#include "OOSDL/OOSDL.h"
-#include "AssetsManager.h"
+#include "../OOSDL/OOSDL.h"
+#include "../AssetsManager.h"
 
 class GuiTextBox{
 protected:
