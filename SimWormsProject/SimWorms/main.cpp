@@ -1,23 +1,4 @@
 #include <sstream>
-<<<<<<< HEAD
-
-#include "OOSDL/OOSDL.h"
-#include "OOSDL/StaticSprite.h"
-#include "Terrain.h"
-#include "AssetsManager.h"
-#include "Player.h"
-
-int main(int argc, char** argv){
-	sdl::Window renderWindow(1280, 1024, "SimWorms", 0);
-	Terrain terrain;
-	terrain.loadTerrainFromFile("Maps/farm/map.png");
-	sdl::StaticSprite bg;
-	bg.setTexture(&AssetsManager::getInstance().getTexture("Maps/farm/background.jpg"));
-	sdl::View view;
-	view = renderWindow.getDefaultView();
-	Player player(sdl::Vector2Float(500, 500));
-	
-=======
 #include <time.h>
 
 #include "OOSDL/OOSDL.h"
@@ -26,22 +7,25 @@ int main(int argc, char** argv){
 #include "AssetsManager.h"
 #include "ExplosionsManager.h"
 #include "GameOptionsManager.h"
+#include "Player.h"
 
 int main(int argc, char** argv){
 	srand(time(0));
 	sdl::Window renderWindow(sdl::VideoMode(800, 600), "SimWorms", false);
 	GameOptionsManager::getInstance().update(renderWindow);
 	Terrain terrain;
-	terrain.loadTerrainFromFile("maps/country/map.png");
+	terrain.loadTerrainFromFile("data/maps/country/map.png");
 	sdl::StaticSprite bg;
-	bg.setTexture(&AssetsManager::getInstance().getTexture("maps/country/background.jpg"));
+	bg.setTexture(&AssetsManager::getInstance().getTexture("data/maps/country/background.jpg"));
 	bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
 	sdl::View view;
 	view = renderWindow.getDefaultView();
->>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
+
+	Player player(sdl::Vector2Float(800,200));
+	view.setCenter(player.getPosition());
 
 	sdl::StaticText fpsText;
-	fpsText.setFont("Arial.ttf");
+	fpsText.setFont("data/fonts/Arial.ttf");
 	fpsText.setPosition(10, 10);
 	fpsText.setCharacterSize(16);
 	fpsText.setColor(sdl::Color::Black);
@@ -49,15 +33,10 @@ int main(int argc, char** argv){
 
 	sdl::Clock fpsClock;
 	sdl::Clock fpsDisplayUpdateClock;
-<<<<<<< HEAD
-	while (renderWindow.isOpen()){
-		int fps = (int)(1 / fpsClock.restart().asSeconds());
-=======
 
 	while (renderWindow.isOpen()){
 		float frametime = fpsClock.restart().asSeconds();
 		int fps = (int)(1 / frametime);
->>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 		SDL_Event event;
 		
 		while (renderWindow.pollEvent(event)){
@@ -67,26 +46,6 @@ int main(int argc, char** argv){
 			if (event.type == SDL_KEYDOWN)
 			if (event.key.keysym.sym == SDLK_ESCAPE)
 				renderWindow.close();
-<<<<<<< HEAD
-		}
-		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
-			if (sdl::Mouse::getPosition().x > 0 && sdl::Mouse::getPosition().x < terrain.getWidth() && sdl::Mouse::getPosition().y > 0 && sdl::Mouse::getPosition().y < terrain.getHeight()){
-				terrain.explode(sdl::Mouse::getPosition(view), 50, 3, sdl::Color::Black);
-				std::cout << sdl::Mouse::getPosition(view).x << ", " << sdl::Mouse::getPosition(view).y << std::endl;
-			}
-		}
-		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
-			player.setPosition(sdl::Mouse::getPosition(view));
-		}
-		if (sdl::Keyboard::isKeyPressed(SDLK_w))
-			view.move(0, -10);
-		if (sdl::Keyboard::isKeyPressed(SDLK_a))
-			view.move(-10, 0);
-		if (sdl::Keyboard::isKeyPressed(SDLK_s))
-			view.move(0, 10);
-		if (sdl::Keyboard::isKeyPressed(SDLK_d))
-			view.move(10, 0);
-=======
 			if (event.key.keysym.sym == SDLK_q){
 				GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode(640, 480));
 			}
@@ -130,16 +89,11 @@ int main(int argc, char** argv){
 			view.zoom(1.01);
 		if (sdl::Keyboard::isKeyPressed(SDLK_x))
 			view.zoom(0.99);
->>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 		renderWindow.clear(sdl::Color::White);
 		renderWindow.setView(view);
 		renderWindow.draw(&bg);
 		terrain.draw(renderWindow);
-<<<<<<< HEAD
-	
-=======
 		ExplosionsManager::getInstance().update(renderWindow);
->>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 
 		if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
 			std::stringstream ss;
@@ -147,11 +101,8 @@ int main(int argc, char** argv){
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
 		}
-<<<<<<< HEAD
-		player.update(1 / (fps + 0.0000001), terrain);
+		player.update(frametime, terrain);
 		player.draw(renderWindow);
-=======
->>>>>>> 16bd493bb2c4d248f78827fc2ca8b0ccd5b6e011
 		renderWindow.draw(&fpsText);
 
 		renderWindow.show();
