@@ -1,0 +1,31 @@
+Journal de Bord de Nathan
+
+28 octobre------------------------------
+
+Travail de toute l'équipe sur le diagramme de classe.
+
+04 Novembre-----------------------------
+
+Travail de toute l'équipe sur le diagramme de classe, le diagramme d'état, les cas d'utilisation et sur la recherche des besoins.
+
+06 Novembre-----------------------------
+
+Travail de toute l'équipe sur le diagramme de classe du GUI, les cas d'utilisation d'un worms dans une partie, le diagramme d'état du logiciel, le diagramme de classe de l'engine
+
+13 Novembre, Environ 3 heures de travail-------------------
+
+Travail sur le diagramme visio sur les classes qui vont servir d'élément de gameplay (grenade, rocket, mine, ect...)
+Création des classes pour les éléments de gameplay (ceux qui sont compris dans le visio de classe des élément du gameplay)
+
+17 Novembre, Environ 1 heures de travail-------------------
+
+Travail sur la classe Melee (presque fini mais il reste des ajustement à faire), Ajout de la variable (avec les get/set) qui représente la vie d'un player
+dans la classe player.
+
+20 Novembre, Environ 3 heures de travail-------------------
+
+Avancement de la classe Melee (fini mais modification possible), de la classe ProjectileManager, de la classe Projectile et ajout de la variable heal et d'un booléen pour la direction du player dans la classe player
+
+
+
+
