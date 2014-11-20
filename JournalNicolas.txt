@@ -43,4 +43,8 @@
 	-Quasi finalisation du checkColision, soit vérification des colision avec le dessus de joueur
 	-Reste à corriger le calcul de repositionnage du joueur.
 	09h55
+
+	20h20
+	-Finalisation du checkCollision
+	20h45
 	

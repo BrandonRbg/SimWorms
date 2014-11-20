@@ -11,21 +11,13 @@ Player::Player(sdl::Vector2Float &position){
 }
 
 void Player::moveLeft(){
-	if (!isMovingX && !physics.isUpperBoundBlocked){
-		if (physics.isInMidAir(*this)){
-			physics.stopMovingX(*this);
-			return;
-		}
+	if (!isMovingX && !physics.isInMidAir(*this)){
 		physics.addConstraint(sdl::Vector2Float(-5, 0));
 		isMovingX = true;
 	}
 }
 void Player::moveRight(){
-	if (!isMovingX && !physics.isUpperBoundBlocked){
-		if (physics.isInMidAir(*this)){
-			physics.stopMovingX(*this);
-			return;
-		}
+	if (!isMovingX && !physics.isInMidAir(*this)){
 		physics.addConstraint(sdl::Vector2Float(5, 0));
 		isMovingX = true;
 	}
@@ -33,7 +25,6 @@ void Player::moveRight(){
 void Player::stop(){
 	physics.stopMovingX(*this);
 	isMovingX = false;
-
 }
 
 void Player::draw(sdl::Window &target){

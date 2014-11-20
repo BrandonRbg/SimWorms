@@ -12,28 +12,26 @@ void PlayerPhysicsComponent::update(Player &player, Terrain &terrain, float fram
 void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, float frametime){
 	sdl::Vector2Float playerVelocity = player.getVelocity() + resultingVector;
 	sdl::Vector2Float finalPos = player.getPosition() + resultingVector;
-	unsigned int elevation = 0;
 	// is upper bound blocked...
-	if (!isUpperBoundBlocked){
-		for (float y = finalPos.y; y <= finalPos.y + (player.getBounds().h / 2); y++){
-			for (float x = finalPos.x; x <= finalPos.x + player.getBounds().w; x++){
-				if (player.isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-					stopMovingY(player);
-					stopMovingX(player);
-					while (terrain.isPixelSolid(sdl::Vector2Float(x, y++ +1))){
-						player.setPosition(player.getPosition() + sdl::Vector2Float(0, 1));
-					}
-					isUpperBoundBlockedFromLeft = playerVelocity.x < 0;
-					isUpperBoundBlockedFromRight = playerVelocity.x > 0;
-					isUpperBoundBlocked = true;
-					return;
+	for (float y = finalPos.y; y <= finalPos.y + (player.getBounds().h / 2); y++){
+		for (float x = finalPos.x; x <= finalPos.x + player.getBounds().w; x++){
+			if (player.isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
+				isUpperBoundBlockedFromLeft = resultingVector.x < 0;
+				isUpperBoundBlockedFromRight = resultingVector.x > 0;
+				isUpperBoundBlocked = true;
+				stopMovingY(player);
+				stopMovingX(player);
+				while (terrain.isPixelSolid(player.getPosition())){
+					player.setPosition(player.getPosition() + sdl::Vector2Float(0, 1));
+					
 				}
+				return;
 			}
 		}
-		isUpperBoundBlockedFromLeft = false;
-		isUpperBoundBlockedFromRight = false;
-		isUpperBoundBlocked = false;
 	}
+	isUpperBoundBlockedFromLeft = false;
+	isUpperBoundBlockedFromRight = false;
+	isUpperBoundBlocked = false;
 	// is not moving in x...
 	if (playerVelocity.x == 0){
 		for (float y = finalPos.y + player.getBounds().h; y >= finalPos.y + (player.getBounds().h / 2); y--){
@@ -58,11 +56,6 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					stopMovingX(player);
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
-						elevation++;
-					}
-					// is going up a steep slope...
-					if (elevation > 10){
-						//return;
 					}
 					player.setVelocity(resultingVector + playerVelocity);
 					player.setPosition(player.getPosition() + player.getVelocity());
@@ -79,10 +72,6 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					stopMovingX(player);
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
-						elevation++;
-					}
-					if (elevation > 10){
-						//return;
 					}
 					player.setVelocity(resultingVector + playerVelocity);
 					player.setPosition(player.getPosition() + player.getVelocity());
