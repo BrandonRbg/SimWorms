@@ -68,6 +68,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AssetsManager.cpp" />
+    <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="ExplosionsManager.cpp" />
     <ClCompile Include="GameOptionsManager.cpp" />
@@ -99,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetsManager.h" />
+    <ClInclude Include="EventManager.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="ExplosionsManager.h" />
     <ClInclude Include="GameOptionsManager.h" />

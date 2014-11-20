@@ -114,6 +114,9 @@
     <ClCompile Include="GUI\GuiTextBox.cpp">
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -220,6 +223,9 @@
     </ClInclude>
     <ClInclude Include="OOSDL\Window.h">
       <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
