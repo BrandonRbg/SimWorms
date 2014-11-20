@@ -2,7 +2,7 @@
 
 Player::Player(sdl::Vector2Float &position){
 	this->position = position;
-
+	this->direction = false;
 	this->playerSprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/player.png"));
 	this->playerSprite.setPosition(position);
 	playerSprite.setOrigin(playerSprite.getTextureRect().w / 2, playerSprite.getTextureRect().h / 2);
@@ -12,12 +12,14 @@ Player::Player(sdl::Vector2Float &position){
 
 void Player::moveLeft(float frametime){
 	if (!physics.isInMidAir(*this)){
-		physics.addConstraint(sdl::Vector2Float(-100, 0) * frametime);
+		physics.addConstraint(sdl::Vector2Float(-50, 0) * frametime);
+		direction = false;
 	}
 }
 void Player::moveRight(float frametime){
 	if (!physics.isInMidAir(*this)){
-		physics.addConstraint(sdl::Vector2Float(100, 0) * frametime);
+		physics.addConstraint(sdl::Vector2Float(50, 0) * frametime);
+		direction = true;
 	}
 }
 void Player::stop(){
@@ -27,7 +29,6 @@ void Player::stop(){
 void Player::draw(sdl::Window &target){
 	target.draw(&playerSprite);
 }
-
 void Player::update(float frametime, Terrain& terrain){
 	input.update(*this, frametime);
 	physics.update(*this, terrain, frametime);
@@ -40,6 +41,15 @@ sdl::Vector2Float& Player::getVelocity(){
 }
 sdl::RectFloat& Player::getBounds(){
 	return playerSprite.getTextureRect();
+}
+int Player::getHeal() { // Ajout par Nathan
+	return this->heal;
+}
+bool Player::getDirection() {
+	return this->direction;
+}
+void Player::setHeal(int heal) { // Ajout par Nathan
+	this->heal = heal;
 }
 void Player::setPosition(sdl::Vector2Float& position){
 	this->playerSprite.setPosition(position);
