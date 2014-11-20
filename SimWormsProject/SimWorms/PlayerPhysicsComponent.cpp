@@ -41,7 +41,7 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y-- - 1))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
 					}
-					if (!isSliding(player, terrain, x, y))
+					if (!isSliding(player, terrain, x, y, frametime))
 						player.setVelocity(resultingVector + player.getVelocity());
 					player.setPosition(player.getPosition() + player.getVelocity());
 					return;
@@ -57,7 +57,7 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
 					}
-					if (!isSliding(player, terrain, x, y))
+					if (!isSliding(player, terrain, x, y, frametime))
 						player.setVelocity(resultingVector + playerVelocity);
 					player.setPosition(player.getPosition() + player.getVelocity());
 					return;
@@ -73,7 +73,7 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
 					}
-					if (!isSliding(player, terrain, x, y))
+					if (!isSliding(player, terrain, x, y, frametime))
 						player.setVelocity(resultingVector + playerVelocity);
 					player.setPosition(player.getPosition() + player.getVelocity());
 					return;
@@ -84,11 +84,11 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 	player.setVelocity(resultingVector + player.getVelocity());
 	player.setPosition(player.getPosition() + player.getVelocity());
 }
-bool PlayerPhysicsComponent::isSliding(Player &player, Terrain &terrain, float x, float y){
+bool PlayerPhysicsComponent::isSliding(Player &player, Terrain &terrain, float x, float y, float frametime){
 	float terrainNormalX = terrain.getNormal(sdl::Vector2Float(x, y)).x;
 	if (terrainNormalX > 0.9 || terrainNormalX < -0.9){
 		stopMovingX(player);
-		addConstraint(sdl::Vector2Float(5 * terrainNormalX, resultingVector.y));
+		addConstraint(sdl::Vector2Float(5 * terrainNormalX, resultingVector.y) * frametime);
 		player.setVelocity(resultingVector + player.getVelocity());
 		cannotMove = true;
 		return true;
