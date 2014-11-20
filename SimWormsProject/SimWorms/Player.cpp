@@ -11,15 +11,13 @@ Player::Player(sdl::Vector2Float &position){
 }
 
 void Player::moveLeft(float frametime){
-	if (!physics.isInMidAir(*this)){
+	if (!physics.canMove(*this)){
 		physics.addConstraint(sdl::Vector2Float(-50, 0) * frametime);
-		direction = false;
 	}
 }
 void Player::moveRight(float frametime){
-	if (!physics.isInMidAir(*this)){
+	if (!physics.canMove(*this)){
 		physics.addConstraint(sdl::Vector2Float(50, 0) * frametime);
-		direction = true;
 	}
 }
 void Player::stop(){
@@ -58,6 +56,8 @@ void Player::setVelocity(sdl::Vector2Float& velocity){
 	this->velocity = velocity;
 }
 bool Player::isPixelSolid(sdl::Vector2Float& position){
-	if (position.x >= 0 && position.x <= playerSprite.getTextureRect().w && position.y >= 0 && position.y <= playerSprite.getTextureRect().h)
+	if (position.x > 0 && position.x < playerSprite.getTextureRect().w && position.y > 0 && position.y < playerSprite.getTextureRect().h)
 		return playerSprite.getTexture()->getPixel(position).a != 0;
+	else
+		return false;
 }

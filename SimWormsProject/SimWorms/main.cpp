@@ -77,6 +77,9 @@ int main(int argc, char** argv){
 				std::cout << sdl::Mouse::getPosition().x << ", " << sdl::Mouse::getPosition().y << std::endl;
 			}
 		}
+		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
+			player.setPosition(sdl::Mouse::getPosition(view));
+		}
 		if (sdl::Keyboard::isKeyPressed(SDLK_w))
 			view.move(0, -500 * frametime);
 		if (sdl::Keyboard::isKeyPressed(SDLK_a))

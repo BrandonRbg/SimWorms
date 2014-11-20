@@ -55,3 +55,11 @@
 	13h40
 	-Adoucissement du déplacement.
 	14h40
+
+	15h00
+	-Implémentation du glissement
+	15h50
+	
+	16h00
+	-Correctif du bug du player en lévitation
+	16h25
