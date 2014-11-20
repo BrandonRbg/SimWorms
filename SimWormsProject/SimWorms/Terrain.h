@@ -19,8 +19,7 @@ public:
 	bool isPixelSolid(sdl::Vector2Float position);
 	sdl::Vector2Float getNormal(sdl::Vector2Float position);
 
-	int getWidth();
-	int getHeight();
+	sdl::Vector2Float getSize();
 
 	void explode(sdl::Vector2Float position, float radius, float borderWidth = 0, sdl::Color& borderColor = sdl::Color::Transparent);
 
@@ -29,7 +28,6 @@ private:
 	sdl::Texture actualBitMap;
 	sdl::Texture originalBitMap;
 	sdl::Sprite map;
-	int width;
-	int height;
+	sdl::Vector2Float size;
 
 };

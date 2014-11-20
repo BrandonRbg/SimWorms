@@ -1,0 +1,25 @@
+Le mardi 28 octobre 2014
+Conception avec l'équipe d'une structure de classe pouvant porter la librairie SDL en orienté objet.
+Le mardi 4 novembre 2014
+Conception avec l'équipe du diagramme de classes de la base de notre API SDL orienté objet.
+Le jeudi 6 novembre 2014
+Finition du diagramme de classes de l'API SDL orienté objet et codification de celui-ci.
+Le vendredi 7 novembre 2014
+	1:13
+Setup du projet Visual Studio.
+Travail sur l'encapsulation des évènements dans Window::pollEvent(SDL_Event &event)
+Le jeudi 13 novembre 2014
+	1:47
+Travail sur les terrains + fix de bugs dans l'API et ajout des classes sdl::StaticText et sdl::StaticSprite
+Le dimanche 16 novembre 2014
+	de 13h45 à 2h46
+Entre Travail et autres occupations:
+	-Implémentation des VideoMode dans l'engine, ils permettront de changer les settings de résolution de la fenêtre facilement.
+	-Création de la classe GameOptionsManager qui servira à gérer les options du jeu comme la résolution et les contrôles.
+	-Création de la classe Map qui gérera tous les attributs du champ de bataille tel que le BG, le terrain, les mines, etc.
+	-BugFix sur le zoom des views, il est maintenant fonctionnel.
+	-Ajout de la méthode getPosition(sdl::View view) de la classe Mouse pour permettre d'obtenir la position de la souris par rapport à la view.
+Le mardi 18 novembre 2014
+	11h17
+	-Arrangement du projet 
+	-Mise à jour des diagrammes de classe.

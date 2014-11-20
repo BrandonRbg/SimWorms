@@ -1,0 +1,57 @@
+4 nov
+	10h15
+	-Création du diagramme d'état du "worms".
+	10h27
+	
+	10h37
+	-Création du diagramme d'utilisation du menu principal.
+	10h50
+	
+	11h00
+	-Aide au diagramme de classe (analyse des outils).
+	11h30
+6 nov
+	15h00
+	-Création du document de gestion de projet.
+	15h20
+
+	15h30
+	-Création du diagramme d'état du logiciel
+	15h40
+13 nov 
+	13h30 *Inclut rencontre d'équipe
+	-Création de:
+		Player
+		PlayerInputComponent
+		PhysicsComponent
+		PlayerPhysicsComponent
+	-Bugs de déplacement vers la droite
+	18h00
+17 nov
+	16h00
+	-Tentative de débogage des physiques du joueur(checkcollision);encore à travailer
+ 	17h20
+18 nov
+	10h20
+	-Réglage partiel du checkCollision
+	11h17
+	-Amélioration deu checkCollision(il ne reste qu'à vérifier les collisions avec le plafond)
+	12h48
+19 nov
+	08h10
+	-Adapatation du code avec les nouveaux chemins d'accès
+	-Quasi finalisation du checkColision, soit vérification des colision avec le dessus de joueur
+	-Reste à corriger le calcul de repositionnage du joueur.
+	09h55
+
+	20h20
+	-Finalisation du checkCollision
+	20h45
+20 nov
+	11h55
+	-Retouche du déplacement (modif dans input et player) et du isPixelSolid du terrain
+	12h05
+	
+	13h40
+	-Adoucissement du déplacement.
+	14h40

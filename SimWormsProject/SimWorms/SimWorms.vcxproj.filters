@@ -1,20 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="Source Files\OOSDL">
+      <UniqueIdentifier>{d368b0f6-07cd-44f0-9738-9fdeef9647c6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Resource Files\OOSDL">
-      <UniqueIdentifier>{d368b0f6-07cd-44f0-9738-9fdeef9647c6}</UniqueIdentifier>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{6f4941b5-332e-4ef5-af0a-f7f4c8776085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\OOSDL">
+      <UniqueIdentifier>{3b43ac0f-e3ee-4b39-b300-679a9d5b6327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI">
+      <UniqueIdentifier>{239608de-4792-4fc8-a5e8-8bcce91a2160}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -22,37 +31,37 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\AnimatedSprite.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Clock.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Color.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Keyboard.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Mouse.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Sprite.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Text.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Texture.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Transformable.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\View.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Window.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="AssetsManager.cpp">
       <Filter>Source Files</Filter>
@@ -61,73 +70,52 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\StaticSprite.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\StaticText.cpp">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Source Files\OOSDL</Filter>
     </ClCompile>
-    <ClCompile Include="GuiCheckBox.cpp">
+    <ClCompile Include="Explosion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GuiTextBox.cpp">
+    <ClCompile Include="ExplosionsManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GuiMainMenu.cpp">
+    <ClCompile Include="GameOptionsManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GuiGameMenu.cpp">
+    <ClCompile Include="OOSDL\VideoMode.cpp">
+      <Filter>Source Files\OOSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInputComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPhysicsComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\GuiCheckBox.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\GuiGameMenu.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\GuiMainMenu.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\GuiTextBox.cpp">
+      <Filter>Source Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OOSDL\AnimatedSprite.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Clock.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Color.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Drawable.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Keyboard.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Mouse.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\OOSDL.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Rect.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Sprite.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Text.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Texture.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Time.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Transformable.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Vector2.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\View.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
-    <ClInclude Include="OOSDL\Window.h">
-      <Filter>Resource Files\OOSDL</Filter>
-    </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -137,26 +125,101 @@
     <ClInclude Include="Terrain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Explosion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplosionsManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOptionsManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInputComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPhysicsComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GuiCheckBox.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GuiComponents.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GuiGameMenu.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GuiMainMenu.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GuiTextBox.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\AnimatedSprite.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\Clock.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\Color.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\Drawable.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\Keyboard.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\Mouse.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\Rect.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\OOSDL.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\Sprite.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
     <ClInclude Include="OOSDL\StaticSprite.h">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Header Files\OOSDL</Filter>
     </ClInclude>
     <ClInclude Include="OOSDL\StaticText.h">
-      <Filter>Resource Files\OOSDL</Filter>
+      <Filter>Header Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="GuiComponents.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="OOSDL\Text.h">
+      <Filter>Header Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="GuiCheckBox.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="OOSDL\Texture.h">
+      <Filter>Header Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="GuiTextBox.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="OOSDL\Time.h">
+      <Filter>Header Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="GuiMainMenu.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="OOSDL\Transformable.h">
+      <Filter>Header Files\OOSDL</Filter>
     </ClInclude>
-    <ClInclude Include="GuiGameMenu.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="OOSDL\Vector2.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\VideoMode.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\View.h">
+      <Filter>Header Files\OOSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OOSDL\Window.h">
+      <Filter>Header Files\OOSDL</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
