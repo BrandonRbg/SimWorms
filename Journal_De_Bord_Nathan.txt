@@ -26,6 +26,10 @@ dans la classe player.
 
 Avancement de la classe Melee (fini mais modification possible), de la classe ProjectileManager, de la classe Projectile et ajout de la variable heal et d'un booléen pour la direction du player dans la classe player
 
+23 Novembre, Environ 50 minutes de travail-----------------
+
+Avancement des classes Projectile et ProjectileManager
+
 
 
 
