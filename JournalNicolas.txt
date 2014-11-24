@@ -63,3 +63,7 @@
 	16h00
 	-Correctif du bug du player en lévitation
 	16h25
+22 nov
+	14h30
+	-Tentative de fix du chechcollision sur le dessus du joueur
+	14h45

@@ -1,12 +1,16 @@
 #pragma once
 #include "../OOSDL/OOSDL.h"
 #include "../AssetsManager.h"
+#include "../EventManager.h"
 
 class GuiTextBox{
 protected:
 	sdl::Text Text;
 	sdl::Sprite TextBox;
 	sdl::Vector2Float Pos;
+	bool Clicked;
+	std::string ActualText;
+	sdl::Clock Time;
 public:
 	GuiTextBox(/*int Size, sdl::Color Color*/);
 	void setString(const std::string& string);
@@ -17,6 +21,7 @@ public:
 	sdl::Vector2Float getSize();
 	bool isClicked();
 	bool isOver();
+	void onTextEntered(SDL_Event Event);
 	void draw(sdl::Window &target);
 	void update(sdl::Window &target);
 };
