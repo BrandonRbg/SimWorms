@@ -23,3 +23,15 @@ Le mardi 18 novembre 2014
 	11h17
 	-Arrangement du projet 
 	-Mise à jour des diagrammes de classe.
+Le jeudi 20 novembre 2014
+	de 13h40 à 16h20
+	Aide aux équipiers :
+	-Aide à la physique de Nicolas.
+	-Aide(Forte) à l'implémentation de EventManager avec Damien.
+Le mardi 25 novembre 2014
+	de 8h20 à 9h30
+	-Implémentation des classes:
+		-ScreenState
+		-ScreenStateManager
+		-SplashScreenState
+		-MainMenuState

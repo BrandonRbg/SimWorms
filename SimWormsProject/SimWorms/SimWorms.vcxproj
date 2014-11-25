@@ -77,6 +77,7 @@
     <ClCompile Include="GUI\GuiMainMenu.cpp" />
     <ClCompile Include="GUI\GuiTextBox.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="OOSDL\AnimatedSprite.cpp" />
     <ClCompile Include="OOSDL\Clock.cpp" />
@@ -96,6 +97,8 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PlayerPhysicsComponent.cpp" />
+    <ClCompile Include="ScreenStateManager.cpp" />
+    <ClCompile Include="SplashScreenState.cpp" />
     <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +112,7 @@
     <ClInclude Include="GUI\GuiGameMenu.h" />
     <ClInclude Include="GUI\GuiMainMenu.h" />
     <ClInclude Include="GUI\GuiTextBox.h" />
+    <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="OOSDL\AnimatedSprite.h" />
     <ClInclude Include="OOSDL\Clock.h" />
@@ -133,7 +137,10 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PlayerPhysicsComponent.h" />
+    <ClInclude Include="ScreenState.h" />
+    <ClInclude Include="ScreenStateManager.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="SplashScreenState.h" />
     <ClInclude Include="Terrain.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
