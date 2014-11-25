@@ -8,9 +8,12 @@
 #include "ExplosionsManager.h"
 #include "GameOptionsManager.h"
 #include "Player.h"
+#include "EventManager.h"
+#include "Gui/GuiTextBox.h"
 
 int main(int argc, char** argv){
 	srand(time(0));
+	SDL_StartTextInput();
 	sdl::Window renderWindow(sdl::VideoMode(800, 600), "SimWorms", false);
 	GameOptionsManager::getInstance().update(renderWindow);
 	Terrain terrain;
@@ -21,6 +24,7 @@ int main(int argc, char** argv){
 	sdl::View view;
 	view = renderWindow.getDefaultView();
 
+	GuiTextBox Text;
 	Player player(sdl::Vector2Float(800,200));
 	view.setCenter(player.getPosition());
 
@@ -40,14 +44,15 @@ int main(int argc, char** argv){
 		SDL_Event event;
 		
 		while (renderWindow.pollEvent(event)){
+			EventManager::getInstance().launchEvent(event);
 			if (event.type == SDL_WINDOWEVENT)
 			if (event.window.event == SDL_WINDOWEVENT_CLOSE)
 				renderWindow.close();
 			if (event.type == SDL_KEYDOWN)
 			if (event.key.keysym.sym == SDLK_ESCAPE)
 				renderWindow.close();
-			if (event.key.keysym.sym == SDLK_q){
-				GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode(640, 480));
+			/*if (event.key.keysym.sym == SDLK_q){
+				//GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode(640, 480));
 			}
 			if (event.key.keysym.sym == SDLK_e){
 				GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode::getModes()[0]);
@@ -60,7 +65,7 @@ int main(int argc, char** argv){
 			}
 			if (event.key.keysym.sym == SDLK_u){
 				GameOptionsManager::getInstance().update(renderWindow);
-			}
+			}*/
 			if (event.type == SDL_MOUSEWHEEL)
 			{
 				if (event.wheel.y < 0)
@@ -104,11 +109,14 @@ int main(int argc, char** argv){
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
 		}
+		Text.update(renderWindow);
+		Text.draw(renderWindow);
 		player.update(frametime, terrain);
 		player.draw(renderWindow);
 		renderWindow.draw(&fpsText);
 
 		renderWindow.show();
 	}
+	SDL_StopTextInput();
 	return 0;
 }

@@ -4,7 +4,7 @@ class Player;
 class PlayerPhysicsComponent : public PhysicsComponent
 {
 private:
-	bool isSliding(Player &player, Terrain &terrain, float x, float y);
+	bool isSliding(Player &player, Terrain &terrain, float x, float y, float frametime);
 	bool cannotMove;
 public:
 	void update(Player &player, Terrain &terrain, float frametime);

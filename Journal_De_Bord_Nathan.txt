@@ -22,6 +22,14 @@ Création des classes pour les éléments de gameplay (ceux qui sont compris dans l
 Travail sur la classe Melee (presque fini mais il reste des ajustement à faire), Ajout de la variable (avec les get/set) qui représente la vie d'un player
 dans la classe player.
 
+20 Novembre, Environ 3 heures de travail-------------------
+
+Avancement de la classe Melee (fini mais modification possible), de la classe ProjectileManager, de la classe Projectile et ajout de la variable heal et d'un booléen pour la direction du player dans la classe player
+
+23 Novembre, Environ 50 minutes de travail-----------------
+
+Avancement des classes Projectile et ProjectileManager
+
 
 
 

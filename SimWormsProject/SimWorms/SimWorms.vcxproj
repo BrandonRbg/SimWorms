@@ -68,6 +68,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AssetsManager.cpp" />
+    <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="ExplosionsManager.cpp" />
     <ClCompile Include="GameOptionsManager.cpp" />
@@ -77,7 +78,6 @@
     <ClCompile Include="GUI\GuiTextBox.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Melee.cpp" />
     <ClCompile Include="OOSDL\AnimatedSprite.cpp" />
     <ClCompile Include="OOSDL\Clock.cpp" />
     <ClCompile Include="OOSDL\Color.cpp" />
@@ -100,21 +100,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetsManager.h" />
-    <ClInclude Include="DropManager.h" />
+    <ClInclude Include="EventManager.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="ExplosionsManager.h" />
     <ClInclude Include="GameOptionsManager.h" />
-    <ClInclude Include="Grenade.h" />
     <ClInclude Include="GUI\GuiCheckBox.h" />
     <ClInclude Include="GUI\GuiComponents.h" />
     <ClInclude Include="GUI\GuiGameMenu.h" />
     <ClInclude Include="GUI\GuiMainMenu.h" />
     <ClInclude Include="GUI\GuiTextBox.h" />
-    <ClInclude Include="HealPack.h" />
-    <ClInclude Include="JetPack.h" />
     <ClInclude Include="Map.h" />
-    <ClInclude Include="Melee.h" />
-    <ClInclude Include="Mine.h" />
     <ClInclude Include="OOSDL\AnimatedSprite.h" />
     <ClInclude Include="OOSDL\Clock.h" />
     <ClInclude Include="OOSDL\Color.h" />
@@ -138,9 +133,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PlayerPhysicsComponent.h" />
-    <ClInclude Include="Projectile.h" />
-    <ClInclude Include="ProjectileManager.h" />
-    <ClInclude Include="Rocket.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Terrain.h" />
   </ItemGroup>
