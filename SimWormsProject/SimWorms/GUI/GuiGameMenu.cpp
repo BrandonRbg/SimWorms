@@ -7,7 +7,8 @@ GuiGameMenu::GuiGameMenu(){
 	MapBigBox.setTexture(&AssetsManager::getInstance().getTexture("data/textures/BigBox.png"));
 	Minus.setTexture(&AssetsManager::getInstance().getTexture("data/textures/Minus.png"));
 	Plus.setTexture(&AssetsManager::getInstance().getTexture("data/textures/Plus.png"));
-	TeamOne.setPos();
+	TeamOne.setPos(sdl::Vector2Float(1100,100));
+	TeamTwo.setPos(sdl::Vector2Float(1100, 175));
 	TextTeamOne.setFont("data/fonts/Arial.ttf");
 	TextTeamTwo.setFont("data/fonts/Arial.ttf");
 	TextTeamOne.setString("Team 1");
@@ -56,6 +57,8 @@ GuiGameMenu::GuiGameMenu(){
 }
 
 void GuiGameMenu::draw(sdl::Window &target){
+	TeamOne.draw(target);
+	TeamTwo.draw(target);
 	target.draw(&ArrowR);
 	target.draw(&ArrowL);
 	target.draw(&MapBox);
@@ -70,7 +73,9 @@ void GuiGameMenu::draw(sdl::Window &target){
 	target.draw(&TextTeamTwo);
 }
 
-void GuiGameMenu::update(){
+void GuiGameMenu::update(sdl::Window &target){
+	TeamOne.update(target);
+	TeamTwo.update(target);
 	TextStartButton.setCharacterSize(40);
 	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
 		if (ArrowR.getBounds().contains(sdl::Mouse::getPosition())){

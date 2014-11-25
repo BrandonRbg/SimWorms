@@ -34,4 +34,5 @@
 -Modificarion de GuiGameMenu.
 {20 novembre 2014 14:40 to 17:09}
 -Modification de la GUiTextBox
-{24 novembre 2014 19:54 to }
+{24 novembre 2014 19:54 to 22:36}
+-Modification des menus

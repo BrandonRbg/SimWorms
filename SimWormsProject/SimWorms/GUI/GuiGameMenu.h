@@ -7,9 +7,10 @@ class GuiGameMenu{
 protected:
 	sdl::Text TextMapName, TextGravity, TextWind, TextMine, TextTeamOne, TextTeamTwo, TextStartButton, TextMapInfo;
 	sdl::Sprite ArrowR, ArrowL, MapBox, TeamBox, MapBigBox, Minus, Plus;
-	GuiTextBox TeamOne, TeamTwo;
+	GuiTextBox TeamOne;
+	GuiTextBox TeamTwo;
 public:
 	GuiGameMenu();
 	void draw(sdl::Window &target);
-	void update();
+	void update(sdl::Window &target);
 };
