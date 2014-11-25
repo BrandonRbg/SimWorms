@@ -71,3 +71,7 @@
 	8h20
 	-Fix du chechcollision sur le dessus du joueur
 	9h50
+
+	10h10
+	-Tentative de modification de la chute
+	12h00

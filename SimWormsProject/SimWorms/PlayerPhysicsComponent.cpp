@@ -18,21 +18,24 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 				break;
 			}
 		}
-	}	
+	}
 	// is not moving in x...
 	if (playerVelocity.x == 0){
-		for (float y = finalPos.y + player.getBounds().h; y >= finalPos.y + (player.getBounds().h / 2); y--){
-			for (float x = finalPos.x; x <= finalPos.x + player.getBounds().w; x++){
-				if (player.isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-					stopMovingY(player);
-					while (terrain.isPixelSolid(sdl::Vector2Float(x, y-- - 1))){
-						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
+		sdl::Vector2Float actualPos = player.getPosition();
+		for (float actualY = actualPos.y; actualY <= finalPos.y; actualY++){
+			for (float y = actualY + player.getBounds().h; y >= actualY; y--){
+				for (float x = actualPos.x; x <= actualPos.x + player.getBounds().w; x++){
+					if (player.isPixelSolid(sdl::Vector2Float(x, y) - sdl::Vector2Float(actualPos.x, actualY)) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
+						stopMovingY(player);
+						while (terrain.isPixelSolid(sdl::Vector2Float(x, actualY))){
+							actualY--;
+						}
+						if (!isSliding(player, terrain, x, y, frametime))
+							player.setVelocity(resultingVector + player.getVelocity());
+						if (!isUpperBoundBlocked)
+							player.setPosition(sdl::Vector2Float(actualPos.x,actualY) + player.getVelocity());
+						return;
 					}
-					if (!isSliding(player, terrain, x, y, frametime))
-						player.setVelocity(resultingVector + player.getVelocity());
-					if (!isUpperBoundBlocked)
-						player.setPosition(player.getPosition() + player.getVelocity());
-					return;
 				}
 			}
 		}
@@ -48,7 +51,7 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					if (!isSliding(player, terrain, x, y, frametime))
 						player.setVelocity(resultingVector + playerVelocity);
 					if (!isUpperBoundBlocked)
-					player.setPosition(player.getPosition() + player.getVelocity());
+						player.setPosition(player.getPosition() + player.getVelocity());
 					return;
 				}
 			}
@@ -65,7 +68,7 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					if (!isSliding(player, terrain, x, y, frametime))
 						player.setVelocity(resultingVector + playerVelocity);
 					if (!isUpperBoundBlocked)
-					player.setPosition(player.getPosition() + player.getVelocity());
+						player.setPosition(player.getPosition() + player.getVelocity());
 					return;
 				}
 			}
