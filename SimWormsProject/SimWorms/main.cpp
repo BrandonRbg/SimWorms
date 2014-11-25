@@ -10,6 +10,9 @@
 #include "Player.h"
 #include "EventManager.h"
 #include "Gui/GuiTextBox.h"
+#include "EntityManager.h"
+#include "Rocket.h"
+#include "Grenade.h"
 
 int main(int argc, char** argv){
 	srand(time(0));
@@ -27,6 +30,8 @@ int main(int argc, char** argv){
 	GuiTextBox Text;
 	Player player(sdl::Vector2Float(800,200));
 	view.setCenter(player.getPosition());
+
+	EntityManager::getInstance().addEntity(std::make_shared<Rocket>(sdl::Vector2Float(50, 50), sdl::Vector2Float(0, 0), 50));
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("data/fonts/Arial.ttf");
@@ -102,6 +107,7 @@ int main(int argc, char** argv){
 		renderWindow.draw(&bg);
 		terrain.draw(renderWindow);
 		ExplosionsManager::getInstance().update(renderWindow);
+		EntityManager::getInstance().update(frametime, terrain, renderWindow);
 
 		if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
 			std::stringstream ss;

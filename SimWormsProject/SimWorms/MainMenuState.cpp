@@ -6,7 +6,7 @@ MainMenuState::MainMenuState(){
 }
 
 void MainMenuState::update(float frametime){
-	menu.update();
+	//menu.update();
 }
 
 void MainMenuState::draw(sdl::Window &target){
