@@ -1,46 +1,64 @@
-﻿La génération a démarré 24/11/2014 22:30:56.
-     1>Projet "C:\Users\Damien Arroyo\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
+﻿La génération a démarré 2014-11-25 10:13:03.
+     1>Projet "C:\Users\1323891\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GUI\GuiGameMenu.cpp main.cpp
-         GuiGameMenu.cpp
-     1>c:\users\damien arroyo\desktop\simworms\simwormsproject\simworms\gui\guigamemenu.cpp(32): warning C4305: 'argument' : troncation de 'double' à 'float'
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AssetsManager.cpp EventManager.cpp Explosion.cpp ExplosionsManager.cpp GameOptionsManager.cpp GUI\GuiCheckBox.cpp GUI\GuiGameMenu.cpp GUI\GuiMainMenu.cpp GUI\GuiTextBox.cpp main.cpp MainMenuState.cpp OOSDL\AnimatedSprite.cpp OOSDL\Clock.cpp OOSDL\Color.cpp OOSDL\Keyboard.cpp OOSDL\Mouse.cpp OOSDL\Sprite.cpp OOSDL\StaticSprite.cpp OOSDL\StaticText.cpp OOSDL\Text.cpp OOSDL\Texture.cpp OOSDL\Transformable.cpp OOSDL\VideoMode.cpp OOSDL\View.cpp OOSDL\Window.cpp PhysicsComponent.cpp Player.cpp PlayerInputComponent.cpp PlayerPhysicsComponent.cpp ScreenStateManager.cpp SplashScreenState.cpp Terrain.cpp
+         Terrain.cpp
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\terrain.cpp(65): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\terrain.cpp(68): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\terrain.cpp(71): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\terrain.cpp(76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\terrain.cpp(78): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+         SplashScreenState.cpp
+         ScreenStateManager.cpp
+         PlayerPhysicsComponent.cpp
+         PlayerInputComponent.cpp
+         Player.cpp
+         PhysicsComponent.cpp
+         Window.cpp
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\oosdl\window.cpp(11): warning C4244: '=' : conversion de 'unsigned int' en 'float', perte possible de données
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\oosdl\window.cpp(12): warning C4244: '=' : conversion de 'unsigned int' en 'float', perte possible de données
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\oosdl\window.cpp(34): warning C4244: 'argument' : conversion de 'unsigned int' en 'float', perte possible de données
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\oosdl\window.cpp(37): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+         View.cpp
+         VideoMode.cpp
+         Transformable.cpp
+         Texture.cpp
+         Text.cpp
+         StaticText.cpp
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\oosdl\statictext.cpp(6): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+         StaticSprite.cpp
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\oosdl\staticsprite.cpp(10): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+         Sprite.cpp
+         Mouse.cpp
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\oosdl\mouse.cpp(13): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+         Keyboard.cpp
+         Color.cpp
+         Clock.cpp
          Génération de code en cours...
-         Ignoré... (aucune modification pertinente détectée)
+         Compilation en cours...
+         AnimatedSprite.cpp
+         MainMenuState.cpp
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\mainmenustate.cpp(9): error C2660: 'GuiMainMenu::update' : la fonction ne prend pas 0 arguments
          main.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Damien Arroyo\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Damien Arroyo\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Damien Arroyo\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.lib" /MACHINE:X86 Debug\AssetsManager.obj
-         Debug\EventManager.obj
-         Debug\Explosion.obj
-         Debug\ExplosionsManager.obj
-         Debug\GameOptionsManager.obj
-         Debug\GuiCheckBox.obj
-         Debug\GuiGameMenu.obj
-         Debug\GuiMainMenu.obj
-         Debug\GuiTextBox.obj
-         Debug\main.obj
-         Debug\Map.obj
-         Debug\AnimatedSprite.obj
-         Debug\Clock.obj
-         Debug\Color.obj
-         Debug\Keyboard.obj
-         Debug\Mouse.obj
-         Debug\Sprite.obj
-         Debug\StaticSprite.obj
-         Debug\StaticText.obj
-         Debug\Text.obj
-         Debug\Texture.obj
-         Debug\Transformable.obj
-         Debug\VideoMode.obj
-         Debug\View.obj
-         Debug\Window.obj
-         Debug\PhysicsComponent.obj
-         Debug\Player.obj
-         Debug\PlayerInputComponent.obj
-         Debug\PlayerPhysicsComponent.obj
-         Debug\Terrain.obj
-         SimWorms.vcxproj -> C:\Users\Damien Arroyo\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.exe
-     1>Génération du projet "C:\Users\Damien Arroyo\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" terminée (Build cible(s)).
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\main.cpp(16): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\main.cpp(43): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+         GuiTextBox.cpp
+         GuiMainMenu.cpp
+         GuiGameMenu.cpp
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\gui\guigamemenu.cpp(32): warning C4305: 'argument' : troncation de 'double' à 'float'
+         GuiCheckBox.cpp
+         GameOptionsManager.cpp
+         ExplosionsManager.cpp
+         Explosion.cpp
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\explosion.cpp(8): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\explosion.cpp(9): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+         EventManager.cpp
+         AssetsManager.cpp
+         Génération de code en cours...
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\gui\guicheckbox.cpp(37): warning C4715: 'GuiCheckBox::isClicked' : les chemins de contrôle ne retournent pas tous une valeur
+     1>c:\users\1323891\desktop\simworms\simwormsproject\simworms\gui\guitextbox.cpp(49): warning C4715: 'GuiTextBox::isClicked' : les chemins de contrôle ne retournent pas tous une valeur
+     1>Génération du projet "C:\Users\1323891\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
 
-La génération a réussi.
+ÉCHEC de la build.
 
-Temps écoulé 00:00:00.98
+Temps écoulé 00:00:11.64

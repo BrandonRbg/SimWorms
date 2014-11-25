@@ -27,7 +27,7 @@ void GuiMainMenu::draw(sdl::Window &target){
 	//target.draw(&TextNameGame);
 }
 
-void GuiMainMenu::update(sdl::Window &target){
+void GuiMainMenu::update(){
 	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
 		if (TextNameGame.getBounds().contains(sdl::Mouse::getPosition())){
 			//Lawl
