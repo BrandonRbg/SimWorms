@@ -1,6 +1,8 @@
 #include "GuiGameMenu.h"
+#include <list>
 
 GuiGameMenu::GuiGameMenu(){
+	First = true;
 	ArrowR.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowR.png"));
 	ArrowL.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowL.png"));
 	MapBox.setTexture(&AssetsManager::getInstance().getTexture("data/textures/MapBox.png"));
@@ -9,16 +11,6 @@ GuiGameMenu::GuiGameMenu(){
 	Plus.setTexture(&AssetsManager::getInstance().getTexture("data/textures/Plus.png"));
 	TeamOne.setPos(sdl::Vector2Float(1100,100));
 	TeamTwo.setPos(sdl::Vector2Float(1100, 175));
-	TextTeamOne.setFont("data/fonts/Arial.ttf");
-	TextTeamTwo.setFont("data/fonts/Arial.ttf");
-	TextTeamOne.setString("Team 1");
-	TextTeamTwo.setString("Team 2");
-	TextTeamOne.setCharacterSize(25);
-	TextTeamTwo.setCharacterSize(25);
-	TextTeamOne.setColor(sdl::Color::Black);
-	TextTeamTwo.setColor(sdl::Color::Black);
-	TextTeamOne.setPosition(1000, 100);
-	TextTeamTwo.setPosition(1000, 175);
 	TextMapInfo.setFont("data/fonts/Arial.ttf");
 	TextMapInfo.setString("MapInfo :");
 	TextMapInfo.setCharacterSize(25);
@@ -56,7 +48,21 @@ GuiGameMenu::GuiGameMenu(){
 	TextStartButton.setPosition(200, 900);
 }
 
+GuiGameMenu::~GuiGameMenu(){
+	for (auto& it : TextList)
+		delete it;
+}
+
 void GuiGameMenu::draw(sdl::Window &target){
+	TextTeamOne = new sdl::Text("Team 1", "data/fonts/Arial.ttf");
+	TextTeamOne->setPosition(0.524 *target.getView().getSize().x, 100);
+	TextTeamTwo = new sdl::Text("Team 2", "data/fonts/Arial.ttf");
+	TextTeamTwo->setPosition(0.524 *target.getView().getSize().x, 175);
+	if (First){
+		TextList.push_back(TextTeamOne);
+		TextList.push_back(TextTeamTwo);
+		First = false;
+	}
 	TeamOne.draw(target);
 	TeamTwo.draw(target);
 	target.draw(&ArrowR);
@@ -69,11 +75,17 @@ void GuiGameMenu::draw(sdl::Window &target){
 	target.draw(&MapBigBox);
 	target.draw(&TextMapInfo);
 	target.draw(&TextStartButton);
-	target.draw(&TextTeamOne);
-	target.draw(&TextTeamTwo);
+	target.draw(&Plus);
+	target.draw(&Minus);
+	for (auto& it : TextList){
+		target.draw(it);
+	}
 }
 
 void GuiGameMenu::update(sdl::Window &target){
+	ArrowR.setPosition(0.37 * target.getView().getSize().x, 0.5 * target.getView().getSize().y);
+	Plus.setPosition(0.7 * target.getView().getSize().x, 0.22 * target.getView().getSize().y);
+	//Minus.setPosition(0.8 * target.getView().getSize().x, 0.17  * target.getView().getSize().y);
 	TeamOne.update(target);
 	TeamTwo.update(target);
 	TextStartButton.setCharacterSize(40);
@@ -84,6 +96,16 @@ void GuiGameMenu::update(sdl::Window &target){
 		if (ArrowL.getBounds().contains(sdl::Mouse::getPosition())){
 
 		}
+		if (Plus.getBounds().contains(sdl::Mouse::getPosition())){ // Add teams
+			if (!PlusClick){
+				PlusClick = true;
+				char buffer[30];
+				sdl::Text* TempText = new sdl::Text("Team ", "data/fonts/Arial.ttf");
+				TempText->setString(TempText->getString() + SDL_itoa(TextList.size() + 1, buffer, 10));
+				TempText->setPosition(0.524 *target.getView().getSize().x, 250);
+				TextList.push_back(TempText);
+			}
+		}
 		if (TextStartButton.getBounds().contains(sdl::Mouse::getPosition())){
 			TextStartButton.setCharacterSize(42);
 		}
@@ -93,5 +115,8 @@ void GuiGameMenu::update(sdl::Window &target){
 	}
 	else
 		TextStartButton.setColor(sdl::Color::Black);
+	if (sdl::Mouse::isButtonReleased(SDL_BUTTON_LEFT)){
+		PlusClick = false;
+	}
 
 }

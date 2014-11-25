@@ -70,12 +70,14 @@ void GuiTextBox::onTextEntered(SDL_Event Event){
 }
 
 void GuiTextBox::update(sdl::Window &target){
-	if ((sdl::Keyboard::isKeyPressed(SDLK_BACKSPACE)) && (Time.getElapsedTime().asSeconds() > 0.1)){
-		if (ActualText.length() > 0)
-			ActualText.pop_back();
-		Time.restart();
+	if (Clicked){
+		if ((sdl::Keyboard::isKeyPressed(SDLK_BACKSPACE)) && (Time.getElapsedTime().asSeconds() > 0.1)){
+			if (ActualText.length() != 0)
+				ActualText.pop_back();
+			Time.restart();
+		}
+		Text.setString(ActualText);
 	}
-	Text.setString(ActualText);
 	if (GuiTextBox::isClicked()){
 		Clicked = true;
 	}
