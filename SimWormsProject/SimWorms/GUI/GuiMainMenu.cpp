@@ -2,11 +2,11 @@
 #include "GuiCheckBox.h"
 
 GuiMainMenu::GuiMainMenu(){
-	TextNameGame.setFont("Arial.ttf");
+	TextNameGame.setFont("data/fonts/Arial.ttf");
 	TextNameGame.setString("Nouvelle Partie");
 	TextNameGame.setCharacterSize(65);
 	TextNameGame.setColor(sdl::Color::White);
-	TextOptions.setFont("Arial.ttf"); 
+	TextOptions.setFont("data/fonts/Arial.ttf"); 
 	TextOptions.setString("Options");
 	TextOptions.setCharacterSize(65);
 	TextOptions.setColor(sdl::Color::White);
