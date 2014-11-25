@@ -67,3 +67,7 @@
 	14h30
 	-Tentative de fix du chechcollision sur le dessus du joueur
 	14h45
+25 nov
+	8h20
+	-Fix du chechcollision sur le dessus du joueur
+	9h50
