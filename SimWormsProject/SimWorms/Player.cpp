@@ -13,13 +13,13 @@ Player::Player(sdl::Vector2Float &position){
 void Player::moveLeft(float frametime){
 	if (!physics.canMove(*this)){
 		physics.addConstraint(sdl::Vector2Float(-50, 0) * frametime);
-		direction = false;
+		direction = LEFT;
 	}
 }
 void Player::moveRight(float frametime){
 	if (!physics.canMove(*this)){
 		physics.addConstraint(sdl::Vector2Float(50, 0) * frametime);
-		direction = true;
+		direction = RIGHT;
 	}
 }
 void Player::stop(){
@@ -45,6 +45,7 @@ sdl::RectFloat& Player::getBounds(){
 int Player::getHeal() { // Ajout par Nathan
 	return this->heal;
 }
+// true = droite et false = gauche
 bool Player::getDirection() {
 	return this->direction;
 }
