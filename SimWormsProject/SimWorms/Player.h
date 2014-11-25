@@ -2,6 +2,8 @@
 #include "PlayerPhysicsComponent.h"
 #include "PlayerInputComponent.h"
 #include "AssetsManager.h"
+#define LEFT false;
+#define RIGHT true;
 class Player
 {
 private:
