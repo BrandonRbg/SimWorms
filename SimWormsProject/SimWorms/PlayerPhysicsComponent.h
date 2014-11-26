@@ -9,7 +9,7 @@ private:
 public:
 	void update(Player &player, Terrain &terrain, float frametime);
 	void checkCollision(Player &player, Terrain &terrain, float frametime);
-	bool canMove(Player &player);
+	bool cantMove(Player &player);
 	bool isUpperBoundBlocked;
 	bool isUpperBoundBlockedFromLeft;
 	bool isUpperBoundBlockedFromRight;

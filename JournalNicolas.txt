@@ -68,14 +68,19 @@
 	-Tentative de fix du chechcollision sur le dessus du joueur
 	14h45
 25 nov
-	8h20
+	08h20
 	-Fix du chechcollision sur le dessus du joueur
-	9h50
+	09h50
 
 	10h10
 	-Tentative de modification de la chute
 	12h00
 26 nov
-	8h20
+	08h20
 	-Annulation de mes dernières modifications
-	8h25
+	-Modifiaction des fichiers Palyer
+	+Saut
+	+isOnGround
+	+vitesse de déplacement
+	-Modifications mineures dans les physiques et les inputs
+	09h05
