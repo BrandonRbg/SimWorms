@@ -5,19 +5,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Source Files\OOSDL">
-      <UniqueIdentifier>{d368b0f6-07cd-44f0-9738-9fdeef9647c6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Source Files\GUI">
-      <UniqueIdentifier>{6f4941b5-332e-4ef5-af0a-f7f4c8776085}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\OOSDL">
       <UniqueIdentifier>{3b43ac0f-e3ee-4b39-b300-679a9d5b6327}</UniqueIdentifier>
@@ -25,118 +15,131 @@
     <Filter Include="Header Files\GUI">
       <UniqueIdentifier>{239608de-4792-4fc8-a5e8-8bcce91a2160}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Source Files\OOSDL">
+      <UniqueIdentifier>{d368b0f6-07cd-44f0-9738-9fdeef9647c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Source Files\GUI">
+      <UniqueIdentifier>{6f4941b5-332e-4ef5-af0a-f7f4c8776085}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\AnimatedSprite.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Clock.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Color.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Keyboard.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Mouse.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Sprite.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Text.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Texture.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Transformable.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\View.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\Window.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="AssetsManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Terrain.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\StaticSprite.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\StaticText.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="Explosion.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ExplosionsManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameOptionsManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OOSDL\VideoMode.cpp">
-      <Filter>Source Files\OOSDL</Filter>
+      <Filter>Resource Files\Source Files\OOSDL</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PhysicsComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PlayerInputComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PlayerPhysicsComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GUI\GuiCheckBox.cpp">
-      <Filter>Source Files\GUI</Filter>
+      <Filter>Resource Files\Source Files\GUI</Filter>
     </ClCompile>
     <ClCompile Include="GUI\GuiGameMenu.cpp">
-      <Filter>Source Files\GUI</Filter>
+      <Filter>Resource Files\Source Files\GUI</Filter>
     </ClCompile>
     <ClCompile Include="GUI\GuiMainMenu.cpp">
-      <Filter>Source Files\GUI</Filter>
+      <Filter>Resource Files\Source Files\GUI</Filter>
     </ClCompile>
     <ClCompile Include="GUI\GuiTextBox.cpp">
-      <Filter>Source Files\GUI</Filter>
+      <Filter>Resource Files\Source Files\GUI</Filter>
     </ClCompile>
     <ClCompile Include="EventManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainMenuState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ScreenStateManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SplashScreenState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Melee.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Projectile.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Rocket.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EntityManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

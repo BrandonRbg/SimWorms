@@ -84,3 +84,7 @@
 	+vitesse de déplacement
 	-Modifications mineures dans les physiques et les inputs
 	09h05
+27 nov
+	14h30
+	-Début de la modification du code pour avoir des entitées
+	17h00
