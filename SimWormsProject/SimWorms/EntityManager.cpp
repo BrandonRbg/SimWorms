@@ -15,3 +15,10 @@ void EntityManager::update(float frametime, Terrain &terrain, sdl::Window &targe
 		it->draw(target);
 	}
 }
+
+EntityManager::~EntityManager() {
+	for (auto& it : entities) {
+		delete it;
+	}
+	entities.clear();
+}

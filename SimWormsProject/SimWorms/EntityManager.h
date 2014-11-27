@@ -10,4 +10,6 @@ public:
 	void addEntity(Entity* entity);
 
 	void update(float frametime, Terrain &terrain, sdl::Window &target);
+
+	~EntityManager();
 };

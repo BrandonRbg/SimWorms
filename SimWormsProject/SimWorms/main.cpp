@@ -31,7 +31,7 @@ int main(int argc, char** argv){
 	Player player(sdl::Vector2Float(800,200));
 	view.setCenter(player.getPosition());
 
-	EntityManager::getInstance().addEntity(std::make_shared<Rocket>(sdl::Vector2Float(50, 50), sdl::Vector2Float(0, 0), 50));
+	EntityManager::getInstance().addEntity(new Rocket(sdl::Vector2Float(50, 50), sdl::Vector2Float(0, 0), 50));
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("data/fonts/Arial.ttf");
