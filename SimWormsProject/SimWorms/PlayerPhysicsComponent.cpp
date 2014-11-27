@@ -9,6 +9,7 @@ void PlayerPhysicsComponent::update(Player &player, Terrain &terrain, float fram
 void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, float frametime){
 	sdl::Vector2Float playerVelocity = player.getVelocity() + resultingVector;
 	sdl::Vector2Float finalPos = player.getPosition() + resultingVector;
+	player.isOnGround = false;
 	// is upper bound blocked...
 	isUpperBoundBlocked = false;
 	for (float x = finalPos.x; x <= finalPos.x + player.getBounds().w && !isUpperBoundBlocked; x++){
@@ -18,7 +19,7 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 				break;
 			}
 		}
-	}	
+	}
 	// is not moving in x...
 	if (playerVelocity.x == 0){
 		for (float y = finalPos.y + player.getBounds().h; y >= finalPos.y + (player.getBounds().h / 2); y--){
@@ -27,13 +28,17 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					stopMovingY(player);
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y-- - 1))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
+						if (!isSliding(player, terrain, x, y, frametime)){
+							player.setVelocity(resultingVector + playerVelocity);
+							player.isOnGround = true;
+						}
+						if (!isUpperBoundBlocked)
+							player.setPosition(player.getPosition() + player.getVelocity());
+						return;
+						player.isOnGround = true;
 					}
-					if (!isSliding(player, terrain, x, y, frametime))
-						player.setVelocity(resultingVector + player.getVelocity());
-					if (!isUpperBoundBlocked)
-						player.setPosition(player.getPosition() + player.getVelocity());
-					return;
 				}
+
 			}
 		}
 	}
@@ -45,10 +50,12 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
 					}
-					if (!isSliding(player, terrain, x, y, frametime))
+					if (!isSliding(player, terrain, x, y, frametime)){
 						player.setVelocity(resultingVector + playerVelocity);
+						player.isOnGround = true;
+					}
 					if (!isUpperBoundBlocked)
-					player.setPosition(player.getPosition() + player.getVelocity());
+						player.setPosition(player.getPosition() + player.getVelocity());
 					return;
 				}
 			}
@@ -62,10 +69,12 @@ void PlayerPhysicsComponent::checkCollision(Player &player, Terrain &terrain, fl
 					while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
 						player.setPosition(player.getPosition() - sdl::Vector2Float(0, 1));
 					}
-					if (!isSliding(player, terrain, x, y, frametime))
+					if (!isSliding(player, terrain, x, y, frametime)){
 						player.setVelocity(resultingVector + playerVelocity);
+						player.isOnGround = true;
+					}
 					if (!isUpperBoundBlocked)
-					player.setPosition(player.getPosition() + player.getVelocity());
+						player.setPosition(player.getPosition() + player.getVelocity());
 					return;
 				}
 			}
@@ -93,6 +102,6 @@ void PlayerPhysicsComponent::stopMovingY(Player &player){
 	resultingVector = sdl::Vector2Float(resultingVector.x, 0);
 	player.setVelocity(resultingVector);
 }
-bool PlayerPhysicsComponent::canMove(Player &player){
+bool PlayerPhysicsComponent::cantMove(Player &player){
 	return (player.getVelocity().y != 0 || cannotMove);
 }

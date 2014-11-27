@@ -18,6 +18,7 @@ public:
 	Player(sdl::Vector2Float &position);
 	void moveLeft(float frametime);
 	void moveRight(float frametime);
+	void jump(float frametime);
 	void stop();
 	void draw(sdl::Window &target);
 	void update(float frametime, Terrain& terrain);
@@ -30,5 +31,6 @@ public:
 	void setPosition(sdl::Vector2Float& position);
 	void setVelocity(sdl::Vector2Float& velocity);
 	bool isPixelSolid(sdl::Vector2Float& position);
+	bool isOnGround;
 };
 

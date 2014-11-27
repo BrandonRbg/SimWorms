@@ -11,15 +11,23 @@ Player::Player(sdl::Vector2Float &position){
 }
 
 void Player::moveLeft(float frametime){
-	if (!physics.canMove(*this)){
-		physics.addConstraint(sdl::Vector2Float(-50, 0) * frametime);
+	if (!physics.cantMove(*this)){
+		physics.addConstraint(sdl::Vector2Float(-20, 0) * frametime);
 		direction = LEFT;
 	}
 }
 void Player::moveRight(float frametime){
-	if (!physics.canMove(*this)){
-		physics.addConstraint(sdl::Vector2Float(50, 0) * frametime);
+	if (!physics.cantMove(*this)){
+		physics.addConstraint(sdl::Vector2Float(20, 0) * frametime);
 		direction = RIGHT;
+	}
+}
+void Player::jump(float frametime){
+	if (!physics.cantMove(*this)){
+		if (direction)
+			physics.addConstraint(sdl::Vector2Float(20, -100) * frametime);
+		else
+			physics.addConstraint(sdl::Vector2Float(-20, -100) * frametime);
 	}
 }
 void Player::stop(){

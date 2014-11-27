@@ -9,7 +9,8 @@ SplashScreenState::SplashScreenState(){
 
 void SplashScreenState::update(float frametime){
 	if (splashScreenClock.getElapsedTime().asSeconds() >= 3.0 || sdl::Keyboard::isKeyPressed(SDLK_RETURN)){
-		ScreenStateManager::getInstance().setScreenState(new MainMenuState());
+		ScreenStateManager::getInstance().clear();
+		ScreenStateManager::getInstance().addScreenState(new MainMenuState());
 	}
 }
 
