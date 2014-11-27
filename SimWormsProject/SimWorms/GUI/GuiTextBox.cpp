@@ -15,6 +15,7 @@ void GuiTextBox::setString(const std::string& string){
 
 const std::string GuiTextBox::getString(){
 	return Text.getString();
+
 }
 
 void GuiTextBox::setPos(sdl::Vector2Float  &Position){

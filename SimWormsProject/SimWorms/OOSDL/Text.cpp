@@ -72,6 +72,8 @@ void sdl::Text::update(){
 	if (font != nullptr)
 		TTF_CloseFont(font);
 	font = TTF_OpenFont(fontPath.c_str(), characterSize);
+	if (font == NULL)
+		return;
 	TTF_SetFontStyle(font, style);
 	SDL_Color colorDestination = { color.r, color.g, color.b, color.a };
 	textSurface = TTF_RenderText_Blended(font, text.c_str(), colorDestination);
