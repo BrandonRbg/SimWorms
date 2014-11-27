@@ -40,7 +40,7 @@ void sdl::Transformable::setOrigin(sdl::Vector2Float &origin){
 }
 
 sdl::Vector2Float& sdl::Transformable::getPosition(){
-	return this->position + this->origin;
+	return this->position;
 }
 
 float sdl::Transformable::getRotation(){

@@ -11,5 +11,7 @@ public:
 
 	void update(float frametime, Terrain &terrain, sdl::Window &target);
 
+	std::list<Entity*> getEntities() { return entities; }
+
 	~EntityManager();
 };
