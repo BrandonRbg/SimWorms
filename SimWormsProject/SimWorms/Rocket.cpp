@@ -15,7 +15,7 @@ bool Rocket::isDead() {
 }
 
 void Rocket::update(float frametime, Terrain &terrain) {
-	physics.update(this, frametime, terrain);
+	//physics->update(this, terrain, frametime);
 	if (terrain.isPixelSolid(sprite.getPosition())) {
 		ExplosionsManager::getInstance().addExplosion(sprite.getPosition(), terrain, 75);
 		dead = true;
