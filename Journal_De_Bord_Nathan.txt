@@ -30,6 +30,10 @@ Avancement de la classe Melee (fini mais modification possible), de la classe Pr
 
 Avancement des classes Projectile et ProjectileManager
 
+25 Novembre, Environ 2 heures de travail-------------------
+
+Avancement des classe Projectile et rocket, création des classe Entity et EntityManager. Supression de la classe ProjectileManager
+
 
 
 
