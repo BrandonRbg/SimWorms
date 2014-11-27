@@ -12,7 +12,7 @@ protected:
 	GuiTextBox TeamOne;
 	GuiTextBox TeamTwo;
 	std::list<sdl::Text*> TextList;
-	std::list<GuiTextBox> TextBoxList;
+	std::list<GuiTextBox*> TextBoxList;
 	bool PlusClick, First;
 public:
 	GuiGameMenu();

@@ -3,8 +3,6 @@
 
 GuiTextBox::GuiTextBox(/*int Size, sdl::Color Color*/){
 	Text.setFont("data/fonts/Arial.ttf");
-	//Text.setCharacterSize(Size);
-	//Text.setColor(Color);
 	Text.setString(" ");
 	TextBox.setTexture(&AssetsManager::getInstance().getTexture("data/textures/TextBox.png"));
 	Pos = Text.getPosition();

@@ -51,6 +51,8 @@ GuiGameMenu::GuiGameMenu(){
 GuiGameMenu::~GuiGameMenu(){
 	for (auto& it : TextList)
 		delete it;
+	for (auto& it : TextBoxList)
+		delete it;
 }
 
 void GuiGameMenu::draw(sdl::Window &target){
@@ -75,11 +77,16 @@ void GuiGameMenu::draw(sdl::Window &target){
 	target.draw(&MapBigBox);
 	target.draw(&TextMapInfo);
 	target.draw(&TextStartButton);
-	target.draw(&Plus);
+	if (TextList.size() < 13){
+		target.draw(&Plus);
+	}
 	target.draw(&Minus);
 	for (auto& it : TextList){
 		target.draw(it);
 	}
+	/*for (auto& it : TextBoxList){ //wat
+		target.draw(it);
+	}*/
 }
 
 void GuiGameMenu::update(sdl::Window &target){
@@ -98,12 +105,17 @@ void GuiGameMenu::update(sdl::Window &target){
 		}
 		if (Plus.getBounds().contains(sdl::Mouse::getPosition())){ // Add teams
 			if (!PlusClick){
-				PlusClick = true;
-				char buffer[30];
-				sdl::Text* TempText = new sdl::Text("Team ", "data/fonts/Arial.ttf");
-				TempText->setString(TempText->getString() + SDL_itoa(TextList.size() + 1, buffer, 10));
-				TempText->setPosition(0.524 *target.getView().getSize().x, 250);
-				TextList.push_back(TempText);
+				if (TextList.size() < 13){
+					PlusClick = true;
+					char buffer[30];
+					sdl::Text* TempText = new sdl::Text("Team ", "data/fonts/Arial.ttf");
+					TempText->setString(TempText->getString() + SDL_itoa(TextList.size() + 1, buffer, 10));
+					TempText->setPosition(0.524 * target.getView().getSize().x, /*0.230*//*0.1625*/(0.093 + (0.0675 * TextList.size())) * target.getView().getSize().y);
+					TextList.push_back(TempText);
+					GuiTextBox* TempBox = new GuiTextBox();
+					TempBox->setPos(sdl::Vector2Float(0.624 * target.getView().getSize().x, (0.093 + (0.0675 * TextList.size())) * target.getView().getSize().y));
+					TextBoxList.push_back(TempBox);
+				}
 			}
 		}
 		if (TextStartButton.getBounds().contains(sdl::Mouse::getPosition())){

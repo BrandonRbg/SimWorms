@@ -38,3 +38,5 @@
 -Modification des menus
 {25 novembre 2014 9:50 to 12:13}
 -Modification des menus
+{26 novembre 2014 22:00 to 23:15}
+-Modification du GuiGameMenu
