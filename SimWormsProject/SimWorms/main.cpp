@@ -31,7 +31,7 @@ int main(int argc, char** argv){
 	Player player(sdl::Vector2Float(800,200));
 	view.setCenter(player.getPosition());
 
-	EntityManager::getInstance().addEntity(new Rocket(sdl::Vector2Float(50, 50), sdl::Vector2Float(0, 0), 50));
+	EntityManager::getInstance().addEntity(new Rocket(sdl::Vector2Float(550, 350), sdl::Vector2Float(10, 10), 2));
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("data/fonts/Arial.ttf");
@@ -107,7 +107,9 @@ int main(int argc, char** argv){
 		renderWindow.draw(&bg);
 		terrain.draw(renderWindow);
 		ExplosionsManager::getInstance().update(renderWindow);
-		EntityManager::getInstance().update(frametime, terrain, renderWindow);
+		if (EntityManager::getInstance().getEntities().size() > 0) {
+			EntityManager::getInstance().update(frametime, terrain, renderWindow);
+		}
 
 		if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
 			std::stringstream ss;
