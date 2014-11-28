@@ -84,7 +84,7 @@ int main(int argc, char** argv){
 			//	std::cout << sdl::Mouse::getPosition(view).x << ", " << sdl::Mouse::getPosition(view).y << std::endl;
 			//	std::cout << sdl::Mouse::getPosition().x << ", " << sdl::Mouse::getPosition().y << std::endl;
 			//}
-			EntityManager::getInstance().addEntity(new Rocket(sdl::Mouse::getPosition(view), sdl::Vector2Float(10, -10), 200));
+			EntityManager::getInstance().addEntity(new Rocket(sdl::Mouse::getPosition(view), sdl::Vector2Float(10, -10), 50));
 		}
 		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
 			player.setPosition(sdl::Mouse::getPosition(view));

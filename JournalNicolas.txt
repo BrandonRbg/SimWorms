@@ -93,3 +93,7 @@
 	-Implémentation des physiques de projectile (plus particulièrement le missile pour cette fois-çi)
 	+Modif. d'autres classes pour le besoin de la cause.
 	21h00
+28 nov
+	08h35
+	-Fix de la trajectoire des projectile
+	08h40
