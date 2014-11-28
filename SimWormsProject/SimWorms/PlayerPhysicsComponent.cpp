@@ -1,6 +1,5 @@
 #pragma once
 #include "PlayerPhysicsComponent.h"
-#include "Player.h"
 #include "Entity.h"
 
 void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float frametime){

@@ -88,3 +88,8 @@
 	14h30
 	-Début de la modification du code pour avoir des entitées
 	17h00
+
+	20h00
+	-Implémentation des physiques de projectile (plus particulièrement le missile pour cette fois-çi)
+	+Modif. d'autres classes pour le besoin de la cause.
+	21h00
