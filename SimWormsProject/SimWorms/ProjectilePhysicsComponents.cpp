@@ -9,6 +9,6 @@ void  ProjectilePhysicsComponents::update(Entity *projectile, Terrain &terrain, 
 void  ProjectilePhysicsComponents::checkCollision(Entity *projectile, Terrain &terrain, float frametime) {
 	projectile->setPosition(projectile->getPosition() + resultingVector);
 	if (terrain.isPixelSolid(projectile->getPosition())) {
-		projectile->explode(frametime);
+		projectile->explode(frametime, terrain);
 	}
 }

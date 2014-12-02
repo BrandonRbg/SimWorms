@@ -21,7 +21,7 @@ public:
 
 	virtual bool isDead() = 0;
 
-	virtual void explode(float frametime) = 0;
+	virtual void explode(float frametime, Terrain &terrain) = 0;
 	sdl::Vector2Float& getPosition();
 	sdl::Vector2Float& getVelocity();
 	sdl::RectFloat& getBounds();

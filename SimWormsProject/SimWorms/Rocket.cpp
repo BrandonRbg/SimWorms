@@ -11,19 +11,11 @@ Rocket::Rocket(sdl::Vector2Float &startingPosition, sdl::Vector2Float &orientati
 	this->physics = new ProjectilePhysicsComponents;
 }
 
-
-void Rocket::update(float frametime, Terrain &terrain) {
-	if (!isLaunched) {
-		physics->addConstraint(velocity, frametime);
-		isLaunched = true;
-	}
-	if (!dead)
-		physics->update(this, terrain, frametime);
-	if(dead){
-		ExplosionsManager::getInstance().addExplosion(sprite.getPosition(), terrain, 75);
-	}
-}
-
 void Rocket::draw(sdl::Window &target) {
 	target.draw(&sprite);
+}
+
+void Rocket::explode(float frametime, Terrain &terrain){
+	ExplosionsManager::getInstance().addExplosion(sprite.getPosition(), terrain, 50);
+	dead = true;
 }

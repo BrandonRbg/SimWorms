@@ -3,9 +3,6 @@
 #include "ExplosionsManager.h"
 
 class Rocket : public Projectile{
-protected:
-	bool dead;
-	bool isLaunched;
 public:
 	Rocket(sdl::Vector2Float &startingPosition, sdl::Vector2Float &orientation, float force);
 	~Rocket() { delete physics; }
@@ -16,5 +13,5 @@ public:
 
 	bool isDead() { return dead; }
 
-	void explode(float frametime){ dead = true; }
+	void explode(float frametime, Terrain &terrain);
 };

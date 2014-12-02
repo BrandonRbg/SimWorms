@@ -97,3 +97,7 @@
 	08h35
 	-Fix de la trajectoire des projectile
 	08h40
+ 2 déc
+	10h55
+	-Physique de la grenade + rebond
+	-Ajout dans projectile.cpp pour éviter la redondance
