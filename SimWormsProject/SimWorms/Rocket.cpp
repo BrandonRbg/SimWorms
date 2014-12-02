@@ -13,10 +13,6 @@ Rocket::Rocket(sdl::Vector2Float &startingPosition, sdl::Vector2Float &orientati
 
 
 void Rocket::update(float frametime, Terrain &terrain) {
-<<<<<<< HEAD
-	//physics->update(this, terrain, frametime);
-	if (terrain.isPixelSolid(sprite.getPosition())) {
-=======
 	if (!isLaunched) {
 		physics->addConstraint(velocity, frametime);
 		isLaunched = true;
@@ -24,7 +20,6 @@ void Rocket::update(float frametime, Terrain &terrain) {
 	if (!dead)
 		physics->update(this, terrain, frametime);
 	if(dead){
->>>>>>> 95c184c04984856496bc627c796848294e62f7d7
 		ExplosionsManager::getInstance().addExplosion(sprite.getPosition(), terrain, 75);
 	}
 }
