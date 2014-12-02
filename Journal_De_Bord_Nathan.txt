@@ -34,10 +34,12 @@ Avancement des classes Projectile et ProjectileManager
 
 Avancement des classe Projectile et rocket, création des classe Entity et EntityManager. Supression de la classe ProjectileManager
 
-01 Decembre, Environ 2 heures de travail-------------------
+01 Décembre, Environ 2 heures de travail-------------------
 
 Avancement de la classe Grenade, recherche d'une grenade comme image, supression de code inutile dans la classe Rocket
 
+02 Décembre, Environ 2 heures de travail-------------------
 
+Gestion des dégats avec les explosions, Ajout du nom et de la vie au dessus d'un player, réglage de problème avec GitHub
 
 
