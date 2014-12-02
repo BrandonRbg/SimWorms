@@ -74,7 +74,6 @@
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="ExplosionsManager.cpp" />
     <ClCompile Include="GameOptionsManager.cpp" />
-    <ClCompile Include="Grenade.cpp" />
     <ClCompile Include="GUI\GuiCheckBox.cpp" />
     <ClCompile Include="GUI\GuiGameMenu.cpp" />
     <ClCompile Include="GUI\GuiMainMenu.cpp" />

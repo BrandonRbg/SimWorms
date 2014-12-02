@@ -141,9 +141,6 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Grenade.cpp">
-      <Filter>Resource Files\Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
