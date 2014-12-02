@@ -12,7 +12,7 @@ protected:
 	std::list<std::tuple<sdl::Text*, sdl::Sprite*, sdl::Sprite*>> WeaponList;
 
 public:
-	GuiWeaponMenu();
+	GuiWeaponMenu(sdl::Window &target);
 	~GuiWeaponMenu();
 	void draw(sdl::Window &target);
 	void update(sdl::Window &target);
