@@ -76,6 +76,7 @@
     <ClCompile Include="GUI\GuiGameMenu.cpp" />
     <ClCompile Include="GUI\GuiMainMenu.cpp" />
     <ClCompile Include="GUI\GuiTextBox.cpp" />
+    <ClCompile Include="GUI\GuiWeaponMenu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="GUI\GuiGameMenu.h" />
     <ClInclude Include="GUI\GuiMainMenu.h" />
     <ClInclude Include="GUI\GuiTextBox.h" />
+    <ClInclude Include="GUI\GuiWeaponMenu.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="OOSDL\AnimatedSprite.h" />

@@ -10,7 +10,7 @@
 #include "Player.h"
 #include "EventManager.h"
 #include "Gui/GuiTextBox.h"
-#include "Gui/GuiGameMenu.h"
+#include "Gui/GuiMainMenu.h"
 
 int main(int argc, char** argv){
 	srand(time(0));
@@ -24,7 +24,7 @@ int main(int argc, char** argv){
 	//bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
 	//sdl::View view;
 	//view = renderWindow.getDefaultView();
-	GuiGameMenu Game(renderWindow);
+	GuiMainMenu Game;
 	//GuiTextBox Text;
 	//Player player(sdl::Vector2Float(800,200));
 	//view.setCenter(player.getPosition());

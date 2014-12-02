@@ -77,11 +77,15 @@ void sdl::Text::update(){
 	TTF_SetFontStyle(font, style);
 	SDL_Color colorDestination = { color.r, color.g, color.b, color.a };
 	textSurface = TTF_RenderText_Blended(font, text.c_str(), colorDestination);
+	SDL_SetSurfaceBlendMode(textSurface, SDL_BLENDMODE_BLEND);
 }
 
 void sdl::Text::draw(SDL_Renderer* renderer, sdl::View &view){
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	if (textSurface != NULL){
 		SDL_Texture* tmpTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+		SDL_SetTextureBlendMode(tmpTexture, SDL_BLENDMODE_BLEND);
+		SDL_SetTextureAlphaMod(tmpTexture, color.a);
 		SDL_Rect destination = { (int)getRenderDestination(view).x, (int)getRenderDestination(view).y, (int)getRenderDestination(view).w, (int)getRenderDestination(view).h };
 		SDL_Point destinationOrigin = { (int)origin.x, (int)origin.y };
 		SDL_RenderCopyEx(renderer, tmpTexture, NULL, &destination, orientation - view.getRotation(), &destinationOrigin, flipSide);
