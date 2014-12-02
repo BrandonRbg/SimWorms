@@ -14,6 +14,7 @@ protected:
 	sdl::Sprite sprite;
 	PhysicsComponent *physics;
 	bool direction; // true = droite et false = gauche
+	int health;
 public:
 	virtual void update(float frametime, Terrain &terrain) = 0;
 
@@ -33,4 +34,6 @@ public:
 	void moveRight(float frametime);
 	void jump(float frametime);
 	void stop();
+	int getHealth();
+	void setHealth(int health);
 };
