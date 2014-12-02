@@ -4,8 +4,10 @@
 
 class GuiMainMenu {
 protected:
-	sdl::Text TextNameGame;
+	sdl::Text TextSinglePlayer;
+	sdl::Text TextMultiPlayer;
 	sdl::Text TextOptions;
+	sdl::Text TextQuit;
 	sdl::Sprite SpriteLogo;
 	sdl::Sprite SpriteBG;
 	sdl::Sprite SpriteRec;
@@ -14,4 +16,3 @@ public:
 	void draw(sdl::Window &target);
 	void update(sdl::Window &target);
 };
-

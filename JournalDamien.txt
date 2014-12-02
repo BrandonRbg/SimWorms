@@ -36,3 +36,9 @@
 -Modification de la GUiTextBox
 {24 novembre 2014 19:54 to 22:36}
 -Modification des menus
+{25 novembre 2014 9:50 to 12:13}
+-Modification des menus
+{26 novembre 2014 22:00 to 23:15}
+-Modification du GuiGameMenu
+{2 décembre 2014 10:05 to 11:59}
+-Modification du visio de GUI, modification de GuiMainMenu, modification de certains sprites, ajout d'un font et commencement de la classe GuiWeaponMenu.
