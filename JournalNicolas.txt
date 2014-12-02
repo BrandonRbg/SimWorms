@@ -68,6 +68,32 @@
 	-Tentative de fix du chechcollision sur le dessus du joueur
 	14h45
 25 nov
-	8h20
+	08h20
 	-Fix du chechcollision sur le dessus du joueur
-	9h50
+	09h50
+
+	10h10
+	-Tentative de modification de la chute
+	12h00
+26 nov
+	08h20
+	-Annulation de mes dernières modifications
+	-Modifiaction des fichiers Palyer
+	+Saut
+	+isOnGround
+	+vitesse de déplacement
+	-Modifications mineures dans les physiques et les inputs
+	09h05
+27 nov
+	14h30
+	-Début de la modification du code pour avoir des entitées
+	17h00
+
+	20h00
+	-Implémentation des physiques de projectile (plus particulièrement le missile pour cette fois-çi)
+	+Modif. d'autres classes pour le besoin de la cause.
+	21h00
+28 nov
+	08h35
+	-Fix de la trajectoire des projectile
+	08h40

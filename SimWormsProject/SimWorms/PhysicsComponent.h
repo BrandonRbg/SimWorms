@@ -1,15 +1,20 @@
 #pragma once
 #include "OOSDL\OOSDL.h"
 #include "Terrain.h"
-// DO NOT MAKE INSTANCES OF!!!
+class Entity;
 class PhysicsComponent
 {
 protected:
 	sdl::Vector2Float resultingVector;
+	sdl::Vector2Float position;
+	sdl::Vector2Float velocity;
 public:
 	PhysicsComponent();
-	virtual void update(Terrain &terrain);
-	void addConstraint(sdl::Vector2Float &vector);
-	virtual void checkCollision(Terrain &terrain);
+	virtual void update(Entity *entity, Terrain &terrain, float frametime) = 0;
+	virtual void checkCollision(Entity *entity, Terrain &terrain, float frametime) = 0;
+	virtual bool cantMove(Entity *entity) = 0;
+	virtual void stopMovingX(Entity *entity) = 0;
+	virtual void stopMovingY(Entity *entity) = 0;
+	void addConstraint(sdl::Vector2Float &vector, float frametime);
 };
 

@@ -1,9 +1,9 @@
 #pragma once
 #include "GameOptionsManager.h"
-class Player;
+class Entity;
 class PlayerInputComponent
 {
 public:
-	void update(Player &player, float frametime);
+	void update(Entity *player, float frametime);
 };
 

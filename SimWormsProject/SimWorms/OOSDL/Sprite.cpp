@@ -5,8 +5,8 @@ sdl::Sprite::Sprite(){
 	texture = nullptr;
 }
 sdl::Sprite::~Sprite(){
-	if (sdlTexture != NULL)
-		SDL_DestroyTexture(sdlTexture);
+	if (sdlTexture != NULL) 
+			SDL_DestroyTexture(sdlTexture);
 }
 void sdl::Sprite::setTexture(sdl::Texture *texture){
 	this->texture = texture;

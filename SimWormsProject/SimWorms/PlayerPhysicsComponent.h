@@ -1,19 +1,17 @@
 #pragma once
 #include "PhysicsComponent.h"
-class Player;
+class Entity;
 class PlayerPhysicsComponent : public PhysicsComponent
 {
 private:
-	bool isSliding(Player &player, Terrain &terrain, float x, float y, float frametime);
+	bool isSliding(Entity *player, Terrain &terrain, float x, float y, float frametime);
 	bool cannotMove;
 public:
-	void update(Player &player, Terrain &terrain, float frametime);
-	void checkCollision(Player &player, Terrain &terrain, float frametime);
-	bool canMove(Player &player);
+	void update(Entity *entity, Terrain &terrain, float frametime);
+	void checkCollision(Entity *entity, Terrain &terrain, float frametime);
+	bool cantMove(Entity *player);
 	bool isUpperBoundBlocked;
-	bool isUpperBoundBlockedFromLeft;
-	bool isUpperBoundBlockedFromRight;
-	void stopMovingX(Player &player);
-	void stopMovingY(Player &player);
+	void stopMovingX(Entity *player);
+	void stopMovingY(Entity *player);
 };
 

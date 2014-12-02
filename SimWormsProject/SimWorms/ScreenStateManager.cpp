@@ -2,23 +2,26 @@
 
 
 ScreenStateManager::ScreenStateManager(){
-	actualScreenState = nullptr;
 }
 ScreenStateManager::~ScreenStateManager(){
-	delete this->actualScreenState;
+	for (auto& it : screenStates)
+		delete it;
 }
 
-void ScreenStateManager::setScreenState(ScreenState* screenState){
-	delete actualScreenState;
-	actualScreenState = screenState;
+void ScreenStateManager::addScreenState(ScreenState* screenState){
+	screenStates.push_back(screenState);
+}
+
+void ScreenStateManager::clear(){
+	screenStates.clear();
 }
 
 void ScreenStateManager::update(float frametime){
-	if (actualScreenState != nullptr)
-		actualScreenState->update(frametime);
+	for (auto& it : screenStates)
+		it->update(frametime);
 }
 
 void ScreenStateManager::draw(sdl::Window &target){
-	if (actualScreenState != nullptr)
-		actualScreenState->draw(target);
+	for (auto& it : screenStates)
+		it->draw(target);
 }

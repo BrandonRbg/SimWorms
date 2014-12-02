@@ -1,5 +1,5 @@
 #pragma once
-#include <memory>
+#include <vector>
 
 #include "Singleton.h"
 #include "ScreenState.h"
@@ -8,10 +8,11 @@ class ScreenStateManager : public Singleton<ScreenStateManager>
 public:
 	ScreenStateManager();
 	~ScreenStateManager();
-	void setScreenState(ScreenState* screenState);
+	void addScreenState(ScreenState* screenState);
+	void clear();
 	void update(float frametime);
 	void draw(sdl::Window &target);
 private:
-	ScreenState* actualScreenState;
+	std::vector<ScreenState*> screenStates;
 };
 
