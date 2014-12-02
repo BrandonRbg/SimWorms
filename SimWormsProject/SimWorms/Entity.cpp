@@ -45,3 +45,9 @@ void Entity::jump(float frametime){
 void Entity::stop(){
 	physics->stopMovingX(this);
 }
+int Entity::getHealth() {
+	return this->health;
+}
+void Entity::setHealth(int heal) {
+	this->health = heal;
+}
