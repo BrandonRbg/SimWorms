@@ -12,9 +12,9 @@ public:
 	PhysicsComponent();
 	virtual void update(Entity *entity, Terrain &terrain, float frametime) = 0;
 	virtual void checkCollision(Entity *entity, Terrain &terrain, float frametime) = 0;
-	virtual bool cantMove(Entity *player) = 0;
-	virtual void stopMovingX(Entity *player) = 0;
-	virtual void stopMovingY(Entity *player) = 0;
+	virtual bool cantMove(Entity *entity) = 0;
+	virtual void stopMovingX(Entity *entity) = 0;
+	virtual void stopMovingY(Entity *entity) = 0;
 	void addConstraint(sdl::Vector2Float &vector, float frametime);
 };
 

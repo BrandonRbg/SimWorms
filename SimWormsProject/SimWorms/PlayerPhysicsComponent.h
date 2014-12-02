@@ -1,7 +1,6 @@
 #pragma once
 #include "PhysicsComponent.h"
 class Entity;
-class Player;
 class PlayerPhysicsComponent : public PhysicsComponent
 {
 private:

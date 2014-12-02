@@ -14,14 +14,14 @@ protected:
 	sdl::Sprite sprite;
 	PhysicsComponent *physics;
 	bool direction; // true = droite et false = gauche
-	//PhysicsComponent physics;
-	// besoin d'un inputComponent
 public:
 	virtual void update(float frametime, Terrain &terrain) = 0;
 
 	virtual void draw(sdl::Window &target) = 0;
 
 	virtual bool isDead() = 0;
+
+	virtual void explode(float frametime) = 0;
 	sdl::Vector2Float& getPosition();
 	sdl::Vector2Float& getVelocity();
 	sdl::RectFloat& getBounds();

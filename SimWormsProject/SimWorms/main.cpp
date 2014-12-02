@@ -31,8 +31,6 @@ int main(int argc, char** argv){
 	Player player(sdl::Vector2Float(800,200));
 	view.setCenter(player.getPosition());
 
-	EntityManager::getInstance().addEntity(new Rocket(sdl::Vector2Float(550, 350), sdl::Vector2Float(10, 10), 2));
-
 	sdl::StaticText fpsText;
 	fpsText.setFont("data/fonts/Arial.ttf");
 	fpsText.setPosition(10, 10);
@@ -81,11 +79,12 @@ int main(int argc, char** argv){
 
 		}
 		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
-			if (sdl::Mouse::getPosition().x > 0 && sdl::Mouse::getPosition().x < terrain.getSize().x && sdl::Mouse::getPosition().y > 0 && sdl::Mouse::getPosition().y < terrain.getSize().y){
-				ExplosionsManager::getInstance().addExplosion(sdl::Mouse::getPosition(view), terrain, rand() % 50 + 50);
-				std::cout << sdl::Mouse::getPosition(view).x << ", " << sdl::Mouse::getPosition(view).y << std::endl;
-				std::cout << sdl::Mouse::getPosition().x << ", " << sdl::Mouse::getPosition().y << std::endl;
-			}
+			//if (sdl::Mouse::getPosition().x > 0 && sdl::Mouse::getPosition().x < terrain.getSize().x && sdl::Mouse::getPosition().y > 0 && sdl::Mouse::getPosition().y < terrain.getSize().y){
+			//	ExplosionsManager::getInstance().addExplosion(sdl::Mouse::getPosition(view), terrain, rand() % 50 + 50);
+			//	std::cout << sdl::Mouse::getPosition(view).x << ", " << sdl::Mouse::getPosition(view).y << std::endl;
+			//	std::cout << sdl::Mouse::getPosition().x << ", " << sdl::Mouse::getPosition().y << std::endl;
+			//}
+			EntityManager::getInstance().addEntity(new Rocket(sdl::Mouse::getPosition(view), sdl::Vector2Float(10, -10), 50));
 		}
 		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
 			player.setPosition(sdl::Mouse::getPosition(view));

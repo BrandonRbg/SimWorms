@@ -5,6 +5,5 @@ PhysicsComponent::PhysicsComponent(){
 }
 
 void PhysicsComponent::addConstraint(sdl::Vector2Float &vector, float frametime){
-	if (resultingVector.y + vector.y * frametime < 1)
 		resultingVector += vector * frametime;
 }
