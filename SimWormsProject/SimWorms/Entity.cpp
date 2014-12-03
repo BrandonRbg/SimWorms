@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "PhysicsComponent.h"
 
 sdl::Vector2Float& Entity::getPosition(){
 	return this->sprite.getPosition();

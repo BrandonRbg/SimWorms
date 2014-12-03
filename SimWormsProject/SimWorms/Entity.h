@@ -1,5 +1,4 @@
 #pragma once
-#include "PhysicsComponent.h"
 #include "OOSDL\AnimatedSprite.h"
 #include "Terrain.h"
 #include "AssetsManager.h"
@@ -7,6 +6,7 @@
 
 #define LEFT false;
 #define RIGHT true;
+class PhysicsComponent;
 class Entity {
 protected:
 	sdl::Vector2Float position;

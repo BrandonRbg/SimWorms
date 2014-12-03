@@ -11,7 +11,7 @@ public:
 
 	virtual bool isDead() = 0;
 
-	void update(float FrameTime, Terrain& terrain);
+	void update(float frameTime, Terrain& terrain);
 
 	virtual void explode(float frametime, Terrain& terrain) = 0;
 };

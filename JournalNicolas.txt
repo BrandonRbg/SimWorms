@@ -102,3 +102,7 @@
 	-Physique de la grenade + rebond
 	-Ajout dans projectile.cpp pour éviter la redondance
 	12h20
+ 3 déc
+	08h00
+	-Fix d'une inclusion circulaire
+	08h20

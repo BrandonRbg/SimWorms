@@ -1,6 +1,8 @@
 #pragma once
 #include "Projectile.h"
 #include "OOSDL\Clock.h"
+#include "ExplosionsManager.h"
+
 class Grenade : public Projectile{
 protected:
 	sdl::Clock* clock;
@@ -9,8 +11,6 @@ public:
 	Grenade(sdl::Vector2Float &startingPosition, sdl::Vector2Float &orientation, float force, double time);
 
 	~Grenade();
-
-	void update(float frameTime, Terrain &terrain);
 
 	void draw(sdl::Window &target);
 

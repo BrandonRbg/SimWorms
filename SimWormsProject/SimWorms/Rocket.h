@@ -7,8 +7,6 @@ public:
 	Rocket(sdl::Vector2Float &startingPosition, sdl::Vector2Float &orientation, float force);
 	~Rocket() { delete physics; }
 
-	void update(float frameTime, Terrain &terrain);
-
 	void draw(sdl::Window &target);
 
 	bool isDead() { return dead; }

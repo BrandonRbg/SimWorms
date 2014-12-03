@@ -1,5 +1,4 @@
 #include "Grenade.h"
-#include "ExplosionsManager.h"
 
 Grenade::Grenade(sdl::Vector2Float &startingPosition, sdl::Vector2Float &orientation, float force, double timer) {
 	this->clock = new sdl::Clock();
@@ -14,6 +13,7 @@ Grenade::Grenade(sdl::Vector2Float &startingPosition, sdl::Vector2Float &orienta
 Grenade::~Grenade(){
 	delete clock;
 }
+
 
 void Grenade::draw(sdl::Window &target) {
 	target.draw(&sprite);
