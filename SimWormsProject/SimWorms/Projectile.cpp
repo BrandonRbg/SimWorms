@@ -5,6 +5,7 @@ void Projectile::update(float frametime, Terrain &terrain) {
 		physics->addConstraint(velocity, frametime);
 		isLaunched = true;
 	}
+	this->isTimedOut(terrain);
 	if (!dead)
 		physics->update(this, terrain, frametime);
 }

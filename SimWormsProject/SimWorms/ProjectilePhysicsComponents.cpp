@@ -7,8 +7,14 @@ void  ProjectilePhysicsComponents::update(Entity *projectile, Terrain &terrain, 
 }
 
 void  ProjectilePhysicsComponents::checkCollision(Entity *projectile, Terrain &terrain, float frametime) {
-	projectile->setPosition(projectile->getPosition() + resultingVector);
-	if (terrain.isPixelSolid(projectile->getPosition())) {
+	if (terrain.isPixelSolid(projectile->getPosition() + resultingVector)) {
+		sdl::Vector2Float normalizedVector = resultingVector;
+		normalizedVector.normalize();
+		while (!terrain.isPixelSolid(projectile->getPosition() + normalizedVector)) {
+			projectile->setPosition(projectile->getPosition() + normalizedVector);
+		}
 		projectile->explode(frametime, terrain);
 	}
+	else
+		projectile->setPosition(projectile->getPosition() + resultingVector);
 }

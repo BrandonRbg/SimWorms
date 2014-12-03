@@ -16,5 +16,6 @@ public:
 	virtual void stopMovingX(Entity *entity) = 0;
 	virtual void stopMovingY(Entity *entity) = 0;
 	void addConstraint(sdl::Vector2Float &vector, float frametime);
+	sdl::Vector2Float getResultingVector() { return resultingVector; }
 };
 

@@ -106,3 +106,9 @@
 	08h00
 	-Fix d'une inclusion circulaire
 	08h20
+
+	14h45
+	-Fix de la grenade (rebond) * Très rebondissant, mais c'était pour tester
+	-Modification des projectile (ajout du isTimedOut)
+	-Modification du projectileManager à compléter
+	15h15

@@ -101,6 +101,7 @@
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PlayerPhysicsComponent.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="ProjectileManager.cpp" />
     <ClCompile Include="ProjectilePhysicsComponents.cpp" />
     <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="ScreenStateManager.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PlayerPhysicsComponent.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="ProjectileManager.h" />
     <ClInclude Include="ProjectilePhysicsComponents.h" />
     <ClInclude Include="Rocket.h" />
     <ClInclude Include="ScreenState.h" />

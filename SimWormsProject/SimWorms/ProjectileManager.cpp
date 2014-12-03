@@ -1,9 +1,8 @@
 #include "ProjectileManager.h"
 #include "ExplosionsManager.h"
 
-void ProjectileManager::addProjectile(sdl::Vector2Float position, sdl::Vector2Float direction, float puissance) {
-	Projectile* projectiletmp = new Projectile(position, direction, puissance);
-	projectile.push_back(projectiletmp);
+void ProjectileManager::addProjectile(Projectile* projectile){
+	this->projectile.push_back(projectile);
 }
 
 void ProjectileManager::update(sdl::Window &window) {

@@ -7,7 +7,7 @@ public:
 	void update(Entity *projectile, Terrain &terrain, float frametime);
 	void checkCollision(Entity *projectile, Terrain &terrain, float frametime);
 	bool cantMove(Entity *projectile){ return false; }
-	void stopMovingX(Entity *projectile){ return; }
-	void stopMovingY(Entity *projectile){ return; }
+	void stopMovingX(Entity *projectile){ resultingVector.x = 0; }
+	void stopMovingY(Entity *projectile){ resultingVector.y = 0; }
 };
 
