@@ -12,17 +12,17 @@
 #include "Gui/GuiTextBox.h"
 #include "Gui/GuiMainMenu.h"
 #include "Grenade.h"
+#include "MapManager.h"
+
 
 int main(int argc, char** argv){
 	srand(time(0));
 	SDL_StartTextInput();
 	sdl::Window renderWindow(sdl::VideoMode(1280, 1024), "SimWorms", false);
 	GameOptionsManager::getInstance().update(renderWindow);
-	Terrain terrain;
-	terrain.loadTerrainFromFile("data/maps/country/map.png");
-	sdl::StaticSprite bg;
-	bg.setTexture(&AssetsManager::getInstance().getTexture("data/maps/country/background.jpg"));
-	bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
+
+	MapManager::getInstance().loadMapsFromFolder("data/maps");
+
 	sdl::View view;
 	view = renderWindow.getDefaultView();
 	//GuiMainMenu Game;
@@ -105,8 +105,9 @@ int main(int argc, char** argv){
 			view.zoom(0.99);
 		renderWindow.clear(sdl::Color::White);
 		renderWindow.setView(view);
-		renderWindow.draw(&bg);
-		terrain.draw(renderWindow);
+
+		MapManager::getInstance().update(renderWindow);
+
 		ExplosionsManager::getInstance().update(renderWindow);
 
 		if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
@@ -122,7 +123,7 @@ int main(int argc, char** argv){
 		/*player.update(frametime, terrain);
 		player.draw(renderWindow);*/
 		if (grenade != nullptr) {
-			grenade->update(frametime, terrain);
+			grenade->update(frametime, MapManager::getInstance().getActualMap().terrain);
 			grenade->draw(renderWindow);
 		}
 		renderWindow.draw(&fpsText);

@@ -1,6 +1,7 @@
 #include "AssetsManager.h"
 
 
+
 void AssetsManager::loadTexture(const std::string& path){
 	sdl::Texture tmpTexture;
 	tmpTexture.loadFromFile(path);

@@ -3,6 +3,7 @@
 
 sdl::Texture::Texture(){
 	changes = 0;
+	surface = NULL;
 }
 
 
@@ -11,6 +12,7 @@ sdl::Texture::~Texture()
 	if (surface != NULL){
 		if (surface->format != NULL){
 			SDL_FreeSurface(surface);
+			surface->format = NULL;
 			surface = NULL;
 		}
 	}
@@ -23,7 +25,7 @@ bool sdl::Texture::loadFromFile(const std::string &path)
 }
 
 sdl::Vector2Float sdl::Texture::getSize() {
-	if (surface != NULL) 
+	if (surface != nullptr) 
 		if(surface->format != NULL)
 			return sdl::Vector2Float((float)surface->w, (float)surface->h);
 	else

@@ -3,10 +3,14 @@
 
 sdl::Sprite::Sprite(){
 	texture = nullptr;
+	sdlTexture = NULL;
 }
 sdl::Sprite::~Sprite(){
-	if (sdlTexture != NULL) 
-			SDL_DestroyTexture(sdlTexture);
+	if (sdlTexture != NULL) {
+		SDL_DestroyTexture(sdlTexture);
+		sdlTexture = NULL;
+	}
+	delete texture;
 }
 void sdl::Sprite::setTexture(sdl::Texture *texture){
 	this->texture = texture;

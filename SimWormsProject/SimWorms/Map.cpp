@@ -1,12 +1,12 @@
 #include "Map.h"
 
 
-Map::Map(std::string& name, std::string& description, int landMinesCount, int maxWindForce, std::string& terrainPath, std::string& bgPath){
+Map::Map(std::string& name, std::string& description, int landMinesCount, int maxWindForce, int gravityForce, std::string& terrainPath, std::string& bgPath, std::string& thumbnailPath){
 	this->name = name;
 	this->description = description;
 	this->landMinesCount = landMinesCount;
 	this->maxWindForce = maxWindForce;
-	this->terrain.loadTerrainFromFile(terrainPath);
+	this->terrain.loadTerrainFromFile("data/maps/country/map.png");
 	this->bg.setTexture(&AssetsManager::getInstance().getTexture(bgPath));
 	updateWindForce();
 	std::default_random_engine engine;

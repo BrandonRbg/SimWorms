@@ -19,5 +19,6 @@ namespace sdl {
 	private:
 		SDL_Surface* surface;
 		int changes;
+		int proof;
 	};
 }
