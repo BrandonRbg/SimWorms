@@ -18,41 +18,23 @@ Grenade::~Grenade(){
 void Grenade::draw(sdl::Window &target) {
 	target.draw(&sprite);
 }
-// * 100 là uniquement pour tester plus facilement.
+
 void Grenade::explode(float frametime, Terrain &terrain){
 		velocity = physics->getResultingVector();
 		physics->stopMovingX(this);
 		physics->stopMovingY(this);
 
 		sdl::Vector2Float terrainNorm = terrain.getNormal(sprite.getPosition());
-		if (terrainNorm.x == 0){
-			velocity.y = 100 * -velocity.y;
-		}
-		else if (terrainNorm.y == 0){
-			velocity.x = 100 * -velocity.x;
-		}
-		else if (terrainNorm.x > 0){
-			if (terrainNorm.y > 0){
-				velocity = sdl::Vector2Float(-velocity.y, -velocity.x) * 100;
-			}
-			else{
-				velocity = sdl::Vector2Float(velocity.y, velocity.x) * 100;
-			}
-		}
-		else{
-			if (terrainNorm.y > 0){
-				velocity = sdl::Vector2Float(velocity.y, velocity.x) * 100;
-			}
-			else{
-				velocity = sdl::Vector2Float(-velocity.y, -velocity.x) * 100;
-			}
-		}
+		terrainNorm.normalize();
+		terrainNorm.x = -terrainNorm.x;
+		terrainNorm.y = -terrainNorm.y;
+		velocity = velocity - terrainNorm * (2 * (velocity.x * terrainNorm.x + velocity.y * terrainNorm.y));
 		physics->addConstraint(velocity, frametime);
+		position = position + physics->getResultingVector();
 }
 void Grenade::isTimedOut(Terrain &terrain) {
 	if (clock->getElapsedTime().asSeconds() >= timer){
 		ExplosionsManager::getInstance().addExplosion(sprite.getPosition(), terrain, 50);
 		dead = true;
 	}
-
 }
