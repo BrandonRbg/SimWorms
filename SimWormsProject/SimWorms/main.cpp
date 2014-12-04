@@ -111,7 +111,7 @@ int main(int argc, char** argv){
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
 		}*/
-		//Game.update(renderWindow);
+		Game.update(renderWindow);
 		Game.draw(renderWindow);
 		/*Text.update(renderWindow);
 		Text.draw(renderWindow);*/

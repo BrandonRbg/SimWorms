@@ -5,15 +5,17 @@
 
 class GuiWeaponMenu{
 protected:
-	sdl::Sprite ArrowU,ArrowD;
-	sdl::Sprite* WeaponBoxe;
+	sdl::Sprite ArrowU,ArrowD,WeaponBack;
+	sdl::Sprite* WeaponBox;
 	sdl::Sprite*  WeaponSprite;
 	sdl::Text* TextWeapon;
 	std::list<std::tuple<sdl::Text*, sdl::Sprite*, sdl::Sprite*>> WeaponList;
+	sdl::Clock Clock,ClickClock;
+	bool Clicked,First,ReverseClick;
 
 public:
 	GuiWeaponMenu(sdl::Window &target);
-	~GuiWeaponMenu();
+	//~GuiWeaponMenu();
 	void draw(sdl::Window &target);
 	void update(sdl::Window &target);
 };
