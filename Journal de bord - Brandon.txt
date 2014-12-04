@@ -35,3 +35,7 @@ Le mardi 25 novembre 2014
 		-ScreenStateManager
 		-SplashScreenState
 		-MainMenuState
+Le jeudi 4 décembre 2014
+	1h01
+	-Modification de la classe ScreenStateManagerpour fixer certains bugs.
+	
