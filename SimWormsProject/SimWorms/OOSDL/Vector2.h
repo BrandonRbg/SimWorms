@@ -19,7 +19,7 @@ namespace sdl{
 
 		float getModule(){ return sqrt(x * x + y * y); }
 
-		void normalize(){ this->x /= getModule(); this->y /= getModule(); }
+		void normalize(){ float module = getModule(); this->x /= module; this->y /= module; }
 
 		std::vector<T> getComponents() {
 			std::vector<T> components;

@@ -116,3 +116,11 @@
 	12h30
 	-Vrai rebond de grenade
 	12h45
+
+	14h20
+	-Déboguage du rebond
+	14h40
+
+	15h05
+	-Modification du checkCollision du player (à continuer)
+	17h20
