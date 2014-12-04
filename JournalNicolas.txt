@@ -97,3 +97,22 @@
 	08h35
 	-Fix de la trajectoire des projectile
 	08h40
+ 2 déc
+	10h55
+	-Physique de la grenade + rebond
+	-Ajout dans projectile.cpp pour éviter la redondance
+	12h20
+ 3 déc
+	08h00
+	-Fix d'une inclusion circulaire
+	08h20
+
+	14h45
+	-Fix de la grenade (rebond) * Très rebondissant, mais c'était pour tester
+	-Modification des projectile (ajout du isTimedOut)
+	-Modification du projectileManager à compléter
+	15h15
+ 4 déc
+	12h30
+	-Vrai rebond de grenade
+	12h45

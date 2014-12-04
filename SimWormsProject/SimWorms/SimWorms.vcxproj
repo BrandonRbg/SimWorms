@@ -68,10 +68,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AssetsManager.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="ExplosionsManager.cpp" />
     <ClCompile Include="GameOptionsManager.cpp" />
+    <ClCompile Include="Grenade.cpp" />
     <ClCompile Include="GUI\GuiCheckBox.cpp" />
     <ClCompile Include="GUI\GuiGameMenu.cpp" />
     <ClCompile Include="GUI\GuiMainMenu.cpp" />
@@ -98,16 +100,22 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PlayerPhysicsComponent.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="ProjectileManager.cpp" />
+    <ClCompile Include="ProjectilePhysicsComponents.cpp" />
+    <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="ScreenStateManager.cpp" />
     <ClCompile Include="SplashScreenState.cpp" />
     <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetsManager.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="ExplosionsManager.h" />
     <ClInclude Include="GameOptionsManager.h" />
+    <ClInclude Include="Grenade.h" />
     <ClInclude Include="GUI\GuiCheckBox.h" />
     <ClInclude Include="GUI\GuiComponents.h" />
     <ClInclude Include="GUI\GuiGameMenu.h" />
@@ -139,6 +147,10 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PlayerPhysicsComponent.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="ProjectileManager.h" />
+    <ClInclude Include="ProjectilePhysicsComponents.h" />
+    <ClInclude Include="Rocket.h" />
     <ClInclude Include="ScreenState.h" />
     <ClInclude Include="ScreenStateManager.h" />
     <ClInclude Include="Singleton.h" />

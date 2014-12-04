@@ -1,27 +1,40 @@
 #include "Grenade.h"
-#include "ExplosionsManager.h"
 
 Grenade::Grenade(sdl::Vector2Float &startingPosition, sdl::Vector2Float &orientation, float force, double timer) {
 	this->clock = new sdl::Clock();
-	clock->getElapsedTime().setTime(timer);
-	sprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/W4_Grenade.png"));
+	this->timer = timer;
+	sprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/player.png"));
 	sprite.setPosition(sdl::Vector2Float(startingPosition.x, startingPosition.y));
+	sprite.setOrigin(sdl::Vector2Float(sprite.getBounds().w / 2, sprite.getBounds().h / 2));
 	velocity = (orientation * force);
 	dead = false;
+	this->physics = new ProjectilePhysicsComponents;
+}
+Grenade::~Grenade(){
+	delete clock;
 }
 
-bool Grenade::isDead() {
-	return dead;
-}
-
-void Grenade::update(float frametime, Terrain &terrain) {
-	if (clock->getElapsedTime().asSeconds() == 0) {
-		ExplosionsManager::getInstance().addExplosion(sprite.getPosition(), terrain, 50);
-		delete clock;
-		dead = true;
-	}
-}
 
 void Grenade::draw(sdl::Window &target) {
 	target.draw(&sprite);
+}
+
+void Grenade::explode(float frametime, Terrain &terrain){
+		velocity = physics->getResultingVector();
+		physics->stopMovingX(this);
+		physics->stopMovingY(this);
+
+		sdl::Vector2Float terrainNorm = terrain.getNormal(sprite.getPosition());
+		terrainNorm.normalize();
+		terrainNorm.x = -terrainNorm.x;
+		terrainNorm.y = -terrainNorm.y;
+		velocity = velocity - terrainNorm * (2 * (velocity.x * terrainNorm.x + velocity.y * terrainNorm.y));
+		physics->addConstraint(velocity, frametime);
+		position = position + physics->getResultingVector();
+}
+void Grenade::isTimedOut(Terrain &terrain) {
+	if (clock->getElapsedTime().asSeconds() >= timer){
+		ExplosionsManager::getInstance().addExplosion(sprite.getPosition(), terrain, 50);
+		dead = true;
+	}
 }

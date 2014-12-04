@@ -1,5 +1,4 @@
 #pragma once
-#include "PhysicsComponent.h"
 #include "OOSDL\AnimatedSprite.h"
 #include "Terrain.h"
 #include "AssetsManager.h"
@@ -7,6 +6,7 @@
 
 #define LEFT false;
 #define RIGHT true;
+class PhysicsComponent;
 class Entity {
 protected:
 	sdl::Vector2Float position;
@@ -14,6 +14,7 @@ protected:
 	sdl::Sprite sprite;
 	PhysicsComponent *physics;
 	bool direction; // true = droite et false = gauche
+	int health;
 public:
 	virtual void update(float frametime, Terrain &terrain) = 0;
 
@@ -21,7 +22,7 @@ public:
 
 	virtual bool isDead() = 0;
 
-	virtual void explode(float frametime) = 0;
+	virtual void explode(float frametime, Terrain &terrain) = 0;
 	sdl::Vector2Float& getPosition();
 	sdl::Vector2Float& getVelocity();
 	sdl::RectFloat& getBounds();
@@ -33,4 +34,6 @@ public:
 	void moveRight(float frametime);
 	void jump(float frametime);
 	void stop();
+	int getHealth();
+	void setHealth(int health);
 };

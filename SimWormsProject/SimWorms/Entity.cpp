@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "PhysicsComponent.h"
 
 sdl::Vector2Float& Entity::getPosition(){
 	return this->sprite.getPosition();
@@ -44,4 +45,10 @@ void Entity::jump(float frametime){
 }
 void Entity::stop(){
 	physics->stopMovingX(this);
+}
+int Entity::getHealth() {
+	return this->health;
+}
+void Entity::setHealth(int heal) {
+	this->health = heal;
 }

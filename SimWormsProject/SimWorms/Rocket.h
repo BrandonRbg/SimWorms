@@ -3,18 +3,15 @@
 #include "ExplosionsManager.h"
 
 class Rocket : public Projectile{
-protected:
-	bool dead;
-	bool isLaunched;
 public:
 	Rocket(sdl::Vector2Float &startingPosition, sdl::Vector2Float &orientation, float force);
 	~Rocket() { delete physics; }
-
-	void update(float frameTime, Terrain &terrain);
 
 	void draw(sdl::Window &target);
 
 	bool isDead() { return dead; }
 
-	void explode(float frametime){ dead = true; }
+	void explode(float frametime, Terrain &terrain);
+
+	void isTimedOut(Terrain &terrain) { ; }
 };
