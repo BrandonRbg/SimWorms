@@ -27,8 +27,8 @@ int main(int argc, char** argv){
 	view = renderWindow.getDefaultView();
 	//GuiMainMenu Game;
 	//GuiTextBox Text;
-	//Player player(sdl::Vector2Float(800,200));
-	//view.setCenter(player.getPosition());
+	Player player(sdl::Vector2Float(800,200));
+	view.setCenter(player.getPosition());
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("data/fonts/Arial.ttf");
@@ -85,12 +85,12 @@ int main(int argc, char** argv){
 				std::cout << sdl::Mouse::getPosition(view).x << ", " << sdl::Mouse::getPosition(view).y << std::endl;
 				std::cout << sdl::Mouse::getPosition().x << ", " << sdl::Mouse::getPosition().y << std::endl;
 			}*/
-			delete grenade;
-			grenade = new Grenade(sdl::Mouse::getPosition(view), sdl::Vector2Float(), 0, 4);
+			//delete grenade;
+			//grenade = new Grenade(sdl::Mouse::getPosition(view), sdl::Vector2Float(), 0, 4);
 		}
-		/*if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
+		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
 			player.setPosition(sdl::Mouse::getPosition(view));
-		}*/
+		}
 		if (sdl::Keyboard::isKeyPressed(SDLK_w))
 			view.move(0, -500 * frametime);
 		if (sdl::Keyboard::isKeyPressed(SDLK_a))
@@ -119,8 +119,8 @@ int main(int argc, char** argv){
 		//Game.draw(renderWindow);
 		/*Text.update(renderWindow);
 		Text.draw(renderWindow);*/
-		/*player.update(frametime, terrain);
-		player.draw(renderWindow);*/
+		player.update(frametime, terrain);
+		player.draw(renderWindow);
 		if (grenade != nullptr) {
 			grenade->update(frametime, terrain);
 			grenade->draw(renderWindow);
