@@ -5,8 +5,8 @@ MainMenuState::MainMenuState(){
 
 }
 
-void MainMenuState::update(float frametime){
-	//menu.update();
+void MainMenuState::update(sdl::Window &target, float frametime){
+	menu.update(target);
 }
 
 void MainMenuState::draw(sdl::Window &target){

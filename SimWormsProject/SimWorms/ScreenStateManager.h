@@ -8,9 +8,10 @@ class ScreenStateManager : public Singleton<ScreenStateManager>
 public:
 	ScreenStateManager();
 	~ScreenStateManager();
-	void addScreenState(ScreenState* screenState);
+	void pushScreenState(ScreenState* screenState);
+	void popScreenState();
 	void clear();
-	void update(float frametime);
+	void update(sdl::Window &target, float frametime);
 	void draw(sdl::Window &target);
 private:
 	std::vector<ScreenState*> screenStates;

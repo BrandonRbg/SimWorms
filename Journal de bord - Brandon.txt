@@ -36,6 +36,10 @@ Le mardi 25 novembre 2014
 		-SplashScreenState
 		-MainMenuState
 Le jeudi 4 décembre 2014
-	1h01
+	1h01 à 2h32
 	-Modification de la classe ScreenStateManagerpour fixer certains bugs.
+	-Modification des states pour fixer d'autres bugs.
+	-Commencement de l'implémentation de Map et MapManager
+
+	
 	

@@ -6,7 +6,7 @@ class MainMenuState : public ScreenState
 {
 public:
 	MainMenuState();
-	void update(float frametime);
+	void update(sdl::Window &target, float frametime);
 	void draw(sdl::Window &target);
 private:
 	GuiMainMenu menu;
