@@ -1,7 +1,6 @@
 #pragma once
 #include "Projectile.h"
 #include "OOSDL\Clock.h"
-#include "ExplosionsManager.h"
 
 class Grenade : public Projectile{
 protected:

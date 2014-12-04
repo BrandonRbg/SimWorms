@@ -69,9 +69,9 @@
   <ItemGroup>
     <ClCompile Include="AssetsManager.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Explosion.cpp" />
-    <ClCompile Include="ExplosionsManager.cpp" />
     <ClCompile Include="GameOptionsManager.cpp" />
     <ClCompile Include="Grenade.cpp" />
     <ClCompile Include="GUI\GuiCheckBox.cpp" />
@@ -111,6 +111,7 @@
   <ItemGroup>
     <ClInclude Include="AssetsManager.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityManager.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="ExplosionsManager.h" />

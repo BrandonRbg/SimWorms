@@ -32,7 +32,7 @@ void Grenade::explode(float frametime, Terrain &terrain){
 }
 void Grenade::isTimedOut(Terrain &terrain) {
 	if (clock->getElapsedTime().asSeconds() >= timer){
-		ExplosionsManager::getInstance().addExplosion(sprite.getPosition(), terrain, 30);
+		EntityManager::getInstance().addEntity(new Explosion(sprite.getPosition(), terrain, 100));
 		dead = true;
 	}
 }

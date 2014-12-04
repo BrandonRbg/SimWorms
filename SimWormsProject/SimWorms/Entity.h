@@ -28,6 +28,7 @@ public:
 	sdl::RectFloat& getBounds();
 	void setPosition(sdl::Vector2Float& position);
 	void setVelocity(sdl::Vector2Float& velocity);
+	void addConstraint(sdl::Vector2Float &vector, float frametime);
 	bool isPixelSolid(sdl::Vector2Float& position);
 	bool isOnGround;
 	void moveLeft(float frametime);

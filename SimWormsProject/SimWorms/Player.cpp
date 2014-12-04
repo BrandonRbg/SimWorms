@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "OOSDL\Text.h"
+#include <sstream>
 
 Player::Player(sdl::Vector2Float &position){
 	this->position = position;
@@ -28,8 +29,10 @@ void Player::draw(sdl::Window &target){
 void Player::update(float frametime, Terrain& terrain){
 	input.update(this, frametime);
 	physics->update(this, terrain, frametime);
-	life.setPosition(this->sprite.getBounds().x, this->sprite.getBounds().y + life.getBounds().h - this->sprite.getBounds().h - 10);
-	life.setString("100");
+	life.setPosition(this->sprite.getBounds().x, this->sprite.getBounds().y + life.getBounds().h - this->sprite.getBounds().h - 30);
+	std::stringstream ster;
+	ster << health;
+	life.setString(ster.str());
 	name.setPosition(life.getBounds().x, life.getBounds().y - name.getBounds().h);
 }
 bool Player::isDead(){

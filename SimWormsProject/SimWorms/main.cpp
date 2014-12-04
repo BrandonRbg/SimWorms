@@ -5,7 +5,6 @@
 
 #include "Terrain.h"
 #include "AssetsManager.h"
-#include "ExplosionsManager.h"
 #include "GameOptionsManager.h"
 #include "Player.h"
 #include "EventManager.h"
@@ -37,11 +36,12 @@ int main(int argc, char** argv){
 	fpsText.setColor(sdl::Color::Black);
 	fpsText.setString("");
 
-	Grenade* grenade = nullptr;
-
 	sdl::Clock fpsClock;
 	sdl::Clock fpsDisplayUpdateClock;
 
+	EntityManager::getInstance().addEntity(new Player(sdl::Vector2Float(500, 500)));
+
+	sdl::Clock runclock;
 	while (renderWindow.isOpen()){
 		float frametime = fpsClock.restart().asSeconds();
 		int fps = (int)(1 / frametime);
@@ -55,21 +55,21 @@ int main(int argc, char** argv){
 			if (event.type == SDL_KEYDOWN)
 			if (event.key.keysym.sym == SDLK_ESCAPE)
 				renderWindow.close();
-			/*if (event.key.keysym.sym == SDLK_q){
-				//GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode(640, 480));
-			}
-			if (event.key.keysym.sym == SDLK_e){
-				GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode::getModes()[0]);
-			}
-			if (event.key.keysym.sym == SDLK_f){
-				GameOptionsManager::getInstance().setFullScreen(true);
-			}
-			if (event.key.keysym.sym == SDLK_g){
-				GameOptionsManager::getInstance().setFullScreen(false);
-			}
-			if (event.key.keysym.sym == SDLK_u){
-				GameOptionsManager::getInstance().update(renderWindow);
-			}*/
+			//if (event.key.keysym.sym == SDLK_q){
+
+			//}
+			//if (event.key.keysym.sym == SDLK_e){
+			//	GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode::getModes()[0]);
+			//}/*
+			//if (event.key.keysym.sym == SDLK_f){
+			//	GameOptionsManager::getInstance().setFullScreen(true);
+			//}
+			//if (event.key.keysym.sym == SDLK_g){
+			//	GameOptionsManager::getInstance().setFullScreen(false);
+			//}
+			//if (event.key.keysym.sym == SDLK_u){
+			//	GameOptionsManager::getInstance().update(renderWindow);
+			//}
 			if (event.type == SDL_MOUSEWHEEL)
 			{
 				if (event.wheel.y < 0)
@@ -84,13 +84,13 @@ int main(int argc, char** argv){
 				ExplosionsManager::getInstance().addExplosion(sdl::Mouse::getPosition(view), terrain, rand() % 50 + 50);
 				std::cout << sdl::Mouse::getPosition(view).x << ", " << sdl::Mouse::getPosition(view).y << std::endl;
 				std::cout << sdl::Mouse::getPosition().x << ", " << sdl::Mouse::getPosition().y << std::endl;
+
 			}*/
-			delete grenade;
-			grenade = new Grenade(sdl::Mouse::getPosition(view), sdl::Vector2Float(), 0, 4);
+			EntityManager::getInstance().addEntity(new Grenade(sdl::Mouse::getPosition(view), sdl::Vector2Float(), 0, 4));
 		}
-		/*if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
-			player.setPosition(sdl::Mouse::getPosition(view));
-		}*/
+		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
+			(*EntityManager::getInstance().getEntities().begin())->setPosition(sdl::Mouse::getPosition(view));
+		}
 		if (sdl::Keyboard::isKeyPressed(SDLK_w))
 			view.move(0, -500 * frametime);
 		if (sdl::Keyboard::isKeyPressed(SDLK_a))
@@ -107,7 +107,7 @@ int main(int argc, char** argv){
 		renderWindow.setView(view);
 		renderWindow.draw(&bg);
 		terrain.draw(renderWindow);
-		ExplosionsManager::getInstance().update(renderWindow);
+		EntityManager::getInstance().update(frametime, terrain, renderWindow);
 
 		if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
 			std::stringstream ss;
@@ -121,10 +121,7 @@ int main(int argc, char** argv){
 		Text.draw(renderWindow);*/
 		/*player.update(frametime, terrain);
 		player.draw(renderWindow);*/
-		if (grenade != nullptr) {
-			grenade->update(frametime, terrain);
-			grenade->draw(renderWindow);
-		}
+
 		renderWindow.draw(&fpsText);
 
 		renderWindow.show();
