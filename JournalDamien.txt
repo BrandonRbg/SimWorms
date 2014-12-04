@@ -42,4 +42,5 @@
 -Modification du GuiGameMenu
 {2 décembre 2014 10:05 to 11:59}
 -Modification du visio de GUI, modification de GuiMainMenu, modification de certains sprites, ajout d'un font et commencement de la classe GuiWeaponMenu.
-{2 décembre 2014 13:50 to }
+{3 décembre 2014 22:04 to 23:24}
+-Modification du GuiWeaponMenu 

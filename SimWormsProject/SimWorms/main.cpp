@@ -11,6 +11,7 @@
 #include "EventManager.h"
 #include "Gui/GuiTextBox.h"
 #include "Gui/GuiMainMenu.h"
+#include "Gui/GuiWeaponMenu.h"
 
 int main(int argc, char** argv){
 	srand(time(0));
@@ -24,7 +25,7 @@ int main(int argc, char** argv){
 	//bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
 	//sdl::View view;
 	//view = renderWindow.getDefaultView();
-	GuiMainMenu Game;
+	GuiWeaponMenu Game(renderWindow);
 	//GuiTextBox Text;
 	//Player player(sdl::Vector2Float(800,200));
 	//view.setCenter(player.getPosition());
@@ -110,7 +111,7 @@ int main(int argc, char** argv){
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
 		}*/
-		Game.update(renderWindow);
+		//Game.update(renderWindow);
 		Game.draw(renderWindow);
 		/*Text.update(renderWindow);
 		Text.draw(renderWindow);*/
