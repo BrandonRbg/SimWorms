@@ -15,6 +15,7 @@ Explosion::Explosion(sdl::Vector2Float &position, float radius){
 	/*for (auto& it : EntityManager::getInstance().getEntities()) {
 		if ((it->getPosition().x - position.x > radius) && (it->getPosition().y - position.y > radius)) {
 			it->setHealth((radius - (it->getPosition().x - position.x)) * 2);
+		}
 	}*/
 }
 Explosion::~Explosion(){
