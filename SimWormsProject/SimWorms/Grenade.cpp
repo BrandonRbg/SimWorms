@@ -20,21 +20,19 @@ void Grenade::draw(sdl::Window &target) {
 }
 
 void Grenade::explode(float frametime, Terrain &terrain){
-		velocity = physics->getResultingVector();
+		velocity = physics->getResultingVector() * (1/frametime);
 		physics->stopMovingX(this);
 		physics->stopMovingY(this);
 
 		sdl::Vector2Float terrainNorm = terrain.getNormal(sprite.getPosition());
-		terrainNorm.normalize();
 		terrainNorm.x = -terrainNorm.x;
 		terrainNorm.y = -terrainNorm.y;
 		velocity = velocity - terrainNorm * (2 * (velocity.x * terrainNorm.x + velocity.y * terrainNorm.y));
-		physics->addConstraint(velocity, frametime);
-		position = position + physics->getResultingVector();
+		physics->addConstraint(velocity * 0.5, frametime);
 }
 void Grenade::isTimedOut(Terrain &terrain) {
 	if (clock->getElapsedTime().asSeconds() >= timer){
-		ExplosionsManager::getInstance().addExplosion(sprite.getPosition(), terrain, 50);
+		ExplosionsManager::getInstance().addExplosion(sprite.getPosition(), terrain, 30);
 		dead = true;
 	}
 }
