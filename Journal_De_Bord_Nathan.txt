@@ -42,4 +42,10 @@ Avancement de la classe Grenade, recherche d'une grenade comme image, supression
 
 Gestion des dégats avec les explosions, Ajout du nom et de la vie au dessus d'un player, réglage de problème avec GitHub
 
+04 Décembre, Environ 3 heures de travail-------------------
+
+Gestion des dégats avec explosion et de la chute, correction de l'affichage de la vie au dessus d'un player, Travail sur le vecteur résultats quand un entité se fait propulser par un explosion
+
+
+
 
