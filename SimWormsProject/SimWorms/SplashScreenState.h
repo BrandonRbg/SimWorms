@@ -4,7 +4,7 @@ class SplashScreenState : public ScreenState
 {
 public:
 	SplashScreenState();
-	void update(float frametime);
+	void update(sdl::Window &target, float frametime);
 	void draw(sdl::Window &target);
 private:
 	sdl::Sprite splashScreenSprite;

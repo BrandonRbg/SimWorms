@@ -72,6 +72,7 @@
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="ExplosionsManager.cpp" />
     <ClCompile Include="GameOptionsManager.cpp" />
     <ClCompile Include="Grenade.cpp" />
     <ClCompile Include="GUI\GuiCheckBox.cpp" />
@@ -82,6 +83,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MapManager.cpp" />
     <ClCompile Include="OOSDL\AnimatedSprite.cpp" />
     <ClCompile Include="OOSDL\Clock.cpp" />
     <ClCompile Include="OOSDL\Color.cpp" />
@@ -125,6 +127,7 @@
     <ClInclude Include="GUI\GuiWeaponMenu.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MapManager.h" />
     <ClInclude Include="OOSDL\AnimatedSprite.h" />
     <ClInclude Include="OOSDL\Clock.h" />
     <ClInclude Include="OOSDL\Color.h" />
