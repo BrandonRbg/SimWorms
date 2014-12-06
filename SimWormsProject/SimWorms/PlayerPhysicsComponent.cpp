@@ -4,237 +4,100 @@
 
 void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float frametime){
 	addConstraint(sdl::Vector2Float(0, 10), frametime);
+	if (!(player->isOnGround && player->getVelocity().y > 0))
+		player->setVelocity(player->getVelocity() + resultingVector);
+	else if (player->isOnGround)
+		stopMovingY(player);
+	player->setPosition(player->getPosition() + player->getVelocity());
 	checkCollision(player, terrain, frametime);
-	if (resultingVector.y * (1 / frametime) > 200) {
-		player->setHealth(player->getHealth() - (resultingVector.y * (1 / frametime) / 45));
-	}
-	if (resultingVector.y * (1 / frametime) > 325) {
-		player->setHealth(0);
-	}
+	//if (resultingVector.y * (1 / frametime) > 200) {
+	//	player->setHealth(player->getHealth() - (resultingVector.y * (1 / frametime) / 45));
+	//}
+	//if (resultingVector.y * (1 / frametime) > 325) {
+	//	player->setHealth(0);
+	//}
 }
 
 void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, float frametime){
-	sdl::Vector2Float finalPos = player->getPosition() + resultingVector;
-	sdl::Vector2Float playerVelocity = player->getVelocity() + resultingVector;
-	sdl::Vector2Float pixelSolidPos;
-	bool isPixelSolid = false;
-	for (float x = finalPos.x; x <= finalPos.x + player->getBounds().w && !isPixelSolid; x++){
-		for (float y = finalPos.y; y <= finalPos.y + player->getBounds().h; y++){
-			if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-				isPixelSolid = true;
-				pixelSolidPos = sdl::Vector2Float(x, y);
-				break;
-			}
-		}
-	}
-	if (isPixelSolid){
-		if (playerVelocity.x == 0 || pixelSolidPos.y < player->getBounds().h) {
-			sdl::Vector2Float normalizedVector = resultingVector;
-			normalizedVector.normalize();
-			while (!terrain.isPixelSolid(pixelSolidPos + normalizedVector)) {
-				pixelSolidPos = pixelSolidPos + normalizedVector;
-				player->setPosition(player->getPosition() + normalizedVector);
-				player->setVelocity(normalizedVector + player->getVelocity());
-			}
-			if (!isSliding(player, terrain, pixelSolidPos.x, pixelSolidPos.y, frametime)){
-				player->isOnGround = true;
-				stopMovingY(player);
-			}
-			else
-				player->setPosition(player->getPosition() + resultingVector);
-		}
-		else if (playerVelocity.x < 0){
-			for (float x = finalPos.x; x <= finalPos.x + (player->getBounds().w / 2); x++){
-				for (float y = finalPos.y + player->getBounds().h; y >= finalPos.y + (player->getBounds().h / 2); y--){
-					if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-						stopMovingY(player);
-						while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
-							player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
-						}
-						if (!isSliding(player, terrain, x, y, frametime)){
-							player->setVelocity(resultingVector + playerVelocity);
-							player->isOnGround = true;
-						}
-						player->setPosition(player->getPosition() + playerVelocity);
-						return;
-					}
+	sdl::Vector2Float  finalPosition = player->getPosition();
+	player->isOnGround = false;
+	for (int bottomX = (int)finalPosition.x - player->getBounds().w / 2; bottomX <= (int)finalPosition.x + player->getBounds().w / 2; bottomX++) {
+		if (terrain.isPixelSolid(sdl::Vector2Float(bottomX, (int)finalPosition.y + player->getBounds().y / 2 + 1)) && (player->getVelocity().y > 0)) {
+			player->isOnGround = true;
+			for (int yCheck = (int)finalPosition.y + player->getBounds().h / 4; yCheck < (int)finalPosition.y + player->getBounds().h / 2; yCheck++) {
+				if (terrain.isPixelSolid(sdl::Vector2Float(bottomX, yCheck))) {
+					finalPosition.y = yCheck - player->getBounds().h / 2;
+					break;
 				}
 			}
 		}
-		else if (playerVelocity.x > 0){
-			for (float x = finalPos.x + player->getBounds().w; x >= finalPos.x + (player->getBounds().w / 2); x--){
-				for (float y = finalPos.y + player->getBounds().h; y >= finalPos.y + (player->getBounds().h / 2); y--){
-					if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-						stopMovingY(player);
-						while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
-							player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
-						}
-						if (!isSliding(player, terrain, x, y, frametime)){
-							player->setVelocity(resultingVector + playerVelocity);
-							player->isOnGround = true;
-						}
-						player->setPosition(player->getPosition() + playerVelocity);
-						return;
+	}
+
+	player->isTopBlocked = false;
+	for (int topX = (int)finalPosition.x - player->getBounds().w / 2; topX <= (int)finalPosition.x + player->getBounds().w / 2; topX++) {
+		if (terrain.isPixelSolid(sdl::Vector2Float(topX, (int)finalPosition.y - player->getBounds().h / 2 - 1))) {
+			player->isTopBlocked = true;
+		}
+	}
+	if (player->getVelocity().y < 0) {
+		for (int leftY = (int)finalPosition.y - player->getBounds().y / 2; leftY <= (int)finalPosition.y + player->getBounds().h / 2; leftY++) {
+			if (terrain.isPixelSolid(sdl::Vector2Float((int)finalPosition.x - player->getBounds().w / 2, leftY))) {
+				for (int xCheck = (int)finalPosition.x - player->getBounds().w / 4; xCheck < (int)finalPosition.x - player->getBounds().w / 2; xCheck--) {
+					if (terrain.isPixelSolid(sdl::Vector2Float(xCheck, leftY))) {
+						finalPosition.x = xCheck + player->getBounds().w / 2;
+						break;
 					}
+				}
+				if (leftY > finalPosition.y && !player->isTopBlocked) {
+					finalPosition.y -= 1;
+				}
+				else {
+					player->setVelocity(sdl::Vector2Float(player->getVelocity().x, player->getVelocity().y * -0.4));
+					finalPosition.x += 2;
 				}
 			}
 		}
-		//playerVelocity = player->getVelocity() + resultingVector;
-		//finalPos = player->getPosition() + resultingVector;
-		//player->isOnGround = false;
-		//// is upper bound blocked...
-		//isUpperBoundBlocked = false;
-		//for (float x = finalPos.x; x <= finalPos.x + player->getBounds().w && !isUpperBoundBlocked; x++){
-		//	for (float y = finalPos.y; y <= finalPos.y + (player->getBounds().h / 2); y++){
-		//		if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-		//			isUpperBoundBlocked = true;
-		//			break;
-		//		}
-		//	}
-		//}
-		//// is not moving in x...
-		//if (playerVelocity.x == 0){
-		//	for (float y = finalPos.y + player->getBounds().h; y >= finalPos.y + (player->getBounds().h / 2); y--){
-		//		for (float x = finalPos.x; x <= finalPos.x + player->getBounds().w; x++){
-		//			if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-		//				stopMovingY(player);
-		//				while (terrain.isPixelSolid(sdl::Vector2Float(x, y-- - 1))){
-		//					player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
-		//					if (!isSliding(player, terrain, x, y, frametime)){
-		//						player->setVelocity(resultingVector + playerVelocity);
-		//						player->isOnGround = true;
-		//						stopMovingY(player);
-		//					}
-		//					if (!isUpperBoundBlocked)
-		//						player->setPosition(player->getPosition() + player->getVelocity());
-		//					return;
-		//				}
-		//			}
-
-		//		}
-		//	}
-		//}
-		//// is going left...
-		//else if (playerVelocity.x < 0){
-		//	for (float x = finalPos.x; x <= finalPos.x + (player->getBounds().w / 2); x++){
-		//		for (float y = finalPos.y + player->getBounds().h; y >= finalPos.y + (player->getBounds().h / 2); y--){
-		//			if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-		//				while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
-		//					player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
-		//				}
-		//				if (!isSliding(player, terrain, x, y, frametime)){
-		//					player->setVelocity(resultingVector + playerVelocity);
-		//					player->isOnGround = true;
-		//					stopMovingY(player);
-		//				}
-		//				if (!isUpperBoundBlocked)
-		//					player->setPosition(player->getPosition() + player->getVelocity());
-		//				return;
-		//			}
-		//		}
-		//	}
-		//}
-		//// is going right...
-		//else if (playerVelocity.x > 0){
-		//	for (float x = finalPos.x + player->getBounds().w; x >= finalPos.x + (player->getBounds().w / 2); x--){
-		//		for (float y = finalPos.y + player->getBounds().h; y >= finalPos.y + (player->getBounds().h / 2); y--){
-		//			if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-		//				while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
-		//					player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
-		//				}
-		//				if (!isSliding(player, terrain, x, y, frametime)){
-		//					player->setVelocity(resultingVector + playerVelocity);
-		//					player->isOnGround = true;
-		//					stopMovingY(player);
-		//				}
-		//				if (!isUpperBoundBlocked)
-		//					player->setPosition(player->getPosition() + player->getVelocity());
-		//				return;
-		//			}
-		//		}
-		//	}
-		//}
 	}
-	else {
-		player->setVelocity(resultingVector + playerVelocity);
-		player->setPosition(player->getPosition() + resultingVector);
+	if (player->getVelocity().x > 0) {
+		for (int rightY = (int)finalPosition.y - player->getBounds().h / 2; rightY <= (int)finalPosition.y + player->getBounds().h / 2; rightY++) {
+			if (terrain.isPixelSolid(sdl::Vector2Float((int)finalPosition.x + player->getBounds().w / 2, rightY))) {
+				for (int xCheck = (int)finalPosition.x + player->getBounds().w / 4; xCheck < (int)finalPosition.x + player->getBounds().w / 2 + 1; xCheck++) {
+					if (terrain.isPixelSolid(sdl::Vector2Float(xCheck, rightY))) {
+						finalPosition.x = xCheck - player->getBounds().w / 2;
+						break;
+					}
+				}
+				if (rightY > finalPosition.y && !player->isTopBlocked) {
+					finalPosition.y -= 1;
+				}
+				else {
+					player->setVelocity(sdl::Vector2Float(player->getVelocity().x * -0.4, player->getVelocity().y));
+					finalPosition.x -= 2;
+				}
+			}
+		}
 	}
-	//sdl::Vector2Float playerVelocity = player->getVelocity() + resultingVector;
-	//sdl::Vector2Float finalPos = player->getPosition() + resultingVector;
-	//player->isOnGround = false;
-	//// is upper bound blocked...
-	//isUpperBoundBlocked = false;
-	//for (float x = finalPos.x; x <= finalPos.x + player->getBounds().w && !isUpperBoundBlocked; x++){
-	//	for (float y = finalPos.y; y <= finalPos.y + (player->getBounds().h / 2); y++){
-	//		if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-	//			isUpperBoundBlocked = true;
-	//			break;
-	//		}
-	//	}
-	//}
-	//// is not moving in x...
-	//if (playerVelocity.x == 0){
-	//	for (float y = finalPos.y + player->getBounds().h; y >= finalPos.y + (player->getBounds().h / 2); y--){
-	//		for (float x = finalPos.x; x <= finalPos.x + player->getBounds().w; x++){
-	//			if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-	//				stopMovingY(player);
-	//				while (terrain.isPixelSolid(sdl::Vector2Float(x, y-- - 1))){
-	//					player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
-	//					if (!isSliding(player, terrain, x, y, frametime)){
-	//						player->setVelocity(resultingVector + playerVelocity);
-	//						player->isOnGround = true;
-	//					}
-	//					if (!isUpperBoundBlocked)
-	//						player->setPosition(player->getPosition() + player->getVelocity());
-	//					return;
-	//					player->isOnGround = true;
-	//				}
-	//			}
 
-	//		}
-	//	}
-	//}
-	//// is going left...
-	//else if (playerVelocity.x < 0){
-	//	for (float x = finalPos.x; x <= finalPos.x + (player->getBounds().w / 2); x++){
-	//		for (float y = finalPos.y + player->getBounds().h; y >= finalPos.y + (player->getBounds().h / 2); y--){
-	//			if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-	//				while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
-	//					player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
-	//				}
-	//				if (!isSliding(player, terrain, x, y, frametime)){
-	//					player->setVelocity(resultingVector + playerVelocity);
-	//					player->isOnGround = true;
-	//				}
-	//				if (!isUpperBoundBlocked)
-	//					player->setPosition(player->getPosition() + player->getVelocity());
-	//				return;
-	//			}
-	//		}
-	//	}
-	//}
-	//// is going right...
-	//else if (playerVelocity.x > 0){
-	//	for (float x = finalPos.x + player->getBounds().w; x >= finalPos.x + (player->getBounds().w / 2); x--){
-	//		for (float y = finalPos.y + player->getBounds().h; y >= finalPos.y + (player->getBounds().h / 2); y--){
-	//			if (player->isPixelSolid(sdl::Vector2Float(x, y) - finalPos) && terrain.isPixelSolid(sdl::Vector2Float(x, y))){
-	//				while (terrain.isPixelSolid(sdl::Vector2Float(x, y--))){
-	//					player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
-	//				}
-	//				if (!isSliding(player, terrain, x, y, frametime)){
-	//					player->setVelocity(resultingVector + playerVelocity);
-	//					player->isOnGround = true;
-	//				}
-	//				if (!isUpperBoundBlocked)
-	//					player->setPosition(player->getPosition() + player->getVelocity());
-	//				return;
-	//			}
-	//		}
-	//	}
-	//}
-	//player->setVelocity(resultingVector + player->getVelocity());
-	//player->setPosition(player->getPosition() + player->getVelocity());
+	if (finalPosition.x < 0 && player->getVelocity().x < 0) {
+		finalPosition.x -= finalPosition.x;
+		player->setVelocity(sdl::Vector2Float(player->getVelocity().x * -1, player->getVelocity().y));
+	}
+	if (finalPosition.y < 0 && player->getVelocity().y < 0) {
+		finalPosition.y -= finalPosition.y;
+		player->setVelocity(sdl::Vector2Float(player->getVelocity().x, player->getVelocity().y * -1));
+	}
+	if (finalPosition.x > terrain.getSize().x && player->getVelocity().y > 0) {
+		finalPosition.x += terrain.getSize().x - finalPosition.x;
+		player->setVelocity(sdl::Vector2Float(player->getVelocity().x * -1, player->getVelocity().y));
+	}
+	if (finalPosition.y + player->getBounds().h / 2 > terrain.getSize().y && player->getVelocity().y > 0) {
+		finalPosition.y += terrain.getSize().y - finalPosition.y - player->getBounds().h / 2;
+		player->setVelocity(sdl::Vector2Float(player->getVelocity().x, 0));
+		player->isOnGround = true;
+	}
+	player->setPosition(finalPosition);
 }
+
 bool PlayerPhysicsComponent::isSliding(Entity *player, Terrain &terrain, float x, float y, float frametime){
 	float terrainNormalX = terrain.getNormal(sdl::Vector2Float(x, y)).x;
 	if (terrainNormalX > 0.9 || terrainNormalX < -0.9){

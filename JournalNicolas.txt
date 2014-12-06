@@ -124,3 +124,9 @@
 	15h05
 	-Modification du checkCollision du player (à continuer)
 	17h20
+
+	20h00
+	-Continuation
+	20h35
+
+	

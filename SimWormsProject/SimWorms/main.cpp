@@ -39,7 +39,7 @@ int main(int argc, char** argv){
 	sdl::Clock fpsClock;
 	sdl::Clock fpsDisplayUpdateClock;
 
-	EntityManager::getInstance().addEntity(new Player(sdl::Vector2Float(500, 500)));
+	EntityManager::getInstance().addEntity(new Player(sdl::Vector2Float(800, 200)));
 
 	sdl::Clock runclock;
 	while (renderWindow.isOpen()){
