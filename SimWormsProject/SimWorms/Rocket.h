@@ -1,6 +1,5 @@
 #pragma once
 #include "Projectile.h"
-#include "ExplosionsManager.h"
 
 class Rocket : public Projectile{
 public:

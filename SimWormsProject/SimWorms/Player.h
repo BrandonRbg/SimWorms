@@ -16,6 +16,6 @@ public:
 	void draw(sdl::Window &target);
 	void update(float frametime, Terrain& terrain);
 	bool isDead();
-	void explode(float frametime) { return; }
+	void explode(float frametime, Terrain &terrain) { return; }
 };
 

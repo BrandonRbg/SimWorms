@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "ProjectilePhysicsComponents.h"
+#include "Explosion.h"
 class Projectile : public Entity{
 protected:
 	bool dead;
