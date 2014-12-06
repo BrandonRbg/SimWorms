@@ -9,8 +9,8 @@ Terrain::~Terrain(){
 }
 
 void Terrain::loadTerrainFromFile(std::string filePath){
-	originalBitMap = AssetsManager::getInstance().getTexture(filePath);
-	actualBitMap = originalBitMap;
+	originalBitMap.loadFromFile(filePath);
+	actualBitMap.loadFromFile(filePath);
 	size = sdl::Vector2Float(originalBitMap.getSize().x, originalBitMap.getSize().y);
 	map.setTexture(&actualBitMap);
 }

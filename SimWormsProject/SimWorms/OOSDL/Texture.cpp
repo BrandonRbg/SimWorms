@@ -4,23 +4,28 @@
 sdl::Texture::Texture(){
 	changes = 0;
 	surface = NULL;
+	loaded = false;
 }
 
 
 sdl::Texture::~Texture()
 {
-	if (surface != NULL){
-		if (surface->format != NULL){
-			SDL_FreeSurface(surface);
-			surface->format = NULL;
-			surface = NULL;
-		}
+	if (!loaded)
+		return;
+	if (surface == NULL)
+		return;
+	if (surface->format != NULL){
+		SDL_FreeSurface(surface);
+		surface->format = NULL;
+		surface = NULL;
+		loaded = false;
 	}
 }
 
 bool sdl::Texture::loadFromFile(const std::string &path)
 {
 	surface = IMG_Load(path.c_str());
+	loaded = true;
 	return !(surface == NULL);
 }
 
@@ -28,9 +33,9 @@ sdl::Vector2Float sdl::Texture::getSize() {
 	if (surface != nullptr) 
 		if(surface->format != NULL)
 			return sdl::Vector2Float((float)surface->w, (float)surface->h);
-	else
-		return sdl::Vector2Float(0, 0);
+	return sdl::Vector2Float(0, 0);
 }
+
 SDL_Surface* sdl::Texture::getSurface(){
 	return this->surface;
 }

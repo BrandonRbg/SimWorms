@@ -1,15 +1,15 @@
 #include "AssetsManager.h"
 
+AssetsManager::~AssetsManager() {
 
+}
 
 void AssetsManager::loadTexture(const std::string& path){
-	sdl::Texture tmpTexture;
-	tmpTexture.loadFromFile(path);
-	textures[path] = tmpTexture;
+	textures[path].loadFromFile(path);
 }
 
 sdl::Texture& AssetsManager::getTexture(const std::string& path){
 	if (textures.find(path) == textures.end())
-		textures[path].loadFromFile(path);
+		loadTexture(path);
 	return textures[path];
 }
