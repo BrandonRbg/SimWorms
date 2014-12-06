@@ -46,6 +46,9 @@ Le jeudi 4 décembre 2014
 Le vendredi 5 décembre 2014
 	10h à 11h
 	-Débug des bugs de violation d'accès des textures et résolution du problème + optimisation.
+Le samedi 6 décembre 2014
+	de 14h à 17h40
+	-Ajout de la classe caméra et de ses fonctonnalités.
 
 	
 	

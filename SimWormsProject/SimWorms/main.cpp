@@ -3,7 +3,6 @@
 
 #include "OOSDL/OOSDL.h"
 
-#include "Terrain.h"
 #include "AssetsManager.h"
 #include "GameOptionsManager.h"
 #include "Player.h"
@@ -12,18 +11,23 @@
 #include "Gui/GuiMainMenu.h"
 #include "Grenade.h"
 
+#include "Camera.h"
+
+#include "MapManager.h"
+
 int main(int argc, char** argv){
 	srand(time(0));
 	SDL_StartTextInput();
 	sdl::Window renderWindow(sdl::VideoMode(1280, 1024), "SimWorms", false);
 	GameOptionsManager::getInstance().update(renderWindow);
-	Terrain terrain;
-	terrain.loadTerrainFromFile("data/maps/country/map.png");
-	sdl::StaticSprite bg;
-	bg.setTexture(&AssetsManager::getInstance().getTexture("data/maps/country/background.jpg"));
-	bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
-	sdl::View view;
-	view = renderWindow.getDefaultView();
+	
+	
+
+	MapManager::getInstance().loadMapsFromFolder("data/maps");
+	Map actualMap = MapManager::getInstance().getActualMap();
+
+	Camera cam(renderWindow, actualMap);
+
 	//GuiMainMenu Game;
 	//GuiTextBox Text;
 	//Player player(sdl::Vector2Float(800,200));
@@ -55,6 +59,7 @@ int main(int argc, char** argv){
 			if (event.type == SDL_KEYDOWN)
 			if (event.key.keysym.sym == SDLK_ESCAPE)
 				renderWindow.close();
+
 			//if (event.key.keysym.sym == SDLK_q){
 
 			//}
@@ -71,12 +76,7 @@ int main(int argc, char** argv){
 			//	GameOptionsManager::getInstance().update(renderWindow);
 			//}
 			if (event.type == SDL_MOUSEWHEEL)
-			{
-				if (event.wheel.y < 0)
-					view.zoom(1.10);
-				if (event.wheel.y > 0)
-					view.zoom(0.90);
-			}
+				cam.proceedZoom(event.wheel.y);
 
 		}
 		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
@@ -86,12 +86,13 @@ int main(int argc, char** argv){
 				std::cout << sdl::Mouse::getPosition().x << ", " << sdl::Mouse::getPosition().y << std::endl;
 
 			}*/
-			EntityManager::getInstance().addEntity(new Grenade(sdl::Mouse::getPosition(view), sdl::Vector2Float(), 0, 4));
+			EntityManager::getInstance().addEntity(new Grenade(sdl::Mouse::getPosition(cam.getView()), sdl::Vector2Float(), 0, 4));
+			/*cam.goTo(sdl::Mouse::getPosition(cam.getView()));*/
 		}
 		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
-			(*EntityManager::getInstance().getEntities().begin())->setPosition(sdl::Mouse::getPosition(view));
+			(*EntityManager::getInstance().getEntities().begin())->setPosition(sdl::Mouse::getPosition(cam.getView()));
 		}
-		if (sdl::Keyboard::isKeyPressed(SDLK_w))
+		/*if (sdl::Keyboard::isKeyPressed(SDLK_w))
 			view.move(0, -500 * frametime);
 		if (sdl::Keyboard::isKeyPressed(SDLK_a))
 			view.move(-500 * frametime, 0);
@@ -102,12 +103,11 @@ int main(int argc, char** argv){
 		if (sdl::Keyboard::isKeyPressed(SDLK_z))
 			view.zoom(1.01);
 		if (sdl::Keyboard::isKeyPressed(SDLK_x))
-			view.zoom(0.99);
+			view.zoom(0.99);*/
 		renderWindow.clear(sdl::Color::White);
-		renderWindow.setView(view);
-		renderWindow.draw(&bg);
-		terrain.draw(renderWindow);
-		EntityManager::getInstance().update(frametime, terrain, renderWindow);
+		cam.update(renderWindow);
+		actualMap.draw(renderWindow);
+		EntityManager::getInstance().update(frametime, actualMap.terrain, renderWindow);
 
 		if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
 			std::stringstream ss;

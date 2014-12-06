@@ -9,17 +9,18 @@ public:
 
 	void updateWindForce();
 
-
 	void update();
 
 	void draw(sdl::Window &target);
 
+	sdl::RectFloat getBounds();
 
 	std::string name;
 	std::string description;
 
 	int landMinesCount;
 	int maxWindForce;
+	int gravityForce;
 
 	std::vector<sdl::Vector2Float> landMinesPositions;
 
@@ -27,7 +28,7 @@ public:
 
 	Terrain terrain;
 	sdl::StaticSprite bg;
-	//sdl::Texture thumbnail;
+	sdl::Texture thumbnail;
 
 private:
 

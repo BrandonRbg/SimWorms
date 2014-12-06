@@ -6,8 +6,10 @@ Map::Map(std::string& name, std::string& description, int landMinesCount, int ma
 	this->description = description;
 	this->landMinesCount = landMinesCount;
 	this->maxWindForce = maxWindForce;
+	this->gravityForce = gravityForce;
 	this->terrain.loadTerrainFromFile("data/maps/country/map.png");
 	this->bg.setTexture(&AssetsManager::getInstance().getTexture(bgPath));
+	this->thumbnail = AssetsManager::getInstance().getTexture(thumbnailPath);
 	updateWindForce();
 	std::default_random_engine engine;
 	std::uniform_int_distribution<int> dist(50, terrain.getSize().x - 50);
@@ -20,6 +22,10 @@ void Map::updateWindForce(){
 	std::uniform_int_distribution<int> dist(-maxWindForce, maxWindForce);
 	windForce.x = dist(engine);
 	windForce.y = dist(engine);
+}
+
+sdl::RectFloat Map::getBounds(){
+	return sdl::RectFloat(0, 0, terrain.getSize().x, terrain.getSize().y);
 }
 
 void Map::update(){
