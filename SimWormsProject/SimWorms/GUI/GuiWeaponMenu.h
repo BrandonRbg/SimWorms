@@ -11,7 +11,7 @@ protected:
 	sdl::Text* TextWeapon;
 	std::list<std::tuple<sdl::Text*, sdl::Sprite*, sdl::Sprite*>> WeaponList;
 	sdl::Clock Clock,ClickClock;
-	bool Clicked,First,ReverseClick;
+	bool Clicked,First,ReverseClick,DrawClick,DrawReverse,DrawBack;
 
 public:
 	GuiWeaponMenu(sdl::Window &target);

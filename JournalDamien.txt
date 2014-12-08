@@ -46,3 +46,5 @@
 -Modification du GuiWeaponMenu 
 {4 décembre 2014 14:40 to 17:27}
 -Modification de GuiWeaponMenu
+{7 décembre 2014, Une heure de travail}
+- Fix du problème avec le GuiWeaponMenu
