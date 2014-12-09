@@ -8,17 +8,24 @@ ScreenStateManager::~ScreenStateManager(){
 		delete it;
 }
 
-void ScreenStateManager::addScreenState(ScreenState* screenState){
+void ScreenStateManager::pushScreenState(ScreenState* screenState){
 	screenStates.push_back(screenState);
 }
 
+void ScreenStateManager::popScreenState(){
+	screenStates[screenStates.size() - 1];
+	screenStates.pop_back();
+}
+
 void ScreenStateManager::clear(){
+	for (auto i : screenStates)
+		delete i++;
 	screenStates.clear();
 }
 
-void ScreenStateManager::update(float frametime){
-	for (auto& it : screenStates)
-		it->update(frametime);
+void ScreenStateManager::update(sdl::Window &target, float frametime){
+	for (int i = 0; i < screenStates.size(); i++)
+		screenStates[i]->update(target, frametime);
 }
 
 void ScreenStateManager::draw(sdl::Window &target){

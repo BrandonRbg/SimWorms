@@ -7,10 +7,10 @@ SplashScreenState::SplashScreenState(){
 	splashScreenSprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/SplashScreen.png"));
 }
 
-void SplashScreenState::update(float frametime){
+void SplashScreenState::update(sdl::Window &target, float frametime){
 	if (splashScreenClock.getElapsedTime().asSeconds() >= 3.0 || sdl::Keyboard::isKeyPressed(SDLK_RETURN)){
 		ScreenStateManager::getInstance().clear();
-		ScreenStateManager::getInstance().addScreenState(new MainMenuState());
+		ScreenStateManager::getInstance().pushScreenState(new MainMenuState());
 	}
 }
 

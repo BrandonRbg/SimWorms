@@ -103,6 +103,10 @@ bool sdl::Window::pollEvent(SDL_Event &event){
 		}
 		if (event.type == SDL_MOUSEMOTION)
 			sdl::Mouse::updateMousePosition(event.motion.x, event.motion.y);
+		if (event.type == SDL_MOUSEWHEEL)
+			sdl::Mouse::updateMouseWheelState(event.wheel.x, event.wheel.y);
+		if (event.type != SDL_MOUSEWHEEL)
+			sdl::Mouse::updateMouseWheelState(0, 0);
 		return true;
 	}
 	return false;

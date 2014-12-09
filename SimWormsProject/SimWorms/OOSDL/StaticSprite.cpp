@@ -3,7 +3,7 @@
 
 void sdl::StaticSprite::draw(SDL_Renderer* renderer, sdl::View &view){
 	this->bounds = sdl::RectFloat(position.x, position.y, texture->getSize().x * scaleFactors.x, texture->getSize().y * scaleFactors.y);
-	if (texture->hasChanged(true) || sdlTexture == NULL){
+	if (texture->hasChanged(true) || sdlTexture == nullptr){
 		SDL_DestroyTexture(sdlTexture);
 		sdlTexture = SDL_CreateTextureFromSurface(renderer, texture->getSurface());
 	}

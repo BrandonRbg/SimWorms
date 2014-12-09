@@ -2,6 +2,7 @@
 
 std::set<short> sdl::Mouse::pressedButtons;
 sdl::Vector2Float sdl::Mouse::position;
+sdl::Vector2Float sdl::Mouse::wheel;
 
 void sdl::Mouse::updateMouseButtonState(short button, bool state){
 	if (state)
@@ -9,6 +10,11 @@ void sdl::Mouse::updateMouseButtonState(short button, bool state){
 	else
 		pressedButtons.erase(button);
 }
+void sdl::Mouse::updateMouseWheelState(int x, int y){
+	wheel.x = x;
+	wheel.y = y;
+}
+
 void sdl::Mouse::updateMousePosition(int x, int y){
 	position = sdl::Vector2Float(x, y);
 }
@@ -34,4 +40,8 @@ sdl::Vector2Float sdl::Mouse::getPosition(sdl::View &view){
 		float viewScaledPosition = (truePosition * viewRatio[i]) + viewBound;
 		components.push_back(viewScaledPosition);
 	} return sdl::Vector2Float(components[0], components[1]);
+}
+
+sdl::Vector2Float sdl::Mouse::getMouseWheelState(){
+	return wheel;
 }
