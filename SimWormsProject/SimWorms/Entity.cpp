@@ -28,13 +28,13 @@ bool Entity::isPixelSolid(sdl::Vector2Float& position){
 }
 void Entity::moveLeft(float frametime){
 	if (!physics->cantMove(this)){
-		physics->addConstraint(sdl::Vector2Float(-20, 0), frametime);
+		physics->addConstraint(sdl::Vector2Float(-50, 0), frametime);
 		direction = LEFT;
 	}
 }
 void Entity::moveRight(float frametime){
 	if (!physics->cantMove(this)){
-		physics->addConstraint(sdl::Vector2Float(20, 0), frametime);
+		physics->addConstraint(sdl::Vector2Float(50, 0), frametime);
 		direction = RIGHT;
 	}
 }

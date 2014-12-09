@@ -128,3 +128,7 @@
 	20h00
 	-Continuation
 	20h35
+ 9 déc
+	10h30
+	-Physique de player (check collision)
+	12h00

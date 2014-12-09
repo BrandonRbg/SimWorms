@@ -10,7 +10,6 @@ Player::Player(sdl::Vector2Float &position){
 	this->physics = new PlayerPhysicsComponent;
 	sprite.setOrigin(sprite.getTextureRect().w / 2, sprite.getTextureRect().h / 2);
 	velocity = sdl::Vector2Float(0, 0);
-	sprite.setOrigin(0, 0);
 	name.setString("Roger");
 	name.setCharacterSize(20);
 	name.setFont("data/fonts/Arial.ttf");
