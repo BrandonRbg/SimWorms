@@ -16,5 +16,5 @@ public:
 
 	virtual void explode(float frametime, Terrain& terrain) = 0;
 
-	virtual void isTimedOut(Terrain &terrain) = 0;
+	virtual void isTimedOut(Terrain &terrain, float frametime) = 0;
 };

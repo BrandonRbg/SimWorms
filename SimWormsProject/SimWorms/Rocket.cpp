@@ -16,6 +16,6 @@ void Rocket::draw(sdl::Window &target) {
 }
 
 void Rocket::explode(float frametime, Terrain &terrain){
-	EntityManager::getInstance().addEntity(new Explosion(sprite.getPosition(), terrain, 50));
+	EntityManager::getInstance().addEntity(new Explosion(sprite.getPosition(), terrain, 50, frametime));
 	dead = true;
 }

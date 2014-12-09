@@ -30,9 +30,9 @@ void Grenade::explode(float frametime, Terrain &terrain){
 		velocity = velocity - terrainNorm * (2 * (velocity.x * terrainNorm.x + velocity.y * terrainNorm.y));
 		physics->addConstraint(velocity * 0.5, frametime);
 }
-void Grenade::isTimedOut(Terrain &terrain) {
+void Grenade::isTimedOut(Terrain &terrain, float frametime) {
 	if (clock->getElapsedTime().asSeconds() >= timer){
-		EntityManager::getInstance().addEntity(new Explosion(sprite.getPosition(), terrain, 100));
+		EntityManager::getInstance().addEntity(new Explosion(sprite.getPosition(), terrain, 100, frametime));
 		dead = true;
 	}
 }
