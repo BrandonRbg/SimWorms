@@ -18,15 +18,66 @@ GuiWeaponMenu::GuiWeaponMenu(sdl::Window &target){
 
 	WeaponBack.setTexture(&AssetsManager::getInstance().getTexture("data/textures/WeaponBack.png"));
 	WeaponBack.setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x, 1 * target.getView().getSize().y));
+	
+	// Optimise this shit
+
+	WeaponBox = new sdl::Sprite();
+	WeaponBox->setTexture(&AssetsManager::getInstance().getTexture("data/textures/TinyBox.png"));
+	if (WeaponList.size() < 5)
+		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	if (WeaponList.size() > 5)
+		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	TextWeapon = new sdl::Text("Rocket Launcher", "data/fonts/BMSpace.TTF");
+	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponBox));
+	WeaponBox = new sdl::Sprite();
+	WeaponBox->setTexture(&AssetsManager::getInstance().getTexture("data/textures/TinyBox.png"));
+	if (WeaponList.size() < 5)
+		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	if (WeaponList.size() > 5)
+		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	TextWeapon = new sdl::Text("Grenade", "data/fonts/BMSpace.TTF");
+	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponBox));
+	WeaponBox = new sdl::Sprite();
+	WeaponBox->setTexture(&AssetsManager::getInstance().getTexture("data/textures/TinyBox.png"));
+	if (WeaponList.size() < 5)
+		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	if (WeaponList.size() > 5)
+		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	TextWeapon = new sdl::Text("Melee", "data/fonts/BMSpace.TTF");
+	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponBox));
+	WeaponBox = new sdl::Sprite();
+	WeaponBox->setTexture(&AssetsManager::getInstance().getTexture("data/textures/TinyBox.png"));
+	if (WeaponList.size() < 5)
+		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	if (WeaponList.size() > 5)
+		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	TextWeapon = new sdl::Text("Jetpack", "data/fonts/BMSpace.TTF");
+	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponBox));
+	/*for (int i = 0; i < 4; i++){
+	}*/
 }
 
 void GuiWeaponMenu::draw(sdl::Window &target){
 	if (DrawClick)
 		target.draw(&ArrowU);
-	if (DrawBack)
+	if (DrawBack){
 		target.draw(&WeaponBack);
+		for (auto& it : WeaponList){
+			target.draw(std::get<0>(it));
+			target.draw(std::get<1>(it));
+			target.draw(std::get<2>(it));
+		}
+	}
 	if (DrawReverse)
 		target.draw(&ArrowD);
+}
+
+GuiWeaponMenu::~GuiWeaponMenu(){
+		for (auto& it : WeaponList){
+			delete std::get<0>(it);
+			delete std::get<1>(it);
+			delete std::get<2>(it);
+		}
 }
 
 void GuiWeaponMenu::update(sdl::Window &target){
@@ -35,6 +86,9 @@ void GuiWeaponMenu::update(sdl::Window &target){
 			First = false;
 			Clock.restart();
 			WeaponBack.setPosition(sdl::Vector2Float(WeaponBack.getPosition().x, WeaponBack.getPosition().y - 10));
+			for (auto& it : WeaponList){
+				std::get<1>(it)->setPosition(std::get<1>(it)->getPosition().x, std::get<1>(it)->getPosition().y - 10);
+			}
 		}
 	}
 	if ((WeaponBack.getPosition().y != (target.getView().getSize().y + 280)) && (ReverseClick)){
@@ -42,6 +96,9 @@ void GuiWeaponMenu::update(sdl::Window &target){
 			First = false;
 			Clock.restart();
 			WeaponBack.setPosition(sdl::Vector2Float(WeaponBack.getPosition().x, WeaponBack.getPosition().y + 10));
+			for (auto& it : WeaponList){
+				std::get<1>(it)->setPosition(std::get<1>(it)->getPosition().x, std::get<1>(it)->getPosition().y + 10);
+			}
 		}
 	}
 	if (WeaponBack.getPosition().y == (target.getView().getSize().y - 280)){
