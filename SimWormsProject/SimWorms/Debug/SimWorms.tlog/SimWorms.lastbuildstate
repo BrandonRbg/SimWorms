@@ -1,2 +1,6 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v120:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+<<<<<<< HEAD
 Debug|Win32|C:\Users\1355492\Desktop\SimWorms\SimWormsProject\|
+=======
+Debug|Win32|C:\Users\1323891\Desktop\SimWorms\SimWormsProject\|
+>>>>>>> ed9470e4494b4e5ca475ed11b65ce3a8bf3c6ec9
