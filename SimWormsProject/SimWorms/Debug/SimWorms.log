@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿La génération a démarré 2014-12-09 11:58:00.
+﻿La génération a démarré 2014-12-11 14:40:03.
      1>Projet "C:\Users\1355492\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt PlayerPhysicsComponent.cpp
@@ -7,16 +6,10 @@
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.lib" /MACHINE:X86 Debug\AssetsManager.obj
          Debug\Camera.obj
-=======
-﻿La génération a démarré 2014-12-09 12:02:31.
-     1>Projet "C:\Users\1323891\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
-     1>Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\1323891\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\1323891\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\1323891\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.lib" /MACHINE:X86 Debug\AssetsManager.obj
->>>>>>> ed9470e4494b4e5ca475ed11b65ce3a8bf3c6ec9
          Debug\Entity.obj
+         Debug\EntityManager.obj
          Debug\EventManager.obj
          Debug\Explosion.obj
-         Debug\ExplosionsManager.obj
          Debug\GameOptionsManager.obj
          Debug\Grenade.obj
          Debug\GuiCheckBox.obj
@@ -27,6 +20,7 @@
          Debug\main.obj
          Debug\MainMenuState.obj
          Debug\Map.obj
+         Debug\MapManager.obj
          Debug\AnimatedSprite.obj
          Debug\Clock.obj
          Debug\Color.obj
@@ -52,20 +46,9 @@
          Debug\ScreenStateManager.obj
          Debug\SplashScreenState.obj
          Debug\Terrain.obj
-<<<<<<< HEAD
          SimWorms.vcxproj -> C:\Users\1355492\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.exe
      1>Génération du projet "C:\Users\1355492\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" terminée (Build cible(s)).
 
 La génération a réussi.
 
-Temps écoulé 00:00:00.77
-=======
-         LINK : C:\Users\1323891\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: conflit entre la bibliothèque par défaut 'msvcrt.lib' et les autres bibliothèques ; utilisez /NODEFAULTLIB:library
-         SimWorms.vcxproj -> C:\Users\1323891\Desktop\SimWorms\SimWormsProject\Debug\SimWorms.exe
-     1>Génération du projet "C:\Users\1323891\Desktop\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" terminée (Build cible(s)).
-
-La génération a réussi.
-
-Temps écoulé 00:00:00.43
->>>>>>> ed9470e4494b4e5ca475ed11b65ce3a8bf3c6ec9
+Temps écoulé 00:00:00.75

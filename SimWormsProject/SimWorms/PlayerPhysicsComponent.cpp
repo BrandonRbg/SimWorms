@@ -3,7 +3,9 @@
 #include "Entity.h"
 
 void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float frametime){
-	if (!player->isOnGround)
+	if (player->isOnGround)
+		stopMovingY(player);
+	else
 		addConstraint(sdl::Vector2Float(0, 10), frametime);
 	player->setVelocity(player->getVelocity() + resultingVector);
 	checkCollision(player, terrain, frametime);
@@ -17,118 +19,43 @@ void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float fram
 
 void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, float frametime){
 	sdl::Vector2Float finalPos = player->getPosition() + player->getVelocity();
-	short moveUpSlope = 0;
-	if (player->getVelocity().y > player->getVelocity().x){
-		if (player->getVelocity().y > 0){
-			while (player->getPosition().y < finalPos.y){
-				player->isOnGround = false;
-				if (terrain.isPixelSolid(player->getPosition() + sdl::Vector2Float(0, 1))){
-					finalPos = player->getPosition();
-					player->isOnGround = true;
-					player->setPosition(finalPos);
-				}
-				else
-					player->setPosition(player->getPosition() + sdl::Vector2Float(0,1));
+	if (player->getVelocity().y >= 0){
+		while (player->getPosition().y < finalPos.y){
+			player->isOnGround = false;
+			if (terrain.isPixelSolid(player->getPosition() + sdl::Vector2Float(0, 1))){
+				finalPos = player->getPosition();
+				player->isOnGround = true;
+				player->setPosition(finalPos);
 			}
-		}
-		else if (player->getVelocity().y < 0){
-			while (player->getPosition().y > finalPos.y){
-				player->isTopBlocked = false;
-				if (terrain.isPixelSolid(player->getPosition() - sdl::Vector2Float(0, 1))){
-					finalPos = player->getPosition();
-					player->isTopBlocked = true;
-					player->setPosition(finalPos);
-				}
-				else
-					player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
-			}
+			else
+				player->setPosition(player->getPosition() + sdl::Vector2Float(0, 1));
 		}
 		if (player->getVelocity().x > 0){
+			player->setPosition(player->getPosition() - sdl::Vector2Float(0, 5));
 			while (player->getPosition().x < finalPos.x){
 				if (terrain.isPixelSolid(player->getPosition()))
-					if (moveUpSlope == 10)
-						finalPos = player->getPosition();
-					else{
-						moveUpSlope++;
-						if (!isSliding(player, terrain, player->getPosition().x, player->getPosition().y, frametime))
-							finalPos = player->getPosition();
-						else
-							player->setPosition(player->getPosition() + sdl::Vector2Float(1, -1));
-					}
+					break;
 				else
 					player->setPosition(player->getPosition() + sdl::Vector2Float(1, 0));
 			}
 		}
 		else if (player->getVelocity().x < 0){
+			player->setPosition(player->getPosition() - sdl::Vector2Float(0, 5));
 			while (player->getPosition().x > finalPos.x){
 				if (terrain.isPixelSolid(player->getPosition()))
-					if (moveUpSlope == 10)
-						finalPos = player->getPosition();
-					else{
-						moveUpSlope++;
-						if (!isSliding(player, terrain, player->getPosition().x, player->getPosition().y, frametime))
-							finalPos = player->getPosition();
-						else
-							player->setPosition(player->getPosition() - sdl::Vector2Float(1, 1));
-					}
+					break;
 				else
 					player->setPosition(player->getPosition() - sdl::Vector2Float(1, 0));
+			}
+		}
+		if (player->isOnGround){
+			while (!terrain.isPixelSolid(player->getPosition() + sdl::Vector2Float(0, 1))){
+				player->setPosition(player->getPosition() + sdl::Vector2Float(0, 1));
 			}
 		}
 	}
 	else{
-		if (player->getVelocity().x > 0){
-			while (player->getPosition().x < finalPos.x){
-				if (terrain.isPixelSolid(player->getPosition()))
-					if (moveUpSlope == 10)
-						finalPos = player->getPosition();
-					else{
-						moveUpSlope++;
-						if (!isSliding(player, terrain, player->getPosition().x, player->getPosition().y, frametime))
-							finalPos = player->getPosition();
-						else
-							player->setPosition(player->getPosition() + sdl::Vector2Float(1, -1));
-					}
-				else
-					player->setPosition(player->getPosition() + sdl::Vector2Float(1, 0));
-			}
-		}
-		else if (player->getVelocity().x < 0){
-			while (player->getPosition().x > finalPos.x){
-				if (terrain.isPixelSolid(player->getPosition()))
-					if (moveUpSlope == 10)
-						finalPos = player->getPosition();
-					else{
-						moveUpSlope++;
-						if (!isSliding(player, terrain, player->getPosition().x, player->getPosition().y, frametime))
-							finalPos = player->getPosition();
-						else
-							player->setPosition(player->getPosition() - sdl::Vector2Float(1, 1));
-					}
-				else
-					player->setPosition(player->getPosition() - sdl::Vector2Float(1, 0));
-			}
-		}
-		player->isTopBlocked = false;
-		player->isOnGround = false;
-		if (player->getVelocity().y > 0){
-			while (player->getPosition().y < finalPos.y){
-				if (terrain.isPixelSolid(player->getPosition()))
-					finalPos = player->getPosition();
-				else
-					player->setPosition(player->getPosition() + sdl::Vector2Float(0, 1));
-			}
-			player->isOnGround = true;
-		}
-		else if (player->getVelocity().y < 0){
-			while (player->getPosition().y > finalPos.y){
-				if (terrain.isPixelSolid(player->getPosition()))
-					finalPos = player->getPosition();
-				else
-					player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
-			}
-			player->isTopBlocked = true;
-		}
+
 	}
 }
 

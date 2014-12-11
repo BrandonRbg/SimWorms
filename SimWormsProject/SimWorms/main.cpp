@@ -5,9 +5,9 @@
 
 #include "Terrain.h"
 #include "AssetsManager.h"
-#include "ExplosionsManager.h"
 #include "GameOptionsManager.h"
 #include "Player.h"
+#include "EntityManager.h"
 #include "EventManager.h"
 #include "Gui/GuiTextBox.h"
 #include "Gui/GuiMainMenu.h"
@@ -17,18 +17,18 @@ int main(int argc, char** argv){
 	srand(time(0));
 	SDL_StartTextInput();
 	sdl::Window renderWindow(sdl::VideoMode(1280, 1024), "SimWorms", false);
-	//GameOptionsManager::getInstance().update(renderWindow);
-	//Terrain terrain;
-	//terrain.loadTerrainFromFile("data/maps/country/map.png");
-	//sdl::StaticSprite bg;
-	//bg.setTexture(&AssetsManager::getInstance().getTexture("data/maps/country/background.jpg"));
-	//bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
-	//sdl::View view;
-	//view = renderWindow.getDefaultView();
-	GuiWeaponMenu Game(renderWindow);
+	GameOptionsManager::getInstance().update(renderWindow);
+	Terrain terrain;
+	terrain.loadTerrainFromFile("data/maps/country/map.png");
+	sdl::StaticSprite bg;
+	bg.setTexture(&AssetsManager::getInstance().getTexture("data/maps/country/background.jpg"));
+	bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
+	sdl::View view;
+	view = renderWindow.getDefaultView();
+	//GuiWeaponMenu Game(renderWindow);
 	//GuiTextBox Text;
-	//Player player(sdl::Vector2Float(800,200));
-	//view.setCenter(player.getPosition());
+	Player player(sdl::Vector2Float(800,200));
+	view.setCenter(player.getPosition());
 
 	sdl::StaticText fpsText;
 	fpsText.setFont("data/fonts/Arial.ttf");
@@ -40,12 +40,10 @@ int main(int argc, char** argv){
 	sdl::Clock fpsClock;
 	sdl::Clock fpsDisplayUpdateClock;
 
-<<<<<<< HEAD
 	EntityManager::getInstance().addEntity(new Player(sdl::Vector2Float(800, 200)));
 
 	sdl::Clock runclock;
-=======
->>>>>>> ed9470e4494b4e5ca475ed11b65ce3a8bf3c6ec9
+
 	while (renderWindow.isOpen()){
 		float frametime = fpsClock.restart().asSeconds();
 		int fps = (int)(1 / frametime);
@@ -90,9 +88,9 @@ int main(int argc, char** argv){
 				std::cout << sdl::Mouse::getPosition().x << ", " << sdl::Mouse::getPosition().y << std::endl;
 			}
 		}
-		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
+		*/if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
 			player.setPosition(sdl::Mouse::getPosition(view));
-		}
+		}/*
 		if (sdl::Keyboard::isKeyPressed(SDLK_w))
 			view.move(0, -500 * frametime);
 		if (sdl::Keyboard::isKeyPressed(SDLK_a))
@@ -106,23 +104,23 @@ int main(int argc, char** argv){
 		if (sdl::Keyboard::isKeyPressed(SDLK_x))
 			view.zoom(0.99);*/
 		renderWindow.clear(sdl::Color::White);
-//		renderWindow.setView(view);
-	//	renderWindow.draw(&bg);
-		//terrain.draw(renderWindow);
+		renderWindow.setView(view);
+		renderWindow.draw(&bg);
+		terrain.draw(renderWindow);
 		//ExplosionsManager::getInstance().update(renderWindow);
 
-		/*if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
+		if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
 			std::stringstream ss;
 			ss << "SimWorms v0.0.1" << " @ " << fps << " fps";
 			fpsText.setString(ss.str());
 			fpsDisplayUpdateClock.restart();
-		}*/
-		Game.update(renderWindow);
-		Game.draw(renderWindow);
+		}
+		//Game.update(renderWindow);
+		//Game.draw(renderWindow);
 		/*Text.update(renderWindow);
 		Text.draw(renderWindow);*/
-		/*player.update(frametime, terrain);
-		player.draw(renderWindow);*/
+		player.update(frametime, terrain);
+		player.draw(renderWindow);
 		renderWindow.draw(&fpsText);
 
 		renderWindow.show();
