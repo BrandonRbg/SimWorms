@@ -50,3 +50,5 @@
 - Fix du problème avec le GuiWeaponMenu
 {9 décembre 2014, Une heure de travail}
 -Modification de la classe GuiWeaponMenu
+{11 décembre 2014, Trois heure de travail}
+-Création du menu pause, fix d'un bug du la textbox et modification de weaponmenu.

@@ -78,6 +78,7 @@
     <ClCompile Include="GUI\GuiCheckBox.cpp" />
     <ClCompile Include="GUI\GuiGameMenu.cpp" />
     <ClCompile Include="GUI\GuiMainMenu.cpp" />
+    <ClCompile Include="GUI\GuiPauseMenu.cpp" />
     <ClCompile Include="GUI\GuiTextBox.cpp" />
     <ClCompile Include="GUI\GuiWeaponMenu.cpp" />
     <ClCompile Include="main.cpp" />
@@ -123,6 +124,7 @@
     <ClInclude Include="GUI\GuiComponents.h" />
     <ClInclude Include="GUI\GuiGameMenu.h" />
     <ClInclude Include="GUI\GuiMainMenu.h" />
+    <ClInclude Include="GUI\GuiPauseMenu.h" />
     <ClInclude Include="GUI\GuiTextBox.h" />
     <ClInclude Include="GUI\GuiWeaponMenu.h" />
     <ClInclude Include="MainMenuState.h" />

@@ -5,18 +5,20 @@
 
 #include "Terrain.h"
 #include "AssetsManager.h"
-#include "ExplosionsManager.h"
+//#include "ExplosionsManager.h"
 #include "GameOptionsManager.h"
 #include "Player.h"
 #include "EventManager.h"
 #include "Gui/GuiTextBox.h"
 #include "Gui/GuiMainMenu.h"
+#include "Gui/GuiGameMenu.h"
 #include "Gui/GuiWeaponMenu.h"
+#include "Gui/GuiPauseMenu.h"
 
 int main(int argc, char** argv){
 	srand(time(0));
 	SDL_StartTextInput();
-	sdl::Window renderWindow(sdl::VideoMode(1280, 1024), "SimWorms", false);
+	sdl::Window renderWindow(sdl::VideoMode(1440, 900), "SimWorms", false);
 	//GameOptionsManager::getInstance().update(renderWindow);
 	//Terrain terrain;
 	//terrain.loadTerrainFromFile("data/maps/country/map.png");
@@ -101,7 +103,7 @@ int main(int argc, char** argv){
 			view.zoom(0.99);*/
 		renderWindow.clear(sdl::Color::White);
 //		renderWindow.setView(view);
-	//	renderWindow.draw(&bg);
+		//renderWindow.draw(&bg);
 		//terrain.draw(renderWindow);
 		//ExplosionsManager::getInstance().update(renderWindow);
 

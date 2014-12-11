@@ -3,11 +3,11 @@
 
 GuiTextBox::GuiTextBox(/*int Size, sdl::Color Color*/){
 	Text.setFont("data/fonts/Arial.ttf");
-	Text.setString(" ");
+	Text.setString("");
 	TextBox.setTexture(&AssetsManager::getInstance().getTexture("data/textures/TextBox.png"));
 	Pos = Text.getPosition();
 	EventManager::getInstance().addCallbackToID(SDL_TEXTINPUT, std::bind(&GuiTextBox::onTextEntered, this, std::placeholders::_1));
-	ActualText = " ";
+	ActualText = "";
 }
 void GuiTextBox::setString(const std::string& string){
 	Text.setString(string);
@@ -64,7 +64,8 @@ void GuiTextBox::onTextEntered(SDL_Event Event){
 	if (Clicked){
 		if ((int)Event.text.text == 8)
 			ActualText.pop_back();
-		ActualText.append(Event.text.text);
+		if (!((Text.getBounds().w + 25) >= TextBox.getBounds().w))
+			ActualText.append(Event.text.text);
 	}
 }
 
@@ -77,9 +78,11 @@ void GuiTextBox::update(sdl::Window &target){
 		}
 		Text.setString(ActualText);
 	}
-	if (GuiTextBox::isClicked()){
+	if (GuiTextBox::isClicked())
 		Clicked = true;
+	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
+		if (!(TextBox.getBounds().contains(sdl::Mouse::getPosition()))){
+			Clicked = false;
+		}
 	}
-	else
-		Clicked = false;
 }

@@ -18,41 +18,65 @@ GuiWeaponMenu::GuiWeaponMenu(sdl::Window &target){
 
 	WeaponBack.setTexture(&AssetsManager::getInstance().getTexture("data/textures/WeaponBack.png"));
 	WeaponBack.setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x, 1 * target.getView().getSize().y));
-	
+
 	// Optimise this shit
 
 	WeaponBox = new sdl::Sprite();
 	WeaponBox->setTexture(&AssetsManager::getInstance().getTexture("data/textures/TinyBox.png"));
-	if (WeaponList.size() < 5)
+	WeaponSprite = new sdl::Sprite();
+	WeaponSprite->setTexture(&AssetsManager::getInstance().getTexture("data/textures/Rocket.jpg"));
+	if (WeaponList.size() < 5){
 		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
-	if (WeaponList.size() > 5)
+		WeaponSprite->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	}
+	if (WeaponList.size() > 5){
 		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+		WeaponSprite->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	}
 	TextWeapon = new sdl::Text("Rocket Launcher", "data/fonts/BMSpace.TTF");
-	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponBox));
+	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponSprite));
 	WeaponBox = new sdl::Sprite();
 	WeaponBox->setTexture(&AssetsManager::getInstance().getTexture("data/textures/TinyBox.png"));
-	if (WeaponList.size() < 5)
+	WeaponSprite = new sdl::Sprite();
+	WeaponSprite->setTexture(&AssetsManager::getInstance().getTexture("data/textures/Grenade.jpg"));
+	if (WeaponList.size() < 5){
 		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
-	if (WeaponList.size() > 5)
+		WeaponSprite->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	}
+	if (WeaponList.size() > 5){
 		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+		WeaponSprite->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	}
 	TextWeapon = new sdl::Text("Grenade", "data/fonts/BMSpace.TTF");
-	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponBox));
+	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponSprite));
 	WeaponBox = new sdl::Sprite();
 	WeaponBox->setTexture(&AssetsManager::getInstance().getTexture("data/textures/TinyBox.png"));
-	if (WeaponList.size() < 5)
+	WeaponSprite = new sdl::Sprite();
+	WeaponSprite->setTexture(&AssetsManager::getInstance().getTexture("data/textures/Knife.jpg"));
+	if (WeaponList.size() < 5){
 		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
-	if (WeaponList.size() > 5)
+		WeaponSprite->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	}
+	if (WeaponList.size() > 5){
 		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+		WeaponSprite->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	}
 	TextWeapon = new sdl::Text("Melee", "data/fonts/BMSpace.TTF");
-	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponBox));
+	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponSprite));
 	WeaponBox = new sdl::Sprite();
 	WeaponBox->setTexture(&AssetsManager::getInstance().getTexture("data/textures/TinyBox.png"));
-	if (WeaponList.size() < 5)
+	WeaponSprite = new sdl::Sprite();
+	WeaponSprite->setTexture(&AssetsManager::getInstance().getTexture("data/textures/JetPack.jpg"));
+	if (WeaponList.size() < 5){
 		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
-	if (WeaponList.size() > 5)
+		WeaponSprite->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	}
+	if (WeaponList.size() > 5){
 		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+		WeaponSprite->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * (((WeaponList.size() / (5 * (WeaponList.size() / 5))) - 1) + (WeaponList.size() - (5 * (WeaponList.size() / 5))))), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
+	}
 	TextWeapon = new sdl::Text("Jetpack", "data/fonts/BMSpace.TTF");
-	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponBox));
+	WeaponList.push_back(std::make_tuple(TextWeapon, WeaponBox, WeaponSprite));
 	/*for (int i = 0; i < 4; i++){
 	}*/
 }
