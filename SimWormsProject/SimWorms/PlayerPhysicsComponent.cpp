@@ -3,7 +3,7 @@
 #include "Entity.h"
 
 void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float frametime){
-	if (player->isOnGround)
+	if (player->isOnGround && !player->jetpack)
 		stopMovingY(player);
 	else
 		addConstraint(sdl::Vector2Float(0, 10), frametime);
@@ -20,7 +20,7 @@ void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float fram
 
 void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, float frametime){
 	sdl::Vector2Float finalPos = player->getPosition() + player->getVelocity();
-	if (player->getVelocity().y >= 0){
+	if (player->getVelocity().y >= 0 && !player->jetpack){
 		while (player->getPosition().y < finalPos.y){
 			player->isOnGround = false;
 			if (terrain.isPixelSolid(player->getPosition() + sdl::Vector2Float(0, 1))){
@@ -31,32 +31,51 @@ void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, fl
 			else
 				player->setPosition(player->getPosition() + sdl::Vector2Float(0, 1));
 		}
+		unsigned int dist = 0;
 		if (player->getVelocity().x > 0){
-			player->setPosition(player->getPosition() - sdl::Vector2Float(0, 5));
+			player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
 			while (player->getPosition().x < finalPos.x){
 				if (terrain.isPixelSolid(player->getPosition()))
 					break;
-				else
+				else{
+					dist++;
 					player->setPosition(player->getPosition() + sdl::Vector2Float(1, 0));
+				}
 			}
 		}
 		else if (player->getVelocity().x < 0){
-			player->setPosition(player->getPosition() - sdl::Vector2Float(0, 5));
+			player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
 			while (player->getPosition().x > finalPos.x){
 				if (terrain.isPixelSolid(player->getPosition()))
 					break;
-				else
+				else{
+					dist++;
 					player->setPosition(player->getPosition() - sdl::Vector2Float(1, 0));
+				}
 			}
 		}
-		if (player->isOnGround){
-			while (!terrain.isPixelSolid(player->getPosition() + sdl::Vector2Float(0, 1))){
+		if (!isSliding(player, terrain, player->getPosition().x, player->getPosition().y,frametime)){
+			if (terrain.isPixelSolid(player->getPosition() + sdl::Vector2Float(0, 1))){
+				if (player->getVelocity().x != 0 && dist == 0){
+					if (player->getVelocity().x < 0)
+						player->setPosition(player->getPosition() + sdl::Vector2Float(1,1));
+					else
+						player->setPosition(player->getPosition() + sdl::Vector2Float(-1, 1));
+				}
+			}
+			else if (player->getVelocity().x != 0 && terrain.isPixelSolid(player->getPosition() + sdl::Vector2Float(0, 2)))
 				player->setPosition(player->getPosition() + sdl::Vector2Float(0, 1));
+			else{
+				player->isOnGround = terrain.isPixelSolid(player->getPosition() + sdl::Vector2Float(0, 2));
+				if (!player->isOnGround){
+					stopMovingX(player);
+					player->setPosition(player->getPosition() + sdl::Vector2Float(0, 1));
+				}
 			}
 		}
 	}
 	else{
-
+		player->setPosition(finalPos);
 	}
 }
 
@@ -82,5 +101,8 @@ void PlayerPhysicsComponent::stopMovingY(Entity *player){
 	player->setVelocity(resultingVector);
 }
 bool PlayerPhysicsComponent::cantMove(Entity *player){
-	return !(player->isOnGround);
+	if (!player->jetpack)
+		return !player->isOnGround;
+	else
+		return false;
 }

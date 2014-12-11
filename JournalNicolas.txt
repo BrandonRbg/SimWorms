@@ -132,3 +132,8 @@
 	10h30
 	-Physique de player (check collision)
 	12h00
+11 déc
+	15h00
+	-Optimisation du jetpack
+	-Possiblement la dernière implémentation du check collision (qui sera terminée ce soir)
+	17h00

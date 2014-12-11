@@ -28,23 +28,36 @@ bool Entity::isPixelSolid(sdl::Vector2Float& position){
 		return false;
 }
 void Entity::moveLeft(float frametime){
-	if (!physics->cantMove(this)){
-		physics->addConstraint(sdl::Vector2Float(-50, 0), frametime);
+	if (jetpack){
+		physics->addConstraint(sdl::Vector2Float(-4, 0), frametime);
 		direction = LEFT;
+	}
+	else{
+		if (!physics->cantMove(this)){
+			physics->addConstraint(sdl::Vector2Float(-50, 0), frametime);
+			direction = LEFT;
+		}
 	}
 }
 void Entity::moveRight(float frametime){
-	if (!physics->cantMove(this)){
-		physics->addConstraint(sdl::Vector2Float(50, 0), frametime);
+	if (jetpack){
+		physics->addConstraint(sdl::Vector2Float(4, 0), frametime);
 		direction = RIGHT;
+	}
+	else{
+		if (!physics->cantMove(this)){
+			physics->addConstraint(sdl::Vector2Float(50, 0), frametime);
+			direction = RIGHT;
+		}
 	}
 }
 void Entity::jump(float frametime){
 	if (!physics->cantMove(this)){
+		isOnGround = false;
 		if (direction)
-			physics->addConstraint(sdl::Vector2Float(20, -100), frametime);
+			physics->addConstraint(sdl::Vector2Float(20, -80), frametime);
 		else
-			physics->addConstraint(sdl::Vector2Float(-20, -100), frametime);
+			physics->addConstraint(sdl::Vector2Float(-20, -80), frametime);
 	}
 }
 void Entity::stop(){

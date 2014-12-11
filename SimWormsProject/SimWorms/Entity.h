@@ -38,4 +38,5 @@ public:
 	void setHealth(int health);
 	bool isOnGround;
 	bool isTopBlocked;
+	bool jetpack;
 };

@@ -90,6 +90,7 @@ int main(int argc, char** argv){
 		}
 		*/if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
 			player.setPosition(sdl::Mouse::getPosition(view));
+			player.isOnGround = false;
 		}/*
 		if (sdl::Keyboard::isKeyPressed(SDLK_w))
 			view.move(0, -500 * frametime);
