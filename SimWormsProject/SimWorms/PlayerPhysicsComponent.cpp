@@ -9,6 +9,7 @@ void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float fram
 		addConstraint(sdl::Vector2Float(0, 10), frametime);
 	player->setVelocity(player->getVelocity() + resultingVector);
 	checkCollision(player, terrain, frametime);
+
 	//if (resultingVector.y * (1 / frametime) > 200) {
 	//	player->setHealth(player->getHealth() - (resultingVector.y * (1 / frametime) / 45));
 	//}

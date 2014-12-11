@@ -12,5 +12,5 @@ public:
 
 	void explode(float frametime, Terrain &terrain);
 
-	void isTimedOut(Terrain &terrain) { ; }
+	void isTimedOut(Terrain &terrain, float frametime) { ; }
 };

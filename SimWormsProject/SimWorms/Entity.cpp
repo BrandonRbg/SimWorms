@@ -12,6 +12,7 @@ sdl::RectFloat& Entity::getBounds(){
 	return this->sprite.getTextureRect();
 }
 void Entity::setPosition(sdl::Vector2Float& position){
+	this->position = position;
 	this->sprite.setPosition(position);
 }
 void Entity::setVelocity(sdl::Vector2Float& velocity){
