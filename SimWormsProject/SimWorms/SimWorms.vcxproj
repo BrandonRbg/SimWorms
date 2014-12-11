@@ -80,6 +80,7 @@
     <ClCompile Include="GUI\GuiMainMenu.cpp" />
     <ClCompile Include="GUI\GuiTextBox.cpp" />
     <ClCompile Include="GUI\GuiWeaponMenu.cpp" />
+    <ClCompile Include="HealPack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -98,6 +99,7 @@
     <ClCompile Include="OOSDL\VideoMode.cpp" />
     <ClCompile Include="OOSDL\View.cpp" />
     <ClCompile Include="OOSDL\Window.cpp" />
+    <ClCompile Include="personnamegenerator.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
@@ -125,6 +127,7 @@
     <ClInclude Include="GUI\GuiMainMenu.h" />
     <ClInclude Include="GUI\GuiTextBox.h" />
     <ClInclude Include="GUI\GuiWeaponMenu.h" />
+    <ClInclude Include="HealPack.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapManager.h" />
@@ -147,6 +150,7 @@
     <ClInclude Include="OOSDL\VideoMode.h" />
     <ClInclude Include="OOSDL\View.h" />
     <ClInclude Include="OOSDL\Window.h" />
+    <ClInclude Include="PersonNameGenerator.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputComponent.h" />

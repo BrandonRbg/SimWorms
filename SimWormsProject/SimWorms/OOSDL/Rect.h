@@ -23,7 +23,7 @@ namespace sdl{
 			return contains(point.x, point.y);
 		}
 		bool intersects(sdl::Rect<T>& rect){
-			for (sdl::Vector2 point : getPoints()) {
+			for (sdl::Vector2<T> point : getPoints()) {
 				if (contains(point))
 					return true;
 			} return false;

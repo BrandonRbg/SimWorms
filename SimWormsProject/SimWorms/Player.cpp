@@ -11,7 +11,7 @@ Player::Player(sdl::Vector2Float &position){
 	sprite.setOrigin(sprite.getTextureRect().w / 2, sprite.getTextureRect().h / 2);
 	velocity = sdl::Vector2Float(0, 0);
 	sprite.setOrigin(0, 0);
-	name.setString("Roger");
+	name.setString(PersonNameGenerator::getInstance().generateFirstName("french", "M") + " " + PersonNameGenerator::getInstance().generateLastName("english"));
 	name.setCharacterSize(20);
 	name.setFont("data/fonts/Arial.ttf");
 	name.setColor(sdl::Color::Black);
