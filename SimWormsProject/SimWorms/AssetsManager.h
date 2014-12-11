@@ -7,6 +7,8 @@
 class AssetsManager : public Singleton<AssetsManager>
 {
 public:
+	~AssetsManager();
+
 	void loadTexture(const std::string& path);
 	sdl::Texture& getTexture(const std::string& path);
 

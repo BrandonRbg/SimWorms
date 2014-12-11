@@ -35,3 +35,20 @@ Le mardi 25 novembre 2014
 		-ScreenStateManager
 		-SplashScreenState
 		-MainMenuState
+Le jeudi 4 décembre 2014
+	1h01 à 2h32
+	-Modification de la classe ScreenStateManagerpour fixer certains bugs.
+	-Modification des states pour fixer d'autres bugs.
+	-Commencement de l'implémentation de Map et MapManager
+	10h32 à 13h24
+	-Continuation de l'implémentation de MapManager
+	-Fix de certains bugs concernant l'allocation de mémoire.
+Le vendredi 5 décembre 2014
+	10h à 11h
+	-Débug des bugs de violation d'accès des textures et résolution du problème + optimisation.
+Le samedi 6 décembre 2014
+	de 14h à 17h40
+	-Ajout de la classe caméra et de ses fonctonnalités.
+
+	
+	

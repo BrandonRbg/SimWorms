@@ -1,30 +1,26 @@
 #pragma once
-#include <fstream>
 #include <random>
-
 #include "Terrain.h"
-
 
 class Map
 {
 public:
-	Map();
-
-	void loadFromFile(std::string& path);
+	Map(std::string& name, std::string& description, int landMinesCount, int maxWindForce, int gravityForce, std::string& terrainPath, std::string& bgPath, std::string& thumbnailPath);
 
 	void updateWindForce();
-	sdl::Vector2Float& getWindForce;
 
-	std::string& getName();
-	sdl::Texture& getThumbnail();
+	void update();
 
-	Terrain& getTerrain();
+	void draw(sdl::Window &target);
 
-private:
+	sdl::RectFloat getBounds();
+
 	std::string name;
-	
+	std::string description;
+
 	int landMinesCount;
 	int maxWindForce;
+	int gravityForce;
 
 	std::vector<sdl::Vector2Float> landMinesPositions;
 
@@ -33,5 +29,8 @@ private:
 	Terrain terrain;
 	sdl::StaticSprite bg;
 	sdl::Texture thumbnail;
+
+private:
+
 };
 

@@ -1,5 +1,4 @@
 #include "ProjectileManager.h"
-#include "ExplosionsManager.h"
 
 void ProjectileManager::addProjectile(Projectile* projectile){
 	this->projectile.push_back(projectile);

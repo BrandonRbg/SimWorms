@@ -17,6 +17,9 @@ void Entity::setPosition(sdl::Vector2Float& position){
 void Entity::setVelocity(sdl::Vector2Float& velocity){
 	this->velocity = velocity;
 }
+void Entity::addConstraint(sdl::Vector2Float &vector,float frametime) {
+	physics->addConstraint(vector, frametime);
+}
 bool Entity::isPixelSolid(sdl::Vector2Float& position){
 	if (position.x > 0 && position.x < sprite.getTextureRect().w && position.y > 0 && position.y < sprite.getTextureRect().h)
 		return sprite.getTexture()->getPixel(position).a != 0;

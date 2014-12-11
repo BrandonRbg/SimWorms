@@ -112,7 +112,3 @@
 	-Modification des projectile (ajout du isTimedOut)
 	-Modification du projectileManager à compléter
 	15h15
- 4 déc
-	12h30
-	-Vrai rebond de grenade
-	12h45

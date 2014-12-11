@@ -1,19 +1,21 @@
 #pragma once
 #include "OOSDL/AnimatedSprite.h"
 #include "AssetsManager.h"
-class Explosion
+#include "EntityManager.h"
+class Explosion : public Entity
 {
 public:
-	Explosion(sdl::Vector2Float &position, float radius);
+	Explosion(sdl::Vector2Float &position, Terrain &terrain, float radius);
 	~Explosion();
 	void draw(sdl::Window& target);
-	bool isEnded();
+	bool isDead();
+	void explode(float frametime, Terrain &terrain);
+	void update(float frametime, Terrain &terrain);
 private:
 	int numberOfFrames;
 	int delay;
 	float radius;
 	sdl::Clock explosionClock;
 	sdl::AnimatedSprite* explosionSprite;
-
 };
 
