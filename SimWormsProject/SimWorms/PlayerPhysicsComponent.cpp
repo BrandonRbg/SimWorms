@@ -75,7 +75,32 @@ void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, fl
 		}
 	}
 	else{
-		player->setPosition(finalPos);
+		sdl::Vector2Float normalizedMove = finalPos - player->getPosition();
+		normalizedMove.normalize();
+		if (player->getVelocity().x > 0){
+			while (player->getPosition().y > finalPos.y && player->getPosition().x < finalPos.x){
+				if (terrain.isPixelSolid(player->getPosition() + normalizedMove))
+					break;
+				else
+					player->setPosition(player->getPosition() + normalizedMove);
+			} 
+		}
+		else if (player->getVelocity().x < 0){
+			while (player->getPosition().y > finalPos.y && player->getPosition().x > finalPos.x){
+				if (terrain.isPixelSolid(player->getPosition() + normalizedMove))
+					break;
+				else
+					player->setPosition(player->getPosition() + normalizedMove);
+			}
+		}
+		else{
+			while (player->getPosition().y > finalPos.y){
+				if (terrain.isPixelSolid(player->getPosition() + normalizedMove))
+					break;
+				else
+					player->setPosition(player->getPosition() + normalizedMove);
+			}
+		}
 	}
 }
 

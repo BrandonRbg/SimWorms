@@ -137,3 +137,7 @@
 	-Optimisation du jetpack
 	-Possiblement la dernière implémentation du check collision (qui sera terminée ce soir)
 	17h00
+
+	19h40
+	-Finalisation (j'espère) du check collision
+	20h00
