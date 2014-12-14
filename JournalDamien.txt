@@ -52,3 +52,5 @@
 -Modification de la classe GuiWeaponMenu
 {11 décembre 2014, Trois heure de travail}
 -Création du menu pause, fix d'un bug du la textbox et modification de weaponmenu.
+{13 décembre 2014, 14:42 to 19:13}
+-Fix du problème d'affichage des armes dans le menu d'arme.
