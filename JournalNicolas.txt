@@ -141,3 +141,7 @@
 	19h40
 	-Finalisation (j'espère) du check collision
 	20h00
+15 déc
+	13h30
+	-Fix du glissement du player.
+	14h15

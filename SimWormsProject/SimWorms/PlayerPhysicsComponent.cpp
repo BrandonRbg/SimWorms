@@ -43,7 +43,7 @@ void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, fl
 				}
 			}
 		}
-		else if (player->getVelocity().x < 0){
+		else if (player->getVelocity().x < 0 ){
 			player->setPosition(player->getPosition() - sdl::Vector2Float(0, 1));
 			while (player->getPosition().x > finalPos.x){
 				if (terrain.isPixelSolid(player->getPosition()))
@@ -75,9 +75,9 @@ void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, fl
 		}
 	}
 	else{
-		sdl::Vector2Float normalizedMove = finalPos - player->getPosition();
+		sdl::Vector2Float normalizedMove = player->getVelocity();
 		normalizedMove.normalize();
-		if (player->getVelocity().x > 0){
+		if (normalizedMove.x > 0){
 			while (player->getPosition().y > finalPos.y && player->getPosition().x < finalPos.x){
 				if (terrain.isPixelSolid(player->getPosition() + normalizedMove))
 					break;
@@ -85,7 +85,7 @@ void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, fl
 					player->setPosition(player->getPosition() + normalizedMove);
 			} 
 		}
-		else if (player->getVelocity().x < 0){
+		else if (normalizedMove.x < 0){
 			while (player->getPosition().y > finalPos.y && player->getPosition().x > finalPos.x){
 				if (terrain.isPixelSolid(player->getPosition() + normalizedMove))
 					break;
@@ -111,6 +111,7 @@ bool PlayerPhysicsComponent::isSliding(Entity *player, Terrain &terrain, float x
 		stopMovingY(player);
 		addConstraint(sdl::Vector2Float(25 * terrainNormalX, 0), frametime);
 		player->setVelocity(resultingVector + player->getVelocity());
+		player->setPosition(player->getPosition() + player->getVelocity());
 		cannotMove = true;
 		return true;
 	}
@@ -127,7 +128,7 @@ void PlayerPhysicsComponent::stopMovingY(Entity *player){
 }
 bool PlayerPhysicsComponent::cantMove(Entity *player){
 	if (!player->jetpack)
-		return !player->isOnGround;
+		return !player->isOnGround || cannotMove;
 	else
 		return false;
 }
