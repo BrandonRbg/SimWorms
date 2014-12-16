@@ -149,3 +149,9 @@
 	10h20
 	-Optimisation de la collision de la grenade
 	10h50
+
+	11h30
+	-Optimastion pas si pire que ça de la collision du joueur
+	12h30
+	
+	

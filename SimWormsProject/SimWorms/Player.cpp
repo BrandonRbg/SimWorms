@@ -39,8 +39,11 @@ void Player::update(float frametime, Terrain& terrain){
 			jetpack = true;
 			isOnGround = false;
 		}
-		else
+		else {
 			jetpack = false;
+			stop();
+			physics->stopMovingY(this);
+		}
 		if (jetpack) {
 			physics->stopMovingY(this);
 			this->addConstraint(sdl::Vector2Float(0, -250), frametime);

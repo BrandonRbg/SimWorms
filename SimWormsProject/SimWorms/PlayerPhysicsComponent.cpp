@@ -20,6 +20,52 @@ void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float fram
 
 void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, float frametime){
 	sdl::Vector2Float finalPos = player->getPosition() + player->getVelocity();
+	sdl::Vector2Float pixelOfCollision = sdl::Vector2Float();
+	if (player->getVelocity().y >= 0){
+		if (player->getVelocity().x >= 0){
+			for (float yCheck = player->getBounds().h; yCheck > player->getBounds().h / 2 && pixelOfCollision == sdl::Vector2Float(); yCheck--){
+				for (float xCheck = player->getBounds().w; xCheck > player->getBounds().w / 2; xCheck--){
+					if (player->isPixelSolid(sdl::Vector2Float(xCheck, yCheck))){
+						pixelOfCollision = sdl::Vector2Float(xCheck, yCheck);
+						break;
+					} 
+				}
+			}
+		}
+		else{
+			for (float yCheck = player->getBounds().h; yCheck > player->getBounds().h / 2 && pixelOfCollision == sdl::Vector2Float(); yCheck--){
+				for (float xCheck = 0; xCheck < player->getBounds().w; xCheck++){
+					if (player->isPixelSolid(sdl::Vector2Float(xCheck, yCheck))){
+						pixelOfCollision = sdl::Vector2Float(xCheck, yCheck);
+						break;
+					}
+				}
+			}
+		}
+	}
+	else{
+		if (player->getVelocity().x >= 0){
+			for (float yCheck = 0; yCheck < player->getBounds().h / 2 && pixelOfCollision == sdl::Vector2Float(); yCheck++){
+				for (float xCheck = player->getBounds().w; xCheck > player->getBounds().w / 2; xCheck--){
+					if (player->isPixelSolid(sdl::Vector2Float(xCheck, yCheck))){
+						pixelOfCollision = sdl::Vector2Float(xCheck, yCheck + player->getBounds().h / 2);
+						break;
+					}
+				}
+			}
+		}
+		else{
+			for (float yCheck = 0; yCheck < player->getBounds().h / 2 && pixelOfCollision == sdl::Vector2Float(); yCheck++){
+				for (float xCheck = 0; xCheck < player->getBounds().w / 2; xCheck++){
+					if (player->isPixelSolid(sdl::Vector2Float(xCheck, yCheck))){
+						pixelOfCollision = sdl::Vector2Float(xCheck, yCheck + player->getBounds().h / 2);
+						break;
+					}
+				}
+			}
+		}
+	}
+	player->setOrigin(pixelOfCollision);
 	if (player->getVelocity().y >= 0 && !player->jetpack){
 		while (player->getPosition().y < finalPos.y){
 			player->isOnGround = false;
