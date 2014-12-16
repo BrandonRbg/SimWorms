@@ -28,7 +28,7 @@ public:
 
 	Terrain terrain;
 	sdl::StaticSprite bg;
-	sdl::Texture thumbnail;
+	sdl::StaticSprite thumbnail;
 
 private:
 

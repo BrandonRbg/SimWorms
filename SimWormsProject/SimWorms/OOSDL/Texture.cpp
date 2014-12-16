@@ -16,7 +16,6 @@ sdl::Texture::~Texture()
 		return;
 	if (surface->format != NULL){
 		SDL_FreeSurface(surface);
-		surface->format = NULL;
 		surface = NULL;
 		loaded = false;
 	}

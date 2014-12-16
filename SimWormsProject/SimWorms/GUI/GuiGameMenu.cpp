@@ -1,5 +1,6 @@
 #include "GuiGameMenu.h"
 #include <list>
+#include "../MapManager.h"
 
 GuiGameMenu::GuiGameMenu(sdl::Window &target){
 	First = true;
@@ -57,15 +58,9 @@ GuiGameMenu::GuiGameMenu(sdl::Window &target){
 	TextStartButton.setColor(sdl::Color::Black);
 	TextStartButton.setPosition(0.104 * target.getView().getSize().x, 0.833 * target.getView().getSize().y);
 
-	//Loading map images
-	//1
-	LoadMaps("data/maps/snow/map.png", "data/maps/snow/background.jpg");
-	//2
-	LoadMaps("data/maps/country/map.png", "data/maps/country/background.jpg");
-	//3
-	LoadMaps("data/maps/farm/map.png", "data/maps/farm/background.jpg");
-	//4
-	LoadMaps("data/maps/easterisland/map.png", "data/maps/easterisland/background.jpg");
+	MapManager::getInstance().loadMapsFromFolder("data/maps");
+	i = 0;
+
 }
 
 void GuiGameMenu::LoadMaps(std::string MapS, std::string MapBgS){
@@ -75,8 +70,9 @@ void GuiGameMenu::LoadMaps(std::string MapS, std::string MapBgS){
 	MapBg->setTexture(&AssetsManager::getInstance().getTexture(MapBgS));
 	Map->setPosition(MapBox.getPosition());
 	MapBg->setPosition(MapBox.getPosition());
-	Map->setScale(MapBox.getScale());
-	MapBg->setScale(MapBox.getScale());
+	
+	Map->setScale(MapBox.getBounds().w / Map->getBounds().w, MapBox.getBounds().h / Map->getBounds().h);
+	MapBg->setScale(MapBox.getBounds().w / Map->getBounds().w, MapBox.getBounds().h / Map->getBounds().h);
 	MapList.push_back(std::make_tuple(Map, MapBg));
 }
 
@@ -109,7 +105,6 @@ void GuiGameMenu::draw(sdl::Window &target){
 	TeamTwo->draw(target);
 	target.draw(&ArrowR);
 	target.draw(&ArrowL);
-	target.draw(&MapBox);
 	target.draw(&TextMapName);
 	target.draw(&TextGravity);
 	target.draw(&TextWind);
@@ -117,8 +112,10 @@ void GuiGameMenu::draw(sdl::Window &target){
 	target.draw(&MapBigBox);
 	target.draw(&TextMapInfo);
 	target.draw(&TextStartButton);
-	target.draw(MapBg);
-	target.draw(Map);
+	thumbnail = MapManager::getInstance().getMap(i).thumbnail;
+	thumbnail.setPosition(sdl::Vector2Float(MapBox.getBounds().x, MapBox.getBounds().y));
+	target.draw(&thumbnail);
+	target.draw(&MapBox);
 	if (TeamList.size() > 2)
 		target.draw(&Minus);
 	if (TeamList.size() < 12){
@@ -144,10 +141,28 @@ void GuiGameMenu::update(sdl::Window &target){
 	TextStartButton.setCharacterSize(40);
 	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
 		if (ArrowR.getBounds().contains(sdl::Mouse::getPosition())){
-
+			if (Clicked == false){
+				Clicked = true;
+				if (i == 4){
+					i = 0;
+				}
+				else
+					i++;
+			}
+		}
+		if (!(ArrowR.getBounds().contains(sdl::Mouse::getPosition()))){
+		
+			Clicked = false;
 		}
 		if (ArrowL.getBounds().contains(sdl::Mouse::getPosition())){
-
+			if (Clicked == false){
+				Clicked = true;
+				if (i == 0){
+					i = 3;
+				}
+				else
+					i--;
+			}
 		}
 		if (Plus.getBounds().contains(sdl::Mouse::getPosition())){
 			if (!PlusClick){

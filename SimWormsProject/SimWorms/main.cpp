@@ -18,7 +18,7 @@
 int main(int argc, char** argv){
 	srand(time(0));
 	SDL_StartTextInput();
-	sdl::Window renderWindow(sdl::VideoMode(1280, 1024), "SimWorms", false);
+	sdl::Window renderWindow(sdl::VideoMode(1440, 900), "SimWorms", false);
 	//GameOptionsManager::getInstance().update(renderWindow);
 	//Terrain terrain;
 	//terrain.loadTerrainFromFile("data/maps/country/map.png");

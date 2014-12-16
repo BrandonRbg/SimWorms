@@ -22,7 +22,9 @@ void MapManager::loadMapsFromFolder(const std::string& path){
 				std::getline(file, thumbPath);
 				maps.emplace_back(mapName, description, landMinesCount, maxWindForce, gravityForce, terrainPath, bgPath, thumbPath);
 			}
+			file.close();
 		}
+		index.close();
 	}
 	actualMapIndex = 0;
 }

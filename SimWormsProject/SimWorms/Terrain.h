@@ -26,7 +26,6 @@ public:
 	void draw(sdl::Window &target);
 private:
 	sdl::Texture actualBitMap;
-	sdl::Texture originalBitMap;
 	sdl::Sprite map;
 	sdl::Vector2Float size;
 

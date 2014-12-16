@@ -9,15 +9,14 @@ protected:
 	sdl::Text TextMapName, TextGravity, TextWind, TextMine, TextStartButton, TextMapInfo,SampleText;
 	sdl::Text*  TextTeamOne;
 	sdl::Text* TextTeamTwo;
-	sdl::Sprite ArrowR, ArrowL, MapBox, TeamBox, MapBigBox, Plus, Minus;
+	sdl::Sprite ArrowR, ArrowL, MapBox, TeamBox, MapBigBox, Plus, Minus,thumbnail;
 	GuiTextBox* TeamOne;
 	GuiTextBox* TeamTwo;
 	std::list<std::tuple<sdl::Text*, GuiTextBox*>> TeamList;
 	std::list<std::tuple<sdl::Sprite*, sdl::Sprite*>> MapList;
-	sdl::Sprite* Map;
-	sdl::Sprite* MapBg;
-	bool PlusClick, First; 
+	bool PlusClick, First,Clicked; 
 	void LoadMaps(std::string Map, std::string MapBg);
+	int i;
 public:
 	GuiGameMenu(sdl::Window &target);
 	~GuiGameMenu();
