@@ -38,18 +38,24 @@ void Player::update(float frametime, Terrain& terrain){
 	if (sdl::Keyboard::isKeyPressed(SDLK_p)) {
 		if (fuel > 0) {
 			jetpack = true;
+			isOnGround = false;
 		}
-		else
+		else {
 			jetpack = false;
+			stop();
+			physics->stopMovingY(this);
+		}
 		if (jetpack) {
-			this->addConstraint(sdl::Vector2Float(0, 2500), frametime);
+			physics->stopMovingY(this);
+			this->addConstraint(sdl::Vector2Float(0, -250), frametime);
 			if (clockJetPack->getElapsedTime().asSeconds() > 0.1) {
 				fuel--;
 				clockJetPack->restart();
 			}
 		}
 	}
-	if (sdl::Keyboard::isKeyReleased(SDLK_p)) {
+	if (sdl::Keyboard::isKeyReleased(SDLK_p) && jetpack) {
+		physics->stopMovingY(this);
 		jetpack = false;
 	}
 	physics->update(this, terrain, frametime);

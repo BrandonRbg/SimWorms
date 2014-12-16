@@ -112,3 +112,46 @@
 	-Modification des projectile (ajout du isTimedOut)
 	-Modification du projectileManager à compléter
 	15h15
+ 4 déc
+	12h30
+	-Vrai rebond de grenade
+	12h45
+
+	14h20
+	-Déboguage du rebond
+	14h40
+
+	15h05
+	-Modification du checkCollision du player (à continuer)
+	17h20
+
+	20h00
+	-Continuation
+	20h35
+ 9 déc
+	10h30
+	-Physique de player (check collision)
+	12h00
+11 déc
+	15h00
+	-Optimisation du jetpack
+	-Possiblement la dernière implémentation du check collision (qui sera terminée ce soir)
+	17h00
+
+	19h40
+	-Finalisation (j'espère) du check collision
+	20h00
+15 déc
+	13h30
+	-Fix du glissement du player.
+	14h15
+16 déc
+	10h20
+	-Optimisation de la collision de la grenade
+	10h50
+
+	11h30
+	-Optimastion pas si pire que ça de la collision du joueur
+	12h30
+	
+	

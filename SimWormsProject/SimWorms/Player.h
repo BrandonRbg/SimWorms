@@ -14,7 +14,6 @@ private:
 	sdl::Text jetPackfuel;
 	std::string pourcentageFuel;
 	int fuel;
-	bool jetpack;
 	sdl::Clock* clockJetPack;
 public:
 	Player(sdl::Vector2Float &position);

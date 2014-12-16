@@ -30,11 +30,14 @@ public:
 	void setVelocity(sdl::Vector2Float& velocity);
 	void addConstraint(sdl::Vector2Float &vector, float frametime);
 	bool isPixelSolid(sdl::Vector2Float& position);
-	bool isOnGround;
 	void moveLeft(float frametime);
 	void moveRight(float frametime);
 	void jump(float frametime);
 	void stop();
 	int getHealth();
 	void setHealth(int health);
+	bool isOnGround;
+	bool isTopBlocked;
+	bool jetpack;
+	void setOrigin(sdl::Vector2Float& origin){ this->sprite.setOrigin(origin); };
 };
