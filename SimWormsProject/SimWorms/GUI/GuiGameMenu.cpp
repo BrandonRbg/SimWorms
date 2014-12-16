@@ -9,47 +9,83 @@ GuiGameMenu::GuiGameMenu(sdl::Window &target){
 	MapBigBox.setTexture(&AssetsManager::getInstance().getTexture("data/textures/BigBox.png"));
 	Minus.setTexture(&AssetsManager::getInstance().getTexture("data/textures/Minus.png"));
 	Plus.setTexture(&AssetsManager::getInstance().getTexture("data/textures/Plus.png"));
-	TextMapInfo.setFont("data/fonts/Arial.ttf");
-	TextMapInfo.setString("MapInfo :");
-	TextMapInfo.setCharacterSize(25);
-	TextMapInfo.setColor(sdl::Color::Black);
-	TextMapInfo.setPosition(0.078 * target.getView().getSize().x, 0.476 * target.getView().getSize().y);
+
 	TextMapName.setFont("data/fonts/Arial.ttf");
 	TextMapName.setString("MapName : ");
 	TextMapName.setCharacterSize(25);
 	TextMapName.setColor(sdl::Color::Black);
+	TextMapName.setPosition(0.225 * target.getView().getSize().x, 0.009 * target.getView().getSize().y);
+
 	MapBigBox.setPosition(0.054 * target.getView().getSize().x, 0.008 * target.getView().getSize().y);
 	MapBigBox.setScale(1.09,1.09);
+
 	ArrowL.setPosition(0.013 * target.getView().getSize().x, 0.5 * target.getView().getSize().y);
-	ArrowR.setPosition(0.364 * target.getView().getSize().x, 0.416 * target.getView().getSize().y);
 	ArrowL.setScale(0.7, 0.7);
+
+	ArrowR.setPosition(0.52 * target.getView().getSize().x, 0.5 * target.getView().getSize().y);
 	ArrowR.setScale(0.7, 0.7);
+
 	MapBox.setPosition(0.065 * target.getView().getSize().x, 0.046 * target.getView().getSize().y);
-	TextMapName.setPosition(0.225 * target.getView().getSize().x, 0.009 * target.getView().getSize().y);
+
 	TextGravity.setFont("data/fonts/Arial.ttf");
 	TextGravity.setString("GravityLevel :");
 	TextGravity.setCharacterSize(25);
 	TextGravity.setColor(sdl::Color::Black);
-	TextGravity.setPosition(0.078 * target.getView().getSize().x, 0.379 * target.getView().getSize().y);
+	TextGravity.setPosition(0.078 * target.getView().getSize().x, 0.40 * target.getView().getSize().y);
+
 	TextWind.setFont("data/fonts/Arial.ttf");
 	TextWind.setString("MaxWind :");
 	TextWind.setCharacterSize(25);
 	TextWind.setColor(sdl::Color::Black);
-	TextWind.setPosition(0.078 * target.getView().getSize().x, 0.412 * target.getView().getSize().y);
+	TextWind.setPosition(0.078 * target.getView().getSize().x, 0.432 * target.getView().getSize().y);
+
 	TextMine.setFont("data/fonts/Arial.ttf");
 	TextMine.setString("NbrMines :");
 	TextMine.setCharacterSize(25);
 	TextMine.setColor(sdl::Color::Black);
-	TextMine.setPosition(0.078 * target.getView().getSize().x, 0.444 * target.getView().getSize().y);
+	TextMine.setPosition(0.078 * target.getView().getSize().x, 0.464 * target.getView().getSize().y);
+
+	TextMapInfo.setFont("data/fonts/Arial.ttf");
+	TextMapInfo.setString("MapInfo :");
+	TextMapInfo.setCharacterSize(25);
+	TextMapInfo.setColor(sdl::Color::Black);
+	TextMapInfo.setPosition(0.078 * target.getView().getSize().x, 0.496 * target.getView().getSize().y);
+
 	TextStartButton.setFont("data/fonts/Arial.ttf");
 	TextStartButton.setString("Commencer La Partie");
 	TextStartButton.setCharacterSize(40);
 	TextStartButton.setColor(sdl::Color::Black);
 	TextStartButton.setPosition(0.104 * target.getView().getSize().x, 0.833 * target.getView().getSize().y);
+
+	//Loading map images
+	//1
+	LoadMaps("data/maps/snow/map.png", "data/maps/snow/background.jpg");
+	//2
+	LoadMaps("data/maps/country/map.png", "data/maps/country/background.jpg");
+	//3
+	LoadMaps("data/maps/farm/map.png", "data/maps/farm/background.jpg");
+	//4
+	LoadMaps("data/maps/easterisland/map.png", "data/maps/easterisland/background.jpg");
+}
+
+void GuiGameMenu::LoadMaps(std::string MapS, std::string MapBgS){
+	sdl::Sprite* Map = new sdl::Sprite;
+	sdl::Sprite* MapBg = new sdl::Sprite;
+	Map->setTexture(&AssetsManager::getInstance().getTexture(MapS));
+	MapBg->setTexture(&AssetsManager::getInstance().getTexture(MapBgS));
+	Map->setPosition(MapBox.getPosition());
+	MapBg->setPosition(MapBox.getPosition());
+	Map->setScale(MapBox.getScale());
+	MapBg->setScale(MapBox.getScale());
+	MapList.push_back(std::make_tuple(Map, MapBg));
 }
 
 GuiGameMenu::~GuiGameMenu(){
 	for (auto& it : TeamList){
+		delete std::get<0>(it);
+		delete std::get<1>(it);
+	}
+	for (auto& it : MapList){
 		delete std::get<0>(it);
 		delete std::get<1>(it);
 	}
@@ -81,6 +117,8 @@ void GuiGameMenu::draw(sdl::Window &target){
 	target.draw(&MapBigBox);
 	target.draw(&TextMapInfo);
 	target.draw(&TextStartButton);
+	target.draw(MapBg);
+	target.draw(Map);
 	if (TeamList.size() > 2)
 		target.draw(&Minus);
 	if (TeamList.size() < 12){
@@ -95,7 +133,6 @@ void GuiGameMenu::draw(sdl::Window &target){
 }
 
 void GuiGameMenu::update(sdl::Window &target){
-	ArrowR.setPosition(0.37 * target.getView().getSize().x, 0.5 * target.getView().getSize().y);
 	Plus.setPosition(0.7 * target.getView().getSize().x, (0.22 + (0.0675 * (TeamList.size() - 2))) * target.getView().getSize().y);
 	if (!First){
 		TeamOne->update(target);

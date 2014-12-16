@@ -18,7 +18,7 @@
 int main(int argc, char** argv){
 	srand(time(0));
 	SDL_StartTextInput();
-	sdl::Window renderWindow(sdl::VideoMode(1920, 1080), "SimWorms", false);
+	sdl::Window renderWindow(sdl::VideoMode(1280, 1024), "SimWorms", false);
 	//GameOptionsManager::getInstance().update(renderWindow);
 	//Terrain terrain;
 	//terrain.loadTerrainFromFile("data/maps/country/map.png");
@@ -27,7 +27,7 @@ int main(int argc, char** argv){
 	//bg.setScale(terrain.getSize().x / bg.getBounds().w, terrain.getSize().y / bg.getBounds().h);
 	//sdl::View view;
 	//view = renderWindow.getDefaultView();
-	GuiWeaponMenu Game(renderWindow);
+	GuiGameMenu Game(renderWindow);
 	//GuiTextBox Text;
 	//Player player(sdl::Vector2Float(800,200));
 	//view.setCenter(player.getPosition());

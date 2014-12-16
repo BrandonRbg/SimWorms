@@ -13,7 +13,11 @@ protected:
 	GuiTextBox* TeamOne;
 	GuiTextBox* TeamTwo;
 	std::list<std::tuple<sdl::Text*, GuiTextBox*>> TeamList;
+	std::list<std::tuple<sdl::Sprite*, sdl::Sprite*>> MapList;
+	sdl::Sprite* Map;
+	sdl::Sprite* MapBg;
 	bool PlusClick, First; 
+	void LoadMaps(std::string Map, std::string MapBg);
 public:
 	GuiGameMenu(sdl::Window &target);
 	~GuiGameMenu();
