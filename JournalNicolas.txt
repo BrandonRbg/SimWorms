@@ -145,3 +145,7 @@
 	13h30
 	-Fix du glissement du player.
 	14h15
+16 déc
+	10h20
+	-Optimisation de la collision de la grenade
+	10h50

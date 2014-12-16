@@ -12,6 +12,7 @@
 #include "Gui/GuiTextBox.h"
 #include "Gui/GuiMainMenu.h"
 #include "Gui/GuiWeaponMenu.h"
+#include "Grenade.h"
 
 int main(int argc, char** argv){
 	srand(time(0));
@@ -89,8 +90,7 @@ int main(int argc, char** argv){
 			}
 		}
 		*/if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
-			player.setPosition(sdl::Mouse::getPosition(view));
-			player.isOnGround = false;
+			EntityManager::getInstance().addEntity(new Grenade(sdl::Mouse::getPosition(view), sdl::Vector2Float(), 0, 3));
 		}/*
 		if (sdl::Keyboard::isKeyPressed(SDLK_w))
 			view.move(0, -500 * frametime);
@@ -120,6 +120,7 @@ int main(int argc, char** argv){
 		//Game.draw(renderWindow);
 		/*Text.update(renderWindow);
 		Text.draw(renderWindow);*/
+		EntityManager::getInstance().update(frametime, terrain,renderWindow);
 		player.update(frametime, terrain);
 		player.draw(renderWindow);
 		renderWindow.draw(&fpsText);
