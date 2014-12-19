@@ -4,7 +4,7 @@
 #include "HealPack.h"
 #include <sstream>
 
-Player::Player(sdl::Vector2Float &position, double team, double rank){
+Player::Player(sdl::Vector2Float &position, double rank){
 	this->position = position;
 	this->direction = false;
 	this->sprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/player.png"));
@@ -27,6 +27,7 @@ Player::Player(sdl::Vector2Float &position, double team, double rank){
 	jetPackfuel.setColor(sdl::Color(0, 100, 0));
 	jetpack = false;
 	clockJetPack = new sdl::Clock();
+	this->rank = rank;
 }
 
 void Player::draw(sdl::Window &target){

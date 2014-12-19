@@ -27,6 +27,8 @@ private:
 	bool playerIsOnGround;
 	int numberPlayer;
 	sdl::Clock tourClock;
+	int useObject;
+	GuiWeaponMenu weaponMenu;
 public:
 	GameManager();
 
@@ -41,4 +43,8 @@ public:
 	int getNumberPlayer();
 
 	void setNumberPlayer(int numberPlayer);
+
+	int getUseObject();
+
+	void setUseObject(int useObject);
 };

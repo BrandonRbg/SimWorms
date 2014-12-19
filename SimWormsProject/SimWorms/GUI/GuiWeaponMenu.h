@@ -1,6 +1,7 @@
 #pragma once
 #include "../OOSDL/OOSDL.h"
 #include "../AssetsManager.h"
+#include "../GameManager.h"
 #include <tuple>
 
 class GuiWeaponMenu{

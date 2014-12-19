@@ -31,6 +31,7 @@ bool Terrain::isPixelSolid(sdl::Vector2Float position){
 }
 
 void Terrain::draw(sdl::Window &target){
+	map.setTexture(&actualBitMap);
 	target.draw(&map);
 }
 

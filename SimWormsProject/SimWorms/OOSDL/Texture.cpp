@@ -29,7 +29,7 @@ bool sdl::Texture::loadFromFile(const std::string &path)
 }
 
 sdl::Vector2Float sdl::Texture::getSize() {
-	if (surface != nullptr) 
+	if (surface != NULL) 
 		if(surface->format != NULL)
 			return sdl::Vector2Float((float)surface->w, (float)surface->h);
 	return sdl::Vector2Float(0, 0);

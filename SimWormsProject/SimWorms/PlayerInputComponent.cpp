@@ -1,5 +1,6 @@
 #include "PlayerInputComponent.h"
 #include "Player.h"
+
 void PlayerInputComponent::update(Entity *player, float frametime){
 	if (player->isOnGround)
 		player->stop();
