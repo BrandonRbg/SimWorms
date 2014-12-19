@@ -11,6 +11,7 @@
 #include "Gui/GuiMainMenu.h"
 #include "Grenade.h"
 #include "HealPack.h"
+#include "Mine.h"
 
 #include "Camera.h"
 
@@ -64,6 +65,9 @@ int main(int argc, char** argv){
 
 			if (event.key.keysym.sym == SDLK_q){
 				EntityManager::getInstance().addEntity(new HealPack(sdl::Mouse::getPosition(cam.getView())));
+			}
+			if (event.key.keysym.sym == SDLK_g){
+				EntityManager::getInstance().addEntity(new Grenade(sdl::Mouse::getPosition(cam.getView()), sdl::Vector2Float(0, 0), 0, 5));
 			}
 			//if (event.key.keysym.sym == SDLK_e){
 			//	GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode::getModes()[0]);

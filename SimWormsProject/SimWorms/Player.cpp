@@ -60,8 +60,8 @@ void Player::update(float frametime, Terrain& terrain){
 	}
 	physics->update(this, terrain, frametime);
 	input.update(this, frametime);
-	life.setPosition(this->sprite.getBounds().x, this->sprite.getBounds().y + life.getBounds().h - this->sprite.getBounds().h - 15);
-	jetPackfuel.setPosition(this->sprite.getBounds().x + jetPackfuel.getBounds().w, this->sprite.getBounds().y);
+	life.setPosition(this->sprite.getBounds().x - 10, this->sprite.getBounds().y + life.getBounds().h - this->sprite.getBounds().h - 40);
+	jetPackfuel.setPosition(this->sprite.getBounds().x - 15 + jetPackfuel.getBounds().w, this->sprite.getBounds().y);
 	std::stringstream ster;
 	ster << health;
 	life.setString(ster.str());
