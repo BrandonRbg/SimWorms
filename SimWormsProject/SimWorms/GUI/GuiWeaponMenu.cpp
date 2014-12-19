@@ -1,31 +1,32 @@
 #include "GuiWeaponMenu.h"
 
-GuiWeaponMenu::GuiWeaponMenu(sdl::Window &target){
+GuiWeaponMenu::GuiWeaponMenu(){
 	Clicked = false;
 	ReverseClick = false;
 	First = true;
 	DrawClick = true;
 	DrawReverse = false;
 	DrawBack = false;
+	FirstStart = true;
 
 	ArrowU.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowU.png"));
 	ArrowU.setScale(0.7, 0.7);
-	ArrowU.setPosition(sdl::Vector2Float(0.95 * target.getView().getSize().x, 0.94 * target.getView().getSize().y));
 
 	ArrowD.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowD.png"));
 	ArrowD.setScale(0.7, 0.7);
-	ArrowD.setPosition(sdl::Vector2Float(0.95 * target.getView().getSize().x, 0.94 * target.getView().getSize().y - 280));
 
 	WeaponBack.setTexture(&AssetsManager::getInstance().getTexture("data/textures/WeaponBack.png"));
-	WeaponBack.setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x, 1 * target.getView().getSize().y));
-
-	PlaceItem(target, "Rocket Launcher", "Explodes on contact and curves." , "data/textures/Rocket.png");
-	PlaceItem(target, "Grenade", "Explodes after a certain time and bounces." , "data/textures/Grenade.png");
-	PlaceItem(target, "Melee", "Weapon used for short distance combat." , "data/textures/Knife.png");
-	PlaceItem(target, "JetPack", "Used to travel by flying." , "data/textures/JetPack.png");
 }
 
 void GuiWeaponMenu::PlaceItem(sdl::Window &target, std::string WeaponName, std::string Desc, std::string TexturePath){
+	if (FirstStart){
+		ArrowU.setPosition(sdl::Vector2Float(0.95 * target.getView().getSize().x, 0.94 * target.getView().getSize().y));
+
+		ArrowD.setPosition(sdl::Vector2Float(0.95 * target.getView().getSize().x, 0.94 * target.getView().getSize().y - 280));
+
+		WeaponBack.setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x, 1 * target.getView().getSize().y));
+		FirstStart = false;
+	}
 	WeaponBox = new sdl::Sprite();
 	WeaponBox->setTexture(&AssetsManager::getInstance().getTexture("data/textures/TinyBox.png"));
 	WeaponSprite = new sdl::Sprite();
@@ -74,6 +75,12 @@ GuiWeaponMenu::~GuiWeaponMenu(){
 }
 
 void GuiWeaponMenu::update(sdl::Window &target){
+	if (FirstStart){
+		PlaceItem(target, "Rocket Launcher", "Explodes on contact and curves.", "data/textures/Rocket.png");
+		PlaceItem(target, "Grenade", "Explodes after a certain time and bounces.", "data/textures/Grenade.png");
+		PlaceItem(target, "Melee", "Weapon used for short distance combat.", "data/textures/Knife.png");
+		PlaceItem(target, "JetPack", "Used to travel by flying.", "data/textures/JetPack.png");
+	}
 	if ((WeaponBack.getPosition().y != (target.getView().getSize().y - 280)) && (Clicked)){
 		if ((Clock.getElapsedTime().asMilliseconds() >= 0.01)){
 			First = false;

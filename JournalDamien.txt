@@ -59,3 +59,5 @@
 {18 décembre 2014, 13:00 to  18:46}
 -Réglage de plusieurs bugs, optimisation du code,paufinage de GuiWeaponMenu.
 - Besoin de fix le crash quand on delete une text box et qu'on continue à écrire.
+{19 décembre 2014, 10:00 to 14:19}
+-Grande modification graphique et optimisation du programme.

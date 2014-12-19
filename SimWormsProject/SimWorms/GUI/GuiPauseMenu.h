@@ -7,7 +7,7 @@ protected:
 	sdl::Sprite PauseBg;
 	sdl::Text ResumeText, OptionsText, BackToMenuText;
 public:
-	GuiPauseMenu(sdl::Window &target);
+	GuiPauseMenu();
 	void draw(sdl::Window &target);
 	void update(sdl::Window &target);
 };
