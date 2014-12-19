@@ -11,6 +11,10 @@ protected:
 	bool Clicked;
 	std::string ActualText;
 	sdl::Clock Time;
+
+	sdl::Text cursorText;
+	sdl::Clock cursorClock;
+	bool cursorActivated;
 public:
 	GuiTextBox(/*int Size, sdl::Color Color*/);
 	void setString(const std::string& string);
