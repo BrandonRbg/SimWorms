@@ -1,6 +1,7 @@
 #pragma once
 #include "OOSDL\OOSDL.h"
 #include "Terrain.h"
+#include "MapManager.h"
 class Entity;
 class PhysicsComponent
 {

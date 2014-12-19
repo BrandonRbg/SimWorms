@@ -2,7 +2,8 @@
 #include "Entity.h"
 
 void  ProjectilePhysicsComponents::update(Entity *projectile, Terrain &terrain, float frametime) {
-	addConstraint(sdl::Vector2Float(0, 10), frametime);
+	addConstraint(sdl::Vector2Float(0, MapManager::getInstance().getActualMap().gravityForce), frametime);
+	addConstraint(MapManager::getInstance().getActualMap().windForce, frametime);
 	checkCollision(projectile, terrain, frametime);
 }
 

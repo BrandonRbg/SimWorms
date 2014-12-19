@@ -153,5 +153,7 @@
 	11h30
 	-Optimastion pas si pire que ça de la collision du joueur
 	12h30
-	
-	
+19 déc	
+	09h40
+	-Généralisation de la gravité et ajout du facteur vent
+	09h42

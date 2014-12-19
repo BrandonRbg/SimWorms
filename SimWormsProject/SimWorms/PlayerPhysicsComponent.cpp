@@ -6,7 +6,7 @@ void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float fram
 	if (player->isOnGround && !player->jetpack)
 		stopMovingY(player);
 	else
-		addConstraint(sdl::Vector2Float(0, 10), frametime);
+		addConstraint(sdl::Vector2Float(0, MapManager::getInstance().getActualMap().gravityForce), frametime);
 	player->setVelocity(player->getVelocity() + resultingVector);
 	checkCollision(player, terrain, frametime);
 
