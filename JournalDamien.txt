@@ -54,3 +54,8 @@
 -Création du menu pause, fix d'un bug du la textbox et modification de weaponmenu.
 {13 décembre 2014, 14:42 to 19:13}
 -Fix du problème d'affichage des armes dans le menu d'arme.
+{15 décembre 2014, 3 heures}
+-Petites modifications
+{18 décembre 2014, 13:00 to  18:46}
+-Réglage de plusieurs bugs, optimisation du code,paufinage de GuiWeaponMenu.
+- Besoin de fix le crash quand on delete une text box et qu'on continue à écrire.

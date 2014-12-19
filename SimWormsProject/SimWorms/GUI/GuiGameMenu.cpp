@@ -3,6 +3,7 @@
 #include "../MapManager.h"
 
 GuiGameMenu::GuiGameMenu(sdl::Window &target){
+	ArrowCoolDown.restart();
 	First = true;
 	ArrowR.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowR.png"));
 	ArrowL.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowL.png"));
@@ -12,7 +13,6 @@ GuiGameMenu::GuiGameMenu(sdl::Window &target){
 	Plus.setTexture(&AssetsManager::getInstance().getTexture("data/textures/Plus.png"));
 
 	TextMapName.setFont("data/fonts/Arial.ttf");
-	TextMapName.setString("MapName : ");
 	TextMapName.setCharacterSize(25);
 	TextMapName.setColor(sdl::Color::Black);
 	TextMapName.setPosition(0.225 * target.getView().getSize().x, 0.009 * target.getView().getSize().y);
@@ -29,25 +29,21 @@ GuiGameMenu::GuiGameMenu(sdl::Window &target){
 	MapBox.setPosition(0.065 * target.getView().getSize().x, 0.046 * target.getView().getSize().y);
 
 	TextGravity.setFont("data/fonts/Arial.ttf");
-	TextGravity.setString("GravityLevel :");
 	TextGravity.setCharacterSize(25);
 	TextGravity.setColor(sdl::Color::Black);
 	TextGravity.setPosition(0.078 * target.getView().getSize().x, 0.40 * target.getView().getSize().y);
 
 	TextWind.setFont("data/fonts/Arial.ttf");
-	TextWind.setString("MaxWind :");
 	TextWind.setCharacterSize(25);
 	TextWind.setColor(sdl::Color::Black);
 	TextWind.setPosition(0.078 * target.getView().getSize().x, 0.432 * target.getView().getSize().y);
 
 	TextMine.setFont("data/fonts/Arial.ttf");
-	TextMine.setString("NbrMines :");
 	TextMine.setCharacterSize(25);
 	TextMine.setColor(sdl::Color::Black);
 	TextMine.setPosition(0.078 * target.getView().getSize().x, 0.464 * target.getView().getSize().y);
 
 	TextMapInfo.setFont("data/fonts/Arial.ttf");
-	TextMapInfo.setString("MapInfo :");
 	TextMapInfo.setCharacterSize(25);
 	TextMapInfo.setColor(sdl::Color::Black);
 	TextMapInfo.setPosition(0.078 * target.getView().getSize().x, 0.496 * target.getView().getSize().y);
@@ -63,25 +59,8 @@ GuiGameMenu::GuiGameMenu(sdl::Window &target){
 
 }
 
-void GuiGameMenu::LoadMaps(std::string MapS, std::string MapBgS){
-	sdl::Sprite* Map = new sdl::Sprite;
-	sdl::Sprite* MapBg = new sdl::Sprite;
-	Map->setTexture(&AssetsManager::getInstance().getTexture(MapS));
-	MapBg->setTexture(&AssetsManager::getInstance().getTexture(MapBgS));
-	Map->setPosition(MapBox.getPosition());
-	MapBg->setPosition(MapBox.getPosition());
-	
-	Map->setScale(MapBox.getBounds().w / Map->getBounds().w, MapBox.getBounds().h / Map->getBounds().h);
-	MapBg->setScale(MapBox.getBounds().w / Map->getBounds().w, MapBox.getBounds().h / Map->getBounds().h);
-	MapList.push_back(std::make_tuple(Map, MapBg));
-}
-
 GuiGameMenu::~GuiGameMenu(){
 	for (auto& it : TeamList){
-		delete std::get<0>(it);
-		delete std::get<1>(it);
-	}
-	for (auto& it : MapList){
 		delete std::get<0>(it);
 		delete std::get<1>(it);
 	}
@@ -101,6 +80,15 @@ void GuiGameMenu::draw(sdl::Window &target){
 		TeamList.push_back(std::make_tuple(TextTeamTwo, TeamTwo));
 		First = false;
 	}
+	TextMapName.setString(MapManager::getInstance().getMap(i).name);
+	char Table[30];
+	std::string Text = SDL_itoa(MapManager::getInstance().getMap(i).gravityForce, Table, 10);
+	TextGravity.setString("Max gravity : " + Text);
+	std::string Text2 = SDL_itoa(MapManager::getInstance().getMap(i).maxWindForce, Table, 10);
+	TextWind.setString("Max wind : " + Text2);
+	std::string Text3 = SDL_itoa(MapManager::getInstance().getMap(i).landMinesCount, Table, 10);
+	TextMine.setString("Max nbr mines : " + Text3);
+	TextMapInfo.setString("Map infos : " + MapManager::getInstance().getMap(i).description);
 	TeamOne->draw(target);
 	TeamTwo->draw(target);
 	target.draw(&ArrowR);
@@ -140,23 +128,23 @@ void GuiGameMenu::update(sdl::Window &target){
 	}
 	TextStartButton.setCharacterSize(40);
 	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
+		if (ArrowCoolDown.getElapsedTime().asMilliseconds() >= 100)
+			Clicked = false;
+		else
+			Clicked = true;
 		if (ArrowR.getBounds().contains(sdl::Mouse::getPosition())){
 			if (Clicked == false){
-				Clicked = true;
-				if (i == 4){
+				ArrowCoolDown.restart();
+				if (i == 3){
 					i = 0;
 				}
 				else
 					i++;
 			}
 		}
-		if (!(ArrowR.getBounds().contains(sdl::Mouse::getPosition()))){
-		
-			Clicked = false;
-		}
 		if (ArrowL.getBounds().contains(sdl::Mouse::getPosition())){
 			if (Clicked == false){
-				Clicked = true;
+				ArrowCoolDown.restart();
 				if (i == 0){
 					i = 3;
 				}

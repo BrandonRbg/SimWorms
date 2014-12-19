@@ -9,9 +9,12 @@ protected:
 	sdl::Sprite* WeaponBox;
 	sdl::Sprite*  WeaponSprite;
 	sdl::Text* TextWeapon;
-	std::list<std::tuple<sdl::Text*, sdl::Sprite*, sdl::Sprite*>> WeaponList; // Text en over et affiche après une seconde de over.
-	sdl::Clock Clock,ClickClock;
+	sdl::Text* Description;
+	bool* Over;
+	std::list<std::tuple<sdl::Text*, sdl::Sprite*, sdl::Sprite*, sdl::Text*,bool*>> WeaponList; // Text en over et affiche après une seconde de over.
+	sdl::Clock Clock,ClickClock,TextClock;
 	bool Clicked,First,ReverseClick,DrawClick,DrawReverse,DrawBack;
+	void PlaceItem(sdl::Window &target, std::string WeaponName, std::string Description, std::string TexturePath);
 
 public:
 	GuiWeaponMenu(sdl::Window &target);
