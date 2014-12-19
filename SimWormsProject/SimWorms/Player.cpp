@@ -1,8 +1,10 @@
 #include "Player.h"
 #include "OOSDL\Text.h"
+#include "GameManager.h"
+#include "HealPack.h"
 #include <sstream>
 
-Player::Player(sdl::Vector2Float &position){
+Player::Player(sdl::Vector2Float &position, double team, double rank){
 	this->position = position;
 	this->direction = false;
 	this->sprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/player.png"));
@@ -59,7 +61,9 @@ void Player::update(float frametime, Terrain& terrain){
 		jetpack = false;
 	}
 	physics->update(this, terrain, frametime);
-	input.update(this, frametime);
+	if (GameManager::getInstance().getTour() == rank) {
+		input.update(this, frametime);
+	}
 	life.setPosition(this->sprite.getBounds().x - 10, this->sprite.getBounds().y + life.getBounds().h - this->sprite.getBounds().h - 40);
 	jetPackfuel.setPosition(this->sprite.getBounds().x - 15 + jetPackfuel.getBounds().w, this->sprite.getBounds().y);
 	std::stringstream ster;
@@ -75,7 +79,11 @@ void Player::update(float frametime, Terrain& terrain){
 		jetPackfuel.setString(stjp.str() + "%");
 }
 bool Player::isDead(){
-	return getHealth() <= 0;
+	if (getHealth() <= 0) {
+		GameManager::getInstance().setNumberPlayer(GameManager::getInstance().getNumberPlayer() - 1);
+		EntityManager::getInstance().addEntity(new HealPack(800, 200));
+		return true;
+	}
 }
 void Player::useJetPack(bool use) {
 	jetpack = use;

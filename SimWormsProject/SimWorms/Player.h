@@ -15,8 +15,10 @@ private:
 	std::string pourcentageFuel;
 	int fuel;
 	sdl::Clock* clockJetPack;
+	double team;
+	double rank;
 public:
-	Player(sdl::Vector2Float &position);
+	Player(sdl::Vector2Float &position, double team, double rank);
 	~Player() { delete physics; }
 	void draw(sdl::Window &target);
 	void update(float frametime, Terrain& terrain);

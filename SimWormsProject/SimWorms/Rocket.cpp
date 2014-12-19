@@ -1,4 +1,5 @@
 #include "Rocket.h"
+#include "GameManager.h"
 
 Rocket::Rocket(sdl::Vector2Float &startingPosition, sdl::Vector2Float &orientation, float force) {
 	sprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/doom_rocket.png"));
@@ -17,5 +18,6 @@ void Rocket::draw(sdl::Window &target) {
 
 void Rocket::explode(float frametime, Terrain &terrain){
 	EntityManager::getInstance().addEntity(new Explosion(sprite.getPosition(), terrain, 50, frametime));
+	
 	dead = true;
 }

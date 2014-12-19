@@ -1,6 +1,6 @@
 #include "Explosion.h"
 #include "PhysicsComponent.h"
-
+#include "GameManager.h"
 
 Explosion::Explosion(sdl::Vector2Float &position, Terrain &terrain, float radius, float frametime){
 	delay = 65;
@@ -14,7 +14,7 @@ Explosion::Explosion(sdl::Vector2Float &position, Terrain &terrain, float radius
 	terrain.explode(position, radius);
 	for (auto& it : EntityManager::getInstance().getEntities()) {
 		if ((abs(it->getPosition().x - explosionSprite->getPosition().x) < radius) && (abs(it->getPosition().y - explosionSprite->getPosition().y) < radius)) {
-			//it->setHealth(it->getHealth() - (radius - (it->getPosition().x - position.x)) * 2);
+			it->setHealth(it->getHealth() - (radius - (it->getPosition().x - position.x)) * 2);
 			Explosion* tmp = dynamic_cast<Explosion*>(it);
 			if (tmp != 0)
 				continue;

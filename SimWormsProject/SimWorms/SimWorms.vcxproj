@@ -73,6 +73,7 @@
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameOptionsManager.cpp" />
     <ClCompile Include="Grenade.cpp" />
     <ClCompile Include="GUI\GuiCheckBox.cpp" />
@@ -120,6 +121,7 @@
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Explosion.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameOptionsManager.h" />
     <ClInclude Include="Grenade.h" />
     <ClInclude Include="GUI\GuiCheckBox.h" />
