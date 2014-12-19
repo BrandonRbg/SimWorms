@@ -1,6 +1,8 @@
 #include "GuiGameMenu.h"
 #include <list>
 #include "../MapManager.h"
+#include "../ScreenStateManager.h"
+#include "../MainMenuState.h"
 
 GuiGameMenu::GuiGameMenu(){
 	ArrowCoolDown.restart();
@@ -33,6 +35,11 @@ GuiGameMenu::GuiGameMenu(){
 	TextWind.setFont("data/fonts/BMSpace.ttf");
 	TextWind.setCharacterSize(25);
 	TextWind.setColor(sdl::Color::White);
+
+	Back.setFont("data/fonts/BMSpace.ttf");
+	Back.setString("Back");
+	Back.setCharacterSize(40);
+	Back.setColor(sdl::Color::White);
 
 	TextMine.setFont("data/fonts/BMSpace.ttf");
 	TextMine.setCharacterSize(25);
@@ -87,6 +94,7 @@ void GuiGameMenu::draw(sdl::Window &target){
 	//TextMapInfo.setString("Map infos : " + MapManager::getInstance().getMap(i).description);
 	TeamOne->draw(target);
 	TeamTwo->draw(target);
+	target.draw(&Back);
 	target.draw(&MapBigBox);
 	target.draw(&ArrowR);
 	target.draw(&ArrowL);
@@ -109,9 +117,10 @@ void GuiGameMenu::draw(sdl::Window &target){
 		target.draw(std::get<0>(it));
 		std::get<1>(it)->draw(target);
 	}
-}
+} 
 
 void GuiGameMenu::update(sdl::Window &target){
+	Back.setPosition(0.01 * target.getView().getSize().x, 0.05 * target.getView().getSize().y);
 	MapBigBox.setPosition(0.174 * target.getView().getSize().x, 0.058 * target.getView().getSize().y);
 	TextMapName.setPosition(0.215 * target.getView().getSize().x, 0.076 * target.getView().getSize().y);
 	MapBox.setPosition(0.181 * target.getView().getSize().x, 0.106 * target.getView().getSize().y);
@@ -189,12 +198,25 @@ void GuiGameMenu::update(sdl::Window &target){
 		if (TextStartButton.getBounds().contains(sdl::Mouse::getPosition())){
 			TextStartButton.setCharacterSize(42);
 		}
+
+		if (Back.getBounds().contains(sdl::Mouse::getPosition())){
+			ScreenStateManager::getInstance().popScreenState();
+			ScreenStateManager::getInstance().pushScreenState(new MainMenuState());
+			return;
+		}
 	}
+
 	if (TextStartButton.getBounds().contains(sdl::Mouse::getPosition())){
 		TextStartButton.setColor(sdl::Color::Red);
 	}
 	else
 		TextStartButton.setColor(sdl::Color::White);
+
+	if (Back.getBounds().contains(sdl::Mouse::getPosition())){
+		Back.setColor(sdl::Color::Red);
+	}
+	else
+		Back.setColor(sdl::Color::White);
 
 	if (sdl::Mouse::isButtonReleased(SDL_BUTTON_LEFT)){
 		PlusClick = false;

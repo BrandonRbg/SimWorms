@@ -61,3 +61,5 @@
 - Besoin de fix le crash quand on delete une text box et qu'on continue à écrire.
 {19 décembre 2014, 10:00 to 14:19}
 -Grande modification graphique et optimisation du programme.
+{19 décembre 2014, 15:20 to 17:13}
+-Modification de GuiGameMenu et GuiPauseMenu

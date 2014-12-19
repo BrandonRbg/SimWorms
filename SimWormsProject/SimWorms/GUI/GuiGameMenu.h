@@ -6,7 +6,7 @@
 
 class GuiGameMenu{
 protected:
-	sdl::Text TextMapName, TextGravity, TextWind, TextMine, TextStartButton/*, TextMapInfo*/,SampleText;
+	sdl::Text TextMapName, TextGravity, TextWind, TextMine, TextStartButton/*, TextMapInfo*/,SampleText,Back;
 	sdl::Text*  TextTeamOne;
 	sdl::Text* TextTeamTwo;
 	sdl::Sprite ArrowR, ArrowL, MapBox, TeamBox, MapBigBox, Plus, Minus,thumbnail,BG;
