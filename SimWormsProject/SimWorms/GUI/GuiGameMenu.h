@@ -6,16 +6,18 @@
 
 class GuiGameMenu{
 protected:
-	sdl::Text TextMapName, TextGravity, TextWind, TextMine, TextStartButton, TextMapInfo,SampleText;
+	sdl::Text TextMapName, TextGravity, TextWind, TextMine, TextStartButton/*, TextMapInfo*/,SampleText;
 	sdl::Text*  TextTeamOne;
 	sdl::Text* TextTeamTwo;
-	sdl::Sprite ArrowR, ArrowL, MapBox, TeamBox, MapBigBox, Plus, Minus;
+	sdl::Sprite ArrowR, ArrowL, MapBox, TeamBox, MapBigBox, Plus, Minus,thumbnail,BG;
 	GuiTextBox* TeamOne;
 	GuiTextBox* TeamTwo;
 	std::list<std::tuple<sdl::Text*, GuiTextBox*>> TeamList;
-	bool PlusClick, First; 
+	bool PlusClick, First,Clicked; 
+	int i;
+	sdl::Clock ArrowCoolDown;
 public:
-	GuiGameMenu(sdl::Window &target);
+	GuiGameMenu();
 	~GuiGameMenu();
 	void draw(sdl::Window &target);
 	void update(sdl::Window &target);

@@ -7,14 +7,14 @@ Map::Map(std::string& name, std::string& description, int landMinesCount, int ma
 	this->landMinesCount = landMinesCount;
 	this->maxWindForce = maxWindForce;
 	this->gravityForce = gravityForce;
-	this->terrain.loadTerrainFromFile("data/maps/country/map.png");
+	//this->terrain.loadTerrainFromFile(terrainPath);
 	this->bg.setTexture(&AssetsManager::getInstance().getTexture(bgPath));
-	this->thumbnail = AssetsManager::getInstance().getTexture(thumbnailPath);
+	thumbnail.setTexture(&AssetsManager::getInstance().getTexture(thumbnailPath));
 	updateWindForce();
-	std::default_random_engine engine;
+	/*std::default_random_engine engine;
 	std::uniform_int_distribution<int> dist(50, terrain.getSize().x - 50);
 	for (int i = 0; i < landMinesCount; i++)
-		landMinesPositions.push_back(sdl::Vector2Float(dist(engine), dist(engine)));
+		landMinesPositions.push_back(sdl::Vector2Float(dist(engine), dist(engine)));*/
 }
 
 void Map::updateWindForce(){

@@ -78,6 +78,7 @@
     <ClCompile Include="GUI\GuiCheckBox.cpp" />
     <ClCompile Include="GUI\GuiGameMenu.cpp" />
     <ClCompile Include="GUI\GuiMainMenu.cpp" />
+    <ClCompile Include="GUI\GuiPauseMenu.cpp" />
     <ClCompile Include="GUI\GuiTextBox.cpp" />
     <ClCompile Include="GUI\GuiWeaponMenu.cpp" />
     <ClCompile Include="main.cpp" />
@@ -107,6 +108,7 @@
     <ClCompile Include="ProjectilePhysicsComponents.cpp" />
     <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="ScreenStateManager.cpp" />
+    <ClCompile Include="GameMenuState.cpp" />
     <ClCompile Include="SplashScreenState.cpp" />
     <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
@@ -117,12 +119,14 @@
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Explosion.h" />
+    <ClInclude Include="GameMenuState.h" />
     <ClInclude Include="GameOptionsManager.h" />
     <ClInclude Include="Grenade.h" />
     <ClInclude Include="GUI\GuiCheckBox.h" />
     <ClInclude Include="GUI\GuiComponents.h" />
     <ClInclude Include="GUI\GuiGameMenu.h" />
     <ClInclude Include="GUI\GuiMainMenu.h" />
+    <ClInclude Include="GUI\GuiPauseMenu.h" />
     <ClInclude Include="GUI\GuiTextBox.h" />
     <ClInclude Include="GUI\GuiWeaponMenu.h" />
     <ClInclude Include="MainMenuState.h" />
