@@ -1,4 +1,6 @@
 #include "GuiPauseMenu.h"
+#include "../MainMenuState.h"
+#include "../ScreenStateManager.h"
 
 GuiPauseMenu::GuiPauseMenu(){
 	PauseBg.setTexture(&AssetsManager::getInstance().getTexture("data/textures/PauseBg.png"));
@@ -44,7 +46,9 @@ void GuiPauseMenu::update(sdl::Window &target){
 
 		}
 		if (BackToMenuText.getBounds().contains(sdl::Mouse::getPosition())){
-
+			ScreenStateManager::getInstance().popScreenState();
+			ScreenStateManager::getInstance().pushScreenState(new MainMenuState());
+			return;
 		}
 	}
 }
