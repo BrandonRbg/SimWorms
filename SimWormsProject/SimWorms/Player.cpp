@@ -10,7 +10,8 @@ Player::Player(sdl::Vector2Float &position){
 	this->physics = new PlayerPhysicsComponent;
 	sprite.setOrigin(sprite.getTextureRect().w / 2, sprite.getTextureRect().h / 2);
 	velocity = sdl::Vector2Float(0, 0);
-	name.setString("Roger");
+	sprite.setOrigin(0, 0);
+	name.setString(PersonNameGenerator::getInstance().generateFirstName("french", "M") + " " + PersonNameGenerator::getInstance().generateLastName("english"));
 	name.setCharacterSize(20);
 	name.setFont("data/fonts/Arial.ttf");
 	name.setColor(sdl::Color::Black);
@@ -39,8 +40,11 @@ void Player::update(float frametime, Terrain& terrain){
 			jetpack = true;
 			isOnGround = false;
 		}
-		else
+		else {
 			jetpack = false;
+			stop();
+			physics->stopMovingY(this);
+		}
 		if (jetpack) {
 			physics->stopMovingY(this);
 			this->addConstraint(sdl::Vector2Float(0, -250), frametime);

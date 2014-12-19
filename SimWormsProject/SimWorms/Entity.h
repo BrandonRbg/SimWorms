@@ -39,4 +39,5 @@ public:
 	bool isOnGround;
 	bool isTopBlocked;
 	bool jetpack;
+	void setOrigin(sdl::Vector2Float& origin){ this->sprite.setOrigin(origin); };
 };

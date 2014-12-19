@@ -3,6 +3,7 @@
 #include "PlayerInputComponent.h"
 #include "AssetsManager.h"
 #include "Entity.h"
+#include "PersonNameGenerator.h"
 class Player : public Entity
 {
 private:

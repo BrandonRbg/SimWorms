@@ -18,7 +18,7 @@ Explosion::Explosion(sdl::Vector2Float &position, Terrain &terrain, float radius
 			Explosion* tmp = dynamic_cast<Explosion*>(it);
 			if (tmp != 0)
 				continue;
-			if ((it->getPosition().x - explosionSprite->getPosition().x < radius) && (it->getPosition().y - explosionSprite->getPosition().y < radius)) {
+			if ((abs(it->getPosition().x - explosionSprite->getPosition().x) < radius) && (abs(it->getPosition().y - explosionSprite->getPosition().y) < radius)) {
 				if ((it->getPosition() - explosionSprite->getPosition()) != sdl::Vector2Float(0, 0)){
 					sdl::Vector2Float distance = it->getPosition() - explosionSprite->getPosition();
 					float speed = 10 * (1 - (distance.getModule() / radius));
