@@ -74,7 +74,9 @@
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameMenuState.cpp" />
     <ClCompile Include="GameOptionsManager.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Grenade.cpp" />
     <ClCompile Include="GUI\GuiCheckBox.cpp" />
     <ClCompile Include="GUI\GuiGameMenu.cpp" />
@@ -122,7 +124,9 @@
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameMenuState.h" />
     <ClInclude Include="GameOptionsManager.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="Grenade.h" />
     <ClInclude Include="GUI\GuiCheckBox.h" />
     <ClInclude Include="GUI\GuiComponents.h" />

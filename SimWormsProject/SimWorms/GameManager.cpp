@@ -16,12 +16,10 @@ void GameManager::startGame(int numberTeam) {
 	}
 }
 
-void GameManager::update(sdl::Window& renderWindow, Camera cam, sdl::StaticText fpsText, Map actualMap, sdl::Clock fpsClock, sdl::Clock fpsDisplayUpdateClock) {
-	float frametime = fpsClock.restart().asSeconds();
-	int fps = (int)(1 / frametime);
+void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap, float frametime) {
 	SDL_Event event;
 
-	if (tourClock.getElapsedTime > 85) {
+	if (tourClock.getElapsedTime().asSeconds() > 85) {
 		tour = (tour + 1) & (numberPlayer);
 	}
 
@@ -35,10 +33,10 @@ void GameManager::update(sdl::Window& renderWindow, Camera cam, sdl::StaticText 
 				renderWindow.close();
 
 		if (event.key.keysym.sym == SDLK_q){
-			EntityManager::getInstance().addEntity(new HealPack(sdl::Mouse::getPosition(cam.getView())));
+			EntityManager::getInstance().addEntity(new HealPack(sdl::Mouse::getPosition(cam->getView())));
 		}
 		if (event.key.keysym.sym == SDLK_g){
-			EntityManager::getInstance().addEntity(new Grenade(sdl::Mouse::getPosition(cam.getView()), sdl::Vector2Float(0, 0), 0, 5));
+			EntityManager::getInstance().addEntity(new Grenade(sdl::Mouse::getPosition(cam->getView()), sdl::Vector2Float(0, 0), 0, 5));
 		}
 		//if (event.key.keysym.sym == SDLK_e){
 		//	GameOptionsManager::getInstance().setVideoMode(sdl::VideoMode::getModes()[0]);
@@ -53,7 +51,7 @@ void GameManager::update(sdl::Window& renderWindow, Camera cam, sdl::StaticText 
 		//	GameOptionsManager::getInstance().update(renderWindow);
 		//}
 		if (event.type == SDL_MOUSEWHEEL)
-			cam.proceedZoom(event.wheel.y);
+			cam->proceedZoom(event.wheel.y);
 
 	}
 	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
@@ -70,7 +68,7 @@ void GameManager::update(sdl::Window& renderWindow, Camera cam, sdl::StaticText 
 		//actualMap.terrain.addPixel(sdl::Mouse::getPosition(cam.getView()), sdl::Color::Black);
 	}
 	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_RIGHT)){
-		(*EntityManager::getInstance().getEntities().begin())->setPosition(sdl::Mouse::getPosition(cam.getView()));
+		(*EntityManager::getInstance().getEntities().begin())->setPosition(sdl::Mouse::getPosition(cam->getView()));
 		//pixel.setPosition(sdl::Mouse::getPosition(cam.getView()));
 	}
 	/*if (sdl::Keyboard::isKeyPressed(SDLK_w))
@@ -82,17 +80,11 @@ void GameManager::update(sdl::Window& renderWindow, Camera cam, sdl::StaticText 
 	if (sdl::Keyboard::isKeyPressed(SDLK_d))
 	pixel.move(500 * frametime, 0);*/
 	renderWindow.clear(sdl::Color::White);
-	cam.update(renderWindow);
-	actualMap.draw(renderWindow);
+	cam->update(renderWindow);
+	actualMap->draw(renderWindow);
 
-	EntityManager::getInstance().update(frametime, actualMap.terrain, renderWindow);
+	EntityManager::getInstance().update(frametime, actualMap->terrain, renderWindow);
 
-	if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
-		std::stringstream ss;
-		ss << "SimWorms v0.0.1" << " @ " << fps << " fps";
-		fpsText.setString(ss.str());
-		fpsDisplayUpdateClock.restart();
-	}
 	//	Game.update(renderWindow);
 	//Game.draw(renderWindow);
 	/*Text.update(renderWindow);
@@ -105,9 +97,6 @@ void GameManager::update(sdl::Window& renderWindow, Camera cam, sdl::StaticText 
 	std::cout << "DEAD";
 	pixel.draw(renderWindow);*/
 
-	renderWindow.draw(&fpsText);
-
-	renderWindow.show();
 }
 
 int GameManager::getTour() {

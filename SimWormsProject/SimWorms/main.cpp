@@ -10,14 +10,11 @@ int main(int argc, char** argv){
 	MapManager::getInstance().loadMapsFromFolder("data/maps");
 	Map actualMap = MapManager::getInstance().getActualMap();
 
-	Camera cam(renderWindow, actualMap);
+	Camera cam(renderWindow, &actualMap);
 
 	//PhysicsPixel pixel(sdl::Color::Black, sdl::Vector2Float(100, 100), sdl::Vector2Float(0, 0));
 
-
-	//GuiMainMenu Game;
 	//GuiTextBox Text;
-	//Player player(sdl::Vector2Float(800,200));
 	//view.setCenter(player.getPosition());
 
 	sdl::StaticText fpsText;
@@ -34,7 +31,21 @@ int main(int argc, char** argv){
 
 	sdl::Clock runclock;
 	while (renderWindow.isOpen()){
-		GameManager::getInstance().update(renderWindow, cam, fpsText, actualMap, fpsClock, fpsDisplayUpdateClock);
+		float frametime = fpsClock.restart().asSeconds();
+		int fps = (int)(1 / frametime);
+
+		GameManager::getInstance().update(renderWindow, &cam, &actualMap, frametime);
+
+		if (fpsDisplayUpdateClock.getElapsedTime().asSeconds() > 0.2) {
+			std::stringstream ss;
+			ss << "SimWorms v0.0.1" << " @ " << fps << " fps";
+			fpsText.setString(ss.str());
+			fpsDisplayUpdateClock.restart();
+		}
+
+		renderWindow.draw(&fpsText);
+
+		renderWindow.show();
 	}
 	SDL_StopTextInput();
 	return 0;

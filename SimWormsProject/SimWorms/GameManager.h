@@ -14,6 +14,7 @@
 #include "Grenade.h"
 #include "HealPack.h"
 #include "Mine.h"
+#include "GUI\GuiWeaponMenu.h"
 
 #include "Camera.h"
 
@@ -31,7 +32,7 @@ public:
 
 	void startGame(int numberTeam);
 
-	void update(sdl::Window& renderWindow, Camera cam, sdl::StaticText fpsText, Map actualMap, sdl::Clock fpsClock, sdl::Clock fpsDisplayUpdateClock);
+	void update(sdl::Window& renderWindow, Camera* cam, Map* actualMap, float frametime);
 
 	int getTour();
 

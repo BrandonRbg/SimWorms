@@ -81,7 +81,7 @@ void Player::update(float frametime, Terrain& terrain){
 bool Player::isDead(){
 	if (getHealth() <= 0) {
 		GameManager::getInstance().setNumberPlayer(GameManager::getInstance().getNumberPlayer() - 1);
-		EntityManager::getInstance().addEntity(new HealPack(800, 200));
+		EntityManager::getInstance().addEntity(new HealPack(sdl::Vector2Float(800, 200)));
 		return true;
 	}
 }
