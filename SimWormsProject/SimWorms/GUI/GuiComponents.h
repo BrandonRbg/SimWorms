@@ -1,5 +1,5 @@
 #pragma once
-#include "OOSDL/OOSDL.h"
+#include "../OOSDL/OOSDL.h"
 
 class GuiComponents {
 protected:

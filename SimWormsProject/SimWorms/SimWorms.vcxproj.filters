@@ -162,14 +162,11 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HealPack.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="GUI\GuiPauseMenu.cpp">
+      <Filter>Source Files\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="personnamegenerator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mine.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="GameMenuState.cpp">
+      <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files</Filter>
@@ -323,14 +320,11 @@
     <ClInclude Include="Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HealPack.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GUI\GuiPauseMenu.h">
+      <Filter>Header Files\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="PersonNameGenerator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Mine.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GameMenuState.h">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>Header Files</Filter>
