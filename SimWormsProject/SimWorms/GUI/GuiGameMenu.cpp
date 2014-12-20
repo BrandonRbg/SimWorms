@@ -7,6 +7,7 @@
 GuiGameMenu::GuiGameMenu(){
 	ArrowCoolDown.restart();
 	First = true;
+	EnterText = true;
 	ArrowR.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowR.png"));
 	ArrowL.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowL.png"));
 	ArrowR.setScale(sdl::Vector2Float(0.7, 1));
@@ -134,14 +135,15 @@ void GuiGameMenu::update(sdl::Window &target){
 	ArrowR.setPosition(0.44 * target.getView().getSize().x, 0.853 * target.getView().getSize().y);
 
 	Plus.setPosition(0.6 * target.getView().getSize().x, (0.22 + (0.0675 * (TeamList.size() - 2))) * target.getView().getSize().y);
-	if (!First){
-		TeamOne->update(target);
-		TeamTwo->update(target);
+		for (auto& it : TeamList){
+			if (EnterText){
+				std::get<1>(it)->update(target);
+			}
+			if (std::get<1>(it)->isClicked()){
+				EnterText = true;
+			}
 	}
-	for (auto& it : TeamList){
-		std::get<1>(it)->update(target);
-	}
-	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
+		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
 		if (ArrowCoolDown.getElapsedTime().asMilliseconds() >= 100)
 			Clicked = false;
 		else
@@ -184,6 +186,7 @@ void GuiGameMenu::update(sdl::Window &target){
 			}
 		}
 		if (Minus.getBounds().contains(sdl::Mouse::getPosition())){
+			EnterText = false;
 			if (!PlusClick){
 				PlusClick = true;
 				if (TeamList.size() == 2)
