@@ -27,7 +27,7 @@
 class GameManager : public Singleton<GameManager> {
 private:
 	int tour;
-	bool playerIsOnGround;
+	int numberPlayerOnGround;
 	int numberPlayer;
 	sdl::Clock tourClock;
 	int useObject;

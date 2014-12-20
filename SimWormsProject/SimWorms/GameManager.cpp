@@ -2,8 +2,8 @@
 
 GameManager::GameManager() {
 	tour = 0;
-	playerIsOnGround = false;
 	numberPlayer = 0;
+	numberPlayerOnGround = 0;
 	useObject = 0;
 	menuPause = false;
 	fpsText.setFont("data/fonts/Arial.ttf");
@@ -15,19 +15,37 @@ GameManager::GameManager() {
 }
 
 void GameManager::startGame(int numberTeam) {
+	std::default_random_engine engine;
+	std::uniform_int_distribution<int> dist(15, 1265);
 	for (int i = 0; i < 4 * numberTeam; i++) {
-		EntityManager::getInstance().addEntity(new Player(sdl::Vector2Float(800, 200), i)); // doit être random en x
+		EntityManager::getInstance().addEntity(new Player(sdl::Vector2Float(dist(engine), 0), i)); // doit être random en x
 		numberPlayer++;
 	}
-	for (int i = 0; i < MapManager::getInstance().getActualMap().landMinesCount(); i++) {
-		EntityManager::getInstance().addEntity(new Mine(sdl::Vector2Float(100, 200))); // doit être random en x
+	for (int i = 0; i < MapManager::getInstance().getActualMap().landMinesCount; i++) {
+		EntityManager::getInstance().addEntity(new Mine(sdl::Vector2Float(dist(engine), 0))); // doit être random en x
 	}
 }
 
 void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap, float frametime) {
+	if (EntityManager::getInstance().first) {
+		for (auto& it : EntityManager::getInstance().getEntities()) {
+			Player* tmp = dynamic_cast<Player*>(it);
+			if (tmp != 0 && tmp->isOnGround) {
+				numberPlayerOnGround++;
+			}
+		}
+		if (numberPlayerOnGround == numberPlayer) {
+			EntityManager::getInstance().first = false;
+		}
+		else {
+			numberPlayerOnGround = 0;
+		}
+	}
 	if (!menuPause) {
 		if (tourClock.getElapsedTime().asSeconds() > 85) {
 			tour = (tour + 1) & (numberPlayer);
+			tourClock.restart();
+			MapManager::getInstance().getActualMap().updateWindForce();
 		}
 
 		if (sdl::Keyboard::isKeyPressed(SDLK_RIGHT) || sdl::Keyboard::isKeyPressed(SDLK_LEFT) || sdl::Keyboard::isKeyPressed(SDLK_SPACE)) {
@@ -114,6 +132,7 @@ void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap,
 		if (sdl::Keyboard::isKeyPressed(SDLK_d))
 		pixel.move(500 * frametime, 0);*/
 		renderWindow.clear(sdl::Color::White);
+		actualMap->update();
 		actualMap->draw(renderWindow);
 		cam->update(renderWindow);
 
@@ -146,7 +165,7 @@ int GameManager::getTour() {
 void GameManager::setTour(int tour) {
 	this->tour = tour;
 	tourClock.restart();
-
+	MapManager::getInstance().getActualMap().updateWindForce();
 }
 
 int GameManager::getNumberPlayer() {

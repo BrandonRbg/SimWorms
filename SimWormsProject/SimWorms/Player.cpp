@@ -10,7 +10,6 @@ Player::Player(sdl::Vector2Float &position, int rank){
 	this->sprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/player.png"));
 	this->sprite.setPosition(position);
 	this->physics = new PlayerPhysicsComponent;
-	sprite.setOrigin(sprite.getTextureRect().w / 2, sprite.getTextureRect().h / 2);
 	velocity = sdl::Vector2Float(0, 0);
 	sprite.setOrigin(0, 0);
 	name.setString(PersonNameGenerator::getInstance().generateFirstName("french", "M") + " " + PersonNameGenerator::getInstance().generateLastName("english"));

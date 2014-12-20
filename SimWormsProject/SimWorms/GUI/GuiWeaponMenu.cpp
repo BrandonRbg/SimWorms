@@ -84,7 +84,7 @@ int GuiWeaponMenu::WeaponSelected(){
 				WeaponSelect++;
 		}
 		if (WeaponBack.getBounds().contains(sdl::Mouse::getPosition())){
-			return (WeaponList.size + 1);
+			return (WeaponList.size() + 1);
 		}
 		else
 			return 0;
