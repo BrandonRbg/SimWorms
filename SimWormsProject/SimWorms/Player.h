@@ -29,5 +29,8 @@ public:
 	int getRank() { return rank; }
 	bool getUseJetpack() { return useJetpack; }
 	void setUseJetpack(bool useJetpack) { this->useJetpack = useJetpack; }
+	bool useRocket(float frametime);
+	bool useGrenage(float frametime);
+	bool useMelee(float frametime);
 };
 

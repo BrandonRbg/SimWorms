@@ -15,7 +15,7 @@ public:
 		MeleeHitBox.h = 8;
 	}
 
-	void checkPlayerTouch(Player* cible, float frametime);
+	bool checkPlayerTouch(Player* cible, float frametime);
 
 	SDL_Rect GetMeleeHitbox(void){ return MeleeHitBox; }
 };

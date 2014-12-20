@@ -6,11 +6,11 @@ GameManager::GameManager() {
 	numberPlayerOnGround = 0;
 	useObject = 0;
 	menuPause = false;
-	fpsText.setFont("data/fonts/Arial.ttf");
-	fpsText.setPosition(1240, 10);
-	fpsText.setCharacterSize(30);
-	fpsText.setColor(sdl::Color::White);
-	fpsText.setString("");
+	tourText.setFont("data/fonts/Arial.ttf");
+	tourText.setPosition(1240, 10);
+	tourText.setCharacterSize(30);
+	tourText.setColor(sdl::Color::White);
+	tourText.setString("");
 	useItem = 0;
 }
 
@@ -58,42 +58,33 @@ void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap,
 		}
 
 		if (useObject == 1 || useItem == 1) {
-			if (sdl::Mouse::isButtonReleased(SDL_BUTTON_LEFT)) {
-				for (auto& it : EntityManager::getInstance().getEntities()) {
-					Player* tmp = dynamic_cast<Player*>(it);
-					if ((tmp != 0) && (tmp->getRank() == tour)) {
-						//Rocket
+			for (auto& it : EntityManager::getInstance().getEntities()) {
+				Player* tmp = dynamic_cast<Player*>(it);
+				if ((tmp != 0) && (tmp->getRank() == tour)) {
+					if (tmp->useRocket(frametime)) {
+						useItem = 0;
 					}
 				}
 			}
 		}
 		if (useObject == 2 || useItem == 2) {
-			if (sdl::Mouse::isButtonReleased(SDL_BUTTON_LEFT)) {
-				for (auto& it : EntityManager::getInstance().getEntities()) {
-					Player* tmp = dynamic_cast<Player*>(it);
-					if ((tmp != 0) && (tmp->getRank() == tour)) {
-						//grenade
+			for (auto& it : EntityManager::getInstance().getEntities()) {
+				Player* tmp = dynamic_cast<Player*>(it);
+				if ((tmp != 0) && (tmp->getRank() == tour)) {
+					if (tmp->useGrenage(frametime)) {
+						useItem == 0;
 					}
 				}
-				useItem == 0;
 			}
 		}
 		if (useObject == 3 || useItem == 3) {
-			if (sdl::Mouse::isButtonReleased(SDL_BUTTON_LEFT)) {
-				for (auto& it : EntityManager::getInstance().getEntities()) {
-					Player* tmp = dynamic_cast<Player*>(it);
-					if ((tmp != 0) && (tmp->getRank() == tour)) {
-						if (tmp->getDirection()) {
-							Melee shoot(sdl::Vector2Float(tmp->getBounds().x + tmp->getBounds().w + 5, tmp->getBounds().y + (tmp->getBounds().h / 2)));
-							shoot.checkPlayerTouch(tmp, frametime);
-						}
-						else {
-							Melee shoot(sdl::Vector2Float(tmp->getBounds().x - 50, tmp->getBounds().y + (tmp->getBounds().h / 2)));
-							shoot.checkPlayerTouch(tmp, frametime);
-						}
+			for (auto& it : EntityManager::getInstance().getEntities()) {
+				Player* tmp = dynamic_cast<Player*>(it);
+				if ((tmp != 0) && (tmp->getRank() == tour)) {
+					if (tmp->useMelee(frametime)) {
+					useItem = 0;
 					}
 				}
-				useItem == 0;
 			}
 		}
 		if (useObject == 4 || useItem == 4) {
@@ -141,7 +132,9 @@ void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap,
 
 		std::stringstream ss;
 		ss << 85 - tourClock.getElapsedTime().asSeconds();
-		fpsText.setString(ss.str());
+		tourText.setString(ss.str());
+
+		renderWindow.draw(&tourText);
 
 		/*pixel.update(frametime, actualMap.terrain);
 		if (pixel.isDead())

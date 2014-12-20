@@ -86,3 +86,39 @@ bool Player::isDead(){
 		return true;
 	}
 }
+
+bool Player::useRocket(float grametime) {
+
+}
+
+bool Player::useGrenage(float frametime) {
+	
+}
+
+bool Player::useMelee(float frametime) {
+	if (sdl::Mouse::isButtonReleased(SDL_BUTTON_LEFT)) {
+		if (this->direction) {
+			Melee shoot(sdl::Vector2Float(this->getBounds().x + this->getBounds().w + 5, this->getBounds().y + (this->getBounds().h / 2)));
+			for (auto& it : EntityManager::getInstance().getEntities()) {
+				Player* tmp = dynamic_cast<Player*>(it);
+				if (tmp != 0) {
+					if (shoot.checkPlayerTouch(tmp, frametime)) {
+						continue;
+					}
+				}
+			}
+		}
+		else {
+			Melee shoot(sdl::Vector2Float(this->getBounds().x - 50, this->getBounds().y + (this->getBounds().h / 2)));
+			for (auto& it : EntityManager::getInstance().getEntities()) {
+				Player* tmp = dynamic_cast<Player*>(it);
+				if (tmp != 0) {
+					if (shoot.checkPlayerTouch(tmp, frametime)) {
+						continue;
+					}
+				}
+			}
+		}
+		return true;
+	}
+}

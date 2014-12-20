@@ -1,14 +1,8 @@
-﻿La génération a démarré 2014-12-20 12:48:20.
+﻿La génération a démarré 2014-12-20 16:52:23.
      1>Projet "C:\Users\Nathan\Documents\GitHub\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SplashScreenState.cpp main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SplashScreenState.cpp
          SplashScreenState.cpp
-         Génération de code en cours...
-         Compilation en cours...
-         main.cpp
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\main.cpp(12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\main.cpp(30): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-         Génération de code en cours...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Nathan\Documents\GitHub\SimWorms\SimWormsProject\Debug\SimWorms.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Nathan\Documents\GitHub\SimWorms\SimWormsProject\Debug\SimWorms.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Nathan\Documents\GitHub\SimWorms\SimWormsProject\Debug\SimWorms.lib" /MACHINE:X86 Debug\AssetsManager.obj
          Debug\Camera.obj
@@ -65,4 +59,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:01.66
+Temps écoulé 00:00:00.98
