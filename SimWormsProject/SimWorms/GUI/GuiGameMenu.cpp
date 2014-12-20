@@ -200,7 +200,7 @@ void GuiGameMenu::update(sdl::Window &target){
 			TextStartButton.setCharacterSize(42);
 			MapManager::getInstance().setActualMap(i);
 			ScreenStateManager::getInstance().popScreenState();
-			ScreenStateManager::getInstance().pushScreenState(new GameState(target));
+			ScreenStateManager::getInstance().pushScreenState(new GameState(target, TeamList.size()));
 		}
 
 		if (Back.getBounds().contains(sdl::Mouse::getPosition())){

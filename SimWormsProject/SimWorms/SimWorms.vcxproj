@@ -81,6 +81,7 @@
     <ClCompile Include="GUI\GuiCheckBox.cpp" />
     <ClCompile Include="GUI\GuiGameMenu.cpp" />
     <ClCompile Include="GUI\GuiMainMenu.cpp" />
+    <ClCompile Include="GUI\GuiPauseMenu.cpp" />
     <ClCompile Include="GUI\GuiTextBox.cpp" />
     <ClCompile Include="GUI\GuiWeaponMenu.cpp" />
     <ClCompile Include="HealPack.cpp" />
@@ -88,6 +89,7 @@
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapManager.cpp" />
+    <ClCompile Include="Melee.cpp" />
     <ClCompile Include="Mine.cpp" />
     <ClCompile Include="OOSDL\AnimatedSprite.cpp" />
     <ClCompile Include="OOSDL\Clock.cpp" />
@@ -132,12 +134,14 @@
     <ClInclude Include="GUI\GuiComponents.h" />
     <ClInclude Include="GUI\GuiGameMenu.h" />
     <ClInclude Include="GUI\GuiMainMenu.h" />
+    <ClInclude Include="GUI\GuiPauseMenu.h" />
     <ClInclude Include="GUI\GuiTextBox.h" />
     <ClInclude Include="GUI\GuiWeaponMenu.h" />
     <ClInclude Include="HealPack.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapManager.h" />
+    <ClInclude Include="Melee.h" />
     <ClInclude Include="Mine.h" />
     <ClInclude Include="OOSDL\AnimatedSprite.h" />
     <ClInclude Include="OOSDL\Clock.h" />

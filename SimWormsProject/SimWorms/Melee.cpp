@@ -1,14 +1,15 @@
 #include "Melee.h"
 #include "PlayerPhysicsComponent.h"
+#include "EntityManager.h"
 
-void Melee::checkPlayerTouch(bool direction, Player Cible) {
-	if (((Cible.getBounds().x > MeleeHitBox.x) && (Cible.getBounds().y > MeleeHitBox.y) && (Cible.getBounds().x < (MeleeHitBox.x + MeleeHitBox.w)) && (Cible.getBounds().y < (MeleeHitBox.y + MeleeHitBox.h))) || (((Cible.getBounds().x + Cible.getBounds().w) > MeleeHitBox.x) && ((Cible.getBounds().y + Cible.getBounds().h) > MeleeHitBox.y) && ((Cible.getBounds().x + Cible.getBounds().w) < (MeleeHitBox.x + MeleeHitBox.w)) && ((Cible.getBounds().y + Cible.getBounds().h) < (MeleeHitBox.y + MeleeHitBox.h)))) { // Vérification si le Rect du player recherché se trouve dans la hitbox du corp à corp
-		Cible.setHealth(Cible.getHealth() - 20);
-		if (direction) {
-			Cible.setVelocity(sdl::Vector2Float(5.0, 5.0));
+void Melee::checkPlayerTouch(Player* cible,float frametime) {
+	if (((cible->getBounds().x > MeleeHitBox.x) && (cible->getBounds().y > MeleeHitBox.y) && (cible->getBounds().x < (MeleeHitBox.x + MeleeHitBox.w)) && (cible->getBounds().y < (MeleeHitBox.y + MeleeHitBox.h))) || (((cible->getBounds().x + cible->getBounds().w) > MeleeHitBox.x) && ((cible->getBounds().y + cible->getBounds().h) > MeleeHitBox.y) && ((cible->getBounds().x + cible->getBounds().w) < (MeleeHitBox.x + MeleeHitBox.w)) && ((cible->getBounds().y + cible->getBounds().h) < (MeleeHitBox.y + MeleeHitBox.h)))) {
+		cible->setHealth(cible->getHealth() - 50);
+		if (cible->getDirection() == true) {
+			cible->addConstraint(sdl::Vector2Float(250, -250), frametime);
 		}
 		else {
-			Cible.setVelocity(sdl::Vector2Float(-5.0, 5.0));
+			cible->addConstraint(sdl::Vector2Float(-250, -250), frametime);
 		}
 	}
 }

@@ -27,6 +27,7 @@ Player::Player(sdl::Vector2Float &position, int rank){
 	jetPackfuel.setColor(sdl::Color(0, 100, 0));
 	jetpack = false;
 	clockJetPack = new sdl::Clock();
+	useJetpack = false;
 	this->rank = rank;
 }
 
@@ -38,7 +39,7 @@ void Player::draw(sdl::Window &target){
 		target.draw(&jetPackfuel);
 }
 void Player::update(float frametime, Terrain& terrain){
-	if (sdl::Keyboard::isKeyPressed(SDLK_p)) {
+	if (useJetpack) {
 		if (fuel > 0) {
 			jetpack = true;
 			isOnGround = false;
@@ -57,7 +58,7 @@ void Player::update(float frametime, Terrain& terrain){
 			}
 		}
 	}
-	if (sdl::Keyboard::isKeyReleased(SDLK_p) && jetpack) {
+	if (!useJetpack && jetpack) {
 		physics->stopMovingY(this);
 		jetpack = false;
 	}
@@ -85,7 +86,4 @@ bool Player::isDead(){
 		EntityManager::getInstance().addEntity(new HealPack(sdl::Vector2Float(800, 200)));
 		return true;
 	}
-}
-void Player::useJetPack(bool use) {
-	jetpack = use;
 }

@@ -14,7 +14,10 @@
 #include "Grenade.h"
 #include "HealPack.h"
 #include "Mine.h"
+#include "Rocket.h"
+#include "Melee.h"
 #include "Gui/GuiWeaponMenu.h"
+#include "GUI/GuiPauseMenu.h"
 
 #include "Camera.h"
 
@@ -28,6 +31,9 @@ private:
 	int numberPlayer;
 	sdl::Clock tourClock;
 	int useObject;
+	bool menuPause;
+	sdl::StaticText fpsText;
+	int useItem;
 public:
 	GameManager();
 
@@ -46,4 +52,6 @@ public:
 	int getUseObject();
 
 	void setUseObject(int useObject);
+
+	bool getMenuPause();
 };

@@ -36,9 +36,6 @@ int main(int argc, char** argv){
 			if (event.type == SDL_WINDOWEVENT)
 				if (event.window.event == SDL_WINDOWEVENT_CLOSE)
 					renderWindow.close();
-			if (event.type == SDL_KEYDOWN)
-				if (event.key.keysym.sym == SDLK_ESCAPE)
-					renderWindow.close();
 		}
 		renderWindow.clear(sdl::Color::White);
 

@@ -74,7 +74,7 @@ GuiWeaponMenu::~GuiWeaponMenu(){
 		}
 }
 
-int GuiWeaponMenu::WeaponSelected(){
+int GuiWeaponMenu::WeaponSelected() {
 	for (auto& it : WeaponList){
 		if (std::get<1>(it)->getBounds().contains(sdl::Mouse::getPosition())){
 			return WeaponSelect;

@@ -1,73 +1,36 @@
-﻿La génération a démarré 2014-12-19 19:46:51.
+﻿La génération a démarré 2014-12-19 23:41:20.
      1>Projet "C:\Users\Nathan\Documents\GitHub\SimWorms\SimWormsProject\SimWorms\SimWorms.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AssetsManager.cpp Camera.cpp Entity.cpp EntityManager.cpp EventManager.cpp Explosion.cpp GUI\GuiCheckBox.cpp GUI\GuiGameMenu.cpp GUI\GuiMainMenu.cpp GUI\GuiTextBox.cpp GUI\GuiWeaponMenu.cpp GameManager.cpp GameMenuState.cpp GameOptionsManager.cpp GameState.cpp Grenade.cpp HealPack.cpp MainMenuState.cpp Map.cpp MapManager.cpp Mine.cpp OOSDL\AnimatedSprite.cpp OOSDL\Clock.cpp OOSDL\Color.cpp OOSDL\Keyboard.cpp OOSDL\Mouse.cpp OOSDL\Sprite.cpp OOSDL\StaticSprite.cpp OOSDL\StaticText.cpp OOSDL\Text.cpp OOSDL\Texture.cpp OOSDL\Transformable.cpp OOSDL\VideoMode.cpp OOSDL\View.cpp OOSDL\Window.cpp PhysicsComponent.cpp Player.cpp PlayerInputComponent.cpp PlayerPhysicsComponent.cpp Projectile.cpp ProjectileManager.cpp ProjectilePhysicsComponents.cpp Rocket.cpp ScreenStateManager.cpp SplashScreenState.cpp Terrain.cpp main.cpp personnamegenerator.cpp
-         personnamegenerator.cpp
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\personnamegenerator.cpp(6): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\personnamegenerator.cpp(24): warning C4018: '<' : incompatibilité signed/unsigned
-         SplashScreenState.cpp
-         ScreenStateManager.cpp
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\screenstatemanager.cpp(27): warning C4018: '<' : incompatibilité signed/unsigned
-         ProjectileManager.cpp
-         Projectile.cpp
-         PlayerPhysicsComponent.cpp
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\playerphysicscomponent.cpp(9): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-         PhysicsComponent.cpp
-         Window.cpp
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\oosdl\window.cpp(11): warning C4244: '=' : conversion de 'unsigned int' en 'float', perte possible de données
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\oosdl\window.cpp(12): warning C4244: '=' : conversion de 'unsigned int' en 'float', perte possible de données
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\oosdl\window.cpp(34): warning C4244: 'argument' : conversion de 'unsigned int' en 'float', perte possible de données
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\oosdl\window.cpp(37): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-         View.cpp
-         VideoMode.cpp
-         Transformable.cpp
-         Text.cpp
-         StaticText.cpp
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\oosdl\statictext.cpp(6): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
-         StaticSprite.cpp
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\oosdl\staticsprite.cpp(10): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
-         Sprite.cpp
-         Mouse.cpp
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\oosdl\mouse.cpp(14): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\oosdl\mouse.cpp(15): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\oosdl\mouse.cpp(19): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-         Keyboard.cpp
-         Color.cpp
-         Clock.cpp
-         AnimatedSprite.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Explosion.cpp GUI\GuiGameMenu.cpp GUI\GuiWeaponMenu.cpp GameManager.cpp GameState.cpp Player.cpp ProjectilePhysicsComponents.cpp Rocket.cpp main.cpp
+         GameManager.cpp
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\melee.h(12): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\melee.h(13): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\gamemanager.cpp(31): warning C4305: 'argument' : troncation de '' à 'short'
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\gamemanager.cpp(31): warning C4309: 'argument' : troncation de valeur de constante
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\gamemanager.cpp(58): warning C4553: '==' : opérateur sans effet ; souhaitiez-vous '=' ?
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\gamemanager.cpp(76): warning C4553: '==' : opérateur sans effet ; souhaitiez-vous '=' ?
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\gamemanager.cpp(103): warning C4553: '==' : opérateur sans effet ; souhaitiez-vous '=' ?
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\gamemanager.cpp(135): warning C4553: '==' : opérateur sans effet ; souhaitiez-vous '=' ?
          Génération de code en cours...
          Compilation en cours...
-         MapManager.cpp
-         MainMenuState.cpp
-         Grenade.cpp
-         GameOptionsManager.cpp
-         GameMenuState.cpp
-         GuiMainMenu.cpp
-         GuiCheckBox.cpp
-         EventManager.cpp
-         EntityManager.cpp
-         Entity.cpp
-         AssetsManager.cpp
+         ProjectilePhysicsComponents.cpp
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\melee.h(12): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\melee.h(13): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\projectilephysicscomponents.cpp(6): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+         Player.cpp
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\melee.h(12): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\melee.h(13): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+         GameState.cpp
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\melee.h(12): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\melee.h(13): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
          Génération de code en cours...
-     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\gui\guicheckbox.cpp(37): warning C4715: 'GuiCheckBox::isClicked' : les chemins de contrôle ne retournent pas tous une valeur
+     1>c:\users\nathan\documents\github\simworms\simwormsproject\simworms\player.cpp(89): warning C4715: 'Player::isDead' : les chemins de contrôle ne retournent pas tous une valeur
          Ignoré... (aucune modification pertinente détectée)
          main.cpp
-         Terrain.cpp
          Rocket.cpp
-         ProjectilePhysicsComponents.cpp
-         PlayerInputComponent.cpp
-         Player.cpp
-         Texture.cpp
-         Mine.cpp
-         Map.cpp
-         HealPack.cpp
-         GameState.cpp
-         GameManager.cpp
          GuiWeaponMenu.cpp
-         GuiTextBox.cpp
          GuiGameMenu.cpp
          Explosion.cpp
-         Camera.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Nathan\Documents\GitHub\SimWorms\SimWormsProject\Debug\SimWorms.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Nathan\Documents\GitHub\SimWorms\SimWormsProject\Debug\SimWorms.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Nathan\Documents\GitHub\SimWorms\SimWormsProject\Debug\SimWorms.lib" /MACHINE:X86 Debug\AssetsManager.obj
          Debug\Camera.obj
@@ -83,6 +46,7 @@
          Debug\GuiCheckBox.obj
          Debug\GuiGameMenu.obj
          Debug\GuiMainMenu.obj
+         Debug\GuiPauseMenu.obj
          Debug\GuiTextBox.obj
          Debug\GuiWeaponMenu.obj
          Debug\HealPack.obj
@@ -90,6 +54,7 @@
          Debug\MainMenuState.obj
          Debug\Map.obj
          Debug\MapManager.obj
+         Debug\Melee.obj
          Debug\Mine.obj
          Debug\AnimatedSprite.obj
          Debug\Clock.obj
@@ -122,4 +87,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:15.48
+Temps écoulé 00:00:03.79
