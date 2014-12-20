@@ -169,7 +169,7 @@ void GuiGameMenu::update(sdl::Window &target){
 		}
 		if (Plus.getBounds().contains(sdl::Mouse::getPosition())){
 			if (!PlusClick){
-				if (TeamList.size() < 13){
+				if (TeamList.size() < 4){
 					PlusClick = true;
 					char buffer[30];
 					sdl::Text* TempText = new sdl::Text("Team ", "data/fonts/BMSpace.ttf");
