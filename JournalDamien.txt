@@ -63,3 +63,5 @@
 -Grande modification graphique et optimisation du programme.
 {19 décembre 2014, 15:20 to 17:13}
 -Modification de GuiGameMenu et GuiPauseMenu
+{19 décembre 2014, 21:44 to 23:00}
+-Réglage de certains bugs.
