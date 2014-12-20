@@ -6,11 +6,11 @@ GameManager::GameManager() {
 	numberPlayerOnGround = 0;
 	useObject = 0;
 	menuPause = false;
-	tourText.setFont("data/fonts/Arial.ttf");
-	tourText.setPosition(1240, 10);
-	tourText.setCharacterSize(30);
-	tourText.setColor(sdl::Color::White);
-	tourText.setString("");
+	fpsText.setFont("data/fonts/Arial.ttf");
+	fpsText.setPosition(1240, 10);
+	fpsText.setCharacterSize(30);
+	fpsText.setColor(sdl::Color::White);
+	fpsText.setString("");
 	useItem = 0;
 }
 
@@ -141,9 +141,7 @@ void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap,
 
 		std::stringstream ss;
 		ss << 85 - tourClock.getElapsedTime().asSeconds();
-		tourText.setString(ss.str());
-
-		renderWindow.draw(&tourText);
+		fpsText.setString(ss.str());
 
 		/*pixel.update(frametime, actualMap.terrain);
 		if (pixel.isDead())

@@ -32,7 +32,7 @@ private:
 	sdl::Clock tourClock;
 	int useObject;
 	bool menuPause;
-	sdl::StaticText tourText;
+	sdl::StaticText fpsText;
 	int useItem;
 public:
 	GameManager();
