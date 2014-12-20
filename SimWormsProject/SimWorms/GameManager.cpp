@@ -16,9 +16,11 @@ GameManager::GameManager() {
 
 void GameManager::startGame(int numberTeam) {
 	for (int i = 0; i < 4 * numberTeam; i++) {
-		EntityManager::getInstance().addEntity(new Player(sdl::Vector2Float(800, 200), i));
-		EntityManager::getInstance().addEntity(new Mine(sdl::Vector2Float(100, 200)));
+		EntityManager::getInstance().addEntity(new Player(sdl::Vector2Float(800, 200), i)); // doit être random en x
 		numberPlayer++;
+	}
+	for (int i = 0; i < MapManager::getInstance().getActualMap().landMinesCount(); i++) {
+		EntityManager::getInstance().addEntity(new Mine(sdl::Vector2Float(100, 200))); // doit être random en x
 	}
 }
 
