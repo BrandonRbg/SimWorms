@@ -74,7 +74,18 @@ GuiWeaponMenu::~GuiWeaponMenu(){
 		}
 }
 
+int GuiWeaponMenu::WeaponSelected(){
+	for (auto& it : WeaponList){
+		if (std::get<1>(it)->getBounds().contains(sdl::Mouse::getPosition())){
+			return WeaponSelect;
+		}
+		else
+			WeaponSelect++;
+	}
+}
+
 void GuiWeaponMenu::update(sdl::Window &target){
+	WeaponSelect = 1;
 
 	if (FirstStart){
 		PlaceItem(target, "Rocket Launcher", "Explodes on contact and curves.", "data/textures/Rocket.png");
@@ -127,12 +138,6 @@ void GuiWeaponMenu::update(sdl::Window &target){
 	}
 
 	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
-
-		for (auto& it : WeaponList){
-			if (std::get<1>(it)->getBounds().contains(sdl::Mouse::getPosition())){
-				// ObtenirArme;
-			}
-		}
 
 		if (ArrowU.getBounds().contains(sdl::Mouse::getPosition())){
 			if (((ClickClock.getElapsedTime().asSeconds() >= 0.1) && (ReverseClick == false)) || (First)){

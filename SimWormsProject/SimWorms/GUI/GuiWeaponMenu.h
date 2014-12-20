@@ -15,10 +15,12 @@ protected:
 	sdl::Clock Clock,ClickClock,TextClock;
 	bool Clicked,First,ReverseClick,DrawClick,DrawReverse,DrawBack,FirstStart;
 	void PlaceItem(sdl::Window &target, std::string WeaponName, std::string Description, std::string TexturePath);
+	int WeaponSelect;
 
 public:
 	GuiWeaponMenu();
 	~GuiWeaponMenu();
 	void draw(sdl::Window &target);
 	void update(sdl::Window &target);
+	int WeaponSelected();
 };
