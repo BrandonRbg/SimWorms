@@ -22,7 +22,7 @@ void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap,
 	if (sdl::Keyboard::isKeyPressed(SDLK_RIGHT) || sdl::Keyboard::isKeyPressed(SDLK_LEFT) || sdl::Keyboard::isKeyPressed(SDLK_SPACE)) {
 		for (auto& it : EntityManager::getInstance().getEntities()) {
 			Player* tmp = dynamic_cast<Player*>(it);
-			if ((tmp != 0) && (tmp->getRank == tour)) {
+			if ((tmp != 0) && (tmp->getRank() == tour)) {
 				cam->goTo(tmp->getPosition());
 			}
 		}
@@ -43,8 +43,6 @@ void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap,
 
 	EntityManager::getInstance().update(frametime, actualMap->terrain, renderWindow);
 
-	weaponMenu.update(renderWindow);
-	weaponMenu.draw(renderWindow);
 
 	//	Game.update(renderWindow);
 	//Game.draw(renderWindow);

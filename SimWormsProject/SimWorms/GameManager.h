@@ -14,7 +14,7 @@
 #include "Grenade.h"
 #include "HealPack.h"
 #include "Mine.h"
-#include "GUI\GuiWeaponMenu.h"
+#include "Gui/GuiWeaponMenu.h"
 
 #include "Camera.h"
 
@@ -28,7 +28,6 @@ private:
 	int numberPlayer;
 	sdl::Clock tourClock;
 	int useObject;
-	GuiWeaponMenu weaponMenu;
 public:
 	GameManager();
 

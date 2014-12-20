@@ -4,7 +4,7 @@
 #include "HealPack.h"
 #include <sstream>
 
-Player::Player(sdl::Vector2Float &position, double rank){
+Player::Player(sdl::Vector2Float &position, int rank){
 	this->position = position;
 	this->direction = false;
 	this->sprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/player.png"));

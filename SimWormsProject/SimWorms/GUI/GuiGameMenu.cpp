@@ -3,6 +3,7 @@
 #include "../MapManager.h"
 #include "../ScreenStateManager.h"
 #include "../MainMenuState.h"
+#include "../GameState.h"
 
 GuiGameMenu::GuiGameMenu(){
 	ArrowCoolDown.restart();
@@ -110,7 +111,7 @@ void GuiGameMenu::draw(sdl::Window &target){
 	target.draw(&thumbnail);
 	if (TeamList.size() > 2)
 		target.draw(&Minus);
-	if (TeamList.size() < 13){
+	if (TeamList.size() < 4){
 		target.draw(&Plus);
 	}
 	for (auto& it : TeamList){
@@ -197,6 +198,9 @@ void GuiGameMenu::update(sdl::Window &target){
 
 		if (TextStartButton.getBounds().contains(sdl::Mouse::getPosition())){
 			TextStartButton.setCharacterSize(42);
+			MapManager::getInstance().setActualMap(i);
+			ScreenStateManager::getInstance().popScreenState();
+			ScreenStateManager::getInstance().pushScreenState(new GameState(target));
 		}
 
 		if (Back.getBounds().contains(sdl::Mouse::getPosition())){

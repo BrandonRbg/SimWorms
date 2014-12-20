@@ -15,9 +15,9 @@ private:
 	std::string pourcentageFuel;
 	int fuel;
 	sdl::Clock* clockJetPack;
-	double rank;
+	int rank;
 public:
-	Player(sdl::Vector2Float &position, double rank);
+	Player(sdl::Vector2Float &position, int rank);
 	~Player() { delete physics; }
 	void draw(sdl::Window &target);
 	void update(float frametime, Terrain& terrain);
@@ -26,6 +26,6 @@ public:
 	void setFuel(int fuel) { this->fuel = fuel; }
 	int getFuel() { return this->fuel; }
 	void useJetPack(bool use);
-	double getRank() { return rank; }
+	int getRank() { return rank; }
 };
 

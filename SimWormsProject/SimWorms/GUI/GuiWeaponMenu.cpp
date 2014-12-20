@@ -130,7 +130,7 @@ void GuiWeaponMenu::update(sdl::Window &target){
 
 		for (auto& it : WeaponList){
 			if (std::get<1>(it)->getBounds().contains(sdl::Mouse::getPosition())){
-				// ObtenirArme;
+				
 			}
 		}
 
