@@ -74,13 +74,20 @@ GuiWeaponMenu::~GuiWeaponMenu(){
 		}
 }
 
-int GuiWeaponMenu::WeaponSelected() {
-	for (auto& it : WeaponList){
-		if (std::get<1>(it)->getBounds().contains(sdl::Mouse::getPosition())){
-			return WeaponSelect;
+int GuiWeaponMenu::WeaponSelected(){
+	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
+		for (auto& it : WeaponList){
+			if (std::get<1>(it)->getBounds().contains(sdl::Mouse::getPosition())){
+				return WeaponSelect;
+			}
+			else
+				WeaponSelect++;
+		}
+		if (WeaponBack.getBounds().contains(sdl::Mouse::getPosition())){
+			return (WeaponList.size + 1);
 		}
 		else
-			WeaponSelect++;
+			return 0;
 	}
 }
 
