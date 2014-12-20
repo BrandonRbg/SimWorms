@@ -9,7 +9,6 @@ public:
 	void draw(sdl::Window &target);
 private:
 	sdl::Sprite splashScreenSprite;
-	sdl::AnimatedSprite* loadingSprite;
 	sdl::Clock splashScreenClock;
 };
 
