@@ -65,3 +65,5 @@
 -Modification de GuiGameMenu et GuiPauseMenu
 {19 décembre 2014, 21:44 to 23:00}
 -Réglage de certains bugs.
+{20 décembre 2014, 10:06 to 17:17}
+-Correction d'un bug et tentatives de correction d'un autre bug.

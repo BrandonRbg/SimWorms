@@ -6,13 +6,13 @@
 
 class GuiWeaponMenu{
 protected:
-	sdl::Sprite ArrowU,ArrowD,WeaponBack;
-	sdl::Sprite* WeaponBox;
-	sdl::Sprite*  WeaponSprite;
-	sdl::Text* TextWeapon;
-	sdl::Text* Description;
+	sdl::StaticSprite ArrowU,ArrowD,WeaponBack;
+	sdl::StaticSprite* WeaponBox;
+	sdl::StaticSprite*  WeaponSprite;
+	sdl::StaticText* TextWeapon;
+	sdl::StaticText* Description;
 	bool* Over;
-	std::list<std::tuple<sdl::Text*, sdl::Sprite*, sdl::Sprite*, sdl::Text*,bool*>> WeaponList; // Text en over et affiche après une seconde de over.
+	std::list<std::tuple<sdl::StaticText*, sdl::StaticSprite*, sdl::StaticSprite*, sdl::StaticText*, bool*>> WeaponList; // Text en over et affiche après une seconde de over.
 	sdl::Clock Clock,ClickClock,TextClock;
 	bool Clicked,First,ReverseClick,DrawClick,DrawReverse,DrawBack,FirstStart;
 	void PlaceItem(sdl::Window &target, std::string WeaponName, std::string Description, std::string TexturePath);
