@@ -54,6 +54,14 @@ Travail sur les explosion et sur le jetpack
 
 Travail sur le HealPack, il reste la gestion des collison avec le joueur et le healpack à règler
 
+17 Décembre, Environ 1 heure de travail-------------------
+
+Travail sur la Mine
+
+19 Décembre, Environ 12 heures de travail-----------------
+
+Travail sur le GameManager, le GameState et un peu partout pour adapdter les autres classe à GameManager (GameManager non fini)
+
 
 
 

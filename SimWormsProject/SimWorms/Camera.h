@@ -7,7 +7,7 @@
 class Camera
 {
 public:
-	Camera(sdl::Window &target, Map& map);
+	Camera(sdl::Window &target, Map* map);
 	void goTo(sdl::Vector2Float& destination);
 	void moveTo(sdl::Vector2Float& destination, float speed);
 	void zoomTo(sdl::Vector2Float& size, float speed);

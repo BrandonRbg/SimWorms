@@ -40,4 +40,6 @@ public:
 	bool isTopBlocked;
 	bool jetpack;
 	void setOrigin(sdl::Vector2Float& origin){ this->sprite.setOrigin(origin); };
+	void setDirection(bool direction) { this->direction = direction; }
+	bool getDirection() { return direction; }
 };

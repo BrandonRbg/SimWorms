@@ -15,8 +15,10 @@ private:
 	std::string pourcentageFuel;
 	int fuel;
 	sdl::Clock* clockJetPack;
+	int rank;
+	bool useJetpack;
 public:
-	Player(sdl::Vector2Float &position);
+	Player(sdl::Vector2Float &position, int rank);
 	~Player() { delete physics; }
 	void draw(sdl::Window &target);
 	void update(float frametime, Terrain& terrain);
@@ -24,6 +26,11 @@ public:
 	void explode(float frametime, Terrain &terrain) { return; }
 	void setFuel(int fuel) { this->fuel = fuel; }
 	int getFuel() { return this->fuel; }
-	void useJetPack(bool use);
+	int getRank() { return rank; }
+	bool getUseJetpack() { return useJetpack; }
+	void setUseJetpack(bool useJetpack) { this->useJetpack = useJetpack; }
+	bool useRocket(float frametime);
+	bool useGrenage(float frametime);
+	bool useMelee(float frametime);
 };
 

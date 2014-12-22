@@ -150,7 +150,6 @@ void GuiWeaponMenu::update(sdl::Window &target){
 	}
 
 	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
-
 		if (ArrowU.getBounds().contains(sdl::Mouse::getPosition())){
 			if (((ClickClock.getElapsedTime().asSeconds() >= 0.1) && (ReverseClick == false)) || (First)){
 				First = false;

@@ -7,7 +7,7 @@ Map::Map(std::string& name, std::string& description, int landMinesCount, int ma
 	this->landMinesCount = landMinesCount;
 	this->maxWindForce = maxWindForce;
 	this->gravityForce = gravityForce;
-	//this->terrain.loadTerrainFromFile(terrainPath);
+	this->terrain.loadTerrainFromFile(terrainPath);
 	this->bg.setTexture(&AssetsManager::getInstance().getTexture(bgPath));
 	thumbnail.setTexture(&AssetsManager::getInstance().getTexture(thumbnailPath));
 	updateWindForce();

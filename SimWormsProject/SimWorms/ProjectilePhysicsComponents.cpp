@@ -1,4 +1,5 @@
 #include "ProjectilePhysicsComponents.h"
+#include "GameManager.h"
 #include "Entity.h"
 
 void  ProjectilePhysicsComponents::update(Entity *projectile, Terrain &terrain, float frametime) {
@@ -15,6 +16,7 @@ void  ProjectilePhysicsComponents::checkCollision(Entity *projectile, Terrain &t
 			projectile->setPosition(projectile->getPosition() + normalizedVector);
 		}
 		projectile->explode(frametime, terrain);
+		GameManager::getInstance().setTour((GameManager::getInstance().getTour() + 1) % (GameManager::getInstance().getNumberPlayer()));
 	}
 	else
 		projectile->setPosition(projectile->getPosition() + resultingVector);

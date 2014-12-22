@@ -24,10 +24,10 @@ void HealPack::update(float frametime, Terrain& terrain){
 	for (auto& it : EntityManager::getInstance().getEntities()) {
 		Player* tmp = dynamic_cast<Player*>(it);
 		if (tmp != 0) {
-			if (it->getBounds().intersects(sprite.getBounds())) {
+			//if (it->getBounds().intersects(sprite.getBounds())) {
 				it->setHealth(it->getHealth() + 25);
 				this->health = 0;
-			}
+			//}
 		}
 	}
 }

@@ -4,7 +4,7 @@
 #include "MainMenuState.h"
 
 SplashScreenState::SplashScreenState(){
-	splashScreenSprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/SplashScreen.png"));
+	splashScreenSprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/BGtemp.jpg"));
 }
 
 void SplashScreenState::update(sdl::Window &target, float frametime){

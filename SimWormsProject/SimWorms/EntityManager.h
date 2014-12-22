@@ -13,5 +13,7 @@ public:
 
 	std::list<Entity*> getEntities() { return entities; }
 
+	bool first = true;
+
 	~EntityManager();
 };

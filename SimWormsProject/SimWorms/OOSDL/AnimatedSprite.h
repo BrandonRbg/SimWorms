@@ -16,13 +16,14 @@ namespace sdl {
 
 		void draw(SDL_Renderer* renderer, sdl::View &view);
 
+		void nextFrame();
+		void updateFrame();
+
 		bool looping;
 		int delay;
 	private:
 		sdl::RectFloat getRenderDestination(sdl::View& view);
 
-		void nextFrame();
-		void updateFrame();
 
 		sdl::Clock clock;
 

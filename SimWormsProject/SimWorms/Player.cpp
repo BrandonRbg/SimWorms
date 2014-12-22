@@ -1,14 +1,15 @@
 #include "Player.h"
 #include "OOSDL\Text.h"
+#include "GameManager.h"
+#include "HealPack.h"
 #include <sstream>
 
-Player::Player(sdl::Vector2Float &position){
+Player::Player(sdl::Vector2Float &position, int rank){
 	this->position = position;
 	this->direction = false;
 	this->sprite.setTexture(&AssetsManager::getInstance().getTexture("data/textures/player.png"));
 	this->sprite.setPosition(position);
 	this->physics = new PlayerPhysicsComponent;
-	sprite.setOrigin(sprite.getTextureRect().w / 2, sprite.getTextureRect().h / 2);
 	velocity = sdl::Vector2Float(0, 0);
 	sprite.setOrigin(0, 0);
 	name.setString(PersonNameGenerator::getInstance().generateFirstName("french", "M") + " " + PersonNameGenerator::getInstance().generateLastName("english"));
@@ -25,6 +26,8 @@ Player::Player(sdl::Vector2Float &position){
 	jetPackfuel.setColor(sdl::Color(0, 100, 0));
 	jetpack = false;
 	clockJetPack = new sdl::Clock();
+	useJetpack = false;
+	this->rank = rank;
 }
 
 void Player::draw(sdl::Window &target){
@@ -35,7 +38,7 @@ void Player::draw(sdl::Window &target){
 		target.draw(&jetPackfuel);
 }
 void Player::update(float frametime, Terrain& terrain){
-	if (sdl::Keyboard::isKeyPressed(SDLK_p)) {
+	if (useJetpack) {
 		if (fuel > 0) {
 			jetpack = true;
 			isOnGround = false;
@@ -54,14 +57,16 @@ void Player::update(float frametime, Terrain& terrain){
 			}
 		}
 	}
-	if (sdl::Keyboard::isKeyReleased(SDLK_p) && jetpack) {
+	if (!useJetpack && jetpack) {
 		physics->stopMovingY(this);
 		jetpack = false;
 	}
 	physics->update(this, terrain, frametime);
-	input.update(this, frametime);
-	life.setPosition(this->sprite.getBounds().x, this->sprite.getBounds().y + life.getBounds().h - this->sprite.getBounds().h - 15);
-	jetPackfuel.setPosition(this->sprite.getBounds().x + jetPackfuel.getBounds().w, this->sprite.getBounds().y);
+	if (GameManager::getInstance().getTour() == rank) {
+		input.update(this, frametime);
+	}
+	life.setPosition(this->sprite.getBounds().x - 10, this->sprite.getBounds().y + life.getBounds().h - this->sprite.getBounds().h - 40);
+	jetPackfuel.setPosition(this->sprite.getBounds().x - 15 + jetPackfuel.getBounds().w, this->sprite.getBounds().y);
 	std::stringstream ster;
 	ster << health;
 	life.setString(ster.str());
@@ -75,8 +80,45 @@ void Player::update(float frametime, Terrain& terrain){
 		jetPackfuel.setString(stjp.str() + "%");
 }
 bool Player::isDead(){
-	return getHealth() <= 0;
+	if (getHealth() <= 0) {
+		GameManager::getInstance().setNumberPlayer(GameManager::getInstance().getNumberPlayer() - 1);
+		EntityManager::getInstance().addEntity(new HealPack(sdl::Vector2Float(800, 200)));
+		return true;
+	}
 }
-void Player::useJetPack(bool use) {
-	jetpack = use;
+
+bool Player::useRocket(float grametime) {
+
+}
+
+bool Player::useGrenage(float frametime) {
+	
+}
+
+bool Player::useMelee(float frametime) {
+	if (sdl::Mouse::isButtonReleased(SDL_BUTTON_LEFT)) {
+		if (this->direction) {
+			Melee shoot(sdl::Vector2Float(this->getBounds().x + this->getBounds().w + 5, this->getBounds().y + (this->getBounds().h / 2)));
+			for (auto& it : EntityManager::getInstance().getEntities()) {
+				Player* tmp = dynamic_cast<Player*>(it);
+				if (tmp != 0) {
+					if (shoot.checkPlayerTouch(tmp, frametime)) {
+						continue;
+					}
+				}
+			}
+		}
+		else {
+			Melee shoot(sdl::Vector2Float(this->getBounds().x - 50, this->getBounds().y + (this->getBounds().h / 2)));
+			for (auto& it : EntityManager::getInstance().getEntities()) {
+				Player* tmp = dynamic_cast<Player*>(it);
+				if (tmp != 0) {
+					if (shoot.checkPlayerTouch(tmp, frametime)) {
+						continue;
+					}
+				}
+			}
+		}
+		return true;
+	}
 }

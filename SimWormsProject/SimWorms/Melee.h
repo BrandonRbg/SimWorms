@@ -1,20 +1,21 @@
 #pragma once
 #include <SDL2\SDL.h>
 #include "Player.h"
+#include "Entity.h"
 
 class Melee {
 protected:
 	SDL_Rect MeleeHitBox;
 
 public:
-	Melee(float x, float y, float h, float w) {
-		MeleeHitBox.x = x;
-		MeleeHitBox.y = y;
-		MeleeHitBox.h = h;
-		MeleeHitBox.w = w;
+	Melee(sdl::Vector2Float position) {
+		MeleeHitBox.x = position.x;
+		MeleeHitBox.y = position.y;
+		MeleeHitBox.w = 50;
+		MeleeHitBox.h = 8;
 	}
 
-	void checkPlayerTouch(bool direction, Player Cible);
+	bool checkPlayerTouch(Player* cible, float frametime);
 
 	SDL_Rect GetMeleeHitbox(void){ return MeleeHitBox; }
 };

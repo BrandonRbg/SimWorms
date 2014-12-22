@@ -1,6 +1,6 @@
 #pragma once
 #include "PlayerPhysicsComponent.h"
-#include "Entity.h"
+#include "EntityManager.h"
 
 void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float frametime){
 	if (player->isOnGround && !player->jetpack)
@@ -10,12 +10,14 @@ void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float fram
 	player->setVelocity(player->getVelocity() + resultingVector);
 	checkCollision(player, terrain, frametime);
 
-	//if (resultingVector.y * (1 / frametime) > 200) {
-	//	player->setHealth(player->getHealth() - (resultingVector.y * (1 / frametime) / 45));
-	//}
-	//if (resultingVector.y * (1 / frametime) > 325) {
-	//	player->setHealth(0);
-	//}
+	if (!EntityManager::getInstance().first) {
+		if ((resultingVector.y * (1 / frametime) > 200) && (player->isOnGround)) {
+			player->setHealth(player->getHealth() - (resultingVector.y * (1 / frametime) / 45));
+		}
+		if ((resultingVector.y * (1 / frametime) > 325) && (player->isOnGround)) {
+			player->setHealth(0);
+		}
+	}
 }
 
 void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, float frametime){

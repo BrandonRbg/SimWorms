@@ -1,10 +1,10 @@
 #include "Camera.h"
 
 
-Camera::Camera(sdl::Window& target, Map& map)
+Camera::Camera(sdl::Window& target, Map* map)
 {
 	view = target.getDefaultView();
-	actualMapBounds = map.getBounds();
+	actualMapBounds = map->getBounds();
 
 	currentPosition = view.getCenter();
 	destination = view.getCenter();

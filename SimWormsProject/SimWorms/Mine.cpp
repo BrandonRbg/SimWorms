@@ -24,9 +24,9 @@ void Mine::update(float frametime, Terrain& terrain){
 	for (auto& it : EntityManager::getInstance().getEntities()) {
 		Player* tmp = dynamic_cast<Player*>(it);
 		if (tmp != 0) {
-			if (it->getBounds().intersects(sprite.getBounds())) {
+			//if (it->getBounds().intersects(sprite.getBounds())) {
 				EntityManager::getInstance().addEntity(new Explosion(sprite.getPosition(), terrain, 50, frametime));
-			}
+			//}
 		}
 	}
 }
