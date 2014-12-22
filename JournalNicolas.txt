@@ -157,3 +157,7 @@
 	09h40
 	-Généralisation de la gravité et ajout du facteur vent
 	09h42
+21 déc
+	20h00
+	-Travail sur le GameManager: ordre des joueurs et chute des mines
+	22h00
