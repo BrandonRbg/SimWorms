@@ -6,7 +6,7 @@ void PlayerPhysicsComponent::update(Entity *player, Terrain &terrain, float fram
 	if (player->isOnGround && !player->jetpack)
 		stopMovingY(player);
 	else
-		addConstraint(sdl::Vector2Float(0, MapManager::getInstance().getActualMap().gravityForce), frametime);
+		addConstraint(sdl::Vector2Float(0, MapManager::getInstance().getActualMap()->gravityForce), frametime);
 	player->setVelocity(player->getVelocity() + resultingVector);
 	checkCollision(player, terrain, frametime);
 
@@ -67,8 +67,9 @@ void PlayerPhysicsComponent::checkCollision(Entity *player, Terrain &terrain, fl
 			}
 		}
 	}
-	player->setOrigin(pixelOfCollision);
+	
 	if (player->getVelocity().y >= 0 && !player->jetpack){
+		player->setOrigin(pixelOfCollision);
 		while (player->getPosition().y < finalPos.y){
 			player->isOnGround = false;
 			if (terrain.isPixelSolid(player->getPosition() + sdl::Vector2Float(0, 1))){

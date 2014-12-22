@@ -4,15 +4,12 @@
 #include "Explosion.h"
 class Projectile : public Entity{
 protected:
-	bool dead;
 	bool isLaunched;
 public:
 	
 	virtual void draw(sdl::Window& window) = 0;
 
-	virtual bool isDead() = 0;
-
-	void update(float frameTime, Terrain& terrain);
+	void update(float frametime, Terrain& terrain, Camera* cam);
 
 	virtual void explode(float frametime, Terrain& terrain) = 0;
 

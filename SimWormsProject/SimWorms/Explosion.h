@@ -10,7 +10,7 @@ public:
 	void draw(sdl::Window& target);
 	bool isDead();
 	void explode(float frametime, Terrain &terrain);
-	void update(float frametime, Terrain &terrain);
+	void update(float frametime, Terrain& terrain, Camera* cam);
 private:
 	int numberOfFrames;
 	int delay;

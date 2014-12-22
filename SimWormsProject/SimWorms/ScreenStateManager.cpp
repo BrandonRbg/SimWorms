@@ -17,6 +17,10 @@ void ScreenStateManager::popScreenState(){
 	screenStates.pop_back();
 }
 
+ScreenState* ScreenStateManager::getFirstScreenState(){
+	return (*screenStates.begin());
+}
+
 void ScreenStateManager::clear(){
 	for (auto i : screenStates)
 		delete i++;

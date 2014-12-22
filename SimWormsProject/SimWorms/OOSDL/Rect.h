@@ -23,19 +23,11 @@ namespace sdl{
 			return contains(point.x, point.y);
 		}
 		bool intersects(sdl::Rect<T>& rect){
-			for (sdl::Vector2<T> point : getPoints()) {
-				if (contains(point))
-					return true;
-			} return false;
+			if (contains(rect.x, rect.y) || contains(rect.x, rect.y + rect.h) || contains(rect.x + rect.w, rect.y) || contains(rect.x + rect.w, rect.y + rect.h))
+				return true;
+			return false;
 		}
-		std::set<sdl::Vector2<T>> getPoints() {
-			std::set<sdl::Vector2> points;
-			points.insert(sdl::Vector2(x, y));
-			points.insert(sdl::Vector2(x, y + h));
-			points.insert(sdl::Vector2(x + w, y));
-			points.insert(sdl::Vector2(x + w, y + h));
-			return points;
-		}
+		
 		std::vector<T> getComponents() {
 			std::vector<T> components;
 			components.push_back(x);

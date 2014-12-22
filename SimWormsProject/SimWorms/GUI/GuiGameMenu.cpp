@@ -8,7 +8,6 @@
 GuiGameMenu::GuiGameMenu(){
 	ArrowCoolDown.restart();
 	First = true;
-	EnterText = true;
 	ArrowR.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowR.png"));
 	ArrowL.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowL.png"));
 	ArrowR.setScale(sdl::Vector2Float(0.7, 1));
@@ -85,13 +84,13 @@ void GuiGameMenu::draw(sdl::Window &target){
 		TeamList.push_back(std::make_tuple(TextTeamTwo, TeamTwo));
 		First = false;
 	}
-	TextMapName.setString(MapManager::getInstance().getMap(i).name);
+	TextMapName.setString(MapManager::getInstance().getMap(i)->name);
 	char Table[30];
-	std::string Text = SDL_itoa(MapManager::getInstance().getMap(i).gravityForce, Table, 10);
+	std::string Text = SDL_itoa(MapManager::getInstance().getMap(i)->gravityForce, Table, 10);
 	TextGravity.setString("Max gravity : " + Text);
-	std::string Text2 = SDL_itoa(MapManager::getInstance().getMap(i).maxWindForce, Table, 10);
+	std::string Text2 = SDL_itoa(MapManager::getInstance().getMap(i)->maxWindForce, Table, 10);
 	TextWind.setString("Max wind : " + Text2);
-	std::string Text3 = SDL_itoa(MapManager::getInstance().getMap(i).landMinesCount, Table, 10);
+	std::string Text3 = SDL_itoa(MapManager::getInstance().getMap(i)->landMinesCount, Table, 10);
 	TextMine.setString("Max nbr mines : " + Text3);
 	//TextMapInfo.setString("Map infos : " + MapManager::getInstance().getMap(i).description);
 	TeamOne->draw(target);
@@ -107,7 +106,7 @@ void GuiGameMenu::draw(sdl::Window &target){
 	target.draw(&TextMine);
 	//target.draw(&TextMapInfo);
 	target.draw(&TextStartButton);
-	thumbnail = MapManager::getInstance().getMap(i).thumbnail;
+	thumbnail = MapManager::getInstance().getMap(i)->thumbnail;
 	thumbnail.setPosition(sdl::Vector2Float(MapBox.getBounds().x, MapBox.getBounds().y));
 	target.draw(&thumbnail);
 	if (TeamList.size() > 2)
@@ -136,15 +135,14 @@ void GuiGameMenu::update(sdl::Window &target){
 	ArrowR.setPosition(0.44 * target.getView().getSize().x, 0.853 * target.getView().getSize().y);
 
 	Plus.setPosition(0.6 * target.getView().getSize().x, (0.22 + (0.0675 * (TeamList.size() - 2))) * target.getView().getSize().y);
-		for (auto& it : TeamList){
-			if (EnterText){
-				std::get<1>(it)->update(target);
-			}
-			if (std::get<1>(it)->isClicked()){
-				EnterText = true;
-			}
+	if (!First){
+		TeamOne->update(target);
+		TeamTwo->update(target);
 	}
-		if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
+	for (auto& it : TeamList){
+		std::get<1>(it)->update(target);
+	}
+	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
 		if (ArrowCoolDown.getElapsedTime().asMilliseconds() >= 100)
 			Clicked = false;
 		else
@@ -187,7 +185,6 @@ void GuiGameMenu::update(sdl::Window &target){
 			}
 		}
 		if (Minus.getBounds().contains(sdl::Mouse::getPosition())){
-			EnterText = false;
 			if (!PlusClick){
 				PlusClick = true;
 				if (TeamList.size() == 2)
@@ -202,8 +199,13 @@ void GuiGameMenu::update(sdl::Window &target){
 		if (TextStartButton.getBounds().contains(sdl::Mouse::getPosition())){
 			TextStartButton.setCharacterSize(42);
 			MapManager::getInstance().setActualMap(i);
+			std::vector<Team> teams;
+			for (auto& team : TeamList){
+				Team tmp(std::get<1>(team)->getString(), sdl::Color::Black);
+				teams.push_back(tmp);
+			}
 			ScreenStateManager::getInstance().popScreenState();
-			ScreenStateManager::getInstance().pushScreenState(new GameState(target, TeamList.size()));
+			ScreenStateManager::getInstance().pushScreenState(new GameState(target, teams));
 		}
 
 		if (Back.getBounds().contains(sdl::Mouse::getPosition())){

@@ -1,6 +1,13 @@
 #include "MapManager.h"
 #include <fstream>
 
+MapManager::~MapManager(){
+	for (auto& it : maps) {
+		delete it;
+	}
+	maps.clear();
+}
+
 void MapManager::loadMapsFromFolder(const std::string& path){
 	std::ifstream index(path + "\\index");
 	if (index.is_open()){
@@ -20,7 +27,8 @@ void MapManager::loadMapsFromFolder(const std::string& path){
 				std::getline(file, terrainPath);
 				std::getline(file, bgPath);
 				std::getline(file, thumbPath);
-				maps.emplace_back(mapName, description, landMinesCount, maxWindForce, gravityForce, terrainPath, bgPath, thumbPath);
+				Map* tmp = new Map(mapName, description, landMinesCount, maxWindForce, gravityForce, terrainPath, bgPath, thumbPath);
+				maps.push_back(tmp);
 			}
 			file.close();
 		}
@@ -33,11 +41,11 @@ void MapManager::setActualMap(int index){
 	actualMapIndex = index;
 }
 
-Map& MapManager::getActualMap(){
+Map* MapManager::getActualMap(){
 	return maps[actualMapIndex];
 }
 
-Map& MapManager::getMap(int index){
+Map* MapManager::getMap(int index){
 	return maps[index];
 }
 
@@ -45,7 +53,6 @@ int MapManager::getMapCount(){
 	return maps.size();
 }
 
-void MapManager::update(sdl::Window &target){
-	maps[actualMapIndex].update();
-	maps[actualMapIndex].draw(target);
+void MapManager::draw(sdl::Window &target){
+	maps[actualMapIndex]->draw(target);
 }

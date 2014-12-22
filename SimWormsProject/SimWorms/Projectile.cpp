@@ -1,8 +1,8 @@
 #include "Projectile.h"
 
-void Projectile::update(float frametime, Terrain &terrain) {
+void Projectile::update(float frametime, Terrain& terrain, Camera* cam) {
 	if (!isLaunched) {
-		physics->addConstraint(velocity, frametime);
+		physics->addFConstraint(velocity);
 		isLaunched = true;
 	}
 	this->isTimedOut(terrain, frametime);

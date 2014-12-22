@@ -5,8 +5,9 @@
 class Map
 {
 public:
-	Map(std::string& name, std::string& description, int landMinesCount, int maxWindForce, int gravityForce, std::string& terrainPath, std::string& bgPath, std::string& thumbnailPath);
-
+	
+	Map(const std::string& name, const std::string& description, int landMinesCount, int maxWindForce, int gravityForce, const std::string& terrainPath, const std::string& bgPath, const std::string& thumbnailPath);
+	Map() : Map("", "", 0, 0, 0, "", "", ""){};
 	void updateWindForce();
 
 	void update();

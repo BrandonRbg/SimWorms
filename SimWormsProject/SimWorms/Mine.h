@@ -8,7 +8,6 @@ public:
 	Mine(sdl::Vector2Float &position);
 	~Mine();
 	void draw(sdl::Window &target);
-	void update(float frametime, Terrain& terrain);
-	bool isDead();
+	void update(float frametime, Terrain& terrain, Camera* cam);
 	void explode(float frametime, Terrain &terrain) { return; }
 };

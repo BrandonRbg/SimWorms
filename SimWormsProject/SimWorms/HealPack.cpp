@@ -19,15 +19,16 @@ void HealPack::draw(sdl::Window &target) {
 	target.draw(&sprite);
 }
 
-void HealPack::update(float frametime, Terrain& terrain){
-	physics->update(this, terrain, frametime);
+void HealPack::update(float frametime, Terrain& terrain, Camera* cam){
+	if (!isOnGround)
+		physics->update(this, terrain, frametime);
 	for (auto& it : EntityManager::getInstance().getEntities()) {
 		Player* tmp = dynamic_cast<Player*>(it);
 		if (tmp != 0) {
-			//if (it->getBounds().intersects(sprite.getBounds())) {
+			if (it->getBounds().intersects(sprite.getBounds())) {
 				it->setHealth(it->getHealth() + 25);
 				this->health = 0;
-			//}
+			}
 		}
 	}
 }

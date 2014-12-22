@@ -5,13 +5,14 @@
 class GameState : public ScreenState
 {
 public:
-	GameState(sdl::Window &target, int numberTeam);
+	GameState(sdl::Window &target, std::vector<Team> teams);
 	~GameState();
 	void update(sdl::Window &target, float frametime);
 	void draw(sdl::Window &target);
+
+	void onKeyPressed(SDL_Event event);
 private:
-	Map* actualMap;
 	Camera* cam;
 	GuiWeaponMenu weaponMenu;
-	GuiPauseMenu pause;
+	
 };

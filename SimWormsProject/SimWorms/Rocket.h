@@ -8,8 +8,6 @@ public:
 
 	void draw(sdl::Window &target);
 
-	bool isDead() { return dead; }
-
 	void explode(float frametime, Terrain &terrain);
 
 	void isTimedOut(Terrain &terrain, float frametime) { ; }

@@ -16,7 +16,7 @@ protected:
 	sdl::Clock cursorClock;
 	bool cursorActivated;
 public:
-	GuiTextBox();
+	GuiTextBox(/*int Size, sdl::Color Color*/);
 	void setString(const std::string& string);
 	const std::string getString();
 	void setPos(sdl::Vector2Float &Position);

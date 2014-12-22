@@ -14,7 +14,6 @@ Grenade::~Grenade(){
 	delete clock;
 }
 
-
 void Grenade::draw(sdl::Window &target) {
 	target.draw(&sprite);
 }
