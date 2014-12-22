@@ -88,11 +88,11 @@ bool Player::isDead(){
 }
 
 bool Player::useRocket(float grametime) {
-
+	return true;
 }
 
 bool Player::useGrenage(float frametime) {
-	
+	return true;
 }
 
 bool Player::useMelee(float frametime) {
