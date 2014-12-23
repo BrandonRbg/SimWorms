@@ -15,7 +15,7 @@ void GameState::update(sdl::Window &target, float frametime) {
 		weaponMenu.update(target);
 	}
 
-	GameManager::getInstance().update(target, cam, MapManager::getInstance().getActualMap(), frametime);
+	GameManager::getInstance().update(target, cam, MapManager::getInstance().getActualMap(), frametime, weaponMenu.WeaponSelected());
 	EntityManager::getInstance().update(frametime, MapManager::getInstance().getActualMap()->terrain, target, cam);
 	compass.setWind(MapManager::getInstance().getActualMap()->windForce);
 	compass.update(frametime);

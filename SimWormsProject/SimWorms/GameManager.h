@@ -46,7 +46,7 @@ public:
 
 	void startGame(std::vector<Team> teams);
 
-	void update(sdl::Window& renderWindow, Camera* cam, Map* actualMap, float frametime);
+	void update(sdl::Window& renderWindow, Camera* cam, Map* actualMap, float frametime, int weapon);
 	void draw(sdl::Window &target);
 
 	int getActualTurn();

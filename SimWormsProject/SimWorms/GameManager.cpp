@@ -31,7 +31,8 @@ void GameManager::startGame(std::vector<Team> teams) {
 	}
 }
 
-void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap, float frametime) {
+void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap, float frametime, int weapon) {
+	
 	std::default_random_engine engine(time(0));
 	std::uniform_int_distribution<int> dist(15, MapManager::getInstance().getActualMap()->getBounds().w - 15);
 
@@ -65,8 +66,20 @@ void GameManager::update(sdl::Window& renderWindow, Camera* cam, Map* actualMap,
 			actualPlayer = players[turn];
 		}
 		if (actualPlayer != nullptr){
-			if (sdl::Keyboard::isKeyPressed(SDLK_1))
+			
+			if (weapon == 1){
+				actualPlayer->useRocket();
+			}
+			if (weapon == 2){
+				actualPlayer->useGrenade();
+			}
+			if (weapon == 3){
+				actualPlayer->useMelee();
+			}
+			if (weapon == 4){
 				actualPlayer->useJetpack();
+			}
+		
 			if (actualPlayer->hasFinishedTurn()){
 				actualPlayer->resetTurn();
 				actualPlayer->resetState();
