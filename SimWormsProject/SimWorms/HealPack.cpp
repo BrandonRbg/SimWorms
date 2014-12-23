@@ -25,9 +25,11 @@ void HealPack::update(float frametime, Terrain& terrain, Camera* cam){
 	for (auto& it : EntityManager::getInstance().getEntities()) {
 		Player* tmp = dynamic_cast<Player*>(it);
 		if (tmp != 0) {
-			if (it->getBounds().intersects(sprite.getBounds())) {
-				it->setHealth(it->getHealth() + 25);
-				this->health = 0;
+			if (((it->getBounds().x > this->getBounds().x) && (it->getBounds().x < (this->getBounds().x + this->getBounds().w))) || (((it->getBounds().x + it->getBounds().w) > this->getBounds().x) && ((it->getBounds().x + it->getBounds().w) < (it->getBounds().x + it->getBounds().w)))) {
+				if (((it->getBounds().y > this->getBounds().y) && (it->getBounds().y < (this->getBounds().y + this->getBounds().h))) || (((it->getBounds().y + it->getBounds().h) > this->getBounds().y) && ((it->getBounds().y + it->getBounds().h) < (it->getBounds().y + it->getBounds().h)))) {
+					it->setHealth(it->getHealth() + 25);
+					this->health = 0;
+				}
 			}
 		}
 	}

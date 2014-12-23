@@ -29,9 +29,11 @@ void Mine::update(float frametime, Terrain& terrain, Camera* cam){
 	for (auto& it : EntityManager::getInstance().getEntities()) {
 		Player* tmp = dynamic_cast<Player*>(it);
 		if (tmp != 0) {
-			if (it->getBounds().intersects(sprite.getBounds())) {
-				EntityManager::getInstance().addEntity(new Explosion(sprite.getPosition(), terrain, 50, frametime));
-				dead = true;
+			if (((it->getBounds().x > (this->getBounds().x - 15)) && (it->getBounds().x < (this->getBounds().x + this->getBounds().w + 15))) || (((it->getBounds().x + it->getBounds().w) > (this->getBounds().x - 15)) && ((it->getBounds().x + it->getBounds().w) < (it->getBounds().x + it->getBounds().w + 15)))) {
+				if (((it->getBounds().y > (this->getBounds().y - 15)) && (it->getBounds().y < (this->getBounds().y + this->getBounds().h + 15))) || (((it->getBounds().y + it->getBounds().h) > (this->getBounds().y - 15)) && ((it->getBounds().y + it->getBounds().h) < (it->getBounds().y + it->getBounds().h + 15)))) {
+					EntityManager::getInstance().addEntity(new Explosion(sprite.getPosition(), terrain, 50, frametime));
+					dead = true;
+				}
 			}
 		}
 	}
