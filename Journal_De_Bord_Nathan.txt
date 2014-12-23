@@ -64,8 +64,7 @@ Travail sur le GameManager, le GameState et un peu partout pour adapdter les aut
 
 19 Décembre, Environ 3 heures de travail------------------
 
-Mise à jour du Visio du diagramme de classe du gameplay (il manque des classes dans le visio puisque ce visio date du 19 et que je n'ai pas pu aller le modifier puisque je n'ai pas visio à la maison. j'ai aussi mis ce visio le 22 décembre puisque j'ai oublier de le 
-metrre sur le serveur)
+Mise à jour du Visio du diagramme de classe du gameplay (manque des classes et oubli de le mettre sur le serveur le 19, donc il est sur le github le 22)
 
 du 20 au 22 Décembre, Beaucoup trop d'heures de travail--------------------
 
