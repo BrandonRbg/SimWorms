@@ -17,6 +17,9 @@ void GameState::update(sdl::Window &target, float frametime) {
 
 	GameManager::getInstance().update(target, cam, MapManager::getInstance().getActualMap(), frametime);
 	EntityManager::getInstance().update(frametime, MapManager::getInstance().getActualMap()->terrain, target, cam);
+	compass.setWind(MapManager::getInstance().getActualMap()->windForce);
+	compass.update(frametime);
+
 }
 
 void GameState::onKeyPressed(SDL_Event event){
@@ -34,6 +37,7 @@ void GameState::draw(sdl::Window &target) {
 	GameManager::getInstance().draw(target);
 	EntityManager::getInstance().draw(target);
 	weaponMenu.draw(target);
+	compass.draw(target);
 }
 
 GameState::~GameState() {

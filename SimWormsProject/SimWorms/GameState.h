@@ -1,6 +1,7 @@
 #pragma once
 #include "ScreenState.h"
 #include "GameManager.h"
+#include "Compass.h"
 
 class GameState : public ScreenState
 {
@@ -14,5 +15,5 @@ public:
 private:
 	Camera* cam;
 	GuiWeaponMenu weaponMenu;
-	
+	Compass compass;
 };
