@@ -31,7 +31,7 @@ Explosion::Explosion(sdl::Vector2Float &position, Terrain &terrain, float radius
 Explosion::~Explosion(){
 	delete explosionSprite;
 }
-void Explosion::update(float frametime, Terrain &terrain) {
+void Explosion::update(float frametime, Terrain& terrain, Camera* cam) {
 }
 void Explosion::draw(sdl::Window& target){
 	target.draw(explosionSprite);

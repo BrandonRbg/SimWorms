@@ -40,7 +40,9 @@ void GuiPauseMenu::draw(sdl::Window &target){
 void GuiPauseMenu::update(sdl::Window &target){
 	if (sdl::Mouse::isButtonPressed(SDL_BUTTON_LEFT)){
 		if (ResumeText.getBounds().contains(sdl::Mouse::getPosition())){
-
+			ScreenStateManager::getInstance().getFirstScreenState()->pause(false);
+			ScreenStateManager::getInstance().popScreenState();
+			return;
 		}
 		if (OptionsText.getBounds().contains(sdl::Mouse::getPosition())){
 

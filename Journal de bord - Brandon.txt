@@ -49,6 +49,10 @@ Le vendredi 5 décembre 2014
 Le samedi 6 décembre 2014
 	de 14h à 17h40
 	-Ajout de la classe caméra et de ses fonctonnalités.
-
+Du vendredi 19 décembre 14h au lundi 22 décembre à 17h
+	-Développement du gameplay avec l'équipe et la mise en commun lundi soir.
+	
+Le lundi 22 décembre à 20h45
+	-Fin du développement pour moi avant la remise. Je continuerai pour terminer le jeu dans les prochains jours alors que j'aurai le temps.
 	
 	

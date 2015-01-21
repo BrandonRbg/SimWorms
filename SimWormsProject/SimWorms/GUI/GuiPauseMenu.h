@@ -4,8 +4,8 @@
 
 class GuiPauseMenu{
 protected:
-	sdl::Sprite PauseBg;
-	sdl::Text ResumeText, OptionsText, BackToMenuText;
+	sdl::StaticSprite PauseBg;
+	sdl::StaticText ResumeText, OptionsText, BackToMenuText;
 public:
 	GuiPauseMenu();
 	void draw(sdl::Window &target);

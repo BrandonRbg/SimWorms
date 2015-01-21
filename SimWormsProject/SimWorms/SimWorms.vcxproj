@@ -69,6 +69,7 @@
   <ItemGroup>
     <ClCompile Include="AssetsManager.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Compass.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="EventManager.cpp" />
@@ -105,6 +106,7 @@
     <ClCompile Include="OOSDL\VideoMode.cpp" />
     <ClCompile Include="OOSDL\View.cpp" />
     <ClCompile Include="OOSDL\Window.cpp" />
+    <ClCompile Include="PauseMenuState.cpp" />
     <ClCompile Include="personnamegenerator.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -115,12 +117,15 @@
     <ClCompile Include="ProjectilePhysicsComponents.cpp" />
     <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="ScreenStateManager.cpp" />
+    <ClCompile Include="RadToDeg.cpp" />
     <ClCompile Include="SplashScreenState.cpp" />
+    <ClCompile Include="Team.cpp" />
     <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetsManager.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Compass.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="EventManager.h" />
@@ -162,6 +167,7 @@
     <ClInclude Include="OOSDL\VideoMode.h" />
     <ClInclude Include="OOSDL\View.h" />
     <ClInclude Include="OOSDL\Window.h" />
+    <ClInclude Include="PauseMenuState.h" />
     <ClInclude Include="PersonNameGenerator.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Player.h" />
@@ -170,11 +176,13 @@
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="ProjectileManager.h" />
     <ClInclude Include="ProjectilePhysicsComponents.h" />
+    <ClInclude Include="RadToDeg.h" />
     <ClInclude Include="Rocket.h" />
     <ClInclude Include="ScreenState.h" />
     <ClInclude Include="ScreenStateManager.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SplashScreenState.h" />
+    <ClInclude Include="Team.h" />
     <ClInclude Include="Terrain.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

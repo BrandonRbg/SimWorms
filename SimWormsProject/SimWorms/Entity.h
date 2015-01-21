@@ -3,6 +3,7 @@
 #include "Terrain.h"
 #include "AssetsManager.h"
 #include "PlayerPhysicsComponent.h"
+class Camera;
 
 #define LEFT false;
 #define RIGHT true;
@@ -13,16 +14,19 @@ protected:
 	sdl::Vector2Float velocity;
 	sdl::Sprite sprite;
 	PhysicsComponent *physics;
-	bool direction; // true = droite et false = gauche
+	bool direction;
 	int health;
+	bool dead;
+	int moves;
 public:
-	virtual void update(float frametime, Terrain &terrain) = 0;
+	virtual void update(float frametime, Terrain& terrain, Camera* cam) = 0;
 
 	virtual void draw(sdl::Window &target) = 0;
 
-	virtual bool isDead() = 0;
+	virtual bool isDead();
 
 	virtual void explode(float frametime, Terrain &terrain) = 0;
+	void setDead(bool dead){ this->dead = dead; }
 	sdl::Vector2Float& getPosition();
 	sdl::Vector2Float& getVelocity();
 	sdl::RectFloat& getBounds();
@@ -42,4 +46,6 @@ public:
 	void setOrigin(sdl::Vector2Float& origin){ this->sprite.setOrigin(origin); };
 	void setDirection(bool direction) { this->direction = direction; }
 	bool getDirection() { return direction; }
+
+	int getMoves(){ return this->moves; }
 };

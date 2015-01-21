@@ -62,6 +62,14 @@ Travail sur la Mine
 
 Travail sur le GameManager, le GameState et un peu partout pour adapdter les autres classe à GameManager (GameManager non fini)
 
+19 Décembre, Environ 3 heures de travail------------------
+
+Mise à jour du Visio du diagramme de classe du gameplay (manque des classes et oubli de le mettre sur le serveur le 19, donc il est sur le github le 22)
+
+du 20 au 22 Décembre, Beaucoup trop d'heures de travail--------------------
+
+Travail sur les armes, le gameplay, réglage de nombreux bugs
+
 
 
 

@@ -7,3 +7,7 @@ PhysicsComponent::PhysicsComponent(){
 void PhysicsComponent::addConstraint(sdl::Vector2Float &vector, float frametime){
 		resultingVector += vector * frametime;
 }
+
+void PhysicsComponent::addFConstraint(sdl::Vector2Float &vector){
+	resultingVector += vector;
+}

@@ -13,7 +13,7 @@ GuiWeaponMenu::GuiWeaponMenu(){
 	ArrowU.setScale(0.7, 0.7);
 
 	ArrowD.setTexture(&AssetsManager::getInstance().getTexture("data/textures/ArrowD.png"));
-	//ArrowD.setScale(0.7, 0.7);
+	ArrowD.setScale(0.7, 0.7);
 
 	WeaponBack.setTexture(&AssetsManager::getInstance().getTexture("data/textures/WeaponBack.png"));
 }
@@ -31,12 +31,8 @@ void GuiWeaponMenu::PlaceItem(sdl::Window &target, std::string WeaponName, std::
 	WeaponBox->setTexture(&AssetsManager::getInstance().getTexture("data/textures/TinyBox.png"));
 	WeaponSprite = new sdl::StaticSprite();
 	WeaponSprite->setTexture(&AssetsManager::getInstance().getTexture(TexturePath));
-	TextWeapon = new sdl::StaticText();
-	TextWeapon->setFont("data/fonts/BMSpace.TTF");
-	TextWeapon->setString(WeaponName);
-	Description = new sdl::StaticText();
-	Description->setFont("data/fonts/BMSpace.TTF");
-	Description->setString(Desc);
+	TextWeapon = new sdl::StaticText(WeaponName, "data/fonts/BMSpace.TTF");
+	Description = new sdl::StaticText(Desc, "data/fonts/BMSpace.TTF");
 	Over = new bool(false);
 	if (WeaponList.size() < 5){
 		WeaponBox->setPosition(sdl::Vector2Float(0.68 * target.getView().getSize().x + (70 * WeaponList.size()), 1 * target.getView().getSize().y + (70 * (WeaponList.size() / 5))));
@@ -64,9 +60,8 @@ void GuiWeaponMenu::draw(sdl::Window &target){
 			}
 		}
 	}
-	if (DrawReverse){
+	if (DrawReverse)
 		target.draw(&ArrowD);
-	}
 }
 
 GuiWeaponMenu::~GuiWeaponMenu(){

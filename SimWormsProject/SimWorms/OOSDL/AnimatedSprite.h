@@ -21,6 +21,7 @@ namespace sdl {
 
 		bool looping;
 		int delay;
+		bool active;
 	private:
 		sdl::RectFloat getRenderDestination(sdl::View& view);
 
@@ -29,7 +30,5 @@ namespace sdl {
 
 		unsigned int currentFrame;
 		unsigned int numberOfFrames;
-
-		bool active;
 	};
 }

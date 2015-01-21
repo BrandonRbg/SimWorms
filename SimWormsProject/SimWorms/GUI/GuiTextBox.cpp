@@ -73,8 +73,8 @@ void GuiTextBox::draw(sdl::Window &target){
 void GuiTextBox::onTextEntered(SDL_Event Event){
 	if (Clicked){
 		if ((int)Event.text.text == 8)
-			ActualText.pop_back();	
-		if (((Text.getBounds().w) < TextBox.getBounds().w))
+			ActualText.pop_back();
+		if (!((Text.getBounds().w) >= TextBox.getBounds().w))
 			ActualText.append(Event.text.text);
 	}
 }

@@ -1,7 +1,7 @@
 #include "Map.h"
 
 
-Map::Map(std::string& name, std::string& description, int landMinesCount, int maxWindForce, int gravityForce, std::string& terrainPath, std::string& bgPath, std::string& thumbnailPath){
+Map::Map(const std::string& name, const std::string& description, int landMinesCount, int maxWindForce, int gravityForce, const std::string& terrainPath, const std::string& bgPath, const std::string& thumbnailPath){
 	this->name = name;
 	this->description = description;
 	this->landMinesCount = landMinesCount;
@@ -11,17 +11,18 @@ Map::Map(std::string& name, std::string& description, int landMinesCount, int ma
 	this->bg.setTexture(&AssetsManager::getInstance().getTexture(bgPath));
 	thumbnail.setTexture(&AssetsManager::getInstance().getTexture(thumbnailPath));
 	updateWindForce();
-	/*std::default_random_engine engine;
+	/*std::default_random_engine engine(time(0));
 	std::uniform_int_distribution<int> dist(50, terrain.getSize().x - 50);
 	for (int i = 0; i < landMinesCount; i++)
 		landMinesPositions.push_back(sdl::Vector2Float(dist(engine), dist(engine)));*/
 }
 
 void Map::updateWindForce(){
-	std::default_random_engine engine;
-	std::uniform_int_distribution<int> dist(-maxWindForce, maxWindForce);
-	windForce.x = dist(engine);
-	windForce.y = dist(engine);
+	std::default_random_engine engine(time(0));
+	std::uniform_int_distribution<int> distX(-maxWindForce, maxWindForce);
+	std::uniform_int_distribution<int> distY(0, maxWindForce);
+	windForce.x = distX(engine);
+	windForce.y = distY(engine);
 }
 
 sdl::RectFloat Map::getBounds(){

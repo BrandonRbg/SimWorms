@@ -1,29 +1,45 @@
 #include "GameState.h"
+#include "ScreenStateManager.h"
+#include "PauseMenuState.h"
 
-
-GameState::GameState(sdl::Window &target, int numberTeam)
+GameState::GameState(sdl::Window &target, std::vector<Team> teams)
 {
-	actualMap = new Map(MapManager::getInstance().getActualMap());
-	cam = new Camera(target, actualMap);
-	GameManager::getInstance().startGame(numberTeam);
+	cam = new Camera(target, MapManager::getInstance().getActualMap());
+	GameManager::getInstance().startGame(teams);
+	EventManager::getInstance().addCallbackToID(SDL_KEYDOWN, std::bind(&GameState::onKeyPressed, this, std::placeholders::_1));
 }
 
 void GameState::update(sdl::Window &target, float frametime) {
-	weaponMenu.update(target);
-	weaponMenu.draw(target);
-	GameManager::getInstance().setUseObject(weaponMenu.WeaponSelected());
-	if (GameManager::getInstance().getMenuPause()) {
-		pause.update(target);
-		pause.draw(target);
+	if (!paused){
+		cam->update(target);
+		weaponMenu.update(target);
 	}
-	GameManager::getInstance().update(target, cam, actualMap, frametime);
+
+	GameManager::getInstance().update(target, cam, MapManager::getInstance().getActualMap(), frametime, weaponMenu.WeaponSelected());
+	EntityManager::getInstance().update(frametime, MapManager::getInstance().getActualMap()->terrain, target, cam);
+	compass.setWind(MapManager::getInstance().getActualMap()->windForce);
+	compass.update(frametime);
+
+}
+
+void GameState::onKeyPressed(SDL_Event event){
+	if (event.key.keysym.sym == SDLK_ESCAPE){
+		if (!paused){
+			ScreenStateManager::getInstance().pushScreenState(new PauseMenuState());
+			pause(true);
+		}
+	}
 }
 
 void GameState::draw(sdl::Window &target) {
-	actualMap->draw(target);
+	target.clear(sdl::Color::White);
+	MapManager::getInstance().draw(target);
+	GameManager::getInstance().draw(target);
+	EntityManager::getInstance().draw(target);
+	weaponMenu.draw(target);
+	compass.draw(target);
 }
 
 GameState::~GameState() {
 	delete cam;
-	delete actualMap;
 }

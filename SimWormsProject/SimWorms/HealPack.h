@@ -7,7 +7,7 @@ public:
 	HealPack(sdl::Vector2Float &position);
 	~HealPack();
 	void draw(sdl::Window &target);
-	void update(float frametime, Terrain& terrain);
+	void update(float frametime, Terrain& terrain, Camera* cam);
 	bool isDead();
 	void explode(float frametime, Terrain &terrain) { return; }
 };

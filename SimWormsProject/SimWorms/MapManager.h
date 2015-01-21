@@ -4,17 +4,19 @@
 class MapManager : public Singleton<MapManager>
 {
 public:
+
+	~MapManager();
 	void loadMapsFromFolder(const std::string& path);
 
 	void setActualMap(int index);
-	Map& getActualMap();
+	Map* getActualMap();
 
-	Map& getMap(int index);
+	Map* getMap(int index);
 	int getMapCount();
 
-	void update(sdl::Window& target);
+	void draw(sdl::Window& target);
 private:
 	int actualMapIndex;
-	std::vector<Map> maps;
+	std::vector<Map*> maps;
 };
 

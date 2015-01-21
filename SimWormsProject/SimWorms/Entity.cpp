@@ -2,6 +2,10 @@
 #include "Entity.h"
 #include "PhysicsComponent.h"
 
+bool Entity::isDead(){
+	return dead;
+}
+
 sdl::Vector2Float& Entity::getPosition(){
 	return this->sprite.getPosition();
 }
@@ -36,6 +40,7 @@ void Entity::moveLeft(float frametime){
 		if (!physics->cantMove(this)){
 			physics->addConstraint(sdl::Vector2Float(-50, 0), frametime);
 			direction = LEFT;
+			moves++;
 		}
 	}
 }
@@ -48,6 +53,7 @@ void Entity::moveRight(float frametime){
 		if (!physics->cantMove(this)){
 			physics->addConstraint(sdl::Vector2Float(50, 0), frametime);
 			direction = RIGHT;
+			moves++;
 		}
 	}
 }
@@ -58,6 +64,7 @@ void Entity::jump(float frametime){
 			physics->addConstraint(sdl::Vector2Float(20, -80), frametime);
 		else
 			physics->addConstraint(sdl::Vector2Float(-20, -80), frametime);
+		moves += 4;
 	}
 }
 void Entity::stop(){

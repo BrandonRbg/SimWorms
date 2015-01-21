@@ -13,9 +13,9 @@ protected:
 	GuiTextBox* TeamOne;
 	GuiTextBox* TeamTwo;
 	std::list<std::tuple<sdl::Text*, GuiTextBox*>> TeamList;
-	bool PlusClick, First, Clicked,EnterText;
+	bool PlusClick, First, Clicked;
 	int i;
-	sdl::Clock ArrowCoolDown,TypingCooldown;
+	sdl::Clock ArrowCoolDown;
 public:
 	GuiGameMenu();
 	~GuiGameMenu();

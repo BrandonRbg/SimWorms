@@ -26,32 +26,35 @@
 
 class GameManager : public Singleton<GameManager> {
 private:
-	int tour;
-	int numberPlayerOnGround;
-	int numberPlayer;
-	sdl::Clock tourClock;
-	int useObject;
-	bool menuPause;
-	sdl::StaticText tourText;
-	int useItem;
+	int turn;
+	sdl::Clock turnClock;
+	bool paused;
+	sdl::StaticText turnText;
+
+	sdl::StaticText movesText;
+
+	std::vector<Team> teams;
+	Player* actualPlayer;
+	std::vector<Player*> players;
+
+	bool canPlayersSpawn;
+	bool started;
+
+
 public:
 	GameManager();
 
-	void startGame(int numberTeam);
+	void startGame(std::vector<Team> teams);
 
-	void update(sdl::Window& renderWindow, Camera* cam, Map* actualMap, float frametime);
+	void update(sdl::Window& renderWindow, Camera* cam, Map* actualMap, float frametime, int weapon);
+	void draw(sdl::Window &target);
 
-	int getTour();
+	int getActualTurn();
 
-	void setTour(int tour);
+	void setActualTurn(int turn);
 
-	int getNumberPlayer();
+	bool isPaused();
+	bool isStarted() { return started; }
 
-	void setNumberPlayer(int numberPlayer);
-
-	int getUseObject();
-
-	void setUseObject(int useObject);
-
-	bool getMenuPause();
+	void reset();
 };

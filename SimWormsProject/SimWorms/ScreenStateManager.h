@@ -10,6 +10,7 @@ public:
 	~ScreenStateManager();
 	void pushScreenState(ScreenState* screenState);
 	void popScreenState();
+	ScreenState* getFirstScreenState();
 	void clear();
 	void update(sdl::Window &target, float frametime);
 	void draw(sdl::Window &target);
